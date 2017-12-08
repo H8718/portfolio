@@ -54,12 +54,152 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-#site {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+<style lang="scss">
+    #banner {
+        background-color: rgba(254, 254, 254, 0);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        
+        /*margin-top: -120px;*/
+    }
+
+    .header{
+        margin-top: 15vh;
+        margin-left: 0;
+    }
+    .header-line{
+        color: #444444;
+        margin-top: 5vh;
+        font-size: 450%;
+        font-family: "Ubuntu", sans-serif;
+        overflow: hidden;
+        font-weight: 600;
+        position: fixed;
+        text-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+    }
+
+    #line2{
+        margin-top: 15vh;
+    }
+
+    a.no-style:hover, a.no-style:visited, a.no-style:active, a.no-style:link{
+        color: #F9AA39 !important;
+        text-decoration: none;
+    }
+
+    .headline{
+        display: none;
+        background-color: rgba(50,50,50,0.8);
+        padding-bottom: 5em;
+        -webkit-box-shadow: 0px -8px 18px 0px rgba(40,40,40,0.4),
+                                    0px 8px 18px 0px rgba(51,51,51,0.4);
+        -moz-box-shadow: 0px -8px 18px 0px rgba(40,40,40,0.4);
+                                    -moz-box-shadow: 0px 8px 18px 0px rgba(51,51,51,0.4);
+        box-shadow: 0px -8px 18px 0px rgba(40,40,40,0.4);
+                                    box-shadow: 0px 8px 18px 0px rgba(51,51,51,0.4);
+    }
+
+    .banner-header{
+        font-family: ubuntu;
+        font-size:350%;
+        color: white;	
+        margin-top: 10vh;
+    }
+      #wrapper{
+	position: relative;
+	width:100%;
+	min-height:38vw;
+	overflow: hidden;
+  }
+  
+  .layer{
+	position: absolute;
+	width:100vw;
+	min-height: 38vw;
+	overflow: hidden;
+  }
+  
+  .layer .content-wrap{
+	position: absolute;
+	width:100vw;
+	min-height: 55vw;
+  }
+  
+  .layer .content-body{
+	width:25%;
+	position:absolute;
+	top:50%;
+	text-align: center;
+	transform:translateY(-50%);
+	color:#fff;
+  }
+  
+  .layer img{
+	position: absolute;
+	width:35%;
+	top:50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+  }
+  
+  .layer h1{
+	font-size:2em;
+  }
+  
+  .bottom{
+	background:#222;
+	z-index:1;
+  }
+  
+  .bottom .content-body{
+	right:5%;
+  }
+  
+  .bottom h1{
+	color:#FDAB00;
+  }
+  
+  .top{
+	background:#eee;
+	color:#222;
+	z-index:2;
+	width:50vw;
+  }
+  
+  .top .content-body{
+	left: 5%;
+	color:#222;
+  }
+  
+  .handle{
+	position: absolute;
+	height: 100%;
+	display: block;
+	background-color: #FDAB00;
+	width:5px;
+	top:0;
+	left: 50%;
+	z-index:3;
+  }
+  
+  .skewed .handle{
+	top:50%;
+	transform:rotate(30deg) translateY(-50%);
+	height: 200%;
+	transform-origin:top;
+  }
+  
+  .skewed .top{
+	transform: skew(-30deg);
+	margin-left:-1000px;
+	width: calc(50vw + 1000px);
+  }
+  
+  .skewed .top .content-wrap{
+	transform: skew(30deg);
+	margin-left:1000px;
+  }
 </style>
 
     
