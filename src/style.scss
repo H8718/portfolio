@@ -80,7 +80,7 @@ p{
      top: 50px;
 	 width: 100%;
   }
-  
+
 #nav-container{
 	height: 90px;
 	width: 100%;
@@ -91,7 +91,7 @@ p{
     background-size: cover;
     background-repeat: no-repeat;
 	width: 100%;
-	
+
 	/*margin-top: -120px;*/
 }
 
@@ -134,7 +134,7 @@ a.no-style:hover, a.no-style:visited, a.no-style:active, a.no-style:link{
 .banner-header{
 	font-family: ubuntu;
 	font-size:350%;
-	color: white;	
+	color: white;
 	margin-top: 10vh;
 }
 
@@ -153,11 +153,11 @@ nav{
 	border: none;
 	z-index:99999;
 	width: 100%;
-	-webkit-box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3), 
+	-webkit-box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
 						   0 6px 20px 0 rgba(40, 40,40, 0.3);
-    -moz-box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3), 
+    -moz-box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
 						0 6px 20px 0 rgba(40, 40, 40, 0.3);
-	box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3), 
+	box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
 						   0 6px 20px 0 rgba(40, 40, 40, 0.3);
 }
 
@@ -344,20 +344,20 @@ text-shadow: 2px 3px 2px rgba(200, 200, 200, .7);
 	min-height:38vw;
 	overflow: hidden;
   }
-  
+
   .layer{
 	position: absolute;
 	width:100vw;
 	min-height: 38vw;
 	overflow: hidden;
   }
-  
+
   .layer .content-wrap{
 	position: absolute;
 	width:100vw;
 	min-height: 55vw;
   }
-  
+
   .layer .content-body{
 	width:25%;
 	position:absolute;
@@ -366,7 +366,7 @@ text-shadow: 2px 3px 2px rgba(200, 200, 200, .7);
 	transform:translateY(-50%);
 	color:#fff;
   }
-  
+
   .layer img{
 	position: absolute;
 	width:35%;
@@ -374,36 +374,36 @@ text-shadow: 2px 3px 2px rgba(200, 200, 200, .7);
 	left: 50%;
 	transform:translate(-50%, -50%);
   }
-  
+
   .layer h1{
 	font-size:2em;
   }
-  
+
   .bottom{
 	background:#222;
 	z-index:1;
   }
-  
+
   .bottom .content-body{
 	right:5%;
   }
-  
+
   .bottom h1{
 	color:#FDAB00;
   }
-  
+
   .top{
 	background:#eee;
 	color:#222;
 	z-index:2;
 	width:50vw;
   }
-  
+
   .top .content-body{
 	left: 5%;
 	color:#222;
   }
-  
+
   .handle{
 	position: absolute;
 	height: 100%;
@@ -414,25 +414,25 @@ text-shadow: 2px 3px 2px rgba(200, 200, 200, .7);
 	left: 50%;
 	z-index:3;
   }
-  
+
   .skewed .handle{
 	top:50%;
 	transform:rotate(30deg) translateY(-50%);
 	height: 200%;
 	transform-origin:top;
   }
-  
+
   .skewed .top{
 	transform: skew(-30deg);
 	margin-left:-1000px;
 	width: calc(50vw + 1000px);
   }
-  
+
   .skewed .top .content-wrap{
 	transform: skew(30deg);
 	margin-left:1000px;
   }
-  
+
   @media(max-width:768px){
 	body{
 	  font-size:75%;
