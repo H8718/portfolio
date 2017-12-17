@@ -1,7 +1,10 @@
 <template>
-  <div id="site">
-    <Banner />
-  </div>
+    <div id="site">
+        <Banner />
+        <Navbar />
+        <Projects />
+        <About />
+    </div>
 </template>
 
 <script>
@@ -13,7 +16,10 @@ import About from "./components/About";
 export default {
     name: "app",
     components: {
-        Banner
+        Banner,
+        Navbar,
+        Projects,
+        About
     }
 };
 </script>
@@ -23,12 +29,12 @@ body {
     background-color: #f9f9f9;
     margin: 0;
     padding: 0;
-}
-#site {
-    font-family: "Avenir", Helvetica, Arial, sans-serif;
-    // font-family: 'Roboto', sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: #2c3e50;
+    #site {
+        font-family: "Avenir", Helvetica, Arial, sans-serif;
+        // font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #2c3e50;
+    }
 }
 </style>

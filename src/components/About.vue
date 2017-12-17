@@ -1,7 +1,7 @@
 <template>
   <section className="container-fluid smoothScroll" id="about">
     <div className="col-md-4 col-md-offset-2">
-        <img id="portrait" className="img-circle" src="../assets/portrait.jpg"/>
+        <!-- <img id="portrait" className="img-circle" src="../assets/portrait.jpg"/> -->
     </div>
     <div className="col-md-5">
         <h3 className="row col-md-11">About Me</h3>
