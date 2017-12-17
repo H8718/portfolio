@@ -1,36 +1,36 @@
 <template>
-  <div class="smoothScroll" id="banner">
-        <section id="wrapper" class="skewed">
+    <section class="smoothScroll" id="banner">
+        <div id="wrapper" class="skewed">
             <div class="layer bottom">
-            <div class="content-wrap">
-                <div class="content-body">
-                <h1>Look Sharp</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
+                <div class="content-wrap">
+                    <div class="content-body">
+                        <h1>Look Sharp</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
+                    </div>
+                    <img src="http://www.traversymedia.com/downloads/assets/image1.png" alt=""/>
                 </div>
-                <img src="http://www.traversymedia.com/downloads/assets/image1.png" alt=""/>
-            </div>
             </div>
 
             <div class="layer top">
                 <div class="content-wrap">
-                <div class="content-body">
-                    <h1>Stay Cool</h1>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
-                </div>
-                <img src="http://www.traversymedia.com/downloads/assets/image2.png" alt=""/>
+                    <div class="content-body">
+                        <h1>Stay Cool</h1>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
+                    </div>
+                    <img src="http://www.traversymedia.com/downloads/assets/image2.png" alt=""/>
                 </div>
             </div>
 
             <div class="handle"></div>
 
-            <div id="header-lines">
+            <div id="header">
                 <div class='header-line'>
                     > Hi! I'm <a class="orange smoothScroll no-style">Markus</a>
                 </div>
             </div>
 
-        </section>
-    </div>
+        </div>
+    </section>
 </template>
 
 <script>
@@ -71,32 +71,31 @@ export default {
     background-repeat: no-repeat;
     width: 100%;
     /*margin-top: -120px;*/
+    #wrapper {
+        position: relative;
+        width: 100%;
+        min-height: 38vw;
+        overflow: hidden;
+    }
+    .header {
+        margin-top: 15vh;
+        margin-left: 0;
+        .header-line {
+            color: #444444;
+            margin-top: 5vh;
+            font-size: 450%;
+            font-family: "Ubuntu", sans-serif;
+            overflow: hidden;
+            font-weight: 600;
+            position: absolute;
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+        }
+        #line2 {
+            margin-top: 15vh;
+        }
+    }
 }
-.header {
-    margin-top: 15vh;
-    margin-left: 0;
-}
-.header-line {
-    color: #444444;
-    margin-top: 5vh;
-    font-size: 450%;
-    font-family: "Ubuntu", sans-serif;
-    overflow: hidden;
-    font-weight: 600;
-    position: fixed;
-    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-}
-#line2 {
-    margin-top: 15vh;
-}
-a.no-style:hover,
-a.no-style:visited,
-a.no-style:active,
-a.no-style:link {
-    color: #f9aa39 !important;
-    text-decoration: none;
-}
-.headline {
+/* .headline {
     display: none;
     background-color: rgba(50, 50, 50, 0.8);
     padding-bottom: 5em;
@@ -106,60 +105,52 @@ a.no-style:link {
     -moz-box-shadow: 0px 8px 18px 0px rgba(51, 51, 51, 0.4);
     box-shadow: 0px -8px 18px 0px rgba(40, 40, 40, 0.4);
     box-shadow: 0px 8px 18px 0px rgba(51, 51, 51, 0.4);
-}
-.banner-header {
+} */
+/* .banner-header {
     font-family: ubuntu;
     font-size: 350%;
     color: white;
     margin-top: 10vh;
-}
-#wrapper {
-    position: relative;
-    width: 100%;
-    min-height: 38vw;
-    overflow: hidden;
-}
+} */
 
 .layer {
     position: absolute;
     width: 100vw;
     min-height: 38vw;
     overflow: hidden;
-}
-
-.layer .content-wrap {
-    position: absolute;
-    width: 100vw;
-    min-height: 55vw;
-}
-
-.layer .content-body {
-    width: 25%;
-    position: absolute;
-    top: 50%;
-    text-align: center;
-    transform: translateY(-50%);
-    color: #fff;
-}
-.layer img {
-    position: absolute;
-    width: 35%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.layer h1 {
-    font-size: 2em;
+    .content-wrap {
+        position: absolute;
+        width: 100vw;
+        min-height: 55vw;
+    }
+    .content-body {
+        width: 25%;
+        position: absolute;
+        top: 50%;
+        text-align: center;
+        transform: translateY(-50%);
+        color: #fff;
+    }
+    img {
+        position: absolute;
+        width: 35%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    h1 {
+        font-size: 2em;
+    }
 }
 .bottom {
     background: #222;
     z-index: 1;
-}
-.bottom .content-body {
-    right: 5%;
-}
-.bottom h1 {
-    color: #fdab00;
+    .content-body {
+        right: 5%;
+    }
+    .bottom h1 {
+        color: #fdab00;
+    }
 }
 .top {
     background: #eee;
@@ -167,10 +158,10 @@ a.no-style:link {
     z-index: 2;
     width: 50vw;
     padding-left: 5%;
-}
-.top .content-body {
-    left: 5%;
-    color: #222;
+    .content-body {
+        left: 5%;
+        color: #222;
+    }
 }
 .handle {
     position: absolute;
@@ -182,20 +173,22 @@ a.no-style:link {
     left: 50%;
     z-index: 3;
 }
-.skewed .handle {
-    top: 50%;
-    transform: rotate(30deg) translateY(-50%);
-    height: 200%;
-    transform-origin: top;
-}
-.skewed .top {
-    transform: skew(-30deg);
-    margin-left: -1000px;
-    width: calc(50vw + 1000px);
-}
-.skewed .top .content-wrap {
-    transform: skew(30deg);
-    margin-left: 1000px;
+.skewed {
+    .handle {
+        top: 50%;
+        transform: rotate(30deg) translateY(-50%);
+        height: 200%;
+        transform-origin: top;
+    }
+    .top {
+        transform: skew(-30deg);
+        margin-left: -1000px;
+        width: calc(50vw + 1000px);
+        .content-wrap {
+            transform: skew(30deg);
+            margin-left: 1000px;
+        }
+    }
 }
 .orange {
     color: #f9aa39;

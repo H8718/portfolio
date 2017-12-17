@@ -47,7 +47,7 @@ export default {
 
 <style lang="scss">
 #navbar {
-    height: 80px;
+    height: 9vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
     -webkit-box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
@@ -59,28 +59,34 @@ export default {
     #brand {
         /* border-top: none !important; */
         img {
-            border-radius: 3px;
-            width: 50px;
-            height: 50px;
+            border-radius: 0.2vw;
+            width: 6vh;
+            height: 6vh;
         }
         div {
             font-family: "Questrial", sans-serif;
             font-size: 150%;
             font-weight: 700;
             font-variant: small-caps;
-            margin-left: 15px;
+            margin-left: 2vh;
         }
         #markus {
-            margin-right: 5px;
         }
         #moilanen {
             color: #f9aa39;
         }
     }
     #nav-list {
-        margin-top: 4px;
-        margin-left: 30px;
+        margin-top: 0.4vh;
+        margin-left: 4vh;
     }
+}
+a.no-style:hover,
+a.no-style:visited,
+a.no-style:active,
+a.no-style:link {
+    color: #f9aa39 !important;
+    text-decoration: none;
 }
 .center-content {
     display: flex;
