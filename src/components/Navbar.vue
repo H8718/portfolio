@@ -92,11 +92,4 @@ a.no-style:link {
     color: #f9aa39 !important;
     text-decoration: none;
 }
-.center-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-}
 </style>

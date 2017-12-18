@@ -48,19 +48,27 @@ body {
         color: $colorDark;
     }
     .container-fluid {
-        padding: 3vw 3vw 0 3vw;
+        padding: 4vw 4vw 4vw 4vw;
         background: white;
         h2 {
             text-align: center;
-            font-family: "Ubuntu", sans-serif;
+            font-family: "Avenir", sans-serif;
             font-size: 250%;
             font-variant: small-caps;
             font-weight: 600;
             margin-bottom: 6vh;
-            text-shadow: 1px 1px 2px rgba(150, 150, 150, 0.8);
-            border-bottom: 0.3vh solid $colorMain;
+            text-shadow: 1px 1px 2px rgba(50, 50, 50, 0.6);
+            color: #fafafa;
+            /* border-bottom: 0.3vh solid $colorMain; */
             padding-bottom: 0.5vh;
         }
     }
+}
+.center-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 </style>

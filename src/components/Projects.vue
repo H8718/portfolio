@@ -1,6 +1,6 @@
 <template>
     <section id="projects" class="container-fluid">
-        <h2>My Works</h2>
+        <h2>Projects</h2>
         <div class="center-content">
             <div
                 v-for="(project, index) in projects"
@@ -97,7 +97,10 @@ $colorLight: #fff;
 $colorDark: #222;
 
 #projects {
-    width: 85%;
+    background-color: #fafafa;
+    h2 {
+        color: $colorDark;
+    }
 }
 .project-item {
     display: flex;
@@ -108,7 +111,7 @@ $colorDark: #222;
     height: 30vh;
     background-size: cover !important;
     border-radius: 2px;
-    color: white;
+    color: $colorLight;
     border: 1px solid black;
     .project-name {
         margin-top: 10%;
