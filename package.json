@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
+    "fs": "0.0.1-security",
+    "require-dir": "^0.3.2",
     "vue": "^2.5.2"
   },
   "devDependencies": {

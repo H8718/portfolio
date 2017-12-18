@@ -65,6 +65,10 @@ export default {
 </script>
 
 <style lang="scss">
+$colorMain: #f9aa39;
+$colorLight: #fff;
+$colorDark: #222;
+
 #banner {
     background-color: rgba(254, 254, 254, 0);
     background-size: cover;
@@ -149,25 +153,29 @@ export default {
         right: 5%;
     }
     .bottom h1 {
-        color: #fdab00;
+        /* color: #fdab00; */
+        color: $colorMain;
     }
 }
 .top {
     background: #eee;
-    color: #222;
+    /* color: #222; */
+    color: $colorDark;
     z-index: 2;
     width: 50vw;
     padding-left: 5%;
     .content-body {
         left: 5%;
-        color: #222;
+        color: $colorDark;
+        /* color: #222; */
     }
 }
 .handle {
     position: absolute;
     height: 100%;
     display: block;
-    background-color: #fdab00;
+    /* background-color: #fdab00; */
+    background-color: $colorMain;
     width: 5px;
     top: 0;
     left: 50%;
@@ -191,6 +199,6 @@ export default {
     }
 }
 .orange {
-    color: #f9aa39;
+    color: $colorMain;
 }
 </style>

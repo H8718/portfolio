@@ -2,7 +2,7 @@
     <b-navbar
         inverse
         collapseOnSelect
-        sticky={true}
+        sticky
         type="light"
         toggleable="md"
         id="navbar"
@@ -13,23 +13,23 @@
             href="#banner"
             class="center-content smoothScroll"
         >
-            <img src="../assets/m.jpg" alt=""/>
+            <img src="../assets/logo.png" alt=""/>
             <div>
                 <span id="markus">Markus </span>
                 <span id="moilanen">Moilanen</span>
             </div>
         </b-navbar-brand>
         <b-navbar-nav id="nav-list" class="center-content">
-            <b-nav-item eventKey={1} href="#about">
-                <b-nav-text>About Me</b-nav-text>
+            <b-nav-item href="#projects">
+                <b-nav-text>My Works</b-nav-text>
             </b-nav-item>
-            <b-nav-item eventKey={2} href="#skills">
+            <b-nav-item href="#skills">
                 <b-nav-text>Skills</b-nav-text>
             </b-nav-item>
-            <b-nav-item eventKey={3} href="#projects">
-                <b-nav-text>Projects</b-nav-text>
+            <b-nav-item href="#about">
+                <b-nav-text>About me</b-nav-text>
             </b-nav-item>
-            <b-nav-item eventKey={4} href="#contact">
+            <b-nav-item href="#contact">
                 <b-nav-text>Contact</b-nav-text>
             </b-nav-item>
         </b-navbar-nav>
@@ -46,13 +46,17 @@ export default {
 </script>
 
 <style lang="scss">
+$colorMain: #f9aa39;
+$colorLight: #fff;
+$colorDark: #222;
+
 #navbar {
     height: 9vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
-    -webkit-box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
+    -webkit-box-shadow: 0 3px 6px 20 rgba(40, 40, 40, 0.3),
         0 6px 20px 0 rgba(40, 40, 40, 0.3);
-    -moz-box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
+    -moz-box-shadow: 0 3px 6px 0 rgba(40, 40, 40, 0.3),
         0 6px 20px 0 rgba(40, 40, 40, 0.3);
     box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
         0 6px 20px 0 rgba(40, 40, 40, 0.3);
