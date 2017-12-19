@@ -1,10 +1,19 @@
 <template>
   <section class="container-fluid smoothScroll" id="about">
-      <h2>About Me</h2>
-        <img
-            id="portrait"
-            src="../assets/croppedportrait.png"
-        />
+        <h2>Who am I?</h2>
+        <b-row>
+            <div id="left">
+                <img
+                    id="portrait"
+                    src="../assets/portrait.png"
+                />
+            </div>
+            <div id="right">
+
+            </div>
+        </b-row>
+
+
 
         <!-- <div class="center-content">
             <div class="col-md-4 col-md-offset-2">
@@ -48,17 +57,26 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #f57c00;
+$colorMain: #3949ab;
 $colorLight: #fff;
 $colorDark: #212121;
 
 #about {
-    background: #ffb74d;
+    background: #3949ab;
     color: $colorLight;
     height: 70vh;
-    #portrait {
-        width: 10vw;
-        border-radius: 5vw;
+    .row {
+        #left {
+            width: 50vw;
+            text-align: center;
+            #portrait {
+                width: 35vh;
+                border-radius: 20vh;
+            }
+        }
+        #right {
+            width: 50vw;
+        }
     }
 }
 </style>

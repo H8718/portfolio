@@ -1,6 +1,9 @@
 <template>
     <section id="contact" class="container-fluid">
         <h2>Contact me</h2>
+        <div class="center-content">
+            <p class="description">Here are my latest solo projects.</p>
+        </div>
         <b-form
             id="contact-form"
             action="https://formspree.io/moilamar@protonmail.com"
@@ -64,19 +67,11 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #0d47a1;
+$colorMain: #3949ab;
 $colorLight: #fff;
 $colorDark: #212121;
-/*
-background-color: #eee;
-background-color: #2a2a2a;
-font-family: 'Montserrat', sans-serif;
-font-family: Raleway,sans-serif;
 
-$colorMain: #0d47a1;
-$colorLight: #fff;
-$colorDark: #212121;
-*/
+// LAITA VINOON
 
 #contact {
     background: $colorMain;
@@ -101,10 +96,19 @@ $colorDark: #212121;
             background: none;
         }
         .btn-primary {
+            animation: readyBtn 1s;
             background: none;
-            border: 2px solid orange;
-            color: orange;
             box-shadow: none;
+        }
+        @keyframes readyBtn {
+            0% {
+                border: 2px solid $colorLight;
+                color: $colorLight;
+            }
+            100% {
+                border: 2px solid orange;
+                color: orange;
+            }
         }
     }
 }

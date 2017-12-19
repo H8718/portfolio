@@ -23,5 +23,6 @@ $colorDark: #222;
     width: 9vw;
     height: 3vw;
     border-radius: 3vw;
+    box-shadow: 1px 1px 1px black;
 }
 </style>

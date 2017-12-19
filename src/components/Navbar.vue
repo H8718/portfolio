@@ -21,7 +21,7 @@
         </b-navbar-brand>
         <b-navbar-nav id="nav-list" class="center-content">
             <b-nav-item href="#about">
-                <b-nav-text>About me</b-nav-text>
+                <!-- <b-nav-text> -->About me<!-- </b-nav-text> -->
             </b-nav-item>
             <b-nav-item href="#projects">
                 <b-nav-text>Projects</b-nav-text>
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #ffa726;
+$colorMain: #3949ab;
 $colorLight: #fff;
 $colorDark: #212121;
 
@@ -86,13 +86,22 @@ $colorDark: #212121;
             justify-content: center;
             align-items: center;
             a .navbar-text {
-                color: #444;
+                color: #555;
+                font-size: 110%;
+                font-weight: bold;
             }
         }
         .nav-item:hover {
+            animation: animateColor 3s ease;
             a .navbar-text {
+            }
+        }
+        @keyframes animateColor {
+            0% {
+                color: #555;
+            }
+            100% {
                 color: $colorMain !important;
-                text-decoration: none;
             }
         }
     }

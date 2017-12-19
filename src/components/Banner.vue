@@ -31,6 +31,7 @@
 
         </div>
     </section>
+
 </template>
 
 <script>
@@ -69,16 +70,21 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #ffa726;
+$colorMain: #3949ab;
 $colorLight: #fff;
 $colorDark: #212121;
 
 #banner {
+    @media screen and (max-width: 500px) {
+        display: none;
+        opacity: 0;
+    }
     background-color: rgba(254, 254, 254, 0);
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     /*margin-top: -120px;*/
+    height: 43.3vw;
     #wrapper {
         position: relative;
         width: 100%;
@@ -122,9 +128,10 @@ $colorDark: #212121;
 } */
 
 .layer {
-    position: absolute;
+    border-top: 4px solid $colorMain;
+    position: fixed; // absolute
     width: 100vw;
-    min-height: 38vw;
+    min-height: 43.3vw;
     overflow: hidden;
     .content-wrap {
         position: absolute;
@@ -175,12 +182,11 @@ $colorDark: #212121;
     }
 }
 .handle {
-    position: absolute;
     height: 100%;
     display: block;
     /* background-color: #fdab00; */
     background-color: $colorMain;
-    width: 5px;
+    width: 0px;
     top: 0;
     left: 50%;
     z-index: 3;
@@ -191,6 +197,7 @@ $colorDark: #212121;
         transform: rotate(30deg) translateY(-50%);
         height: 200%;
         transform-origin: top;
+        position: absolute;
     }
     .top {
         transform: skew(-30deg);

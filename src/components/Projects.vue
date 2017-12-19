@@ -1,6 +1,9 @@
 <template>
     <section id="projects" class="container-fluid">
-        <h2>Projects</h2>
+        <h2>My Works</h2>
+        <div class="center-content">
+            <p class="description">Here are my latest solo projects.</p>
+        </div>
         <div class="center-content">
             <div
                 v-for="(project, index) in projects"
@@ -13,10 +16,10 @@
             >
                 <div
                     class="project-image"
-                    :class="{ 'hovered': hovered, 'unhovered': !hovered }"
+                    :class="{ 'hovered': hovered == index, 'unhovered': !hovered == index }"
                     :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
-                    @mouseleave="toggleHover()"
-                    v-on:mouseover="toggleHover()"
+                    @mouseleave="toggleHover(-1)"
+                    v-on:mouseover="toggleHover(index)"
                     v-on:mousemove="mouseMove()"
                 />
                 <div class="project-name">{{project.name}}</div>
@@ -102,15 +105,15 @@ export default {
                 }
             ],
             active: null,
-            hovered: false
+            hovered: -1
         };
     },
     methods: {
         toggleProjectInfo(index) {
             this.active = index;
         },
-        toggleHover() {
-            this.hovered = !this.hovered;
+        toggleHover(index) {
+            this.hovered = index;
         },
         mouseMove() {}
     },
@@ -135,7 +138,10 @@ $colorDark: #212121;
         color: $colorDark;
     }
     .center-content {
-        padding: 0 5vw 0 5vw;
+        padding: 0 5vw 0vw 5vw;
+        margin-top: 2vw;
+        .description {
+        }
     }
 }
 .project-item {
