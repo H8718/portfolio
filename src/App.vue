@@ -31,9 +31,9 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #f9aa39;
+$colorMain: #ffa726;
 $colorLight: #fff;
-$colorDark: #222;
+$colorDark: #212121;
 
 body {
     background-color: $colorLight;
@@ -54,10 +54,10 @@ body {
             text-align: center;
             font-family: "Avenir", sans-serif;
             font-size: 250%;
-            font-variant: small-caps;
+            /* font-variant: small-caps; */
             font-weight: 600;
-            margin-bottom: 6vh;
-            text-shadow: 1px 1px 2px rgba(50, 50, 50, 0.6);
+            margin-bottom: 4vh;
+            /* text-shadow: 1px 1px 2px rgba(50, 50, 50, 0.6); */
             color: #fafafa;
             /* border-bottom: 0.3vh solid $colorMain; */
             padding-bottom: 0.5vh;

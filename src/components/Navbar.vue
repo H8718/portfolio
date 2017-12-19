@@ -20,17 +20,14 @@
             </div>
         </b-navbar-brand>
         <b-navbar-nav id="nav-list" class="center-content">
-            <b-nav-item href="#projects">
-                <b-nav-text>My Works</b-nav-text>
-            </b-nav-item>
-            <b-nav-item href="#skills">
-                <b-nav-text>Skills</b-nav-text>
-            </b-nav-item>
             <b-nav-item href="#about">
                 <b-nav-text>About me</b-nav-text>
             </b-nav-item>
+            <b-nav-item href="#projects">
+                <b-nav-text>Projects</b-nav-text>
+            </b-nav-item>
             <b-nav-item href="#contact">
-                <b-nav-text>Contact</b-nav-text>
+                <b-nav-text>Contact me</b-nav-text>
             </b-nav-item>
         </b-navbar-nav>
 
@@ -46,20 +43,20 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #f9aa39;
+$colorMain: #ffa726;
 $colorLight: #fff;
-$colorDark: #222;
+$colorDark: #212121;
 
 #navbar {
     height: 9vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
-    -webkit-box-shadow: 0 3px 6px 20 rgba(40, 40, 40, 0.3),
-        0 6px 20px 0 rgba(40, 40, 40, 0.3);
-    -moz-box-shadow: 0 3px 6px 0 rgba(40, 40, 40, 0.3),
-        0 6px 20px 0 rgba(40, 40, 40, 0.3);
-    box-shadow: 0 3px 8px 0 rgba(40, 40, 40, 0.3),
-        0 6px 20px 0 rgba(40, 40, 40, 0.3);
+    -webkit-box-shadow: 0 2px 4px 20 rgba(40, 40, 40, 0.2),
+        0 3px 10px 0 rgba(40, 40, 40, 0.2);
+    -moz-box-shadow: 0 2px 4px 0 rgba(40, 40, 40, 0.2),
+        0 3px 10px 0 rgba(40, 40, 40, 0.2);
+    box-shadow: 0 2px 4px 0 rgba(40, 40, 40, 0.2),
+        0 3px 10px 0 rgba(40, 40, 40, 0.2);
     #brand {
         /* border-top: none !important; */
         img {
@@ -81,15 +78,23 @@ $colorDark: #222;
         }
     }
     #nav-list {
-        margin-top: 0.4vh;
         margin-left: 4vh;
+        .nav-item {
+            height: 9vh;
+            width: 6.5vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            a .navbar-text {
+                color: #444;
+            }
+        }
+        .nav-item:hover {
+            a .navbar-text {
+                color: $colorMain !important;
+                text-decoration: none;
+            }
+        }
     }
-}
-a.no-style:hover,
-a.no-style:visited,
-a.no-style:active,
-a.no-style:link {
-    color: #f9aa39 !important;
-    text-decoration: none;
 }
 </style>

@@ -3,7 +3,8 @@
         <h2>Contact me</h2>
         <b-form
             id="contact-form"
-            @submit.prevent="submitForm()"
+            action="https://formspree.io/moilamar@protonmail.com"
+            method="POST"
         >
             <b-input
                 type="text"
@@ -11,6 +12,7 @@
                 placeholder="Name"
                 required
                 v-model="name"
+                name="name"
                 @input="checkForm()"
             />
             <b-input
@@ -19,6 +21,7 @@
                 placeholder="Contact method"
                 required
                 v-model="contactMethod"
+                name="contact-method"
                 @input="checkForm()"
             />
             <b-textarea
@@ -27,9 +30,11 @@
                 placeholder="Message"
                 required
                 v-model="message"
+                name="message"
                 @input="checkForm()"
             />
             <b-button
+                type="submit"
                 class="col-md-2 form-field"
                 :variant="btnStatus"
             >Send</b-button>
@@ -59,12 +64,22 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #f9aa39;
+$colorMain: #0d47a1;
 $colorLight: #fff;
-$colorDark: #222;
+$colorDark: #212121;
+/*
+background-color: #eee;
+background-color: #2a2a2a;
+font-family: 'Montserrat', sans-serif;
+font-family: Raleway,sans-serif;
+
+$colorMain: #0d47a1;
+$colorLight: #fff;
+$colorDark: #212121;
+*/
 
 #contact {
-    background: $colorDark;
+    background: $colorMain;
     h2 {
         color: $colorLight;
     }
@@ -80,12 +95,15 @@ $colorDark: #222;
             overflow: hidden;
         }
         .btn-disabled {
-            border: none;
+            border: 2px solid $colorLight;
+            color: $colorLight;
             box-shadow: none;
+            background: none;
         }
         .btn-primary {
-            background-color: $colorMain;
-            border: none;
+            background: none;
+            border: 2px solid orange;
+            color: orange;
             box-shadow: none;
         }
     }

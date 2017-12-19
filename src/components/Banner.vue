@@ -34,6 +34,10 @@
 </template>
 
 <script>
+import ScrollReveal from "scrollreveal";
+window.sr = ScrollReveal();
+sr.reveal("#banner");
+
 export default {
     mounted() {
         let wrapper = document.getElementById("wrapper");
@@ -65,9 +69,9 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #f9aa39;
+$colorMain: #ffa726;
 $colorLight: #fff;
-$colorDark: #222;
+$colorDark: #212121;
 
 #banner {
     background-color: rgba(254, 254, 254, 0);
@@ -167,7 +171,7 @@ $colorDark: #222;
     .content-body {
         left: 5%;
         color: $colorDark;
-        /* color: #222; */
+        /* color: ssssssssssssssssssssssssssssssssssssssssssssssssssssss#222; */
     }
 }
 .handle {
