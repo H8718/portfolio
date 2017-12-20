@@ -16,8 +16,8 @@
             </b-col>
             <b-col>
                 <i class="fa fa-cubes"></i>
-                <p class="eyecatch-header">Smart Layouts</p>
-                <p class="eyecatch-text">I'm familiar with Bootstrap, SASS and flexbox
+                <p class="eyecatch-header">Responsive Layouts</p>
+                <p class="eyecatch-text">I'm familiar with Bootstrap, Sass and flexbox
                     which I use to create intuitive and scaling layouts for both mobile
                     and web.</p>
             </b-col>

@@ -1,6 +1,7 @@
 <template>
   <section class="container-fluid smoothScroll" id="about">
         <h2>Who am I?</h2>
+        <div class="horizontal-center"><div class="underline"></div></div>
         <b-row>
             <div id="left">
                 <img
@@ -12,8 +13,6 @@
 
             </div>
         </b-row>
-
-
 
         <!-- <div class="center-content">
             <div class="col-md-4 col-md-offset-2">
@@ -54,7 +53,11 @@
 #about {
     background: #3949ab;
     color: $colorLight;
-    height: 70vh;
+    height: 80vh;
+    padding-top: 10vh;
+    .underline {
+        border-color: $colorLighter;
+    }
     .row {
         #left {
             width: 50vw;

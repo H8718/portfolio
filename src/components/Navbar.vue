@@ -20,15 +20,9 @@
             </div>
         </b-navbar-brand>
         <b-navbar-nav id="nav-list" class="center-content">
-            <b-nav-item href="#about">
-                <!-- <b-nav-text> -->About me<!-- </b-nav-text> -->
-            </b-nav-item>
-            <b-nav-item href="#projects">
-                <b-nav-text>Projects</b-nav-text>
-            </b-nav-item>
-            <b-nav-item href="#contact">
-                <b-nav-text>Contact me</b-nav-text>
-            </b-nav-item>
+            <b-nav-item href="#about">About me</b-nav-item>
+            <b-nav-item href="#projects">Projects</b-nav-item>
+            <b-nav-item href="#contact">Contact me</b-nav-item>
         </b-navbar-nav>
 
     </b-navbar>
@@ -37,7 +31,9 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            hover: 0
+        };
     }
 };
 </script>
@@ -56,7 +52,6 @@ export default {
     box-shadow: 0 2px 4px 0 rgba(40, 40, 40, 0.2),
         0 3px 10px 0 rgba(40, 40, 40, 0.2);
     #brand {
-        /* border-top: none !important; */
         img {
             border-radius: 0.2vw;
             width: 6vh;
@@ -67,7 +62,7 @@ export default {
             font-size: 150%;
             font-weight: 700;
             font-variant: small-caps;
-            margin-left: 2vh;
+            margin-left: 1vh;
         }
         #markus {
         }
@@ -79,27 +74,21 @@ export default {
         margin-left: 4vh;
         .nav-item {
             height: 9vh;
-            width: 6.5vw;
+            width: 15vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            a .navbar-text {
+            text-align: center;
+            a {
                 color: #555;
                 font-size: 110%;
                 font-weight: bold;
             }
         }
         .nav-item:hover {
-            animation: animateColor 3s ease;
-            a .navbar-text {
-            }
-        }
-        @keyframes animateColor {
-            0% {
-                color: #555;
-            }
-            100% {
-                color: $colorMain !important;
+            a {
+                animation: changeColor 0.7s ease;
+                color: $colorMain;
             }
         }
     }

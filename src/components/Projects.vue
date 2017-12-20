@@ -1,9 +1,11 @@
 <template>
     <section id="projects" class="container-fluid">
         <h2>My Works</h2>
-        <div class="underline"></div>
+        <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content">
-            <p class="description">Here are my latest solo projects.</p>
+            <p class="description">Currently I'm working mostly on the front-end using frameworks like
+                VueJS on the web and React-Native on mobile.
+                 Here are my latest solo projects.</p>
         </div>
         <div class="center-content">
             <div
@@ -13,7 +15,6 @@
                 :class="{ 'active': active == index }"
                 :key="index"
                 :data-image="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
-                @mouseup="toggleProjectInfo(index)"
             >
                 <div
                     class="project-image"
@@ -21,10 +22,19 @@
                     :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
                     @mouseleave="toggleHover(-1)"
                     v-on:mouseover="toggleHover(index)"
-                    v-on:mousemove="mouseMove()"
                 />
-                <div class="project-name">{{project.name}}</div>
-                <div class="project-summary">{{project.summary}}</div>
+                <div
+                    class="cover"
+                    :class="{ 'open-cover': hovered == index }"
+                >
+                    <div class="project-name">{{project.name}}</div>
+                    <div class="project-summary">{{project.summary}}</div>
+                    <b-button
+                        class="project-btn"
+                        @mouseup="toggleProjectInfo(index)"
+                    >Details</b-button>
+                </div>
+
             </div>
         </div>
     </section>
@@ -44,8 +54,12 @@ export default {
                     folder: "Portfolio/",
                     backdrop: "logo.png",
                     images: [],
-                    technologies: [],
-                    gitLink: ""
+                    gitLink: "https://github.com/moilamar/portfolio",
+                    tags: [
+                        ["devicon-vuejs-plain colored", "VueJS"],
+                        ["devicon-bootstrap-plain colored", "Bootstrap"],
+                        ["devicon-sass-original colored", "Sass"]
+                    ]
                 },
                 {
                     name: "My Movie List",
@@ -54,8 +68,13 @@ export default {
                     folder: "My_Movie_List/",
                     backdrop: "mml.png",
                     images: [],
-                    technologies: [],
-                    gitLink: ""
+                    gitLink: "",
+                    tags: [
+                        ["devicon-vuejs-plain colored", "VueJS"],
+                        ["devicon-sass-original colored", "Sass"],
+                        ["devicon-android-plain colored", "Mobile/Hybrid"],
+                        ["devicon-devicon-plain", "Onsen UI"]
+                    ]
                 },
                 {
                     name: "Mesiäinen Hunaja",
@@ -64,8 +83,11 @@ export default {
                     folder: "Mesiainen_Wordpress/",
                     backdrop: "/mesishop.png",
                     images: [],
-                    technologies: [],
-                    gitLink: ""
+                    gitLink: "https://github.com/moilamar/film-app-mobile",
+                    tags: [
+                        ["devicon-wordpress-plain colored", "Wordpress"],
+                        ["devicon-php-plain colored", "PHP"]
+                    ]
                 },
                 {
                     name: "3D Modeling",
@@ -81,18 +103,23 @@ export default {
                         "details4.png",
                         "textures.png"
                     ],
-                    technologies: ["blender"],
-                    gitLink: "https://github.com/Moilamar/3d-models"
+                    gitLink: "https://github.com/Moilamar/3d-models",
+                    tags: [["devicon-devicon-plain", "Blender"]]
                 },
                 {
-                    name: "E-Commerce Admin Backend",
+                    name: "E-Commerce Admin Page",
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Black_Banana_Admin/",
                     backdrop: "bb.jpg",
                     images: [],
-                    technologies: [],
-                    gitLink: ""
+                    gitLink: "",
+                    tags: [
+                        ["devicon-mysql-plain colored", "MySQL"],
+                        ["devicon-php-plain colored", "PHP"],
+                        ["devicon-react-original colored", "React"],
+                        ["devicon-devicon-plain", "Material-UI"]
+                    ]
                 },
                 {
                     name: "Music_Notebook",
@@ -101,8 +128,11 @@ export default {
                     folder: "Music_Notebook/",
                     backdrop: "logo.jpg",
                     images: [],
-                    technologies: [],
-                    gitLink: ""
+                    gitLink: "",
+                    tags: [
+                        ["devicon-react-original colored", "React-Native"],
+                        ["devicon-android-plain colored", "Mobile"]
+                    ]
                 }
             ],
             active: null,
@@ -115,8 +145,7 @@ export default {
         },
         toggleHover(index) {
             this.hovered = index;
-        },
-        mouseMove() {}
+        }
     },
     components: { Tag }
 };
@@ -140,6 +169,7 @@ export default {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
         .description {
+            font-size: 125%;
         }
     }
 }
@@ -167,11 +197,35 @@ export default {
         background-size: cover;
         transition: transform 0.5s ease-out;
     }
-    .project-name {
-        margin-top: 10%;
+    .cover {
+        background: rgba(255, 255, 255, 0.8);
+        position: absolute;
+        width: 100%;
+        height: 0;
+        color: $colorDark;
+        font-weight: 800;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        .project-name {
+            margin-top: 10%;
+        }
+        .project-summary {
+            margin: 5% 10% 0 10%;
+        }
+        .project-btn {
+            margin-top: 10%;
+            pointer-events: initial;
+            width: 40%;
+            background: none;
+            border: 3px solid $colorDark;
+            color: $colorDark;
+            font-weight: 800;
+        }
     }
-    .project-summary {
-        margin: 5% 10% 0 10%;
+    .open-cover {
+        animation: openCover 0.7s;
+        height: 100%;
     }
 }
 .animate-bg {

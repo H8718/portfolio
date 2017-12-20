@@ -1,23 +1,45 @@
 <template>
     <section class="smoothScroll" id="banner">
         <div id="wrapper" class="skewed">
+
+            <!-- <div id="header"><br>Hi, I'm Markus, <br>a Web Developer</div> -->
+
             <div class="layer bottom">
-                <div class="content-wrap">
-                    <div class="content-body">
+
+                <!-- <div id="header" style="color:#AAA;"><br>Hi, I'm Markus, <br>a Web Developer</div> -->
+
+                <!-- <div class="content-wrap"> -->
+                    <!-- <div class="content-body">
                         <h1>Look Sharp</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
                     </div>
-                    <img src="http://www.traversymedia.com/downloads/assets/image1.png" alt=""/>
+                    <img src="http://www.traversymedia.com/downloads/assets/image1.png" alt=""/> -->
+
+                <div class="content-wrap">
+                    <BottomImage />
                 </div>
+
+                <!-- </div> -->
             </div>
 
             <div class="layer top">
+
+
+
                 <div class="content-wrap">
-                    <div class="content-body">
+
+
+                    <TopImage />
+
+
+                    <!-- <div class="content-body">
                         <h1>Stay Cool</h1>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
                     </div>
-                    <img src="http://www.traversymedia.com/downloads/assets/image2.png" alt=""/>
+                    <img src="http://www.traversymedia.com/downloads/assets/image2.png" alt=""/> -->
+
+
+
                 </div>
             </div>
 
@@ -25,7 +47,7 @@
 
             <div id="header">
                 <div class='header-line'>
-                    > Hi! I'm <a class="orange smoothScroll no-style">Markus</a>
+                    > Hi! I'm <a class="">Markus</a>
                 </div>
             </div>
 
@@ -35,6 +57,8 @@
 </template>
 
 <script>
+import TopImage from "./TopImage";
+import BottomImage from "./BottomImage";
 import ScrollReveal from "scrollreveal";
 window.sr = ScrollReveal();
 sr.reveal("#banner");
@@ -51,7 +75,7 @@ export default {
         }
         wrapper.addEventListener("mousemove", function(e) {
             delta = (e.clientX - window.innerWidth / 2) * 0.5;
-            handle.style.left = e.clientX + delta + "px";
+            /* handle.style.left = e.clientX + delta + "px"; */
             topLayer.style.width = e.clientX + skew + delta + "px";
         });
     },
@@ -65,12 +89,26 @@ export default {
                 [">", "Mobile apps"]
             ]
         };
+    },
+    components: {
+        TopImage,
+        BottomImage
     }
 };
 </script>
 
 <style lang="scss">
 @import "../styles/variables.scss";
+/* #header {
+    text-align: center;
+    font-size: 280%;
+    font-weight: 800;
+    color: $colorDark;
+    font-family: $fontSecondary;
+    position: absolute;
+    z-index: 9999;
+    width: 100%;
+} */
 
 #banner {
     background-color: rgba(254, 254, 254, 0);
@@ -78,41 +116,48 @@ export default {
     background-repeat: no-repeat;
     width: 100%;
     /*margin-top: -120px;*/
-    height: 43.3vw;
+    height: 90.5vh;
     #wrapper {
         position: relative;
         width: 100%;
         min-height: 38vw;
         overflow: hidden;
-    }
-    .header {
-        margin-top: 15vh;
-        margin-left: 0;
-        .header-line {
-            color: #444444;
-            margin-top: 5vh;
-            font-size: 450%;
-            font-family: "Ubuntu", sans-serif;
-            overflow: hidden;
-            font-weight: 600;
+        .header {
             position: absolute;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-        }
-        #line2 {
-            margin-top: 15vh;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 99999;
+            .header-line {
+                color: #444444;
+                margin-top: 5vh;
+                font-size: 450%;
+                overflow: hidden;
+                font-weight: 600;
+                position: absolute;
+                text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+            }
+            #line2 {
+                margin-top: 15vh;
+            }
         }
     }
 }
 .layer {
-    border-top: 4px solid $colorMain;
+    /* border-top: 4px solid $colorMain;
+    margin-top: -4px; */
     position: fixed; // absolute
     width: 100vw;
-    min-height: 43.3vw;
+    min-height: 91.5vh;
+    /* min-height: 43.3vw; */
     overflow: hidden;
+    margin-left: -8px;
     .content-wrap {
         position: absolute;
         width: 100vw;
-        min-height: 55vw;
+        /* min-height: 95vh; */
+        min-height: 95vh;
     }
     .content-body {
         width: 25%;
@@ -120,7 +165,7 @@ export default {
         top: 50%;
         text-align: center;
         transform: translateY(-50%);
-        color: #fff;
+        color: $colorLighter;
     }
     img {
         position: absolute;
@@ -134,10 +179,11 @@ export default {
     }
 }
 .bottom {
-    background: #222;
+    background: #212121;
     z-index: 1;
+    /* padding-left: 5%; */
     .content-body {
-        right: 5%;
+        /* right: 5%; */
     }
     .bottom h1 {
         /* color: #fdab00; */
@@ -150,7 +196,7 @@ export default {
     color: $colorDark;
     z-index: 2;
     width: 50vw;
-    padding-left: 5%;
+    /* padding-left: 5%; */
     .content-body {
         left: 5%;
         color: $colorDark;
@@ -184,8 +230,5 @@ export default {
             margin-left: 1000px;
         }
     }
-}
-.orange {
-    color: $colorMain;
 }
 </style>

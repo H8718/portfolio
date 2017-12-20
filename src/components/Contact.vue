@@ -1,6 +1,7 @@
 <template>
     <section id="contact" class="container-fluid">
         <h2>Contact me</h2>
+        <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content">
             <p class="description">Here are my latest solo projects.</p>
         </div>
@@ -74,7 +75,10 @@ export default {
 #contact {
     background: $colorMain;
     h2 {
-        color: $colorLight;
+        color: $colorLighter;
+    }
+    .underline {
+        border-color: $colorLighter;
     }
     #contact-form {
         display: flex;
@@ -88,7 +92,7 @@ export default {
             overflow: hidden;
         }
         .btn-disabled {
-            border: 2px solid $colorLight;
+            border: 2px solid $colorLighter;
             color: $colorLight;
             box-shadow: none;
             background: none;
@@ -97,16 +101,8 @@ export default {
             animation: readyBtn 1s;
             background: none;
             box-shadow: none;
-        }
-        @keyframes readyBtn {
-            0% {
-                border: 2px solid $colorLight;
-                color: $colorLight;
-            }
-            100% {
-                border: 2px solid orange;
-                color: orange;
-            }
+            border: 2px solid $colorSecondary;
+            color: $colorSecondary;
         }
     }
 }
