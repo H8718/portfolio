@@ -70,15 +70,9 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #3949ab;
-$colorLight: #fff;
-$colorDark: #212121;
+@import "../styles/variables.scss";
 
 #banner {
-    @media screen and (max-width: 500px) {
-        display: none;
-        opacity: 0;
-    }
     background-color: rgba(254, 254, 254, 0);
     background-size: cover;
     background-repeat: no-repeat;
@@ -109,24 +103,6 @@ $colorDark: #212121;
         }
     }
 }
-/* .headline {
-    display: none;
-    background-color: rgba(50, 50, 50, 0.8);
-    padding-bottom: 5em;
-    -webkit-box-shadow: 0px -8px 18px 0px rgba(40, 40, 40, 0.4),
-        0px 8px 18px 0px rgba(51, 51, 51, 0.4);
-    -moz-box-shadow: 0px -8px 18px 0px rgba(40, 40, 40, 0.4);
-    -moz-box-shadow: 0px 8px 18px 0px rgba(51, 51, 51, 0.4);
-    box-shadow: 0px -8px 18px 0px rgba(40, 40, 40, 0.4);
-    box-shadow: 0px 8px 18px 0px rgba(51, 51, 51, 0.4);
-} */
-/* .banner-header {
-    font-family: ubuntu;
-    font-size: 350%;
-    color: white;
-    margin-top: 10vh;
-} */
-
 .layer {
     border-top: 4px solid $colorMain;
     position: fixed; // absolute

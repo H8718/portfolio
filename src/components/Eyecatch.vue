@@ -40,9 +40,7 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #3949ab;
-$colorLight: #fff;
-$colorDark: #212121;
+@import "../styles/variables.scss";
 
 #eyecatch {
     width: 100%;

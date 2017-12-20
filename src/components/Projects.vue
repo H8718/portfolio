@@ -1,6 +1,7 @@
 <template>
     <section id="projects" class="container-fluid">
         <h2>My Works</h2>
+        <div class="underline"></div>
         <div class="center-content">
             <p class="description">Here are my latest solo projects.</p>
         </div>
@@ -122,9 +123,7 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #0d47a1;
-$colorLight: #fff;
-$colorDark: #212121;
+@import "../styles/variables.scss";
 
 #projects {
     /* background-color: $colorDark; */

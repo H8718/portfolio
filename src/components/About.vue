@@ -48,18 +48,8 @@
     </section>
 </template>
 
-<script>
-export default {
-    data() {
-        return {};
-    }
-};
-</script>
-
 <style lang="scss">
-$colorMain: #3949ab;
-$colorLight: #fff;
-$colorDark: #212121;
+@import "../styles/variables.scss";
 
 #about {
     background: #3949ab;

@@ -1,7 +1,7 @@
 <template>
-    <section id="footer">
+    <footer>
         <p>© {{ new Date().getFullYear() }} Markus Moilanen. All rights reserved.</p>
-    </section>
+    </footer>
 </template>
 
 <script>
@@ -9,11 +9,9 @@ export default {};
 </script>
 
 <style lang="scss">
-$colorMain: #f9aa39;
-$colorLight: #fff;
-$colorDark: #222;
+@import "../styles/variables.scss";
 
-#footer {
+footer {
     height: 12vh;
     background: #222;
     color: white;

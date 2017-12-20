@@ -36,20 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #3949ab;
-$colorLight: #fff;
-$colorDark: #212121;
-
-/*
-background-color: #eee;
-background-color: #2a2a2a;
-font-family: 'Montserrat', sans-serif;
-font-family: Raleway,sans-serif;
-
-$colorMain: #0d47a1;
-$colorLight: #fff;
-$colorDark: #212121;
-*/
+@import "styles/variables.scss";
 
 body {
     background-color: $colorLight;
@@ -57,7 +44,7 @@ body {
     padding: 0;
     #site {
         /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
-        font-family: Raleway, sans-serif;
+        font-family: $fontMain;
         // font-family: 'Roboto', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -67,27 +54,6 @@ body {
     #main {
         z-index: 9999;
         position: relative;
-        .container-fluid {
-            padding: 4vw 4vw 4vw 4vw;
-            h2 {
-                text-align: center;
-                font-family: "Montserrat", sans-serif;
-                font-size: 250%;
-                /* font-variant: small-caps; */
-                font-weight: 500;
-                margin-bottom: 6vh;
-                /* text-shadow: 1px 1px 2px rgba(50, 50, 50, 0.6); */
-                /* border-bottom: 0.3vh solid $colorMain; */
-                padding-bottom: 0.5vh;
-            }
-        }
     }
-}
-.center-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 </style>
