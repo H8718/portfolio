@@ -4,7 +4,6 @@
     .underline {
         border-bottom: 1.1vh solid $colorMain;
         width: 4vh;
-        margin-bottom: 3vh;
     }
 }
 .center-content {
@@ -25,4 +24,7 @@ h2 {
 }
 .container-fluid {
     padding: 4vw 4vw 4vw 4vw;
+}
+.description {
+    font-size: 125%;
 }

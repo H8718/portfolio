@@ -43,3 +43,11 @@
         opacity: 1;
     }
 }
+@keyframes animateBtn {
+    0% {
+        color: $colorLighter;
+    }
+    100% {
+        color: $colorSecondary;
+    }
+}

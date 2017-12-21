@@ -2,10 +2,9 @@
     <section id="projects" class="container-fluid">
         <h2>My Works</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
-        <div class="center-content">
+        <div class="center-content col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
-                VueJS on the web and React-Native on mobile.
-                 Here are my latest solo projects.</p>
+                VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
         <div class="center-content">
             <div
@@ -156,8 +155,7 @@ export default {
 
 #projects {
     /* background-color: $colorDark; */
-
-    background-color: $colorLight;
+    background-color: $colorLighter;
     -webkit-transition: background-color 1000ms linear;
     -ms-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear;
@@ -168,9 +166,6 @@ export default {
     .center-content {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
-        .description {
-            font-size: 125%;
-        }
     }
 }
 .project-item {
@@ -181,7 +176,7 @@ export default {
     width: 42vh;
     height: 32vh;
     background-size: cover !important;
-    color: $colorLight;
+    color: $colorLighter;
 
     position: relative;
     overflow: hidden;

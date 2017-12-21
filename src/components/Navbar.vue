@@ -1,7 +1,5 @@
 <template>
     <b-navbar
-        inverse
-        collapseOnSelect
         sticky
         type="light"
         toggleable="md"
@@ -19,11 +17,21 @@
                 <span id="moilanen">Moilanen</span>
             </div>
         </b-navbar-brand>
-        <b-navbar-nav id="nav-list" class="center-content">
-            <b-nav-item href="#about">About me</b-nav-item>
-            <b-nav-item href="#projects">Projects</b-nav-item>
-            <b-nav-item href="#contact">Contact me</b-nav-item>
-        </b-navbar-nav>
+
+        <div
+            id="nav-collapse-btn"
+            v-b-toggle.collapse
+        >
+            <i class="fa fa-bars" />
+        </div>
+
+        <b-collapse id="collapse" visible>
+            <b-navbar-nav id="nav-list" class="center-content">
+                <b-nav-item href="#about">About me</b-nav-item>
+                <b-nav-item href="#projects">Projects</b-nav-item>
+                <b-nav-item href="#contact">Contact me</b-nav-item>
+            </b-navbar-nav>
+        </b-collapse>
 
     </b-navbar>
 </template>
@@ -67,14 +75,19 @@ export default {
         #markus {
         }
         #moilanen {
-            color: #f9aa39;
+            color: $colorSecondary;
         }
     }
+    #nav-collapse-btn {
+        font-size: 150%;
+        color: #444;
+        opacity: 0;
+    }
     #nav-list {
-        margin-left: 4vh;
+        margin-left: 2vh;
         .nav-item {
             height: 9vh;
-            width: 15vh;
+            width: 14vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -87,7 +100,7 @@ export default {
         }
         .nav-item:hover {
             a {
-                animation: changeColor 0.7s ease;
+                animation: changeColor 0.5s ease;
                 color: $colorMain;
             }
         }

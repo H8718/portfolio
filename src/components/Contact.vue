@@ -1,9 +1,9 @@
 <template>
     <section id="contact" class="container-fluid">
-        <h2>Contact me</h2>
+        <h2>Send me a message</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content">
-            <p class="description">Here are my latest solo projects.</p>
+            <p class="description">Send me a message using this form. I'll probably answer back.</p>
         </div>
         <b-form
             id="contact-form"
@@ -80,13 +80,20 @@ export default {
     .underline {
         border-color: $colorLighter;
     }
+    .center-content {
+        .description {
+            color: $colorLight;
+            margin-top: 4vh;
+        }
+    }
     #contact-form {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin-top: 2vw;
         .form-field {
-            margin-bottom: 2vh;
+            margin-bottom: 2.2vh;
         }
         textarea {
             overflow: hidden;

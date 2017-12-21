@@ -146,15 +146,19 @@ export default {
         .contact-btn {
             height: width;
             position: absolute;
-            font-size: 300%;
+            font-size: 350%;
+        }
+        .contact-btn:hover {
+            animation: animateBtn 0.5s ease-out;
+            animation-fill-mode: forwards;
         }
         #linkedin {
-            left: 25.1%;
-            top: 14.5%;
+            left: 25.3%;
+            top: 11.5%;
         }
         #github {
             left: 25%;
-            top: 12%;
+            top: 14.2%;
         }
         .show {
             -webkit-transition: opacity 2s ease;

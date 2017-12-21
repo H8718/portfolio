@@ -6,7 +6,7 @@
             <About />
             <Eyecatch />
             <Projects />
-            <!-- <Skills /> -->
+            <Skills />
             <Contact />
             <Foot />
         </div>
@@ -19,7 +19,7 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Eyecatch from "./components/Eyecatch";
 import Projects from "./components/Projects";
-/* import Skill from "./components/Skills"; */
+import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Foot from "./components/Foot";
 
@@ -31,7 +31,7 @@ export default {
         About,
         Eyecatch,
         Projects,
-        /* Skills, */
+        Skills,
         Contact,
         Foot
     }

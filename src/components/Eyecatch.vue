@@ -44,7 +44,7 @@ export default {
 
 #eyecatch {
     width: 100%;
-    background: #fafafa;
+    background: $colorLight;
     #rowContent {
         padding: 1vw 10vw 1vw 10vw;
         // CHeck mobile
@@ -52,7 +52,7 @@ export default {
             display: flex;
             flex-direction: column;
             i {
-                font-size: 800%;
+                font-size: 700%;
                 color: $colorMain;
                 align-self: center;
             }
@@ -60,11 +60,12 @@ export default {
                 margin-top: 3vh;
                 text-align: center;
                 color: #444;
-                font-size: 105%;
+                font-size: 115%;
                 font-weight: bold;
             }
             .eyecatch-text {
                 color: $colorMain;
+                font-size: 110%;
             }
         }
     }

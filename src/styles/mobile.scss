@@ -6,3 +6,8 @@
         opacity: 0;
     }
 }
+@media screen and (max-width: 800px) {
+    #nav-collapse-btn {
+        opacity: 1 !important;
+    }
+}
