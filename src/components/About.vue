@@ -13,9 +13,9 @@
             </div>
         </b-row> -->
 
-        <div id="timeline">
+        <div id="blueprint">
             <div
-                class="timeline-box"
+                class="blueprint-box"
                 id="box-0"
                 :class="{ 'show': shown[0] }"
             >
@@ -24,26 +24,37 @@
                     src="../assets/portrait.png"
                 />
             </div>
+            <div class="part-name">This is me</div>
             <div class="line" id="line-1" />
+            <div class="contact-btn" id="linkedin">
+                <i class=" fa fa-linkedin-square" />
+            </div>
+            <div class="contact-btn" id="github">
+                <i class="devicon-github-plain" />
+            </div>
 
             <div
-                class="timeline-box"
+                class="blueprint-box"
                 id="box-1"
                 :class="{ 'show': shown[1] }"
             >
                 <h3><i class="fa fa-user" /> Hobbies</h3>
                 <p>I like playing the piano and computer games.</p>
             </div>
+            <div class="line" id="line-2" />
+
             <div
-                class="timeline-box"
+                class="blueprint-box"
                 id="box-2"
                 :class="{ 'show': shown[2] }"
             >
                 <h3><i class="fa fa-pencil" /> Studies</h3>
                 <p>I currently study at JAMK to become a computer engineer.</p>
             </div>
+            <div class="line" id="line-3" />
+
             <div
-                class="timeline-box"
+                class="blueprint-box"
                 id="box-3"
                 :class="{ 'show': shown[3] }"
             >
@@ -52,8 +63,10 @@
                     skills for programming and other related things.
                 </p>
             </div>
+            <div class="line" id="line-4" />
+
             <div
-                class="timeline-box"
+                class="blueprint-box"
                 id="box-4"
                 :class="{ 'show': shown[4] }"
             >
@@ -62,6 +75,8 @@
                     a great full-stack developer.
                 </p>
             </div>
+            <div class="line" id="line-5" />
+
         </div>
     </section>
 </template>
@@ -74,10 +89,10 @@ export default {
         };
     },
     mounted() {
-        this.animateTimeline();
+        this.animateblueprint();
     },
     methods: {
-        animateTimeline() {
+        animateblueprint() {
             for (let i = 0; i < 5; i++) {
                 this.doAnimation(i);
             }
@@ -103,8 +118,8 @@ export default {
     .underline {
         border-color: $colorLighter;
     }
-    #timeline {
-        .timeline-box {
+    #blueprint {
+        .blueprint-box {
             position: absolute;
             text-align: center;
             opacity: 0;
@@ -115,9 +130,11 @@ export default {
                 min-height: 12vh;
                 border: 0.5vh solid $colorLighter;
                 border-radius: 0.3vh;
-                color: white;
+                color: $colorLighter;
                 padding: 2vh;
                 font-size: 110%;
+                background: inherit;
+                z-index: 9999;
             }
         }
         #portrait {
@@ -125,6 +142,19 @@ export default {
             border-radius: 18vh;
             padding: 1vh;
             border: 0.5vh solid $colorLighter;
+        }
+        .contact-btn {
+            height: width;
+            position: absolute;
+            font-size: 300%;
+        }
+        #linkedin {
+            left: 25.1%;
+            top: 14.5%;
+        }
+        #github {
+            left: 25%;
+            top: 12%;
         }
         .show {
             -webkit-transition: opacity 2s ease;
@@ -134,20 +164,20 @@ export default {
             opacity: 1;
         }
         #box-0 {
-            width: 15%;
-            top: 8%;
-            left: 10%;
+            width: 15vw;
+            top: 10%;
+            left: 9%;
         }
         #box-1 {
-            left: 20%;
-            top: 17%;
+            left: 24%;
+            top: 18%;
         }
         #box-2 {
-            left: 36%;
+            left: 40%;
             top: 10.5%;
         }
         #box-3 {
-            left: 55%;
+            left: 56%;
             top: 16%;
         }
         #box-4 {
@@ -155,30 +185,61 @@ export default {
             top: 9%;
         }
         .line {
-            border: 0.4vh dashed $colorLighter;
             position: absolute;
             display: block;
+            z-index: 1;
         }
         #line-1 {
-            width: 3%;
+            border-top: 0.4vh solid $colorLighter;
+            width: 2.5%;
             transform: skewY(-50deg);
+            left: 21%;
+            top: 10%;
+            border-radius: 70%;
+        }
+        #line-2 {
+            border-left: 0.4vh dashed $colorLighter;
+            border-bottom: 0.4vh dashed $colorLighter;
+            width: 9%;
+            height: 3%;
             left: 15%;
-            top: 8.5%;
-            border: solid;
+            top: 18.5%;
+            border-bottom-left-radius: 100%;
+        }
+        #line-3 {
+            border-right: 0.4vh dashed $colorLighter;
+            border-bottom: 0.4vh dashed $colorLighter;
+            width: 8%;
+            height: 5%;
+            left: 38%;
+            top: 16%;
+            border-bottom-right-radius: 100%;
+        }
+        #line-4 {
+            border-top: 0.4vh dashed $colorLighter;
+            border-right: 0.4vh dashed $colorLighter;
+            width: 4%;
+            height: 2%;
+            left: 54%;
+            top: 15.3%;
+            border-top-right-radius: 100%;
+        }
+        #line-5 {
+            border-bottom: 0.4vh dashed $colorLighter;
+            border-right: 0.4vh dashed $colorLighter;
+            width: 5%;
+            height: 5%;
+            left: 70%;
+            top: 15.4%;
+            border-bottom-right-radius: 100%;
+        }
+        .part-name {
+            font-size: 180%;
+            font-family: $fontSecondary;
+            position: absolute;
+            left: 24%;
+            top: 8%;
         }
     }
-
-    /* #left {
-            width: 50vw;
-            text-align: center;
-            #portrait {
-                width: 35vh;
-                border-radius: 20vh;
-            }
-        }
-        #right {
-            width: 50vw;
-        } */
-    /* } */
 }
 </style>

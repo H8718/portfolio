@@ -42,7 +42,7 @@ export default {
 @import "../styles/variables.scss";
 
 #navbar {
-    height: 9vh;
+    height: 8vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
     -webkit-box-shadow: 0 2px 4px 20 rgba(40, 40, 40, 0.2),
@@ -81,7 +81,7 @@ export default {
             text-align: center;
             a {
                 color: #555;
-                font-size: 110%;
+                font-size: 115%;
                 font-weight: bold;
             }
         }
