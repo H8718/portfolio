@@ -161,7 +161,7 @@ export default {
     -webkit-transition: background-color 1000ms linear;
     -ms-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear;
-
+    padding-bottom: 6vw;
     h2 {
         color: $colorDark;
     }
@@ -178,8 +178,8 @@ export default {
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
-    width: 45vh;
-    height: 35vh;
+    width: 42vh;
+    height: 32vh;
     background-size: cover !important;
     color: $colorLight;
 
@@ -215,7 +215,7 @@ export default {
         }
         .project-btn {
             margin-top: 10%;
-            pointer-events: initial;
+            pointer-events: auto;
             width: 40%;
             background: none;
             border: 3px solid $colorDark;
@@ -225,7 +225,7 @@ export default {
     }
     .open-cover {
         animation: openCover 0.7s;
-        height: 100%;
+        animation-fill-mode: forwards;
     }
 }
 .animate-bg {

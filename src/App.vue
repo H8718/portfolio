@@ -6,8 +6,9 @@
             <About />
             <Eyecatch />
             <Projects />
+            <!-- <Skills /> -->
             <Contact />
-            <Footer />
+            <Foot />
         </div>
     </div>
 </template>
@@ -18,8 +19,9 @@ import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Eyecatch from "./components/Eyecatch";
 import Projects from "./components/Projects";
+/* import Skill from "./components/Skills"; */
 import Contact from "./components/Contact";
-import Footer from "./components/Footer";
+import Foot from "./components/Foot";
 
 export default {
     name: "app",
@@ -29,8 +31,9 @@ export default {
         About,
         Eyecatch,
         Projects,
+        /* Skills, */
         Contact,
-        Footer
+        Foot
     }
 };
 </script>

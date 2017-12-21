@@ -12,7 +12,7 @@
         >
             <b-input
                 type="text"
-                class="col-md-3 form-field"
+                class="col-lg-3 col-md-5 form-field"
                 placeholder="Name"
                 required
                 v-model="name"
@@ -21,7 +21,7 @@
             />
             <b-input
                 type="text"
-                class="col-md-3 form-field"
+                class="col-lg-3 col-md-5 form-field"
                 placeholder="Contact method"
                 required
                 v-model="contactMethod"
@@ -30,7 +30,7 @@
             />
             <b-textarea
                 rows="5"
-                class="col-md-3 form-field"
+                class="col-lg-3 col-md-5 form-field"
                 placeholder="Message"
                 required
                 v-model="message"
@@ -39,7 +39,7 @@
             />
             <b-button
                 type="submit"
-                class="col-md-2 form-field"
+                class="col-lg-2 col-md-4 form-field"
                 :variant="btnStatus"
             >Send</b-button>
         </b-form>
