@@ -3,7 +3,7 @@
         <Banner />
         <div id="main">
             <Navbar />
-            <About />
+            <About  />
             <Eyecatch />
             <Projects />
             <Skills />
@@ -24,6 +24,26 @@ import Contact from "./components/Contact";
 import Foot from "./components/Foot";
 
 export default {
+    data() {
+        scrollAbout,
+        scrollEyecatch,
+        scrollProjects,
+        didScroll = false
+    },
+    created() {
+        window.addEventListener('scroll', this.handleScroll);
+        setInterval(() => {
+            if (this.didScroll) {
+                this.didScroll = false;
+                console.log('You scrolled');
+            }
+        }, 100);
+    },
+    methods: {
+        handleScroll() {
+            this.didScroll = true;
+        }
+    },
     name: "app",
     components: {
         Banner,
@@ -48,10 +68,8 @@ body {
     #site {
         /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
         font-family: $fontMain;
-        // font-family: 'Roboto', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        /* color: #2c3e50; */
         color: $colorDark;
     }
     #main {

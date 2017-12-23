@@ -18,7 +18,8 @@
     "fs": "0.0.1-security",
     "require-dir": "^0.3.2",
     "scrollreveal": "^3.3.6",
-    "vue": "^2.5.2"
+    "vue": "^2.5.2",
+    "vue-scrollto": "^2.8.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

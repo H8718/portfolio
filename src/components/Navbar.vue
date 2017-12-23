@@ -66,7 +66,7 @@ export default {
             height: 6vh;
         }
         div {
-            font-family: "Questrial", sans-serif;
+            font-family: $fontBrand;
             font-size: 150%;
             font-weight: 700;
             font-variant: small-caps;
@@ -96,6 +96,7 @@ export default {
                 color: #555;
                 font-size: 115%;
                 font-weight: bold;
+                font-family: $fontBrand;
             }
         }
         .nav-item:hover {

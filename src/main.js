@@ -11,6 +11,21 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 
 import "./styles/master.scss";
 
+var VueScrollTo = require('vue-scrollto');
+// v-scroll-to="'#element'"
+
+Vue.use(VueScrollTo, {
+    container: "body",
+    duration: 500,
+    easing: "ease",
+    offset: 0,
+    cancelable: true,
+    onDone: false,
+    onCancel: false,
+    x: false,
+    y: true
+})
+
 Vue.config.productionTip = false;
 
 new Vue({

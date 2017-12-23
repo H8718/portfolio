@@ -59,9 +59,6 @@
 <script>
 import TopImage from "./TopImage";
 import BottomImage from "./BottomImage";
-import ScrollReveal from "scrollreveal";
-window.sr = ScrollReveal();
-sr.reveal("#banner");
 
 export default {
     mounted() {
