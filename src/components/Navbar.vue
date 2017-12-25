@@ -4,7 +4,6 @@
         type="light"
         toggleable="md"
         id="navbar"
-        class="center-content"
     >
         <b-navbar-brand
             id="brand"
@@ -25,12 +24,16 @@
             <i class="fa fa-bars" />
         </div>
 
-        <b-collapse id="collapse" visible>
-            <b-navbar-nav id="nav-list" class="center-content">
-                <b-nav-item href="#about">About me</b-nav-item>
-                <b-nav-item href="#projects">Projects</b-nav-item>
-                <b-nav-item href="#contact">Contact me</b-nav-item>
-            </b-navbar-nav>
+        <b-navbar-nav id="nav-list" class="center-content">
+            <b-nav-item href="#about">About me</b-nav-item>
+            <b-nav-item href="#projects">Projects</b-nav-item>
+            <b-nav-item href="#contact">Contact me</b-nav-item>
+        </b-navbar-nav>
+
+        <b-collapse id="collapse">
+            <b-nav-item href="#about">About me</b-nav-item>
+            <b-nav-item href="#projects">Projects</b-nav-item>
+            <b-nav-item href="#contact">Contact me</b-nav-item>
         </b-collapse>
 
     </b-navbar>
@@ -97,11 +100,11 @@ export default {
                 font-size: 115%;
                 font-weight: bold;
                 font-family: $fontBrand;
+                transition: color 0.7s;
             }
         }
         .nav-item:hover {
             a {
-                animation: changeColor 0.5s ease;
                 color: $colorMain;
             }
         }

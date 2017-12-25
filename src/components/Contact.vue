@@ -40,7 +40,8 @@
             <b-button
                 type="submit"
                 class="col-lg-2 col-md-4 form-field"
-                :variant="btnStatus"
+                id="submit-btn"
+                :class="{ 'btn-ready': btnReady }"
             >Send</b-button>
         </b-form>
     </section>
@@ -53,14 +54,14 @@ export default {
             name: null,
             contactMethod: null,
             message: null,
-            btnStatus: "disabled"
+            btnReady: false
         };
     },
     methods: {
         checkForm() {
             if (this.contactMethod && this.name && this.message) {
-                this.btnStatus = "primary";
-            } else this.btnStatus = "disabled";
+                this.btnReady = true;
+            } else this.btnReady = false;
         },
         submitForm() {}
     }
@@ -98,18 +99,16 @@ export default {
         textarea {
             overflow: hidden;
         }
-        .btn-disabled {
+        #submit-btn {
             border: 2px solid $colorLighter;
             color: $colorLight;
             box-shadow: none;
             background: none;
+            transition: border-color 1s, color 1s;
         }
-        .btn-primary {
-            animation: readyBtn 1s;
-            background: none;
-            box-shadow: none;
-            border: 2px solid $colorSecondary;
-            color: $colorSecondary;
+        .btn-ready {
+            border-color: $colorSecondary !important;
+            color: $colorSecondary !important;
         }
     }
 }

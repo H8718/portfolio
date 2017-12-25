@@ -8,8 +8,8 @@
         </div>
         <div class="center-content">
             <div
-                v-for="(project, index) in projects"
                 class="project-item"
+                v-for="(project, index) in projects"
                 data-scale="1.6"
                 :class="{ 'active': active == index }"
                 :key="index"
@@ -168,6 +168,7 @@ export default {
     color: $colorLighter;
     position: relative;
     overflow: hidden;
+    transition: width 1s, height 1s;
     .project-image {
         /* position: absolute; */
         top: 0;
@@ -203,15 +204,9 @@ export default {
             font-weight: 800;
         }
     }
-    /* .open-cover {
-        animation: openCover 0.7s;
-        animation-fill-mode: forwards;
-    } */
 }
 .project-item:hover {
     .cover {
-        /* animation: openCover 0.7s;
-        animation-fill-mode: forwards; */
         opacity: 1;
         height: 100%;
     }   
@@ -223,7 +218,9 @@ export default {
     transition: background-color 1000ms linear;
 }
 .active {
-    transform: scale(1.5, 2);
+    /* transform: scale(1.5, 2); */
+    width: 52vh;
+    height: 42vh;
 }
 .hovered {
     transform: scale(1.2);

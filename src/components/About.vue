@@ -147,10 +147,10 @@ export default {
             height: width;
             position: absolute;
             font-size: 350%;
+            transition: color 1s;
         }
         .contact-btn:hover {
-            animation: animateBtn 0.5s ease-out;
-            animation-fill-mode: forwards;
+            color: $colorSecondary;
         }
         #linkedin {
             left: 25.3%;
