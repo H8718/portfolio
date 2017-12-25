@@ -2,16 +2,6 @@
   <section class="container-fluid smoothScroll" id="about">
         <h2>Who am I?</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
-        <!-- <b-row>
-            <div id="left">
-                <img
-                    id="portrait"
-                    src="../assets/portrait.png"
-                />
-            </div>
-            <div id="right">
-            </div>
-        </b-row> -->
 
         <div id="blueprint">
             <div
@@ -26,12 +16,12 @@
             </div>
             <div class="part-name">This is me</div>
             <div class="line" id="line-1" />
-            <div class="contact-btn" id="linkedin">
+            <span class="contact-btn" id="linkedin">
                 <i class=" fa fa-linkedin-square" />
-            </div>
-            <div class="contact-btn" id="github">
+            </span>
+            <span class="contact-btn" id="github">
                 <i class="devicon-github-plain" />
-            </div>
+            </span>
 
             <div
                 class="blueprint-box"
@@ -113,7 +103,7 @@ export default {
 #about {
     background: #3949ab;
     color: $colorLight;
-    height: 85vh;
+    height: 90vh;
     padding-top: 10vh;
     .underline {
         border-color: $colorLighter;
@@ -144,7 +134,6 @@ export default {
             border: 0.5vh solid $colorLighter;
         }
         .contact-btn {
-            height: width;
             position: absolute;
             font-size: 350%;
             transition: color 1s;

@@ -24,16 +24,19 @@
             <i class="fa fa-bars" />
         </div>
 
-        <b-navbar-nav id="nav-list" class="center-content">
-            <b-nav-item href="#about">About me</b-nav-item>
-            <b-nav-item href="#projects">Projects</b-nav-item>
-            <b-nav-item href="#contact">Contact me</b-nav-item>
+        <b-navbar-nav 
+            id="nav-list" 
+            class="center-content"
+        >
+            <b-nav-item v-scroll-to="about">About me</b-nav-item>
+            <b-nav-item v-scroll-to="projects">Projects</b-nav-item>
+            <b-nav-item v-scroll-to="contact">Contact me</b-nav-item>
         </b-navbar-nav>
 
         <b-collapse id="collapse">
-            <b-nav-item href="#about">About me</b-nav-item>
-            <b-nav-item href="#projects">Projects</b-nav-item>
-            <b-nav-item href="#contact">Contact me</b-nav-item>
+            <div v-scroll-to="about">About me</div>
+            <div v-scroll-to="project">Projects</div>
+            <div v-scroll-to="contact">Contact me</div>
         </b-collapse>
 
     </b-navbar>
@@ -107,6 +110,18 @@ export default {
             a {
                 color: $colorMain;
             }
+        }
+    }
+    #collapse {
+        position: fixed;
+        right: 0;
+        top: 8vh;
+        display: flex;
+        flex-direction: column;
+        background: $colorLighter;
+        padding: 2vh 5vw 2vh 5vw;
+        div {
+            height: 8vh;
         }
     }
 }

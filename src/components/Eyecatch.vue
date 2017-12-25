@@ -1,6 +1,6 @@
 <template>
     <section id="eyecatch" class="container-fluid">
-        <b-row id="rowContent">
+        <b-row id="row-content">
             <b-col>
                 <i class="fa fa-codepen"></i>
                 <p class="eyecatch-header">Full-Stack Development</p>
@@ -45,7 +45,7 @@ export default {
 #eyecatch {
     width: 100%;
     background: $colorLight;
-    #rowContent {
+    #row-content {
         padding: 1vw 10vw 1vw 10vw;
         // CHeck mobile
         .col {
