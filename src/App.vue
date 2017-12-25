@@ -37,7 +37,7 @@ export default {
                 this.didScroll = false;
                 console.log('You scrolled');
             }
-        }, 100);
+        }, 500);
     },
     methods: {
         handleScroll() {

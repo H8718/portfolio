@@ -1,13 +1,25 @@
 <template>
-    <section id="projects" class="container-fluid">
+    <section id="skills" class="container-fluid">
         <h2>My Skills</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
             <p class="description">Here's a decent estimation of how well I understand different technologies.</p>
         </div>
 
-        <div class="center-content">
-
+        <div class="container">
+            <div 
+                v-for="(skill, index) in skills" 
+                :key="index"
+                class="skill-row"
+            >
+                <span class="skill-name">
+                    <i :class="skill.icon" /> {{ skill.name }}
+                </span>
+                <div 
+                    class="skill-bar" 
+                    :style="{ width: skill.level + '%' }"
+                ></div>
+            </div>
         </div>
 
     </section>
@@ -16,7 +28,24 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            skills: [
+                { name: "HTML", level: 90, icon: "" },
+                { name: "JavaScript", level: 85, icon: "" },
+                { name: "CSS + SASS", level: 80, icon: "" },
+                { name: "Vue", level: 80, icon: "" },
+                { name: "PHP", level: 75, icon: "" },
+                { name: "MySQL", level: 75, icon: "" },
+                { name: "Linux", level: 70, icon: "" },
+                { name: "React", level: 65, icon: "" },
+                { name: "WordPress", level: 60, icon: "" },
+                { name: "Photoshop", level: 50, icon: "" },
+                { name: "Blender", level: 55, icon: "" },
+                { name: "Illustrator", level: 40, icon: "" },
+                /* { name: "Java/C#", level: 40, icon: "" }, */
+                /* { name: "NodeJS", level: 40, icon: "" } */
+            ]
+        };
     }
 };
 </script>
@@ -24,7 +53,7 @@ export default {
 <style lang="scss">
 @import "../styles/variables.scss";
 
-#projects {
+#skills {
     /* background-color: $colorDark; */
     background-color: $colorLighter;
     -webkit-transition: background-color 1000ms linear;
@@ -34,82 +63,29 @@ export default {
     h2 {
         color: $colorDark;
     }
-    .center-content {
-        padding: 0 5vw 0vw 5vw;
+    .container {
         margin-top: 2vw;
-        .description {
-            font-size: 125%;
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        /* different screen widths */
+        .skill-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 1vh;
+            .skill-name {
+                position: relative;
+                width: 13%;
+            }
+            .skill-bar {
+                height: 2vh;
+                background: $colorMain;
+                position: relative;
+                width: 87%;
+                
+            }
         }
     }
-}
-.project-item {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-    width: 42vh;
-    height: 32vh;
-    background-size: cover !important;
-    color: $colorLighter;
-
-    position: relative;
-    overflow: hidden;
-
-    .project-image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        transition: transform 0.5s ease-out;
-    }
-    .cover {
-        background: rgba(255, 255, 255, 0.8);
-        position: absolute;
-        width: 100%;
-        height: 0;
-        color: $colorDark;
-        font-weight: 800;
-        text-align: center;
-        pointer-events: none;
-        opacity: 0;
-        .project-name {
-            margin-top: 10%;
-        }
-        .project-summary {
-            margin: 5% 10% 0 10%;
-        }
-        .project-btn {
-            margin-top: 10%;
-            pointer-events: auto;
-            width: 40%;
-            background: none;
-            border: 3px solid $colorDark;
-            color: $colorDark;
-            font-weight: 800;
-        }
-    }
-    .open-cover {
-        animation: openCover 0.7s;
-        animation-fill-mode: forwards;
-    }
-}
-.animate-bg {
-    background-color: $colorLight;
-    -webkit-transition: background-color 1000ms linear;
-    -ms-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear;
-}
-.active {
-    transform: scale(1.5, 2);
-}
-.hovered {
-    transform: scale(1.2);
-}
-.unhovered {
-    transform: scale(1);
 }
 </style>

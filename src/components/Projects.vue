@@ -17,15 +17,9 @@
             >
                 <div
                     class="project-image"
-                    :class="{ 'hovered': hovered == index, 'unhovered': !hovered == index }"
                     :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
-                    @mouseleave="toggleHover(-1)"
-                    v-on:mouseover="toggleHover(index)"
                 />
-                <div
-                    class="cover"
-                    :class="{ 'open-cover': hovered == index }"
-                >
+                <div class="cover">
                     <div class="project-name">{{project.name}}</div>
                     <div class="project-summary">{{project.summary}}</div>
                     <b-button
@@ -92,7 +86,6 @@ export default {
                     name: "3D Modeling",
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
-                    /* backdrop: require("../assets/projects/3D_Models/full.png"), */
                     folder: "3D_Models/",
                     backdrop: "full.png",
                     images: [
@@ -135,15 +128,12 @@ export default {
                 }
             ],
             active: null,
-            hovered: -1
+            /* hovered: -1 */
         };
     },
     methods: {
         toggleProjectInfo(index) {
             this.active = index;
-        },
-        toggleHover(index) {
-            this.hovered = index;
         }
     },
     components: { Tag }
@@ -175,22 +165,18 @@ export default {
     align-items: center;
     width: 42vh;
     height: 32vh;
-    background-size: cover !important;
     color: $colorLighter;
-
     position: relative;
     overflow: hidden;
-
     .project-image {
-        position: absolute;
+        /* position: absolute; */
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        transition: transform 0.5s ease-out;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        transition: transform 0.5s ease-out !important;
     }
     .cover {
         background: rgba(255, 255, 255, 0.8);
@@ -200,8 +186,8 @@ export default {
         color: $colorDark;
         font-weight: 800;
         text-align: center;
-        pointer-events: none;
         opacity: 0;
+        transition: opacity 0.6s, height 0.8s;
         .project-name {
             margin-top: 10%;
         }
@@ -210,7 +196,6 @@ export default {
         }
         .project-btn {
             margin-top: 10%;
-            pointer-events: auto;
             width: 40%;
             background: none;
             border: 3px solid $colorDark;
@@ -218,10 +203,18 @@ export default {
             font-weight: 800;
         }
     }
-    .open-cover {
+    /* .open-cover {
         animation: openCover 0.7s;
         animation-fill-mode: forwards;
-    }
+    } */
+}
+.project-item:hover {
+    .cover {
+        /* animation: openCover 0.7s;
+        animation-fill-mode: forwards; */
+        opacity: 1;
+        height: 100%;
+    }   
 }
 .animate-bg {
     background-color: $colorLight;
