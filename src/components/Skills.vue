@@ -18,7 +18,12 @@
                 <div 
                     class="skill-bar" 
                     :style="{ width: skill.level + '%' }"
-                ></div>
+                >
+                    <div 
+                        class="skill-bar-fill"
+                        :class="{ 'animate-fill': ready }"
+                    />
+                </div>
             </div>
         </div>
 
@@ -44,8 +49,14 @@ export default {
                 { name: "Illustrator", level: 40, icon: "" },
                 /* { name: "Java/C#", level: 40, icon: "" }, */
                 /* { name: "NodeJS", level: 40, icon: "" } */
-            ]
+            ],
+            ready: false
         };
+    },
+    created() {
+        setTimeout(() =>  {
+            this.ready = true;
+        },1000);        
     }
 };
 </script>
@@ -80,10 +91,18 @@ export default {
             }
             .skill-bar {
                 height: 2vh;
-                background: $colorMain;
                 position: relative;
                 width: 87%;
-                
+                .skill-bar-fill {
+                    background: $colorMain;
+                    height: 100%;
+                    position: relative;
+                    width: 0%;
+                    transition: width 1.5s;
+                }
+                .animate-fill {
+                    width: 100%;
+                }
             }
         }
     }

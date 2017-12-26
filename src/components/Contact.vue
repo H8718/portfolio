@@ -22,10 +22,10 @@
             <b-input
                 type="text"
                 class="col-lg-3 col-md-5 form-field"
-                placeholder="Contact method"
+                placeholder="Email"
                 required
-                v-model="contactMethod"
-                name="contact-method"
+                v-model="email"
+                name="email"
                 @input="checkForm()"
             />
             <b-textarea
@@ -52,14 +52,14 @@ export default {
     data() {
         return {
             name: null,
-            contactMethod: null,
+            email: null,
             message: null,
             btnReady: false
         };
     },
     methods: {
         checkForm() {
-            if (this.contactMethod && this.name && this.message) {
+            if (this.email && this.name && this.message) {
                 this.btnReady = true;
             } else this.btnReady = false;
         },

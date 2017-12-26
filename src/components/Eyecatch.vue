@@ -1,27 +1,27 @@
 <template>
     <section id="eyecatch" class="container-fluid">
         <b-row id="row-content">
-            <b-col>
+            <b-col :class="{ 'animate-show': ready[0] }">
                 <i class="fa fa-codepen"></i>
                 <p class="eyecatch-header">Full-Stack Development</p>
-                <p class="eyecatch-text">I understand front-end as well as back-end
-                    programming.</p>
+                <p class="eyecatch-text">I understand front-end and back-end
+                    programming as well as using databases.</p>
             </b-col>
-            <b-col>
+            <b-col :class="{ 'animate-show': ready[1] }">
                 <i class="devicon-javascript-plain"></i>
                 <p class="eyecatch-header">Everything JavaScript</p>
                 <p class="eyecatch-text">Whether I'm developing websites, web apps
                     or mobile apps, my language of choice is JavaScript. Usually VueJS.
                 </p>
             </b-col>
-            <b-col>
+            <b-col :class="{ 'animate-show': ready[2] }">
                 <i class="fa fa-cubes"></i>
                 <p class="eyecatch-header">Responsive Layouts</p>
                 <p class="eyecatch-text">I'm familiar with Bootstrap, Sass and flexbox
                     which I use to create intuitive and scaling layouts for both mobile
                     and web.</p>
             </b-col>
-            <b-col>
+            <b-col :class="{ 'animate-show': ready[3] }">
                 <i class="fa fa-group"></i>
                 <p class="eyecatch-header">Teamwork</p>
                 <p class="eyecatch-text">I speak fluent English and have experience in
@@ -34,7 +34,21 @@
 <script>
 export default {
     data() {
-        return {};
+        return {
+            ready: []
+        };
+    },
+    created() {
+        for (let i=0; i<4; i++) {
+            setTimeout(() => {
+                this.animateShow(i);
+            },400*i);
+        }
+    },
+    methods: {
+        animateShow(i) {
+            this.ready.push(true);
+        }
     }
 };
 </script>
@@ -47,10 +61,11 @@ export default {
     background: $colorLight;
     #row-content {
         padding: 1vw 10vw 1vw 10vw;
-        // CHeck mobile
         .col {
             display: flex;
             flex-direction: column;
+            opacity: 0;
+            transition: opacity 1s;
             i {
                 font-size: 700%;
                 color: $colorMain;
@@ -67,6 +82,9 @@ export default {
                 color: $colorMain;
                 font-size: 110%;
             }
+        }
+        .animate-show {
+            opacity: 1;
         }
     }
 }

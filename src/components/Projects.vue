@@ -16,16 +16,24 @@
                 :data-image="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
             >
                 <div
+                    v-if="active != index"
                     class="project-image"
                     :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
                 />
-                <div class="cover">
-                    <div class="project-name">{{project.name}}</div>
-                    <div class="project-summary">{{project.summary}}</div>
+                <div 
+                    class="cover"
+                    v-if="active != index"
+                >
+                    <div class="project-name">{{ project.name }}</div>
+                    <div class="project-summary">{{ project.summary }}</div>
                     <b-button
                         class="project-btn"
                         @mouseup="toggleProjectInfo(index)"
                     >Details</b-button>
+                </div>
+
+                <div class="details">
+                    <h3>{{ project.name }}</h3>
                 </div>
 
             </div>

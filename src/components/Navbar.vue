@@ -4,6 +4,7 @@
         type="light"
         toggleable="md"
         id="navbar"
+        class="horizontal-center"
     >
         <b-navbar-brand
             id="brand"
@@ -29,6 +30,7 @@
             class="center-content"
         >
             <b-nav-item v-scroll-to="about">About me</b-nav-item>
+            <div class="nav-top-border"></div>
             <b-nav-item v-scroll-to="projects">Projects</b-nav-item>
             <b-nav-item v-scroll-to="contact">Contact me</b-nav-item>
         </b-navbar-nav>
