@@ -1,5 +1,8 @@
 <template>
-    <section id="contact" class="container-fluid">
+    <section 
+        id="contact" 
+        class="container-fluid"
+    >
         <h2>Send me a message</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content">
@@ -54,8 +57,14 @@ export default {
             name: null,
             email: null,
             message: null,
-            btnReady: false
+            btnReady: false,
+            ready: false
         };
+    },
+    created() {
+        setTimeout(() => {
+            this.ready = true;
+        },1000);
     },
     methods: {
         checkForm() {
@@ -75,6 +84,8 @@ export default {
 
 #contact {
     background: $colorMain;
+    /* width: 0%;
+    transition: width 1.5s; */
     h2 {
         color: $colorLighter;
     }
@@ -112,4 +123,8 @@ export default {
         }
     }
 }
+/* .animate-bg {
+    width: 100% !important;
+    
+} */
 </style>

@@ -25,10 +25,12 @@ import Foot from "./components/Foot";
 
 export default {
     data() {
-        scrollAbout,
-        scrollEyecatch,
-        scrollProjects,
-        didScroll = false
+        return {
+            scrollAbout: null,
+            scrollEyecatch: null,
+            scrollProjects: null,
+            didScroll: null
+        }
     },
     created() {
         window.addEventListener('scroll', this.handleScroll);

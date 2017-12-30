@@ -1,5 +1,8 @@
 <template>
-  <section class="container-fluid smoothScroll" id="about">
+    <section 
+        class="container-fluid smoothScroll" 
+        id="about"
+    >
         <h2>Who am I?</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
 
@@ -16,11 +19,15 @@
             </div>
             <div class="part-name">This is me</div>
             <div class="line" id="line-1" />
+
             <span class="contact-btn" id="linkedin">
                 <i class=" fa fa-linkedin-square" />
             </span>
             <span class="contact-btn" id="github">
                 <i class="devicon-github-plain" />
+            </span>
+            <span class="contact-btn" id="cv">
+                <i class="fa fa-file" />
             </span>
 
             <div

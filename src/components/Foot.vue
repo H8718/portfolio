@@ -20,6 +20,7 @@ footer {
     justify-content: center;
     p {
         margin: 0;
+        padding: 0 7vw 0 7vw;
     }
 }
 </style>

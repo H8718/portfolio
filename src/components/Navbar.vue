@@ -29,16 +29,16 @@
             id="nav-list" 
             class="center-content"
         >
-            <b-nav-item v-scroll-to="about">About me</b-nav-item>
+            <b-nav-item v-scroll-to="'#about'">About me</b-nav-item>
             <div class="nav-top-border"></div>
-            <b-nav-item v-scroll-to="projects">Projects</b-nav-item>
-            <b-nav-item v-scroll-to="contact">Contact me</b-nav-item>
+            <b-nav-item v-scroll-to="'#projects'">Projects</b-nav-item>
+            <b-nav-item v-scroll-to="'#contact'">Contact me</b-nav-item>
         </b-navbar-nav>
 
         <b-collapse id="collapse">
-            <div v-scroll-to="about">About me</div>
-            <div v-scroll-to="project">Projects</div>
-            <div v-scroll-to="contact">Contact me</div>
+            <div v-scroll-to="'#about'">About me</div>
+            <div v-scroll-to="'#project'">Projects</div>
+            <div v-scroll-to="'#contact'">Contact me</div>
         </b-collapse>
 
     </b-navbar>
@@ -48,7 +48,7 @@
 export default {
     data() {
         return {
-            hover: 0
+            
         };
     }
 };
