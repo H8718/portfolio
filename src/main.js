@@ -12,7 +12,6 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "./styles/master.scss";
 
 var VueScrollTo = require('vue-scrollto');
-// v-scroll-to="'#element'"
 
 Vue.use(VueScrollTo, {
     container: "body",

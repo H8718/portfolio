@@ -5,6 +5,7 @@
         toggleable="md"
         id="navbar"
         class="horizontal-center"
+        :class="{ 'show-banner': loaded }"
     >
         <b-navbar-brand
             id="brand"
@@ -48,9 +49,14 @@
 export default {
     data() {
         return {
-            
+            loaded: false
         };
-    }
+    },
+    created() {
+        setTimeout(() => {
+            this.loaded = true;
+        }, 100);
+    }   
 };
 </script>
 
@@ -58,6 +64,8 @@ export default {
 @import "../styles/variables.scss";
 
 #navbar {
+    margin-top: -91vh;
+    transition: margin-top 1.5s;
     height: 8vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
@@ -126,5 +134,8 @@ export default {
             height: 8vh;
         }
     }
+}
+.show-banner {
+    margin-top: 0 !important;
 }
 </style>

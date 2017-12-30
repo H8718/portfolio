@@ -29,6 +29,9 @@
                 <b-col cols="12" class="color3"></b-col>
             </b-row>
         </div>
+
+        <div class="ground" />
+
     </div>
 </template>
 
@@ -60,6 +63,7 @@ $color4: #ff9800;
         align-self: center;
         border-radius: 5px 5px 0 0px;
         overflow: hidden;
+        
         .block-row {
             height: 14.5%;
         }
@@ -85,6 +89,29 @@ $color4: #ff9800;
         .transparent {
             background: transparent;
         }
+    }
+    .building:after {
+        background: inherit;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 50%;
+        left: 0;
+        position: absolute;
+        right: 0;
+        transform: skewY(-1.5deg);
+        transform-origin: 100%;
+        z-index: -1;
+    }
+    .ground {
+        position: absolute;
+        bottom: -22vh;
+        height: 38%;
+        width: 65%;
+        background: green;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+        border-radius: 100%;
     }
 }
 </style>

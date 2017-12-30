@@ -82,11 +82,13 @@
 export default {
     data() {
         return {
-            shown: []
+            shown: [],
+            unwatch: 
+                this.$watch("scrolled", function() {
+                    this.animateblueprint();
+                    this.unwatch();
+                })
         };
-    },
-    mounted() {
-        this.animateblueprint();
     },
     methods: {
         animateblueprint() {
@@ -100,7 +102,8 @@ export default {
                 this.shown.push(true);
             }, 1000 * i);
         }
-    }
+    },
+    props: ['scrolled']
 };
 </script>
 

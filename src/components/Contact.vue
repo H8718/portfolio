@@ -10,8 +10,9 @@
         </div>
         <b-form
             id="contact-form"
-            action="https://formspree.io/moilamar@protonmail.com"
+            
             method="POST"
+            @submit.prevent="submitForm()"
         >
             <b-input
                 type="text"
@@ -51,6 +52,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     data() {
         return {
@@ -72,7 +75,19 @@ export default {
                 this.btnReady = true;
             } else this.btnReady = false;
         },
-        submitForm() {}
+        submitForm() {
+            axios.post('https://formspree.io/moilamar@protonmail.com', {
+                name: this.name,
+                email: this.email,
+                message: this.message
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
     }
 };
 </script>

@@ -3,7 +3,7 @@
         <Banner />
         <div id="main">
             <Navbar />
-            <About  />
+            <About :scrolled="{ true: scrollPos >= 200 }" />
             <Eyecatch />
             <Projects />
             <Skills />
@@ -29,7 +29,8 @@ export default {
             scrollAbout: null,
             scrollEyecatch: null,
             scrollProjects: null,
-            didScroll: null
+            didScroll: null,
+            scrollPos: 0
         }
     },
     created() {
@@ -37,7 +38,7 @@ export default {
         setInterval(() => {
             if (this.didScroll) {
                 this.didScroll = false;
-                console.log('You scrolled');
+                this.scrollPos = window.scrollY;
             }
         }, 500);
     },

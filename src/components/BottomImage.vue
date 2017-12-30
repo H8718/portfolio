@@ -1,5 +1,12 @@
 <template>
-    <div class="bottom-container" v-on:mousemove="mouseMove()">
+    <div 
+        class="bottom-container" 
+        v-on:mousemove="mouseMove()"
+    >
+
+        <i class="devicon-react-original" />
+        <i class="devicon-react-original" />
+
         <div class="building">
             <b-row class="block-row">
                 <b-col cols="12" class=""></b-col>
@@ -25,13 +32,17 @@
             </b-row>
             <b-row class="block-row">
                 <b-col cols="5"></b-col>
-                <b-col cols="2"><i class="devicon-react-original-wordmark" /></b-col>
+                <!-- <b-col cols="2"><i class="devicon-react-original-wordmark" /></b-col> -->
                 <b-col cols="5" class=""></b-col>
             </b-row>
             <b-row class="block-row">
                 <b-col cols="12" class=""></b-col>
-            </b-row>
+            </b-row>           
+
         </div>
+
+        <div class="ground" />
+
     </div>
 </template>
 
@@ -64,6 +75,9 @@ $borderColor: #444;
     display: flex;
     justify-content: center;
     color: $borderColor;
+    i {
+        font-size: 500%;
+    }
     .building {
         width: 30%;
         height: 70%;
@@ -76,9 +90,7 @@ $borderColor: #444;
         border: 0.8vh solid $borderColor;
         .block-row {
             height: 14.5%;
-            div i {
-                font-size: 500%;
-            }
+            
         }
         .border-top {
             border-top: 0.8vh solid $borderColor;
@@ -92,6 +104,17 @@ $borderColor: #444;
         .border-right {
             border-right: 0.8vh solid $borderColor;
         }
+    }
+    .ground {
+        position: absolute;
+        bottom: -22vh;
+        height: 38%;
+        width: 65%;
+        border-top-left-radius: 100%;
+        border-top-right-radius: 100%;
+        border-radius: 100%;
+        border: 0.8vh solid $borderColor;
+        background: $colorDark;
     }
 }
 .radius-tr {
