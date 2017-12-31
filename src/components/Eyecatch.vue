@@ -35,21 +35,29 @@
 export default {
     data() {
         return {
-            ready: []
+            ready: [],
+            unwatch: 
+                this.$watch("scrolled", function() {
+                    if (this.scrolled === true) {
+                        this.unwatch();
+                        this.startAnimation();
+                    } 
+                })
         };
     },
-    created() {
-        for (let i=0; i<4; i++) {
-            setTimeout(() => {
-                this.animateShow(i);
-            },400*i);
-        }
-    },
     methods: {
-        animateShow(i) {
+        startAnimation() {
+            for (var i=0; i<4; i++) {
+                setTimeout(() => {
+                    this.animateShow();
+                },400*i);
+            }
+        },
+        animateShow() {
             this.ready.push(true);
         }
-    }
+    },
+    props: ['scrolled']
 };
 </script>
 

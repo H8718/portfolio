@@ -3,10 +3,10 @@
         <Banner />
         <div id="main">
             <Navbar />
-            <About :scrolled="{ true: scrollPos >= 200 }" />
-            <Eyecatch />
+            <About :scrolled="scrollAbout === true" />
+            <Eyecatch :scrolled="scrollEyecatch === true" />
             <Projects />
-            <Skills />
+            <Skills :scrolled="scrollSkills === true" />
             <Contact />
             <Foot />
         </div>
@@ -26,21 +26,35 @@ import Foot from "./components/Foot";
 export default {
     data() {
         return {
-            scrollAbout: null,
-            scrollEyecatch: null,
-            scrollProjects: null,
-            didScroll: null,
-            scrollPos: 0
+            scrollAbout: false,
+            scrollEyecatch: false,
+            scrollSkills: false,
+            didScroll: false
         }
     },
     created() {
         window.addEventListener('scroll', this.handleScroll);
-        setInterval(() => {
+        let scrollInterval = setInterval(() => {
             if (this.didScroll) {
-                this.didScroll = false;
-                this.scrollPos = window.scrollY;
+                if (window.scrollY >= 2700) {
+                     window.removeEventListener('scroll', this.handleScroll);
+                    this.scrollSkills = true;
+                    clearInterval(scrollInterval);
+                    this.didScroll = false;
+                    return;
+                }
+                else if (window.scrollY >= 950) {
+                    this.scrollEyecatch = true;
+                    this.didScroll = false;
+                    return;
+                }
+                else if (window.scrollY > 200) {
+                    this.scrollAbout = true;
+                    this.didScroll = false;
+                    return;
+                }
             }
-        }, 500);
+        }, 800);
     },
     methods: {
         handleScroll() {

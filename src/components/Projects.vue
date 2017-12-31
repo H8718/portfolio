@@ -214,16 +214,13 @@ export default {
     }
 }
 .project-item:hover {
+    .project-image {
+        transform: scale(1.2);
+    }
     .cover {
         opacity: 1;
         height: 100%;
     }   
-}
-.animate-bg {
-    background-color: $colorLight;
-    -webkit-transition: background-color 1000ms linear;
-    -ms-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear;
 }
 .active {
     /* transform: scale(1.5, 2); */

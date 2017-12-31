@@ -50,14 +50,17 @@ export default {
                 /* { name: "Java/C#", level: 40, icon: "" }, */
                 /* { name: "NodeJS", level: 40, icon: "" } */
             ],
-            ready: false
+            ready: false,
+            unwatch: 
+                this.$watch("scrolled", function() {
+                    if (this.scrolled === true) {
+                        this.unwatch();
+                        this.ready = true;
+                    }
+                })
         };
     },
-    created() {
-        setTimeout(() =>  {
-            this.ready = true;
-        },1000);        
-    }
+    props: ['scrolled']
 };
 </script>
 

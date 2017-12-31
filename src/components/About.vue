@@ -85,8 +85,10 @@ export default {
             shown: [],
             unwatch: 
                 this.$watch("scrolled", function() {
-                    this.animateblueprint();
-                    this.unwatch();
+                    if (this.scrolled === true) {
+                        this.unwatch();
+                        this.animateblueprint();
+                    }
                 })
         };
     },
@@ -95,7 +97,6 @@ export default {
             for (let i = 0; i < 5; i++) {
                 this.doAnimation(i);
             }
-            console.log(this.shown);
         },
         doAnimation(i) {
             setTimeout(() => {
@@ -153,11 +154,16 @@ export default {
         }
         #linkedin {
             left: 25.3%;
-            top: 11.5%;
+            top: 12%;
         }
         #github {
             left: 25%;
-            top: 14.2%;
+            top: 10%;
+        }
+        #cv {
+            left: 25.4%;
+            top: 14.4%;
+            font-size: 310%;
         }
         .show {
             -webkit-transition: opacity 2s ease;

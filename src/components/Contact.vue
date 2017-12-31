@@ -10,7 +10,6 @@
         </div>
         <b-form
             id="contact-form"
-            
             method="POST"
             @submit.prevent="submitForm()"
         >
@@ -101,6 +100,8 @@ export default {
     background: $colorMain;
     /* width: 0%;
     transition: width 1.5s; */
+    padding-top: 0;
+    margin-top: 0;
     h2 {
         color: $colorLighter;
     }
@@ -137,6 +138,17 @@ export default {
             color: $colorSecondary !important;
         }
     }
+}
+#contact:before {
+    background: inherit;
+        content: '';
+        display: inline-block;
+        height: 10vh;
+        width: 104.9vw;
+        position: relative;
+        transform: skewY(1.5deg);
+        transform-origin: 100%;
+        margin-left: -10vw;
 }
 /* .animate-bg {
     width: 100% !important;
