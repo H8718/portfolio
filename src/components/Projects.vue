@@ -199,7 +199,7 @@ export default {
     color: $colorLighter;
     position: absolute;
     overflow: hidden;
-    transition: width 1s, height 1s;
+    transition: width 1s, height 1s, left 1s, top 1s;
     .project-image {
         /* position: absolute; */
         top: 0;
@@ -250,6 +250,7 @@ export default {
     height: 70vh;
     background: $colorMain;
     left: 0 !important;
+    top: 0 !important;
 }
 .inactive {
     background: $colorSecondary !important;
