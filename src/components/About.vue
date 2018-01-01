@@ -22,6 +22,7 @@
 
             <span class="contact-btn" id="linkedin">
                 <i class=" fa fa-linkedin-square" />
+                <!-- text -->
             </span>
             <span class="contact-btn" id="github">
                 <i class="devicon-github-plain" />

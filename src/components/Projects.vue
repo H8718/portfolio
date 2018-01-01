@@ -11,9 +11,10 @@
                 class="project-item"
                 v-for="(project, index) in projects"
                 data-scale="1.6"
-                :class="{ 'active': active == index }"
+                :class="{ 'active': active == index, 'inactive': Number.isInteger(active) && active != index }"
                 :key="index"
                 :data-image="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
+                @mouseup="toggleProjectInfo(index)"
             >
                 <div
                     v-if="active != index"
@@ -154,9 +155,6 @@ export default {
 #projects {
     /* background-color: $colorDark; */
     background-color: $colorLighter;
-    -webkit-transition: background-color 1000ms linear;
-    -ms-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear;
     padding-bottom: 6vw;
     h2 {
         color: $colorDark;
@@ -164,6 +162,31 @@ export default {
     .center-content {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: flex-start;
+        div:nth-child(1) {
+            left: 0;
+        }
+        div:nth-child(2) {
+            left: 42vh;
+        }
+        div:nth-child(3) {
+            left: 82vh;
+        }
+        div:nth-child(4) {
+            top: 32vh;
+            left: 0;
+        }
+        div:nth-child(5) {
+            top: 32vh;
+            left: 42vh;
+        }
+        div:nth-child(6) {
+            top: 32vh;
+            left: 82vh;
+        }
     }
 }
 .project-item {
@@ -174,7 +197,7 @@ export default {
     width: 42vh;
     height: 32vh;
     color: $colorLighter;
-    position: relative;
+    position: absolute;
     overflow: hidden;
     transition: width 1s, height 1s;
     .project-image {
@@ -223,9 +246,14 @@ export default {
     }   
 }
 .active {
-    /* transform: scale(1.5, 2); */
-    width: 52vh;
-    height: 42vh;
+    width: 55%;
+    height: 70vh;
+    background: $colorMain;
+    left: 0 !important;
+}
+.inactive {
+    background: $colorSecondary !important;
+    left: 55% !important;
 }
 .hovered {
     transform: scale(1.2);
