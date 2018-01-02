@@ -6,6 +6,7 @@
         width: 4vh;
     }
 }
+
 .center-content {
     display: flex;
     flex-direction: row;
@@ -13,6 +14,7 @@
     justify-content: center;
     align-items: center;
 }
+
 h2 {
     text-align: center;
     font-family: $fontSecondary;
@@ -23,9 +25,11 @@ h2 {
     padding-bottom: 0.5vh;
     -webkit-font-smoothing: antialiased;
 }
+
 .container-fluid {
     padding: 4vw 4vw 4vw 4vw;
 }
+
 .description {
     font-size: 125%;
 }

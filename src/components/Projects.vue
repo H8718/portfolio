@@ -6,7 +6,7 @@
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
-        <div class="center-content">
+        <div class="center-content col-md-8 offset-md-2">
             <div
                 class="project-item"
                 v-for="(project, index) in projects"
@@ -21,7 +21,7 @@
                     class="project-image"
                     :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
                 />
-                <div 
+                <div
                     class="cover"
                     v-if="active != index"
                 >
@@ -136,7 +136,7 @@ export default {
                     ]
                 }
             ],
-            active: null,
+            active: null
             /* hovered: -1 */
         };
     },
@@ -156,16 +156,17 @@ export default {
     /* background-color: $colorDark; */
     background-color: $colorLighter;
     padding-bottom: 6vw;
+    height: 100vh;
     h2 {
         color: $colorDark;
     }
     .center-content {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
-        position: relative;
-        width: 100%;
+        position: relative !important;
         display: flex;
         align-items: flex-start;
+
         div:nth-child(1) {
             left: 0;
         }
@@ -186,6 +187,21 @@ export default {
         div:nth-child(6) {
             top: 32vh;
             left: 82vh;
+        }
+        div.inactive:nth-child(1) {
+            top: 0;
+        }
+        div.inactive:nth-child(2) {
+            top: 18vh;
+        }
+        div.inactive:nth-child(3) {
+            top: 36vh;
+        }
+        div.inactive:nth-child(4) {
+            top: 54vh;
+        }
+        div.inactive:nth-child(5) {
+            top: 72vh;
         }
     }
 }
@@ -243,18 +259,20 @@ export default {
     .cover {
         opacity: 1;
         height: 100%;
-    }   
+    }
 }
 .active {
-    width: 55%;
-    height: 70vh;
+    width: 70%;
+    height: 65vh;
     background: $colorMain;
     left: 0 !important;
     top: 0 !important;
 }
 .inactive {
     background: $colorSecondary !important;
-    left: 55% !important;
+    left: 70% !important;
+    width: 30%;
+    height: 26vh;
 }
 .hovered {
     transform: scale(1.2);
