@@ -6,12 +6,12 @@
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
-        <div class="center-content">
+        <div class="center-content col-md-10 offset-md-1">
             <div
                 class="project-item"
                 v-for="(project, index) in projects"
                 data-scale="1.6"
-                :class="{ 'active': active == index }"
+                :class="{ 'active': active == index, 'inactive': active != index && Number.isInteger(active) }"
                 :key="index"
                 :data-image="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
             >
@@ -20,12 +20,20 @@
                     class="project-image"
                     :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
                 />
-                <div 
+                <div
                     class="cover"
                     v-if="active != index"
                 >
                     <div class="project-name">{{ project.name }}</div>
-                    <div class="project-summary">{{ project.summary }}</div>
+                    <div class="project-tags">
+                        <Tag
+                            v-for="(tag, index) in project.tags"
+                            :key="index"
+                            :icon="tag[0]"
+                            :text="tag[1]"
+                            :color="tag[2]"
+                        />
+                        </div>
                     <b-button
                         class="project-btn"
                         @mouseup="toggleProjectInfo(index)"
@@ -57,9 +65,9 @@ export default {
                     images: [],
                     gitLink: "https://github.com/moilamar/portfolio",
                     tags: [
-                        ["devicon-vuejs-plain colored", "VueJS"],
-                        ["devicon-bootstrap-plain colored", "Bootstrap"],
-                        ["devicon-sass-original colored", "Sass"]
+                        ["devicon-vuejs-plain", "VueJS", "#41B883"],
+                        ["devicon-bootstrap-plain", "Bootstrap", "#62488A"],
+                        ["devicon-sass-original", "Sass", "#CF649A"]
                     ]
                 },
                 {
@@ -71,14 +79,14 @@ export default {
                     images: [],
                     gitLink: "",
                     tags: [
-                        ["devicon-vuejs-plain colored", "VueJS"],
-                        ["devicon-sass-original colored", "Sass"],
-                        ["devicon-android-plain colored", "Mobile/Hybrid"],
-                        ["devicon-devicon-plain", "Onsen UI"]
+                        ["devicon-vuejs-plain", "VueJS", "#41B883"],
+                        ["devicon-sass-original", "Sass", "#CF649A"],
+                        ["devicon-android-plain", "Mobile", "#A4CA39"],
+                        ["devicon-devicon-plain", "Onsen UI", "#E7372F"]
                     ]
                 },
                 {
-                    name: "Mesiäinen Hunaja",
+                    name: "Mesiäinen E-Commerce",
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Mesiainen_Wordpress/",
@@ -86,8 +94,8 @@ export default {
                     images: [],
                     gitLink: "https://github.com/moilamar/film-app-mobile",
                     tags: [
-                        ["devicon-wordpress-plain colored", "Wordpress"],
-                        ["devicon-php-plain colored", "PHP"]
+                        ["devicon-wordpress-plain", "Wordpress", "#666699"],
+                        ["devicon-php-plain", "PHP", "#666699"]
                     ]
                 },
                 {
@@ -104,7 +112,7 @@ export default {
                         "textures.png"
                     ],
                     gitLink: "https://github.com/Moilamar/3d-models",
-                    tags: [["devicon-devicon-plain", "Blender"]]
+                    tags: [["devicon-devicon-plain", "Blender", "#EA8E33"]]
                 },
                 {
                     name: "E-Commerce Admin Page",
@@ -115,10 +123,9 @@ export default {
                     images: [],
                     gitLink: "",
                     tags: [
-                        ["devicon-mysql-plain colored", "MySQL"],
-                        ["devicon-php-plain colored", "PHP"],
-                        ["devicon-react-original colored", "React"],
-                        ["devicon-devicon-plain", "Material-UI"]
+                        ["devicon-mysql-plain", "MySQL", "#00618A"],
+                        ["devicon-php-plain", "PHP", "#666699"],
+                        ["devicon-react-original", "React", "#00D8FF"]
                     ]
                 },
                 {
@@ -130,12 +137,12 @@ export default {
                     images: [],
                     gitLink: "",
                     tags: [
-                        ["devicon-react-original colored", "React-Native"],
-                        ["devicon-android-plain colored", "Mobile"]
+                        ["devicon-react-original", "React-Native", "#00D8FF"],
+                        ["devicon-android-plain", "Mobile", "#A4CA39"]
                     ]
                 }
             ],
-            active: null,
+            active: null
             /* hovered: -1 */
         };
     },
@@ -158,12 +165,14 @@ export default {
     -ms-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear;
     padding-bottom: 6vw;
+    height: 110vh;
     h2 {
         color: $colorDark;
     }
     .center-content {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
+        position: relative;
     }
 }
 .project-item {
@@ -174,9 +183,10 @@ export default {
     width: 42vh;
     height: 32vh;
     color: $colorLighter;
-    position: relative;
+    position: absolute;
     overflow: hidden;
-    transition: width 1s, height 1s;
+    transition: width 1s, height 1s, top 1s, left 1s;
+
     .project-image {
         /* position: absolute; */
         top: 0;
@@ -220,12 +230,67 @@ export default {
     .cover {
         opacity: 1;
         height: 100%;
-    }   
+    }
+}
+.project-item:nth-child(1) {
+    left: 0;
+    top: 0;
+}
+.project-item:nth-child(2) {
+    left: 42vh;
+    top: 0;
+}
+.project-item:nth-child(3) {
+    left: 84vh;
+    top: 0;
+}
+.project-item:nth-child(4) {
+    left: 0;
+    top: 32vh;
+}
+.project-item:nth-child(5) {
+    left: 42vh;
+    top: 32vh;
+}
+.project-item:nth-child(6) {
+    left: 84vh;
+    top: 32vh;
 }
 .active {
-    /* transform: scale(1.5, 2); */
-    width: 52vh;
-    height: 42vh;
+    width: 100%;
+    height: 60vh;
+    background: $colorMain;
+    left: 0 !important;
+    top: 0 !important;
+}
+.inactive {
+    width: 16.66%;
+    height: 17vh;
+    top: 60vh !important;
+    .cover {
+        .project-tags {
+            display: none;
+        }
+    }
+    /* transform: translateY(20vh); */
+}
+.inactive:nth-of-type(1) {
+    left: 0 !important;
+}
+.inactive:nth-of-type(2) {
+    left: 16.666% !important;
+}
+.inactive:nth-of-type(3) {
+    left: 33.33% !important;
+}
+.inactive:nth-of-type(4) {
+    left: 50% !important;
+}
+.inactive:nth-of-type(5) {
+    left: 66.66% !important;
+}
+.inactive:nth-of-type(6) {
+    left: 83.33% !important;
 }
 .hovered {
     transform: scale(1.2);

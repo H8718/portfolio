@@ -1,9 +1,9 @@
 <template>
     <div
         class="tag"
-        :style="{ background: color  }"
+        :style="{ background: color }"
     >
-        <i :class="icon"></i>
+        <i :class="icon" style="color:white;"></i>
         {{ text }}
     </div>
 </template>
@@ -21,8 +21,9 @@ $colorDark: #222;
 
 .tag {
     width: 9vw;
-    height: 3vw;
+    height: 2.3vw;
     border-radius: 3vw;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 2px 2px 2px $colorDark;
+    color: white;
 }
 </style>
