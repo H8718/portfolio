@@ -48,8 +48,8 @@ export default {
 
 $color1: #3f51b5;
 $color2: #2196f3;
-$color3: #ff9800;
-$color4: #ff9800;
+$color3: #ffda89;
+$color4: #A5D6A7;
 
 .banner-container {
     display: flex;
@@ -57,13 +57,13 @@ $color4: #ff9800;
     .building {
         /* background: $colorMain; */
         width: 30%;
-        height: 70%;
+        height: 80%;
         position: absolute;
         bottom: 0;
         align-self: center;
         border-radius: 5px 5px 0 0px;
         overflow: hidden;
-        
+
         .block-row {
             height: 14.5%;
         }
@@ -108,7 +108,7 @@ $color4: #ff9800;
         bottom: -22vh;
         height: 38%;
         width: 65%;
-        background: green;
+        background: $color4;
         border-top-left-radius: 100%;
         border-top-right-radius: 100%;
         border-radius: 100%;

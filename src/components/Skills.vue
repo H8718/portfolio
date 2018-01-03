@@ -35,20 +35,18 @@ export default {
     data() {
         return {
             skills: [
-                { name: "HTML", level: 90, icon: "" },
-                { name: "JavaScript", level: 85, icon: "" },
-                { name: "CSS + SASS", level: 80, icon: "" },
-                { name: "Vue", level: 80, icon: "" },
-                { name: "PHP", level: 75, icon: "" },
-                { name: "MySQL", level: 75, icon: "" },
-                { name: "Linux", level: 70, icon: "" },
-                { name: "React", level: 65, icon: "" },
-                { name: "WordPress", level: 60, icon: "" },
-                { name: "Photoshop", level: 50, icon: "" },
-                { name: "Blender", level: 55, icon: "" },
-                { name: "Illustrator", level: 40, icon: "" },
-                /* { name: "Java/C#", level: 40, icon: "" }, */
-                /* { name: "NodeJS", level: 40, icon: "" } */
+                { name: "HTML", level: 85, icon: "" },
+                { name: "JavaScript", level: 80, icon: "" },
+                { name: "CSS + SASS", level: 75, icon: "" },
+                { name: "Vue", level: 75, icon: "" },
+                { name: "PHP", level: 70, icon: "" },
+                { name: "MySQL", level: 70, icon: "" },
+                { name: "Linux", level: 65, icon: "" },
+                { name: "React", level: 60, icon: "" },
+                { name: "WordPress", level: 55, icon: "" },
+                { name: "Photoshop", level: 45, icon: "" },
+                { name: "Blender", level: 40, icon: "" },
+                { name: "Illustrator", level: 35, icon: "" }
             ],
             ready: false,
             unwatch:

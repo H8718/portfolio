@@ -1,6 +1,6 @@
 <template>
-    <div 
-        class="bottom-container" 
+    <div
+        class="bottom-container"
         v-on:mousemove="mouseMove()"
     >
 
@@ -37,7 +37,7 @@
             </b-row>
             <b-row class="block-row">
                 <b-col cols="12" class=""></b-col>
-            </b-row>           
+            </b-row>
 
         </div>
 
@@ -80,7 +80,7 @@ $borderColor: #444;
     }
     .building {
         width: 30%;
-        height: 70%;
+        height: 80%;
         position: absolute;
         bottom: 0;
         align-self: center;
@@ -90,7 +90,7 @@ $borderColor: #444;
         border: 0.8vh solid $borderColor;
         .block-row {
             height: 14.5%;
-            
+
         }
         .border-top {
             border-top: 0.8vh solid $borderColor;
