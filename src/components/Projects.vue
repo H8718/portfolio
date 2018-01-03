@@ -81,8 +81,7 @@ export default {
                     tags: [
                         ["devicon-vuejs-plain", "VueJS", "#41B883"],
                         ["devicon-sass-original", "Sass", "#CF649A"],
-                        ["devicon-android-plain", "Mobile", "#A4CA39"],
-                        ["devicon-devicon-plain", "Onsen UI", "#E7372F"]
+                        ["devicon-android-plain", "Mobile", "#A4CA39"]
                     ]
                 },
                 {
@@ -90,11 +89,11 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Mesiainen_Wordpress/",
-                    backdrop: "/mesishop.png",
+                    backdrop: "/main.png",
                     images: [],
                     gitLink: "https://github.com/moilamar/film-app-mobile",
                     tags: [
-                        ["devicon-wordpress-plain", "Wordpress", "#666699"],
+                        ["devicon-wordpress-plain", "Wordpress", "#21759B"],
                         ["devicon-php-plain", "PHP", "#666699"]
                     ]
                 },
@@ -119,7 +118,7 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Black_Banana_Admin/",
-                    backdrop: "bb.jpg",
+                    backdrop: "bb2.png",
                     images: [],
                     gitLink: "",
                     tags: [
@@ -129,15 +128,15 @@ export default {
                     ]
                 },
                 {
-                    name: "Music_Notebook",
+                    name: "Music Notebook",
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Music_Notebook/",
-                    backdrop: "logo.jpg",
+                    backdrop: "logo.png",
                     images: [],
                     gitLink: "",
                     tags: [
-                        ["devicon-react-original", "React-Native", "#00D8FF"],
+                        ["devicon-react-original", "React", "#00D8FF"],
                         ["devicon-android-plain", "Mobile", "#A4CA39"]
                     ]
                 }
@@ -195,6 +194,7 @@ export default {
         height: 100%;
         background-position: center center !important;
         background-repeat: no-repeat !important;
+        background-size: cover !important;
         transition: transform 0.5s ease-out !important;
     }
     .cover {
@@ -210,8 +210,12 @@ export default {
         .project-name {
             margin-top: 10%;
         }
-        .project-summary {
-            margin: 5% 10% 0 10%;
+        .project-tags {
+            margin: 5% 0% 0 0%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
         }
         .project-btn {
             margin-top: 10%;

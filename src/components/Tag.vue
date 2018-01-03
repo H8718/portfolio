@@ -4,7 +4,7 @@
         :style="{ background: color }"
     >
         <i :class="icon" style="color:white;"></i>
-        {{ text }}
+        <span>{{ text }}</span>
     </div>
 </template>
 
@@ -15,15 +15,27 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #f9aa39;
-$colorLight: #fff;
-$colorDark: #222;
+@import "../styles/variables.scss";
 
 .tag {
-    width: 9vw;
-    height: 2.3vw;
+    min-width: 20%;
+    width: auto;
+    margin-right: 2%;
+    height: 2.2vw;
     border-radius: 3vw;
-    box-shadow: 2px 2px 2px $colorDark;
+    box-shadow: 2px 2px 2px #444;
     color: white;
+    display: flex;
+    align-items: center;
+    padding-right: 5%;
+    i {
+        font-size: 150%;
+        margin-left: 10%;
+    }
+    span {
+        text-align: initial;
+        margin-left: 5%;
+        padding-right: 10%;
+    }
 }
 </style>
