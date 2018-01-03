@@ -20,7 +20,7 @@ export default {
 .tag {
     min-width: 20%;
     width: auto;
-    margin-right: 2%;
+    margin-right: 3%;
     height: 2.2vw;
     border-radius: 3vw;
     box-shadow: 2px 2px 2px #444;

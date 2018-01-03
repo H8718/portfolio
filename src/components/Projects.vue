@@ -6,19 +6,18 @@
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
-        <div class="center-content col-md-10 offset-md-1">
+        <div class="project-container col-md-10 offset-1" v-if="!active">
             <div
                 class="project-item"
                 v-for="(project, index) in projects"
                 data-scale="1.6"
                 :class="{ 'active': active == index, 'inactive': active != index && Number.isInteger(active) }"
                 :key="index"
-                :data-image="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
             >
                 <div
                     v-if="active != index"
                     class="project-image"
-                    :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
+                    :style="{ background: 'url(/static/projects/'+project.folder+'main.png)' }"
                 />
                 <div
                     class="cover"
@@ -40,10 +39,37 @@
                     >Details</b-button>
                 </div>
 
-                <div class="details">
-                    <h3>{{ project.name }}</h3>
+            </div>
+        </div>
+        <div v-if="active" class="project-info-container col-md-8 offset-2">
+            <div class="project-info">
+                <div class="project-name">{{ projects[active].name }}</div>
+            </div>
+            <div class="inactive-list">
+                <div
+                    class="project-item"
+                    v-for="(project, index) in projects"
+                    v-if="active != index"
+                    data-scale="1.6"
+                    :class="{ 'active': active == index, 'inactive': active != index && Number.isInteger(active) }"
+                    :key="index"
+                >
+                    <div
+                        v-if="active != index"
+                        class="project-image"
+                        :style="{ background: 'url(/static/projects/'+project.folder+'main.png)' }"
+                    />
+                    <div
+                        class="cover"
+                        v-if="active != index"
+                    >
+                        <div class="project-name">{{ project.name }}</div>
+                        <b-button
+                            class="project-btn"
+                            @mouseup="toggleProjectInfo(index)"
+                        >Details</b-button>
+                    </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -61,7 +87,6 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Portfolio/",
-                    backdrop: "logo.png",
                     images: [],
                     gitLink: "https://github.com/moilamar/portfolio",
                     tags: [
@@ -75,7 +100,6 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "My_Movie_List/",
-                    backdrop: "mml.png",
                     images: [],
                     gitLink: "",
                     tags: [
@@ -89,7 +113,6 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Mesiainen_Wordpress/",
-                    backdrop: "/main.png",
                     images: [],
                     gitLink: "https://github.com/moilamar/film-app-mobile",
                     tags: [
@@ -102,7 +125,6 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "3D_Models/",
-                    backdrop: "full.png",
                     images: [
                         "back_of_audience.png",
                         "behind_piano.png",
@@ -118,7 +140,6 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Black_Banana_Admin/",
-                    backdrop: "bb2.png",
                     images: [],
                     gitLink: "",
                     tags: [
@@ -132,7 +153,6 @@ export default {
                     summary:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Music_Notebook/",
-                    backdrop: "logo.png",
                     images: [],
                     gitLink: "",
                     tags: [
@@ -142,7 +162,6 @@ export default {
                 }
             ],
             active: null
-            /* hovered: -1 */
         };
     },
     methods: {
@@ -160,18 +179,21 @@ export default {
 #projects {
     /* background-color: $colorDark; */
     background-color: $colorLighter;
-    -webkit-transition: background-color 1000ms linear;
-    -ms-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear;
-    padding-bottom: 6vw;
-    height: 110vh;
+    height: auto;
     h2 {
         color: $colorDark;
     }
     .center-content {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
-        position: relative;
+    }
+    .project-container {
+        position: relative !important;
+        margin-top: 2vw;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 }
 .project-item {
@@ -182,12 +204,12 @@ export default {
     width: 42vh;
     height: 32vh;
     color: $colorLighter;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     transition: width 1s, height 1s, top 1s, left 1s;
 
     .project-image {
-        /* position: absolute; */
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
@@ -198,7 +220,7 @@ export default {
         transition: transform 0.5s ease-out !important;
     }
     .cover {
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 0.85);
         position: absolute;
         width: 100%;
         height: 0;
@@ -211,19 +233,42 @@ export default {
             margin-top: 10%;
         }
         .project-tags {
-            margin: 5% 0% 0 0%;
+            margin: 7% 0% 0 0%;
             display: flex;
             flex-direction: row;
             justify-content: center;
             align-items: center;
         }
         .project-btn {
-            margin-top: 10%;
+            margin-top: 13%;
             width: 40%;
             background: none;
-            border: 3px solid $colorDark;
+            border: 0.3vh solid $colorDark;
             color: $colorDark;
             font-weight: 800;
+        }
+    }
+}
+.project-info-container {
+    display: flex;
+    flex-direction: row;
+    .project-info {
+        width: 75%;
+        height:
+        75vh;
+        background: lightcyan;
+    }
+    .inactive-list {
+        background: lightcoral;
+        width: 25%;
+        .inactive {
+            width: 100%;
+            height: 20%;
+            .cover {
+                .project-btn {
+                    margin-top: 5%;
+                }
+            }
         }
     }
 }
@@ -236,66 +281,40 @@ export default {
         height: 100%;
     }
 }
-.project-item:nth-child(1) {
-    left: 0;
-    top: 0;
-}
-.project-item:nth-child(2) {
-    left: 42vh;
-    top: 0;
-}
-.project-item:nth-child(3) {
-    left: 84vh;
-    top: 0;
-}
-.project-item:nth-child(4) {
-    left: 0;
-    top: 32vh;
-}
-.project-item:nth-child(5) {
-    left: 42vh;
-    top: 32vh;
-}
-.project-item:nth-child(6) {
-    left: 84vh;
-    top: 32vh;
-}
-.active {
-    width: 100%;
-    height: 60vh;
+/* .active {
+    width: 50%;
+    height: 80vh;
     background: $colorMain;
     left: 0 !important;
-    top: 0 !important;
 }
 .inactive {
-    width: 16.66%;
-    height: 17vh;
-    top: 60vh !important;
+    width: 20%;
+    height: 18vh;
+    right: 0px !important;
     .cover {
         .project-tags {
             display: none;
         }
     }
-    /* transform: translateY(20vh); */
-}
-.inactive:nth-of-type(1) {
-    left: 0 !important;
+} */
+/* .inactive:nth-of-type(1) {
+    top: 0;
 }
 .inactive:nth-of-type(2) {
-    left: 16.666% !important;
+    top: 20%;
 }
 .inactive:nth-of-type(3) {
-    left: 33.33% !important;
+    top: 40%;
 }
 .inactive:nth-of-type(4) {
-    left: 50% !important;
+    top: 60%;
 }
 .inactive:nth-of-type(5) {
-    left: 66.66% !important;
+    top: 80%;
 }
 .inactive:nth-of-type(6) {
-    left: 83.33% !important;
-}
+    top: 80%;
+} */
 .hovered {
     transform: scale(1.2);
 }
