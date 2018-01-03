@@ -7,19 +7,19 @@
         </div>
 
         <div class="container">
-            <div 
-                v-for="(skill, index) in skills" 
+            <div
+                v-for="(skill, index) in skills"
                 :key="index"
                 class="skill-row"
             >
                 <span class="skill-name">
                     <i :class="skill.icon" /> {{ skill.name }}
                 </span>
-                <div 
-                    class="skill-bar" 
+                <div
+                    class="skill-bar"
                     :style="{ width: skill.level + '%' }"
                 >
-                    <div 
+                    <div
                         class="skill-bar-fill"
                         :class="{ 'animate-fill': ready }"
                     />
@@ -51,7 +51,7 @@ export default {
                 /* { name: "NodeJS", level: 40, icon: "" } */
             ],
             ready: false,
-            unwatch: 
+            unwatch:
                 this.$watch("scrolled", function() {
                     if (this.scrolled === true) {
                         this.unwatch();
@@ -76,6 +76,10 @@ export default {
     padding-bottom: 6vw;
     h2 {
         color: $colorDark;
+    }
+    .center-content {
+        padding: 0 5vw 0vw 5vw;
+        margin-top: 2vw;
     }
     .container {
         margin-top: 2vw;

@@ -1,6 +1,6 @@
 <template>
-    <section 
-        id="contact" 
+    <section
+        id="contact"
         class="container-fluid"
     >
         <h2>Send me a message</h2>
@@ -8,10 +8,17 @@
         <div class="center-content">
             <p class="description">Send me a message using this form. I'll probably answer back.</p>
         </div>
+        <div
+            class="alert-message col-md-10 offset-1"
+            v-if="alert"
+        >
+            <p>{{ alert }}</p>
+        </div>
         <b-form
             id="contact-form"
             method="POST"
             @submit.prevent="submitForm()"
+            :class="{ 'hide': success }"
         >
             <b-input
                 type="text"
@@ -25,6 +32,7 @@
             <b-input
                 type="text"
                 class="col-lg-3 col-md-5 form-field"
+                :class="{ 'highlight': success === false }"
                 placeholder="Email"
                 required
                 v-model="email"
@@ -47,6 +55,7 @@
                 :class="{ 'btn-ready': btnReady }"
             >Send</b-button>
         </b-form>
+
     </section>
 </template>
 
@@ -60,13 +69,9 @@ export default {
             email: null,
             message: null,
             btnReady: false,
-            ready: false
+            success: null,
+            alert: null
         };
-    },
-    created() {
-        setTimeout(() => {
-            this.ready = true;
-        },1000);
     },
     methods: {
         checkForm() {
@@ -80,12 +85,19 @@ export default {
                 email: this.email,
                 message: this.message
             })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            .then(function() {
+                this.success = true;
+                this.showMessage("Thank you. I will be in touch!");
+            }.bind(this))
+            .catch(function() {
+                this.success = false;
+                this.showMessage(`Something went wrong.
+                Please make sure the email is correct, or
+                contact me directly at Moilamar@protonmail.com.`);
+            }.bind(this));
+        },
+        showMessage(msg) {
+            this.alert = msg;
         }
     }
 };
@@ -98,10 +110,8 @@ export default {
 
 #contact {
     background: $colorMain;
-    /* width: 0%;
-    transition: width 1.5s; */
-    padding-top: 0;
-    margin-top: 0;
+    padding-top: 0 !important;
+    margin-top: 0 !important;
     h2 {
         color: $colorLighter;
     }
@@ -120,6 +130,7 @@ export default {
         justify-content: center;
         align-items: center;
         margin-top: 2vw;
+        transition: opacity 0.7s, height 2.7s;
         .form-field {
             margin-bottom: 2.2vh;
         }
@@ -137,21 +148,31 @@ export default {
             border-color: $colorSecondary !important;
             color: $colorSecondary !important;
         }
+        .highlight {
+            // highlight
+        }
+    }
+    .hide {
+        opacity: 0;
+        height: 0;
+    }
+    .alert-message {
+        text-align: center;
+        font-size: 150%;
+        color: white;
+        transition: opacity 2s;
+        margin-top: 1.5vh;
     }
 }
 #contact:before {
     background: inherit;
-        content: '';
-        display: inline-block;
-        height: 10vh;
-        width: 104.9vw;
-        position: relative;
-        transform: skewY(1.5deg);
-        transform-origin: 100%;
-        margin-left: -10vw;
+    content: '';
+    display: inline-block;
+    height: 10vh;
+    width: 104.9vw;
+    position: relative;
+    transform: skewY(1deg);
+    transform-origin: 100%;
+    margin-left: -10vw;
 }
-/* .animate-bg {
-    width: 100% !important;
-    
-} */
 </style>

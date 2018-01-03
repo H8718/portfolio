@@ -250,6 +250,7 @@ export default {
     }
 }
 .project-info-container {
+    margin-top: 2vw;
     display: flex;
     flex-direction: row;
     .project-info {
@@ -259,7 +260,6 @@ export default {
         background: lightcyan;
     }
     .inactive-list {
-        background: lightcoral;
         width: 25%;
         .inactive {
             width: 100%;
