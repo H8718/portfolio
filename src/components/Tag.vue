@@ -27,10 +27,10 @@ export default {
     color: white;
     display: flex;
     align-items: center;
-    padding-right: 5%;
+    padding-right: 6%;
     i {
         font-size: 150%;
-        margin-left: 10%;
+        margin-left: 15%;
     }
     span {
         text-align: initial;

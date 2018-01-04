@@ -1,8 +1,8 @@
 <template>
     <div id="site">
-        <Banner />
+        <Banner :scrolled="scrollBanner === true" />
         <div id="main">
-            <Navbar />
+            <Navbar :scrolled="scrollNavbar === true" />
             <About :scrolled="scrollAbout === true" />
             <Eyecatch :scrolled="scrollEyecatch === true" />
             <Projects />
@@ -23,43 +23,95 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Foot from "./components/Foot";
 
+let Waypoints = require("./components/waypoints/lib/noframework.waypoints.min.js");
+
 export default {
     data() {
         return {
+            scrollBanner: false,
+            scrollNavbar: false,
             scrollAbout: false,
             scrollEyecatch: false,
             scrollSkills: false,
             didScroll: false
-        }
+        };
     },
-    created() {
-        window.addEventListener('scroll', this.handleScroll);
+    mounted() {
+        /* window.addEventListener("scroll", this.handleScroll);
         let scrollInterval = setInterval(() => {
             if (this.didScroll) {
                 if (window.scrollY >= 2700) {
-                     window.removeEventListener('scroll', this.handleScroll);
+                    window.removeEventListener("scroll", this.handleScroll);
                     this.scrollSkills = true;
                     clearInterval(scrollInterval);
                     this.didScroll = false;
                     return;
-                }
-                else if (window.scrollY >= 950) {
+                } else if (window.scrollY >= 950) {
                     this.scrollEyecatch = true;
                     this.didScroll = false;
                     return;
-                }
-                else if (window.scrollY > 200) {
+                } else if (window.scrollY > 200) {
                     this.scrollAbout = true;
                     this.didScroll = false;
                     return;
                 }
             }
-        }, 800);
+        }, 800); */
+        let banner = new Waypoint({
+            element: document.getElementById("banner"),
+            handler: () => {
+                if (window.scrollY > 0) {
+                    console.log("banner under");
+                }
+                this.scrollBanner = true;
+                banner.destroy();
+            }
+        });
+        let navbar = new Waypoint({
+            element: document.getElementById("navbar"),
+            handler: () => {
+                /* if (window.scrollY > 0) {
+                    console.log("banner under");
+                } */
+                console.log("navbar");
+                this.scrollNavbar = true;
+                navbar.destroy();
+            }
+        });
+        let about = new Waypoint({
+            element: document.getElementById("about"),
+            handler: () => {
+                if (window.scrollY > 950) {
+                    console.log("under about");
+                }
+                this.scrollAbout = true;
+                about.destroy();
+            },
+            offset: 600
+        });
+        let eyecatch = new Waypoint({
+            element: document.getElementById("eyecatch"),
+            handler: () => {
+                console.log("eyecatch");
+                this.scrollEyecatch = true;
+                eyecatch.destroy();
+            },
+            offset: 600
+        });
+        let skills = new Waypoint({
+            element: document.getElementById("skills"),
+            handler: () => {
+                console.log("skills");
+                this.scrollSkills = true;
+                skills.destroy();
+            },
+            offset: 600
+        });
     },
     methods: {
-        handleScroll() {
+        /* handleScroll() {
             this.didScroll = true;
-        }
+        } */
     },
     name: "app",
     components: {
@@ -85,8 +137,6 @@ body {
     #site {
         /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
         font-family: $fontMain;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
         color: $colorDark;
     }
     #main {

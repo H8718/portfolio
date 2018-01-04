@@ -11,15 +11,23 @@
             <div
                 id="header"
             >
-                <p>Hi. I'm</p>
-                <p>Markus, a Web Developer</p>
-                <p>and I make</p>
-                <p>
-                    <span>Websites</span>
-                    <span>Web Apps</span>
-                    <span>Mobile Apps</span>
-                </p>
+                <div class="col-md-7 offset-1">
+                    <p>Hi. I'm</p>
+                    <p>Markus, a Web Developer</p>
+                    <p>who makes</p>
+                </div>
+                <div class="col-md-8 offset-1">
+                    <b-row><span
+                        class="col-md-2"
+                        @mouseover="toggleHover()" @mouseleave="toggleHover()"
+                    >Websites</span>
+                    <span class="col-md-2">Web Apps</span>
+                    <span class="col-md-3">Mobile Apps</span>
+                    </b-row>
+                </div>
             </div>
+            <div class="skewed overlay" :class="{ 'open': btnHover }"></div>
+            <div class="skewed under"></div>
         </div>
     </section>
 
@@ -52,8 +60,15 @@ export default {
                 ["> I make", "Websites"],
                 [">", "Web apps"],
                 [">", "Mobile apps"]
-            ]
+            ],
+            btnHover: false
         };
+    },
+    methods: {
+        toggleHover() {
+            this.btnHover = !this.btnHover;
+            console.log("test");
+        }
     },
     components: {
         TopImage,
@@ -68,17 +83,21 @@ export default {
 #banner {
     height: 92vh;
     /* border-top: 0.5vh solid $colorMain; */
+    position: relative;
+    overflow-x: hidden !important;
     #overlay {
         background: $colorMain;
         opacity: 0.7;
         height: 100%;
-        display: flex;
+        /* display: flex;
         justify-content: center;
         align-items: center;
-        position: relative;
+        position: relative; */
+        display: flex;
+        align-items: center;
         #top {
             height: 10vh;
-            background-color: #303F9F;
+            background-color: #303f9f;
             opacity: 1;
             position: absolute;
             top: 0;
@@ -106,26 +125,48 @@ export default {
         #header {
             color: $colorLighter;
             font-family: $fontBrand;
-            width: 40%;
             margin-top: 10vh;
-            p:nth-child(1) {
-                font-size: 250%;
-                line-height: 2vh;
-            }
-            p:nth-child(2) {
-                font-size: 360%;
-                line-height: 6vh;
-            }
-            p:nth-child(3) {
-                font-size: 270%;
-                line-height: 5vh;
-            }
-            p:nth-child(4) {
-                span {
-                    font-size: 200%;
-                    width: 33.33%;
+            width: 100%;
+            div:nth-child(1) {
+                p:nth-child(1) {
+                    font-size: 250%;
+                    line-height: 2vh;
+                }
+                p:nth-child(2) {
+                    font-size: 360%;
+                    line-height: 6vh;
+                }
+                p:nth-child(3) {
+                    font-size: 270%;
+                    line-height: 7vh;
                 }
             }
+            div:nth-child(2) {
+                span {
+                    font-size: 200%;
+                    color: $colorSecondary;
+                }
+            }
+        }
+        .skewed {
+            width: 60%;
+            height: 82vh;
+            position: absolute;
+            right: -20%;
+            top: 10vh;
+            transform: skew(-35deg);
+        }
+        .overlay {
+            background: black;
+            transition: width 1.5s;
+            z-index: 10;
+        }
+        .under {
+            background: white;
+            z-index: 9;
+        }
+        .open {
+            width: 0 !important;
         }
     }
 }

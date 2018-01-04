@@ -10,7 +10,9 @@
         <b-navbar-brand
             id="brand"
             href="#banner"
-            class="center-content smoothScroll"
+            class="center-content"
+            v-scroll-to="'#banner'"
+            :class="{ 'show': showBrand }"
         >
             <img src="../assets/logo.png" alt=""/>
             <div>
@@ -26,19 +28,21 @@
             <i class="fa fa-bars" />
         </div>
 
-        <b-navbar-nav 
-            id="nav-list" 
+        <b-navbar-nav
+            id="nav-list"
             class="center-content"
         >
             <b-nav-item v-scroll-to="'#about'">About me</b-nav-item>
             <div class="nav-top-border"></div>
             <b-nav-item v-scroll-to="'#projects'">Projects</b-nav-item>
+            <b-nav-item v-scroll-to="'#skills'">Skills</b-nav-item>
             <b-nav-item v-scroll-to="'#contact'">Contact me</b-nav-item>
         </b-navbar-nav>
 
         <b-collapse id="collapse">
             <div v-scroll-to="'#about'">About me</div>
             <div v-scroll-to="'#project'">Projects</div>
+            <div v-scroll-to="'#skills'">Skills</div>
             <div v-scroll-to="'#contact'">Contact me</div>
         </b-collapse>
 
@@ -49,14 +53,22 @@
 export default {
     data() {
         return {
-            loaded: false
+            loaded: false,
+            showBrand: false,
+            unwatch: this.$watch("scrolled", function() {
+                if (this.scrolled === true) {
+                    this.unwatch();
+                    this.showBrand = true;
+                }
+            })
         };
     },
     created() {
         setTimeout(() => {
             this.loaded = true;
         }, 100);
-    }   
+    },
+    props: ["scrolled"]
 };
 </script>
 
@@ -64,7 +76,7 @@ export default {
 @import "../styles/variables.scss";
 
 #navbar {
-    margin-top: -91vh;
+    /* margin-top: -91vh; */
     transition: margin-top 1.5s;
     height: 8vh;
     background-color: rgba(255, 255, 255, 0.95);
@@ -76,6 +88,9 @@ export default {
     box-shadow: 0 2px 4px 0 rgba(40, 40, 40, 0.2),
         0 3px 10px 0 rgba(40, 40, 40, 0.2);
     #brand {
+        width: 0;
+        opacity: 0;
+        transition: width 2s, opacity 1.5s;
         img {
             border-radius: 0.2vw;
             width: 6vh;
@@ -93,6 +108,10 @@ export default {
         #moilanen {
             color: $colorSecondary;
         }
+    }
+    .show {
+        width: auto !important;
+        opacity: 1 !important;
     }
     #nav-collapse-btn {
         font-size: 150%;
