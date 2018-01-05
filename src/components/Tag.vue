@@ -21,13 +21,13 @@ export default {
     min-width: 20%;
     width: auto;
     margin-right: 3%;
-    height: 2.2vw;
+    height: 4vh;
     border-radius: 3vw;
     box-shadow: 2px 2px 2px #444;
     color: white;
     display: flex;
     align-items: center;
-    padding-right: 6%;
+    padding-right: 8%;
     i {
         font-size: 150%;
         margin-left: 15%;

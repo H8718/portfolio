@@ -11,20 +11,19 @@
             <div
                 id="header"
             >
-                <div class="col-md-7 offset-1">
-                    <img src="../assets/portrait.png" class="col-md-4 offset-3"/>
+                <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
+                    <img
+                        src="../assets/portrait.png"
+                        class="col-md-4 offset-md-3"
+                    />
                     <p>Hi. I'm</p>
                     <p>Markus, a Web Developer</p>
                     <p>who makes</p>
                 </div>
-                <div class="col-md-8 offset-1">
-                    <b-row><span
-                        class="col-md-2"
-                        @mouseover="toggleHover()" @mouseleave="toggleHover()"
-                    >Websites</span>
-                    <span class="col-md-2">Web Apps</span>
-                    <span class="col-md-3">Mobile Apps</span>
-                    </b-row>
+                <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
+                    <span @mouseover="toggleHover()" @mouseleave="toggleHover()">Websites</span>
+                    <span >Web Apps</span>
+                    <span >Mobile Apps</span>
                 </div>
             </div>
 
@@ -34,10 +33,11 @@
             </div>
 
             <div class="skewed overlay" :class="{ 'open': btnHover }"></div>
-            <div class="skewed under"></div>
+            <div class="skewed under">
+                <img :src="'/static/projects/mesiainen_wordpress/main.png'" />
+            </div>
         </div>
     </section>
-
 </template>
 
 <script>
@@ -74,7 +74,6 @@ export default {
     methods: {
         toggleHover() {
             this.btnHover = !this.btnHover;
-            console.log("test");
         }
     },
     components: {
@@ -113,6 +112,9 @@ export default {
             display: flex;
             align-items: center;
             img {
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
                 position: absolute;
                 height: 8vh;
                 left: 6vh;
@@ -137,7 +139,7 @@ export default {
             width: 100%;
             div:nth-child(1) {
                 img {
-                    width: 17%;
+                    width: 17vh;
                     padding: 1vh;
                     border-radius: 100%;
                     margin-bottom: 3%;
@@ -162,10 +164,14 @@ export default {
                 span {
                     font-size: 200%;
                     color: $colorSecondary;
+                    margin-right: 3vw;
                 }
             }
         }
         .background {
+            @media screen and (max-width: 500px) {
+                display: none;
+            }
             position: absolute;
             bottom: 0;
             left: 0;
@@ -196,21 +202,31 @@ export default {
             }
         }
         .skewed {
-            width: 60%;
+            width: 53%;
             height: 82vh;
             position: absolute;
             right: -20%;
             top: 10vh;
             transform: skew(-35deg);
+            @media screen and (max-width: 1199px) {
+                display: none;
+            }
         }
         .overlay {
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(35, 35, 35, 1);
             transition: width 1.5s;
             z-index: 10;
         }
         .under {
             background: white;
             z-index: 9;
+            overflow: hidden;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            img {
+                transform: skew(35deg);
+            }
         }
         .open {
             width: 0 !important;

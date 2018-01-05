@@ -1,16 +1,15 @@
 /** Mobile-only Styles **/
 
 @media screen and (max-width: 500px) {
-    #banner {
+    /* #banner {
         display: none;
-    }
+    } */
     #navbar {
         #brand {
             font-size: 110%;
         }
         #nav-list {
             display: none;
-
         }
     }
     #about {

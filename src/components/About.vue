@@ -1,6 +1,6 @@
 <template>
-    <section 
-        class="container-fluid smoothScroll" 
+    <section
+        class="container-fluid"
         id="about"
     >
         <h2>Who am I?</h2>
@@ -13,7 +13,7 @@
                 :class="{ 'show': shown[0] }"
             >
                 <img
-                id="portrait"
+                    id="portrait"
                     src="../assets/portrait.png"
                 />
             </div>
@@ -83,13 +83,12 @@ export default {
     data() {
         return {
             shown: [],
-            unwatch: 
-                this.$watch("scrolled", function() {
-                    if (this.scrolled === true) {
-                        this.unwatch();
-                        this.animateblueprint();
-                    }
-                })
+            unwatch: this.$watch("scrolled", function() {
+                if (this.scrolled === true) {
+                    this.unwatch();
+                    this.animateblueprint();
+                }
+            })
         };
     },
     methods: {
@@ -104,7 +103,7 @@ export default {
             }, 1000 * i);
         }
     },
-    props: ['scrolled']
+    props: ["scrolled"]
 };
 </script>
 

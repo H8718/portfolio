@@ -6,7 +6,10 @@
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
-        <div class="project-container col-md-10 offset-1" v-if="!active">
+        <div
+            class="project-container col-md-10 offset-md-1 offset-sm-0"
+            v-if="active === null"
+        >
             <div
                 class="project-item"
                 v-for="(project, index) in projects"
@@ -41,10 +44,32 @@
 
             </div>
         </div>
-        <div v-if="active" class="project-info-container col-md-8 offset-2">
+
+        <div v-if="active != null" class="project-info-container col-md-8 offset-2">
             <div class="project-info">
-                <div class="project-name">{{ projects[active].name }}</div>
+                <div>
+                    <div class="project-logo">
+                        <img :src="'/static/projects/'+projects[active].folder+projects[active].logo" />
+                    </div>
+                    <div class="project-name">{{ projects[active].name }}</div>
+                </div>
+                <div class="project-description">
+                    <h3>Description:</h3>
+                    {{ projects[active].description }}
+                </div>
+                <div class="project-images">
+                    <img
+                        v-for="(image, index) in projects[active].images"
+                        :key="index"
+                        :src="'/static/projects/'+projects[active].folder+image"
+                    />
+                </div>
+                <div class="project-source">
+                    <h3>Source code:</h3>
+                    <a :href="projects[active].source" target="_blank">Github</a>
+                </div>
             </div>
+
             <div class="inactive-list">
                 <div
                     class="project-item"
@@ -84,11 +109,12 @@ export default {
             projects: [
                 {
                     name: "Portfolio",
-                    summary:
+                    description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Portfolio/",
+                    logo: "main.png",
                     images: [],
-                    gitLink: "https://github.com/moilamar/portfolio",
+                    source: "https://github.com/moilamar/portfolio",
                     tags: [
                         ["devicon-vuejs-plain", "VueJS", "#41B883"],
                         ["devicon-bootstrap-plain", "Bootstrap", "#62488A"],
@@ -97,11 +123,12 @@ export default {
                 },
                 {
                     name: "My Movie List",
-                    summary:
+                    description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "My_Movie_List/",
+                    logo: "logo.svg",
                     images: [],
-                    gitLink: "",
+                    source: "",
                     tags: [
                         ["devicon-vuejs-plain", "VueJS", "#41B883"],
                         ["devicon-sass-original", "Sass", "#CF649A"],
@@ -110,11 +137,12 @@ export default {
                 },
                 {
                     name: "Mesiäinen E-Commerce",
-                    summary:
+                    description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Mesiainen_Wordpress/",
+                    logo: "logo_cropped.png",
                     images: [],
-                    gitLink: "https://github.com/moilamar/film-app-mobile",
+                    source: "https://github.com/moilamar/film-app-mobile",
                     tags: [
                         ["devicon-wordpress-plain", "Wordpress", "#21759B"],
                         ["devicon-php-plain", "PHP", "#666699"]
@@ -122,9 +150,10 @@ export default {
                 },
                 {
                     name: "3D Modeling",
-                    summary:
+                    description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "3D_Models/",
+                    logo: "main.png",
                     images: [
                         "back_of_audience.png",
                         "behind_piano.png",
@@ -132,16 +161,17 @@ export default {
                         "details4.png",
                         "textures.png"
                     ],
-                    gitLink: "https://github.com/Moilamar/3d-models",
+                    source: "https://github.com/Moilamar/3d-models",
                     tags: [["devicon-devicon-plain", "Blender", "#EA8E33"]]
                 },
                 {
                     name: "E-Commerce Admin Page",
-                    summary:
+                    description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Black_Banana_Admin/",
+                    logo: "main.png",
                     images: [],
-                    gitLink: "",
+                    source: "",
                     tags: [
                         ["devicon-mysql-plain", "MySQL", "#00618A"],
                         ["devicon-php-plain", "PHP", "#666699"],
@@ -150,11 +180,12 @@ export default {
                 },
                 {
                     name: "Music Notebook",
-                    summary:
+                    description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Music_Notebook/",
+                    logo: "main.png",
                     images: [],
-                    gitLink: "",
+                    source: "",
                     tags: [
                         ["devicon-react-original", "React", "#00D8FF"],
                         ["devicon-android-plain", "Mobile", "#A4CA39"]
@@ -167,6 +198,7 @@ export default {
     methods: {
         toggleProjectInfo(index) {
             this.active = index;
+            console.log("active: " + this.active);
         }
     },
     components: { Tag }
@@ -177,7 +209,6 @@ export default {
 @import "../styles/variables.scss";
 
 #projects {
-    /* background-color: $colorDark; */
     background-color: $colorLighter;
     height: auto;
     h2 {
@@ -253,11 +284,47 @@ export default {
     margin-top: 2vw;
     display: flex;
     flex-direction: row;
+    color: white;
     .project-info {
         width: 75%;
-        height:
-        75vh;
-        background: lightcyan;
+        height: 75vh;
+        background: $colorMain;
+        display: flex;
+        flex-direction: column;
+        div:nth-child(1) {
+            background: lightcyan;
+            align-self: center;
+            .project-logo {
+                display: inline-block;
+                background: white;
+                width: 11vh;
+                height: auto;
+                margin-top: 3vh;
+                margin-left: 3vh;
+                border-radius: 100%;
+                img {
+                    width: 100%;
+                    height: auto;
+                    padding: 0.5vh;
+                    border-radius: 100%;
+                    box-shadow: 2px 2px 4px #444;
+                }
+            }
+            .project-name {
+                display: inline-block;
+                margin-left: 5vh;
+                font-size: 150%;
+            }
+        }
+        .project-description {
+            background: lightblue;
+        }
+        .project-images {
+            background: lightcoral;
+        }
+        .project-source {
+            background: lightseagreen;
+        }
     }
     .inactive-list {
         width: 25%;
@@ -281,40 +348,6 @@ export default {
         height: 100%;
     }
 }
-/* .active {
-    width: 50%;
-    height: 80vh;
-    background: $colorMain;
-    left: 0 !important;
-}
-.inactive {
-    width: 20%;
-    height: 18vh;
-    right: 0px !important;
-    .cover {
-        .project-tags {
-            display: none;
-        }
-    }
-} */
-/* .inactive:nth-of-type(1) {
-    top: 0;
-}
-.inactive:nth-of-type(2) {
-    top: 20%;
-}
-.inactive:nth-of-type(3) {
-    top: 40%;
-}
-.inactive:nth-of-type(4) {
-    top: 60%;
-}
-.inactive:nth-of-type(5) {
-    top: 80%;
-}
-.inactive:nth-of-type(6) {
-    top: 80%;
-} */
 .hovered {
     transform: scale(1.2);
 }
