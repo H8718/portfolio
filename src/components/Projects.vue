@@ -8,6 +8,7 @@
         </div>
         <div
             class="project-container col-md-10 offset-md-1 offset-sm-0"
+            :class="{ 'fade-out': fadeOut }"
             v-if="active === null"
         >
             <div
@@ -45,7 +46,11 @@
             </div>
         </div>
 
-        <div v-if="active != null" class="project-info-container col-md-8 offset-2">
+        <div
+            v-if="active != null"
+            :class="{ 'fade-in': fadeIn }"
+            class="project-info-container col-md-8 offset-2"
+        >
             <div class="project-info">
                 <div>
                     <div class="project-logo">
@@ -56,6 +61,15 @@
                 <div class="project-description">
                     <h3>Description:</h3>
                     {{ projects[active].description }}
+                </div>
+                <div class="project-technologies">
+                    <Tag
+                        v-for="(tag, index) in projects[active].tags"
+                        :key="index"
+                        :icon="tag[0]"
+                        :text="tag[1]"
+                        :color="tag[2]"
+                    />
                 </div>
                 <div class="project-images">
                     <img
@@ -76,7 +90,11 @@
                     v-for="(project, index) in projects"
                     v-if="active != index"
                     data-scale="1.6"
-                    :class="{ 'active': active == index, 'inactive': active != index && Number.isInteger(active) }"
+                    :class="{
+                        'active': active == index,
+                        'inactive': active != index && Number.isInteger(active),
+                        'animate-out': animateOut == index
+                    }"
                     :key="index"
                 >
                     <div
@@ -91,7 +109,7 @@
                         <div class="project-name">{{ project.name }}</div>
                         <b-button
                             class="project-btn"
-                            @mouseup="toggleProjectInfo(index)"
+                            @mouseup="changeCurrentProject(index)"
                         >Details</b-button>
                     </div>
                 </div>
@@ -192,13 +210,31 @@ export default {
                     ]
                 }
             ],
-            active: null
+            active: null,
+            fadeIn: false,
+            fadeOut: false,
+            animateOut: false,
+            animateIn: false
         };
     },
     methods: {
         toggleProjectInfo(index) {
-            this.active = index;
-            console.log("active: " + this.active);
+            this.fadeOut = true;
+            setTimeout(() => {
+                this.active = index;
+                this.fadeIn = true;
+                console.log(this.active);
+            }, 500);
+
+            /* this.active = index;
+            console.log("active: " + this.active); */
+        },
+        changeCurrentProject(index) {
+            this.animateOut = index;
+            setTimeout(() => {
+                this.active = index;
+                this.animateIn = true;
+            }, 500);
         }
     },
     components: { Tag }
@@ -225,6 +261,10 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        transition: opacity 0.5s;
+    }
+    .fade-out {
+        opacity: 0;
     }
 }
 .project-item {
@@ -237,7 +277,7 @@ export default {
     color: $colorLighter;
     position: relative;
     overflow: hidden;
-    transition: width 1s, height 1s, top 1s, left 1s;
+    transition: height 0.5s;
 
     .project-image {
         position: absolute;
@@ -280,11 +320,16 @@ export default {
         }
     }
 }
+.animate-out {
+    height: 0 !important;
+}
 .project-info-container {
     margin-top: 2vw;
     display: flex;
     flex-direction: row;
     color: white;
+    opacity: 0;
+    transition: opacity 0.5s;
     .project-info {
         width: 75%;
         height: 75vh;
@@ -294,6 +339,7 @@ export default {
         div:nth-child(1) {
             background: lightcyan;
             align-self: center;
+            padding: 1vh;
             .project-logo {
                 display: inline-block;
                 background: white;
@@ -318,12 +364,26 @@ export default {
         }
         .project-description {
             background: lightblue;
+            padding: 3vh;
+        }
+        .project-technologies {
+            background: lightsteelblue;
+            padding: 3vh;
         }
         .project-images {
             background: lightcoral;
+            width: 100%;
+            img {
+                width: 22%;
+                margin-left: 1.5%;
+                margin-right: 1.5%;
+                margin-top: 1vh;
+                margin-bottom: 1vh;
+            }
         }
         .project-source {
             background: lightseagreen;
+            padding: 3vh;
         }
     }
     .inactive-list {
@@ -339,6 +399,9 @@ export default {
         }
     }
 }
+.fade-in {
+    opacity: 1;
+}
 .project-item:hover {
     .project-image {
         transform: scale(1.2);
@@ -347,11 +410,5 @@ export default {
         opacity: 1;
         height: 100%;
     }
-}
-.hovered {
-    transform: scale(1.2);
-}
-.unhovered {
-    transform: scale(1);
 }
 </style>

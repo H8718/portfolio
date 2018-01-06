@@ -49,16 +49,15 @@ export default {
                 { name: "Illustrator", level: 35, icon: "" }
             ],
             ready: false,
-            unwatch:
-                this.$watch("scrolled", function() {
-                    if (this.scrolled === true) {
-                        this.unwatch();
-                        this.ready = true;
-                    }
-                })
+            unwatch: this.$watch("scrolled", function() {
+                if (this.scrolled === true) {
+                    this.unwatch();
+                    this.ready = true;
+                }
+            })
         };
     },
-    props: ['scrolled']
+    props: ["scrolled"]
 };
 </script>
 
@@ -71,7 +70,7 @@ export default {
     -webkit-transition: background-color 1000ms linear;
     -ms-transition: background-color 1000ms linear;
     transition: background-color 1000ms linear;
-    padding-bottom: 6vw;
+    padding-bottom: 5vw;
     h2 {
         color: $colorDark;
     }

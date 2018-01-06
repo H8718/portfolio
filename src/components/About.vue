@@ -9,20 +9,68 @@
         <div id="blueprint">
 
             <div class="fifth">
-
+                <div
+                    class="blueprint-box"
+                    id="box-2"
+                    :class="{ 'show': shown[2] }"
+                >
+                    <h3><i class="fa fa-pencil" /> Studies</h3>
+                    <p>I currently study at JAMK to become a computer engineer.</p>
+                </div>
             </div>
             <div class="fifth">
-
+                <div
+                    class="blueprint-box"
+                    id="box-1"
+                    :class="{ 'show': shown[1] }"
+                >
+                    <h3><i class="fa fa-user" /> Hobbies</h3>
+                    <p>I like playing the piano and computer games.</p>
+                </div>
             </div>
             <div class="fifth">
-
+                <div
+                    class="blueprint-box"
+                    id="box-0"
+                    :class="{ 'show': shown[0] }"
+                >
+                    <img
+                        id="portrait"
+                        src="../assets/portrait.png"
+                    />
+                </div>
             </div>
             <div class="fifth">
-
+                <div
+                    class="blueprint-box"
+                    id="box-3"
+                    :class="{ 'show': shown[3] }"
+                >
+                    <h3><i class="fa fa-diamond" /> Skills</h3>
+                    <p>I am a fast learner so I have picked up a lot of useful
+                        skills for programming and other related things.
+                    </p>
+                </div>
             </div>
             <div class="fifth">
-
+                <div
+                    class="blueprint-box"
+                    id="box-4"
+                    :class="{ 'show': shown[4] }"
+                >
+                    <h3><i class="fa fa-rocket" /> Future</h3>
+                    <p>After graduation, I want to improve my skills to become
+                        a great full-stack developer.
+                    </p>
+                </div>
             </div>
+
+            <div class="line" id="line-1" />
+            <div class="line" id="line-2" />
+            <div class="line" id="line-3" />
+            <div class="line" id="line-4" />
+            <div class="line" id="line-5" />
+
 
             <!-- <div
                 class="blueprint-box"
@@ -139,27 +187,25 @@ export default {
     #blueprint {
         display: flex;
         flex-direction: row;
+        position: relative;
         .fifth {
             width: 20vw;
-            background: red;
         }
 
         .blueprint-box {
-            position: absolute;
             text-align: center;
-            opacity: 0;
+            opacity: 1; // 0
             h3 {
             }
             p {
-                width: 27vh;
-                min-height: 12vh;
+                /* width: 27vh; */
+                /* min-height: 12vh; */
                 border: 0.5vh solid $colorLighter;
                 border-radius: 0.3vh;
                 color: $colorLighter;
                 padding: 2vh;
                 font-size: 110%;
                 background: inherit;
-                z-index: 9999;
             }
         }
         #portrait {
@@ -218,8 +264,8 @@ export default {
             top: 9%;
         }
         .line {
-            position: absolute;
-            display: block;
+            position: absolute !important;
+            display: block !important;
             z-index: 1;
         }
         #line-1 {
@@ -243,7 +289,7 @@ export default {
             border-right: 0.4vh dashed $colorLighter;
             border-bottom: 0.4vh dashed $colorLighter;
             width: 8%;
-            height: 5%;
+            height: 15%;
             left: 38%;
             top: 16%;
             border-bottom-right-radius: 100%;

@@ -111,11 +111,9 @@ export default {
 <style lang="scss">
 @import "../styles/variables.scss";
 
-// LAITA VINOON
-
 #contact {
     background: $colorMain;
-    padding-top: 3vw;
+    padding-top: 3.5vw;
     h2 {
         color: $colorLighter;
     }
@@ -147,6 +145,7 @@ export default {
             box-shadow: none;
             background: none;
             transition: border-color 1s, color 1s;
+            cursor: pointer;
         }
         .btn-ready {
             border-color: $colorSecondary !important;

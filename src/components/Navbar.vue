@@ -2,7 +2,6 @@
     <b-navbar
         sticky
         type="light"
-        toggleable="md"
         id="navbar"
         class="horizontal-center"
         :class="{ 'show-banner': loaded }"
@@ -119,25 +118,30 @@ export default {
         opacity: 0;
     }
     #nav-list {
-        margin-left: 2vh;
+        margin-left: 1vw;
         .nav-item {
-            height: 9vh;
-            width: 14vh;
+            cursor: pointer;
+            height: 8vh;
+            width: 7vw;
+            min-width: 100px;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
+            transition: background-color 0.7s;
             a {
                 color: #555;
                 font-size: 115%;
                 font-weight: bold;
                 font-family: $fontBrand;
-                transition: color 0.7s;
+                transition: color 0.5s;
             }
         }
         .nav-item:hover {
+            background-color: $colorSecondary;
             a {
-                color: $colorMain;
+                /* color: $colorMain; */
+                color: white;
             }
         }
     }
