@@ -7,7 +7,24 @@
         <div class="horizontal-center"><div class="underline"></div></div>
 
         <div id="blueprint">
-            <div
+
+            <div class="fifth">
+
+            </div>
+            <div class="fifth">
+
+            </div>
+            <div class="fifth">
+
+            </div>
+            <div class="fifth">
+
+            </div>
+            <div class="fifth">
+
+            </div>
+
+            <!-- <div
                 class="blueprint-box"
                 id="box-0"
                 :class="{ 'show': shown[0] }"
@@ -72,7 +89,7 @@
                     a great full-stack developer.
                 </p>
             </div>
-            <div class="line" id="line-5" />
+            <div class="line" id="line-5" /> -->
 
         </div>
     </section>
@@ -111,14 +128,22 @@ export default {
 @import "../styles/variables.scss";
 
 #about {
-    background: #3949ab;
+    background: $colorMain;
     color: $colorLight;
-    height: 90vh;
-    padding-top: 10vh;
+    position: relative;
+    height: 80vh;
+    padding-top: 8vh;
     .underline {
         border-color: $colorLighter;
     }
     #blueprint {
+        display: flex;
+        flex-direction: row;
+        .fifth {
+            width: 20vw;
+            background: red;
+        }
+
         .blueprint-box {
             position: absolute;
             text-align: center;
@@ -138,7 +163,7 @@ export default {
             }
         }
         #portrait {
-            width: 100%;
+            width: 25vh;
             border-radius: 18vh;
             padding: 1vh;
             border: 0.5vh solid $colorLighter;

@@ -140,11 +140,15 @@ export default {
             div:nth-child(1) {
                 img {
                     width: 17vh;
-                    padding: 1vh;
+                    padding: 0vh;
                     border-radius: 100%;
                     margin-bottom: 3%;
                     border: 0.4vh solid white;
                     opacity: 1 !important;
+                    transition: transform 2s;
+                }
+                img:hover {
+                    transform: rotate(360deg);
                 }
                 p:nth-of-type(1) {
                     font-size: 250%;

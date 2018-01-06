@@ -96,7 +96,7 @@ export default {
                 this.scrollEyecatch = true;
                 eyecatch.destroy();
             },
-            offset: 600
+            offset: 700
         });
         let skills = new Waypoint({
             element: document.getElementById("skills"),

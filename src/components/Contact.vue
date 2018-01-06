@@ -60,7 +60,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
     data() {
@@ -80,21 +80,26 @@ export default {
             } else this.btnReady = false;
         },
         submitForm() {
-            axios.post('https://formspree.io/moilamar@protonmail.com', {
-                name: this.name,
-                email: this.email,
-                message: this.message
-            })
-            .then(function() {
-                this.success = true;
-                this.showMessage("Thank you. I will be in touch!");
-            }.bind(this))
-            .catch(function() {
-                this.success = false;
-                this.showMessage(`Something went wrong.
+            axios
+                .post("https://formspree.io/moilamar@protonmail.com", {
+                    name: this.name,
+                    email: this.email,
+                    message: this.message
+                })
+                .then(
+                    function() {
+                        this.success = true;
+                        this.showMessage("Thank you. I will be in touch!");
+                    }.bind(this)
+                )
+                .catch(
+                    function() {
+                        this.success = false;
+                        this.showMessage(`Something went wrong.
                 Please make sure the email is correct, or
                 contact me directly at Moilamar@protonmail.com.`);
-            }.bind(this));
+                    }.bind(this)
+                );
         },
         showMessage(msg) {
             this.alert = msg;
@@ -110,8 +115,7 @@ export default {
 
 #contact {
     background: $colorMain;
-    padding-top: 0 !important;
-    margin-top: 0 !important;
+    padding-top: 3vw;
     h2 {
         color: $colorLighter;
     }
@@ -165,14 +169,14 @@ export default {
     }
 }
 #contact:before {
-    background: inherit;
-    content: '';
+    /* background: inherit;
+    content: "";
     display: inline-block;
     height: 10vh;
     width: 104.9vw;
     position: relative;
     transform: skewY(1deg);
     transform-origin: 100%;
-    margin-left: -10vw;
+    margin-left: -10vw; */
 }
 </style>
