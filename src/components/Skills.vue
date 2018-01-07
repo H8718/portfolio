@@ -3,10 +3,10 @@
         <h2>My Skills</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
-            <p class="description">Here's a decent estimation of how well I understand different technologies.</p>
+            <p class="description">Here's a list of technologies and software that I use and an estimate of my ability.</p>
         </div>
 
-        <div class="container">
+        <div class="container col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
             <div
                 v-for="(skill, index) in skills"
                 :key="index"
@@ -21,7 +21,7 @@
                 >
                     <div
                         class="skill-bar-fill"
-                        :class="{ 'animate-fill': ready }"
+                        :class="{ 'animate-fill': ready > index }"
                     />
                 </div>
             </div>
@@ -35,27 +35,37 @@ export default {
     data() {
         return {
             skills: [
-                { name: "HTML", level: 85, icon: "" },
-                { name: "JavaScript", level: 80, icon: "" },
-                { name: "CSS + SASS", level: 75, icon: "" },
-                { name: "Vue", level: 75, icon: "" },
-                { name: "PHP", level: 70, icon: "" },
-                { name: "MySQL", level: 70, icon: "" },
-                { name: "Linux", level: 65, icon: "" },
-                { name: "React", level: 60, icon: "" },
-                { name: "WordPress", level: 55, icon: "" },
-                { name: "Photoshop", level: 45, icon: "" },
-                { name: "Blender", level: 40, icon: "" },
-                { name: "Illustrator", level: 35, icon: "" }
+                { name: "HTML", level: 80, icon: "" },
+                { name: "JavaScript", level: 75, icon: "" },
+                { name: "CSS + SASS", level: 70, icon: "" },
+                { name: "Vue", level: 70, icon: "" },
+                { name: "PHP", level: 65, icon: "" },
+                { name: "MySQL", level: 65, icon: "" },
+                { name: "Linux", level: 55, icon: "" },
+                { name: "React", level: 55, icon: "" },
+                { name: "WordPress", level: 50, icon: "" },
+                { name: "Blender", level: 45, icon: "" },
+                { name: "Photoshop", level: 40, icon: "" },
+                { name: "Illustrator", level: 30, icon: "" }
             ],
-            ready: false,
+            ready: 0,
             unwatch: this.$watch("scrolled", function() {
                 if (this.scrolled === true) {
                     this.unwatch();
-                    this.ready = true;
+                    for (let i = 0; i < this.skills.length; i++) {
+                        setTimeout(() => {
+                            this.increment();
+                        }, 50 * i);
+                    }
                 }
             })
         };
+    },
+    methods: {
+        increment() {
+            this.ready++;
+            console.log(this.ready);
+        }
     },
     props: ["scrolled"]
 };
@@ -82,21 +92,22 @@ export default {
         margin-top: 2vw;
         display: flex;
         flex-direction: column;
-        width: 50%;
-        /* different screen widths */
         .skill-row {
             display: flex;
             flex-direction: row;
             align-items: center;
             margin-bottom: 1vh;
+            width: 100%;
+            position: relative;
             .skill-name {
                 position: relative;
                 width: 13%;
+                margin-right: 3vh;
             }
             .skill-bar {
                 height: 2vh;
                 position: relative;
-                width: 87%;
+                /* width: 80%; */
                 .skill-bar-fill {
                     background: $colorMain;
                     height: 100%;

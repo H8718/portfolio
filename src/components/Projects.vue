@@ -49,7 +49,7 @@
         <div
             v-if="active != null"
             :class="{ 'fade-in': fadeIn }"
-            class="project-info-container col-md-8 offset-2"
+            class="project-info-container col-sm-12 col-md-8 offset-md-2"
         >
             <div class="project-info">
                 <div>
@@ -327,6 +327,9 @@ export default {
     margin-top: 2vw;
     display: flex;
     flex-direction: row;
+    @media screen and (max-width: 500px) {
+        flex-direction: column;
+    }
     color: white;
     opacity: 0;
     transition: opacity 0.5s;
@@ -336,6 +339,9 @@ export default {
         background: $colorMain;
         display: flex;
         flex-direction: column;
+        @media screen and (max-width: 500px) {
+            width: 100%;
+        }
         div:nth-child(1) {
             background: lightcyan;
             align-self: center;

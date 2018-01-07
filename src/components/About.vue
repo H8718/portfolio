@@ -12,7 +12,7 @@
                 <div
                     class="blueprint-box"
                     id="box-2"
-                    :class="{ 'show': shown[2] }"
+                    :class="{ 'show': shown > 2 }"
                 >
                     <h3><i class="fa fa-pencil" /> Studies</h3>
                     <p>I currently study at JAMK to become a computer engineer.</p>
@@ -22,7 +22,7 @@
                 <div
                     class="blueprint-box"
                     id="box-1"
-                    :class="{ 'show': shown[1] }"
+                    :class="{ 'show': shown > 1 }"
                 >
                     <h3><i class="fa fa-user" /> Hobbies</h3>
                     <p>I like playing the piano and computer games.</p>
@@ -32,7 +32,7 @@
                 <div
                     class="blueprint-box"
                     id="box-0"
-                    :class="{ 'show': shown[0] }"
+                    :class="{ 'show': shown > 0 }"
                 >
                     <img
                         id="portrait"
@@ -44,7 +44,7 @@
                 <div
                     class="blueprint-box"
                     id="box-3"
-                    :class="{ 'show': shown[3] }"
+                    :class="{ 'show': shown > 3 }"
                 >
                     <h3><i class="fa fa-diamond" /> Skills</h3>
                     <p>I am a fast learner so I have picked up a lot of useful
@@ -56,7 +56,7 @@
                 <div
                     class="blueprint-box"
                     id="box-4"
-                    :class="{ 'show': shown[4] }"
+                    :class="{ 'show': shown > 4 }"
                 >
                     <h3><i class="fa fa-rocket" /> Future</h3>
                     <p>After graduation, I want to improve my skills to become
@@ -147,7 +147,7 @@
 export default {
     data() {
         return {
-            shown: [],
+            shown: 0,
             unwatch: this.$watch("scrolled", function() {
                 if (this.scrolled === true) {
                     this.unwatch();
@@ -164,8 +164,8 @@ export default {
         },
         doAnimation(i) {
             setTimeout(() => {
-                this.shown.push(true);
-            }, 1000 * i);
+                this.shown++;
+            }, 700 * i);
         }
     },
     props: ["scrolled"]

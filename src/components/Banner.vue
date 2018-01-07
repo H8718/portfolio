@@ -21,9 +21,9 @@
                     <p>who makes</p>
                 </div>
                 <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
-                    <span @mouseover="toggleHover()" @mouseleave="toggleHover()">Websites</span>
-                    <span >Web Apps</span>
-                    <span >Mobile Apps</span>
+                    <span @mouseover="toggleHover(0)" @mouseleave="toggleHover()">Websites</span>
+                    <span @mouseover="toggleHover(1)" @mouseleave="toggleHover()">Web Apps</span>
+                    <span @mouseover="toggleHover(2)" @mouseleave="toggleHover()">Mobile Apps</span>
                 </div>
             </div>
 
@@ -34,7 +34,8 @@
 
             <div class="skewed overlay" :class="{ 'open': btnHover }"></div>
             <div class="skewed under">
-                <img :src="'/static/projects/mesiainen_wordpress/main.png'" />
+                <img class="img" :src="img" :class="{ 'show-img': btnHover }" />
+                <!-- <img :src="'/static/projects/mesiainen_wordpress/main.png'" /> -->
             </div>
         </div>
     </section>
@@ -68,11 +69,25 @@ export default {
                 [">", "Web apps"],
                 [">", "Mobile apps"]
             ],
-            btnHover: false
+            btnHover: false,
+            img: "/static/projects/mesiainen_wordpress/main.png"
         };
     },
     methods: {
-        toggleHover() {
+        toggleHover(index) {
+            switch (index) {
+                case 0:
+                    this.img = "/static/projects/mesiainen_wordpress/main.png";
+                    break;
+                case 2:
+                    this.img = "/static/projects/my_movie_list/mmlphone.png";
+                    break;
+                case 1:
+                    this.img = "/static/projects/black_banana_admin/main.png";
+                    break;
+                default:
+                    break;
+            }
             this.btnHover = !this.btnHover;
         }
     },
@@ -101,6 +116,8 @@ export default {
         position: relative; */
         display: flex;
         align-items: center;
+        position: relative;
+        z-index: 9;
         #top {
             height: 10vh;
             /* background-color: #303f9f; */
@@ -143,7 +160,7 @@ export default {
                     padding: 0vh;
                     border-radius: 100%;
                     margin-bottom: 3%;
-                    border: 0.4vh solid white;
+                    border: 0.5vh solid white;
                     opacity: 1 !important;
                     transition: transform 2s;
                 }
@@ -211,28 +228,38 @@ export default {
             position: absolute;
             right: -20%;
             top: 10vh;
-            transform: skew(-35deg);
+            transform: skew(-30deg);
+            z-index: 100;
             @media screen and (max-width: 1199px) {
                 display: none;
             }
         }
         .overlay {
             background-color: rgba(35, 35, 35, 1);
-            transition: width 1.5s;
-            z-index: 10;
+            transition: width 1.2s;
+            z-index: 12;
         }
         .under {
             background: white;
-            z-index: 9;
-            overflow: hidden;
+            z-index: 11;
+            /* overflow: hidden; */
             display: flex;
             justify-content: left;
             align-items: center;
             img {
-                transform: skew(35deg);
+                transform: skew(30deg);
+                width: 85%;
+                margin-left: 20%;
+                margin-top: 15%;
+                position: relative;
+                z-index: 11;
+                transition: margin-left 1.2s;
+            }
+            .img.show-img {
+                margin-left: -9%;
             }
         }
-        .open {
+        .overlay.open {
             width: 0 !important;
         }
     }

@@ -6,10 +6,10 @@
         <h2>Send me a message</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content">
-            <p class="description">Send me a message using this form. I'll probably answer back.</p>
+            <p class="description">Send me a message using the form. I'll probably answer back.</p>
         </div>
         <div
-            class="alert-message col-md-10 offset-1"
+            class="alert-message col-md-10 offset-md-1"
             v-if="alert"
         >
             <p>{{ alert }}</p>
@@ -19,10 +19,11 @@
             method="POST"
             @submit.prevent="submitForm()"
             :class="{ 'hide': success }"
+            class="col-lg-4 col-md-6 offset-lg-4 offset-md-3"
         >
             <b-input
                 type="text"
-                class="col-lg-3 col-md-5 form-field"
+                class="form-field"
                 placeholder="Name"
                 required
                 v-model="name"
@@ -31,7 +32,7 @@
             />
             <b-input
                 type="text"
-                class="col-lg-3 col-md-5 form-field"
+                class="form-field"
                 :class="{ 'highlight': success === false }"
                 placeholder="Email"
                 required
@@ -41,7 +42,7 @@
             />
             <b-textarea
                 rows="5"
-                class="col-lg-3 col-md-5 form-field"
+                class="form-field"
                 placeholder="Message"
                 required
                 v-model="message"
@@ -50,7 +51,7 @@
             />
             <b-button
                 type="submit"
-                class="col-lg-2 col-md-4 form-field"
+                class="form-field"
                 id="submit-btn"
                 :class="{ 'btn-ready': btnReady }"
             >Send</b-button>
@@ -132,14 +133,17 @@ export default {
         justify-content: center;
         align-items: center;
         margin-top: 2vw;
-        transition: opacity 0.7s, height 2.7s;
+        transition: height 2.7s;
         .form-field {
             margin-bottom: 2.2vh;
+            align-self: center;
+            width: 80%;
         }
         textarea {
             overflow: hidden;
         }
         #submit-btn {
+            width: initial;
             border: 2px solid $colorLighter;
             color: $colorLight;
             box-shadow: none;
