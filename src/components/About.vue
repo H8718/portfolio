@@ -6,29 +6,9 @@
         <h2>Who am I?</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
 
-        <div id="blueprint">
+        <div id="blueprint" class="col-lg-8 col-md-12 offset-lg-2 offset-md-0">
 
-            <div class="fifth">
-                <div
-                    class="blueprint-box"
-                    id="box-2"
-                    :class="{ 'show': shown > 2 }"
-                >
-                    <h3><i class="fa fa-pencil" /> Studies</h3>
-                    <p>I currently study at JAMK to become a computer engineer.</p>
-                </div>
-            </div>
-            <div class="fifth">
-                <div
-                    class="blueprint-box"
-                    id="box-1"
-                    :class="{ 'show': shown > 1 }"
-                >
-                    <h3><i class="fa fa-user" /> Hobbies</h3>
-                    <p>I like playing the piano and computer games.</p>
-                </div>
-            </div>
-            <div class="fifth">
+            <div class="mobile-portrait">
                 <div
                     class="blueprint-box"
                     id="box-0"
@@ -38,107 +18,84 @@
                         id="portrait"
                         src="../assets/portrait.png"
                     />
+                    <div class="contact-btns">
+                        <i class="contact-btn fa fa-linkedin-square" />
+                        <i class="contact-btn devicon-github-plain" />
+                        <i class="contact-btn fa fa-file" />
+                    </div>
                 </div>
             </div>
-            <div class="fifth">
+
+            <div class="third">
+                <div class="container">
+                    <div
+                        class="blueprint-box"
+                        id="box-1"
+                        :class="{ 'show': shown > 1 }"
+                    >
+                        <h3><i class="fa fa-pencil" /> Studies</h3>
+                        <p>I currently study at JAMK to become a computer engineer.</p>
+                    </div>
+                </div>
                 <div
                     class="blueprint-box"
                     id="box-3"
                     :class="{ 'show': shown > 3 }"
                 >
-                    <h3><i class="fa fa-diamond" /> Skills</h3>
-                    <p>I am a fast learner so I have picked up a lot of useful
-                        skills for programming and other related things.
-                    </p>
+                    <h3><i class="fa fa-user" /> Hobbies</h3>
+                    <p>I like playing the piano and computer games.</p>
                 </div>
             </div>
-            <div class="fifth">
-                <div
-                    class="blueprint-box"
-                    id="box-4"
-                    :class="{ 'show': shown > 4 }"
-                >
-                    <h3><i class="fa fa-rocket" /> Future</h3>
-                    <p>After graduation, I want to improve my skills to become
-                        a great full-stack developer.
-                    </p>
+            <div class="third">
+                <div class="container">
+                    <div
+                        class="blueprint-box"
+                        id="box-0"
+                        :class="{ 'show': shown > 0 }"
+                    >
+                        <img
+                            id="portrait"
+                            src="../assets/portrait.png"
+                        />
+                        <div class="contact-btns">
+                            <i class="contact-btn fa fa-linkedin-square" />
+                            <i class="contact-btn devicon-github-plain" />
+                            <i class="contact-btn fa fa-file" />
+                        </div>
+                    </div>
+                    <div class="line" id="line-1" />
+                    <div class="line" id="line-2" />
+                    <div class="line" id="line-3" />
+                    <div class="line" id="line-4" />
+                    <div class="line" id="line-5" />
                 </div>
             </div>
-
-            <div class="line" id="line-1" />
-            <div class="line" id="line-2" />
-            <div class="line" id="line-3" />
-            <div class="line" id="line-4" />
-            <div class="line" id="line-5" />
-
-
-            <!-- <div
-                class="blueprint-box"
-                id="box-0"
-                :class="{ 'show': shown[0] }"
-            >
-                <img
-                    id="portrait"
-                    src="../assets/portrait.png"
-                />
+            <div class="third">
+                <div class="container">
+                    <div
+                        class="blueprint-box"
+                        id="box-2"
+                        :class="{ 'show': shown > 2 }"
+                    >
+                        <h3><i class="fa fa-diamond" /> Skills</h3>
+                        <p>I am a fast learner so I have picked up a lot of useful
+                            skills for programming and other related things.
+                        </p>
+                    </div>
+                </div>
+                <div class="container">
+                    <div
+                        class="blueprint-box"
+                        id="box-4"
+                        :class="{ 'show': shown > 4 }"
+                    >
+                        <h3><i class="fa fa-rocket" /> Future</h3>
+                        <p>After graduation, I want to improve my skills to become
+                            a great full-stack developer.
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="part-name">This is me</div>
-            <div class="line" id="line-1" />
-
-            <span class="contact-btn" id="linkedin">
-                <i class=" fa fa-linkedin-square" />
-            </span>
-            <span class="contact-btn" id="github">
-                <i class="devicon-github-plain" />
-            </span>
-            <span class="contact-btn" id="cv">
-                <i class="fa fa-file" />
-            </span>
-
-            <div
-                class="blueprint-box"
-                id="box-1"
-                :class="{ 'show': shown[1] }"
-            >
-                <h3><i class="fa fa-user" /> Hobbies</h3>
-                <p>I like playing the piano and computer games.</p>
-            </div>
-            <div class="line" id="line-2" />
-
-            <div
-                class="blueprint-box"
-                id="box-2"
-                :class="{ 'show': shown[2] }"
-            >
-                <h3><i class="fa fa-pencil" /> Studies</h3>
-                <p>I currently study at JAMK to become a computer engineer.</p>
-            </div>
-            <div class="line" id="line-3" />
-
-            <div
-                class="blueprint-box"
-                id="box-3"
-                :class="{ 'show': shown[3] }"
-            >
-                <h3><i class="fa fa-diamond" /> Skills</h3>
-                <p>I am a fast learner so I have picked up a lot of useful
-                    skills for programming and other related things.
-                </p>
-            </div>
-            <div class="line" id="line-4" />
-
-            <div
-                class="blueprint-box"
-                id="box-4"
-                :class="{ 'show': shown[4] }"
-            >
-                <h3><i class="fa fa-rocket" /> Future</h3>
-                <p>After graduation, I want to improve my skills to become
-                    a great full-stack developer.
-                </p>
-            </div>
-            <div class="line" id="line-5" /> -->
-
         </div>
     </section>
 </template>
@@ -179,8 +136,12 @@ export default {
     background: $colorMain;
     color: $colorLight;
     position: relative;
-    height: 80vh;
-    padding-top: 8vh;
+    padding-top: 7vh;
+    padding-bottom: 2vh;
+    height: auto !important;
+    /* @media screen and (max-width: 1000px) {
+        height: auto !important;
+    } */
     .underline {
         border-color: $colorLighter;
     }
@@ -188,13 +149,49 @@ export default {
         display: flex;
         flex-direction: row;
         position: relative;
-        .fifth {
-            width: 20vw;
+        .mobile-portrait {
+            display: none;
         }
-
+        @media screen and (max-width: 999px) {
+            flex-direction: column;
+            .mobile-portrait {
+                display: auto;
+            }
+            .third {
+                width: 100% !important;
+                .container {
+                    min-height: initial !important;
+                    max-height: initial !important;
+                }
+            }
+            .third:nth-of-type(2) {
+                display: none;
+            }
+        }
+        .third {
+            width: 33.33vw;
+            .container {
+                max-height: 35vh;
+                min-height: 30vh;
+                position: relative;
+            }
+        }
+        .third:nth-child(3) {
+            .container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
         .blueprint-box {
             text-align: center;
             opacity: 1; // 0
+            margin: 1.5vh;
+            position: relative;
+            background: $colorMain;
+            @media screen and (max-width: 1299px) and (min-width: 999px) {
+                width: 150%;
+            }
             h3 {
             }
             p {
@@ -205,35 +202,27 @@ export default {
                 color: $colorLighter;
                 padding: 2vh;
                 font-size: 110%;
-                background: inherit;
+                background: $colorSecondary;
             }
         }
         #portrait {
             width: 25vh;
             border-radius: 18vh;
-            padding: 1vh;
             border: 0.5vh solid $colorLighter;
+            position: relative;
+            z-index: 5;
         }
-        .contact-btn {
-            position: absolute;
-            font-size: 350%;
-            transition: color 1s;
-        }
-        .contact-btn:hover {
-            color: $colorSecondary;
-        }
-        #linkedin {
-            left: 25.3%;
-            top: 12%;
-        }
-        #github {
-            left: 25%;
-            top: 10%;
-        }
-        #cv {
-            left: 25.4%;
-            top: 14.4%;
-            font-size: 310%;
+        .contact-btns {
+            margin-top: 8%;
+            margin-left: 7%;
+            .contact-btn {
+                font-size: 350%;
+                transition: color 1s;
+                margin-right: 7%;
+            }
+            .contact-btn:hover {
+                color: $colorSecondary;
+            }
         }
         .show {
             -webkit-transition: opacity 2s ease;
@@ -243,74 +232,75 @@ export default {
             opacity: 1;
         }
         #box-0 {
-            width: 15vw;
-            top: 10%;
-            left: 9%;
+            width: 100%;
+            margin-top: 65%;
         }
-        #box-1 {
-            left: 24%;
-            top: 18%;
-        }
+        #box-1,
         #box-2 {
-            left: 40%;
-            top: 10.5%;
+            z-index: 5;
+            margin-top: -2vh;
         }
         #box-3 {
-            left: 56%;
-            top: 16%;
+            z-index: 5;
         }
         #box-4 {
-            left: 72%;
-            top: 9%;
+            z-index: 5;
+        }
+        #box-1,
+        #box-3 {
+            @media screen and (max-width: 1299px) and (min-width: 999px) {
+                margin-left: -60%;
+            }
         }
         .line {
             position: absolute !important;
             display: block !important;
             z-index: 1;
+            @media screen and (max-width: 999px) {
+                display: none !important;
+            }
         }
         #line-1 {
-            border-top: 0.4vh solid $colorLighter;
+            /* border-top: 0.4vh solid $colorLighter;
             width: 2.5%;
             transform: skewY(-50deg);
             left: 21%;
             top: 10%;
-            border-radius: 70%;
+            border-radius: 70%; */
         }
         #line-2 {
-            border-left: 0.4vh dashed $colorLighter;
-            border-bottom: 0.4vh dashed $colorLighter;
-            width: 9%;
-            height: 3%;
-            left: 15%;
-            top: 18.5%;
-            border-bottom-left-radius: 100%;
+            border-right: 0.4vh dashed $colorLighter;
+            border-top: 0.4vh dashed $colorLighter;
+            width: 45%;
+            height: 50%;
+            margin-left: -40%;
+            border-top-right-radius: 100%;
         }
         #line-3 {
             border-right: 0.4vh dashed $colorLighter;
             border-bottom: 0.4vh dashed $colorLighter;
-            width: 8%;
-            height: 15%;
-            left: 38%;
-            top: 16%;
+            width: 45%;
+            height: 50%;
+            margin-left: -40%;
+            margin-top: 40%;
             border-bottom-right-radius: 100%;
         }
         #line-4 {
             border-top: 0.4vh dashed $colorLighter;
-            border-right: 0.4vh dashed $colorLighter;
-            width: 4%;
-            height: 2%;
-            left: 54%;
-            top: 15.3%;
-            border-top-right-radius: 100%;
+            border-left: 0.4vh dashed $colorLighter;
+            width: 45%;
+            height: 50%;
+            margin-left: 40%;
+            border-top-left-radius: 100%;
         }
         #line-5 {
             border-bottom: 0.4vh dashed $colorLighter;
-            border-right: 0.4vh dashed $colorLighter;
-            width: 5%;
-            height: 5%;
-            left: 70%;
-            top: 15.4%;
-            border-bottom-right-radius: 100%;
+            border-left: 0.4vh dashed $colorLighter;
+            width: 45%;
+            height: 50%;
+            margin-left: 40%;
+            margin-top: 40%;
+            border-bottom-left-radius: 100%;
         }
         .part-name {
             font-size: 180%;

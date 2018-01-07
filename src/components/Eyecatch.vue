@@ -68,7 +68,6 @@ export default {
     background: $colorLight;
     #row-content {
         padding: 1vw 10vw 1vw 10vw;
-
         .col {
             display: flex;
             flex-direction: column;
@@ -79,12 +78,12 @@ export default {
                 padding: 0vw 10vw 0vw 10vw;
             }
             i {
-                font-size: 700%;
+                font-size: 600%;
                 color: $colorMain;
                 align-self: center;
             }
             .eyecatch-header {
-                margin-top: 3vh;
+                margin-top: 2vh;
                 text-align: center;
                 color: #444;
                 font-size: 115%;
