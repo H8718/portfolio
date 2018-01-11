@@ -1,12 +1,12 @@
 <template>
     <div id="site">
-        <Banner :scrolled="scrollBanner === true" />
+        <Banner />
         <div id="main">
-            <Navbar :scrolled="scrollNavbar === true" />
-            <About :scrolled="scrollAbout === true" />
-            <Eyecatch :scrolled="scrollEyecatch === true" />
+            <Navbar />
+            <About />
+            <Eyecatch />
             <Projects />
-            <Skills :scrolled="scrollSkills === true" />
+            <Skills />
             <Contact />
             <Foot />
         </div>
@@ -36,83 +36,6 @@ export default {
             didScroll: false
         };
     },
-    mounted() {
-        /* window.addEventListener("scroll", this.handleScroll);
-        let scrollInterval = setInterval(() => {
-            if (this.didScroll) {
-                if (window.scrollY >= 2700) {
-                    window.removeEventListener("scroll", this.handleScroll);
-                    this.scrollSkills = true;
-                    clearInterval(scrollInterval);
-                    this.didScroll = false;
-                    return;
-                } else if (window.scrollY >= 950) {
-                    this.scrollEyecatch = true;
-                    this.didScroll = false;
-                    return;
-                } else if (window.scrollY > 200) {
-                    this.scrollAbout = true;
-                    this.didScroll = false;
-                    return;
-                }
-            }
-        }, 800); */
-        let banner = new Waypoint({
-            element: document.getElementById("banner"),
-            handler: () => {
-                if (window.scrollY > 0) {
-                    console.log("banner under");
-                }
-                this.scrollBanner = true;
-                banner.destroy();
-            }
-        });
-        let navbar = new Waypoint({
-            element: document.getElementById("navbar"),
-            handler: () => {
-                /* if (window.scrollY > 0) {
-                    console.log("banner under");
-                } */
-                console.log("navbar");
-                this.scrollNavbar = true;
-                navbar.destroy();
-            }
-        });
-        let about = new Waypoint({
-            element: document.getElementById("about"),
-            handler: () => {
-                if (window.scrollY > 950) {
-                    console.log("under about");
-                }
-                this.scrollAbout = true;
-                about.destroy();
-            },
-            offset: 600
-        });
-        let eyecatch = new Waypoint({
-            element: document.getElementById("eyecatch"),
-            handler: () => {
-                console.log("eyecatch");
-                this.scrollEyecatch = true;
-                eyecatch.destroy();
-            },
-            offset: 700
-        });
-        let skills = new Waypoint({
-            element: document.getElementById("skills"),
-            handler: () => {
-                console.log("skills");
-                this.scrollSkills = true;
-                skills.destroy();
-            },
-            offset: 600
-        });
-    },
-    methods: {
-        /* handleScroll() {
-            this.didScroll = true;
-        } */
-    },
     name: "app",
     components: {
         Banner,
@@ -135,7 +58,6 @@ body {
     margin: 0;
     padding: 0;
     #site {
-        /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
         font-family: $fontMain;
         color: $colorDark;
     }

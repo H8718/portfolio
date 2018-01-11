@@ -61,6 +61,17 @@ export default {
             })
         };
     },
+    mounted() {
+        let waypoint = new Waypoint({
+            element: document.getElementById("skills"),
+            handler: () => {
+                console.log("skills");
+                this.scrollSkills = true;
+                waypoint.destroy();
+            },
+            offset: 600
+        });
+    },
     methods: {
         increment() {
             this.ready++;

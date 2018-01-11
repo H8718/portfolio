@@ -44,6 +44,17 @@ export default {
             })
         };
     },
+    mounted() {
+        let waypoint = new Waypoint({
+            element: document.getElementById("eyecatch"),
+            handler: () => {
+                console.log("eyecatch");
+                this.scrollEyecatch = true;
+                waypoint.destroy();
+            },
+            offset: 700
+        });
+    },
     methods: {
         startAnimation() {
             for (var i = 0; i < 4; i++) {

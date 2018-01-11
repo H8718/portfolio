@@ -53,19 +53,24 @@ export default {
     data() {
         return {
             loaded: false,
-            showBrand: false,
-            unwatch: this.$watch("scrolled", function() {
-                if (this.scrolled === true) {
-                    this.unwatch();
-                    this.showBrand = true;
-                }
-            })
+            showBrand: false
         };
     },
-    created() {
+    mounted() {
         setTimeout(() => {
             this.loaded = true;
         }, 100);
+        let waypoint = new Waypoint({
+            element: document.getElementById("navbar"),
+            handler: () => {
+                /* if (window.scrollY > 0) {
+                    console.log("banner under");
+                } */
+                console.log("navbar");
+                this.scrollNavbar = true;
+                waypoint.destroy();
+            }
+        });
     },
     props: ["scrolled"]
 };

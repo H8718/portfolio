@@ -113,6 +113,19 @@ export default {
             })
         };
     },
+    created() {
+        let waypoint = new Waypoint({
+            element: document.getElementById("about"),
+            handler: () => {
+                if (window.scrollY > 950) {
+                    console.log("under about");
+                }
+                this.scrollAbout = true;
+                waypoint.destroy();
+            },
+            offset: 600
+        });
+    },
     methods: {
         animateblueprint() {
             for (let i = 0; i < 5; i++) {

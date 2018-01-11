@@ -73,6 +73,18 @@ export default {
             img: "/static/projects/mesiainen_wordpress/main.png"
         };
     },
+    mounted() {
+        let waypoint = new Waypoint({
+            element: document.getElementById("banner"),
+            handler: () => {
+                if (window.scrollY > 0) {
+                    console.log("banner under");
+                }
+                this.scrollBanner = true;
+                waypoint.destroy();
+            }
+        });
+    },
     methods: {
         toggleHover(index) {
             switch (index) {
@@ -143,9 +155,13 @@ export default {
                 font-size: 250%;
                 i {
                     margin-left: 2vh;
+                    transition: color 0.7s;
                 }
                 i:nth-child(1) {
                     font-size: 105%;
+                }
+                i:hover {
+                    color: $colorSecondary;
                 }
             }
         }
