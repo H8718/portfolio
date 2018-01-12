@@ -48,25 +48,18 @@ export default {
                 { name: "Photoshop", level: 40, icon: "" },
                 { name: "Illustrator", level: 30, icon: "" }
             ],
-            ready: 0,
-            unwatch: this.$watch("scrolled", function() {
-                if (this.scrolled === true) {
-                    this.unwatch();
-                    for (let i = 0; i < this.skills.length; i++) {
-                        setTimeout(() => {
-                            this.increment();
-                        }, 50 * i);
-                    }
-                }
-            })
+            ready: 0
         };
     },
     mounted() {
         let waypoint = new Waypoint({
             element: document.getElementById("skills"),
             handler: () => {
-                console.log("skills");
-                this.scrollSkills = true;
+                for (let i = 0; i < this.skills.length; i++) {
+                    setTimeout(() => {
+                        this.increment();
+                    }, 50 * i);
+                }
                 waypoint.destroy();
             },
             offset: 600

@@ -55,7 +55,7 @@
                     >
                         <img
                             id="portrait"
-                            src="../assets/portrait.png"
+                            src="../assets/portrait.jpg"
                         />
                         <div class="contact-btns">
                             <i class="contact-btn fa fa-linkedin-square" />
@@ -104,23 +104,17 @@
 export default {
     data() {
         return {
-            shown: 0,
-            unwatch: this.$watch("scrolled", function() {
-                if (this.scrolled === true) {
-                    this.unwatch();
-                    this.animateblueprint();
-                }
-            })
+            shown: 0
         };
     },
-    created() {
+    mounted() {
         let waypoint = new Waypoint({
             element: document.getElementById("about"),
             handler: () => {
                 if (window.scrollY > 950) {
                     console.log("under about");
                 }
-                this.scrollAbout = true;
+                this.animateblueprint();
                 waypoint.destroy();
             },
             offset: 600

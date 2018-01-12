@@ -13,7 +13,7 @@
             >
                 <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
                     <img
-                        src="../assets/portrait.png"
+                        src="../assets/portrait.jpg"
                         class="col-md-4 offset-md-3"
                     />
                     <p>Hi. I'm</p>
@@ -21,55 +21,36 @@
                     <p>who makes</p>
                 </div>
                 <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
-                    <span @mouseover="toggleHover(0)" @mouseleave="toggleHover()">Websites</span>
-                    <span @mouseover="toggleHover(1)" @mouseleave="toggleHover()">Web Apps</span>
-                    <span @mouseover="toggleHover(2)" @mouseleave="toggleHover()">Mobile Apps</span>
+                    <span @click="toggleImg(1)">Websites</span>
+                    <span @click="toggleImg(2)">Web Apps</span>
+                    <span @click="toggleImg(3)">Mobile Apps</span>
                 </div>
             </div>
 
             <div class="background">
                 <div />
                 <div />
+                <div />
+                <div />
             </div>
 
-            <div class="skewed overlay" :class="{ 'open': btnHover }"></div>
+            <div class="skewed overlay" :class="{ 'open': btnClicked != null }"></div>
             <div class="skewed under">
-                <img class="img" :src="img" :class="{ 'show-img': btnHover }" />
-                <!-- <img :src="'/static/projects/mesiainen_wordpress/main.png'" /> -->
+                <!-- <img class="img" :src="img" :class="{ 'show-img': btnClicked }" /> -->
+                <img src="/static/projects/mesiainen_wordpress/main.png" :class="{ 'show-img': btnClicked === 1 }" />
+                <img src="/static/projects/black_banana_admin/main.png" :class="{ 'show-img': btnClicked === 2 }" />
+                <img src="/static/projects/my_movie_list/mmlphone.png" :class="{ 'show-img': btnClicked === 3 }" />
             </div>
         </div>
     </section>
 </template>
 
 <script>
-import TopImage from "./TopImage";
-import BottomImage from "./BottomImage";
-
 export default {
-    /* mounted() {
-        let wrapper = document.getElementById("wrapper");
-        let topLayer = wrapper.querySelector(".top");
-        let handle = wrapper.querySelector(".handle");
-        let skew = 0;
-        let delta = 0;
-        if (wrapper.className.indexOf("skewed") != -1) {
-            skew = 1000;
-        }
-        wrapper.addEventListener("mousemove", function(e) {
-            delta = (e.clientX - window.innerWidth / 2) * 0.5;
-            /* handle.style.left = e.clientX + delta + "px";
-            topLayer.style.width = e.clientX + skew + delta + "px";
-        });
-    }, */
     data() {
         return {
-            headerLines: [
-                ["> Hi! I'm", "Markus"],
-                ["> I make", "Websites"],
-                [">", "Web apps"],
-                [">", "Mobile apps"]
-            ],
-            btnHover: false,
+            btnClicked: null,
+            clickable: true,
             img: "/static/projects/mesiainen_wordpress/main.png"
         };
     },
@@ -86,26 +67,22 @@ export default {
         });
     },
     methods: {
-        toggleHover(index) {
-            switch (index) {
-                case 0:
-                    this.img = "/static/projects/mesiainen_wordpress/main.png";
-                    break;
-                case 2:
-                    this.img = "/static/projects/my_movie_list/mmlphone.png";
-                    break;
-                case 1:
-                    this.img = "/static/projects/black_banana_admin/main.png";
-                    break;
-                default:
-                    break;
+        toggleImg(index) {
+            if (this.clickable) {
+                this.clickable = false;
+                setTimeout(() => {
+                    this.clickable = true;
+                }, this.btnClicked == null ? 1200 : 2200);
+                if (this.btnClicked == null) {
+                    this.btnClicked = index;
+                    return;
+                }
+                this.btnClicked = null;
+                setTimeout(() => {
+                    this.btnClicked = index;
+                }, 1200);
             }
-            this.btnHover = !this.btnHover;
         }
-    },
-    components: {
-        TopImage,
-        BottomImage
     }
 };
 </script>
@@ -115,17 +92,11 @@ export default {
 
 #banner {
     height: 92vh;
-    /* border-top: 0.5vh solid $colorMain; */
     position: relative;
     overflow: hidden !important;
     #overlay {
         background-color: rgba(57, 73, 171, 0.8);
-        /* opacity: 0.8; */
         height: 100%;
-        /* display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative; */
         display: flex;
         align-items: center;
         position: relative;
@@ -170,6 +141,8 @@ export default {
             font-family: $fontBrand;
             margin-top: -3vh;
             width: 100%;
+            position: relative;
+            z-index: 10;
             div:nth-child(1) {
                 img {
                     width: 17vh;
@@ -178,11 +151,11 @@ export default {
                     margin-bottom: 3%;
                     border: 0.5vh solid white;
                     opacity: 1 !important;
-                    transition: transform 2s;
+                    /* transition: transform 2s; */
                 }
-                img:hover {
+                /* img:hover {
                     transform: rotate(360deg);
-                }
+                } */
                 p:nth-of-type(1) {
                     font-size: 250%;
                     line-height: 2vh;
@@ -214,12 +187,25 @@ export default {
             left: 0;
             width: 60%;
             height: 20%;
+            z-index: 2;
             div:nth-child(1) {
                 background-color: rgba(57, 73, 171, 0.6);
                 position: absolute;
-                height: 150%;
-                width: 70%;
+                height: 160%;
+                width: 90%;
+                bottom: -95%;
+                border-top-left-radius: 80%;
+                border-top-right-radius: 80%;
+                border-bottom-left-radius: 10%;
+                border-bottom-right-radius: 10%;
+            }
+            div:nth-child(3) {
+                background-color: rgba(57, 73, 171, 0.6);
+                position: absolute;
+                height: 400%;
+                width: 150%;
                 bottom: -100%;
+                left: -20%;
                 border-top-left-radius: 70%;
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 10%;
@@ -229,10 +215,10 @@ export default {
                 background-color: rgba(57, 73, 171, 0.6);
                 position: absolute;
                 height: 160%;
-                width: 70%;
-                bottom: -100%;
-                left: 20%;
-                border-top-left-radius: 70%;
+                width: 90%;
+                bottom: -85%;
+                left: 25%;
+                border-top-left-radius: 80%;
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
@@ -252,27 +238,29 @@ export default {
         }
         .overlay {
             background-color: rgba(35, 35, 35, 1);
-            transition: width 1.2s;
+            transition: width 1s;
             z-index: 12;
         }
         .under {
             background: white;
             z-index: 11;
-            /* overflow: hidden; */
             display: flex;
             justify-content: left;
             align-items: center;
             img {
                 transform: skew(30deg);
-                width: 85%;
+                width: 90%;
                 margin-left: 20%;
                 margin-top: 15%;
-                position: relative;
+                position: absolute;
                 z-index: 11;
-                transition: margin-left 1.2s;
+                transition: margin-left 1s, opacity 1s;
+                opacity: 0;
             }
-            .img.show-img {
-                margin-left: -9%;
+            img.show-img {
+                margin-left: -25%;
+                opacity: 1 !important;
+                position: relative !important;
             }
         }
         .overlay.open {

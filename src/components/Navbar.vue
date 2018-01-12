@@ -67,7 +67,7 @@ export default {
                     console.log("banner under");
                 } */
                 console.log("navbar");
-                this.scrollNavbar = true;
+                this.showBrand = true;
                 waypoint.destroy();
             }
         });
@@ -128,7 +128,7 @@ export default {
             cursor: pointer;
             height: 8vh;
             width: 7vw;
-            min-width: 100px;
+            min-width: 120px;
             display: flex;
             justify-content: center;
             align-items: center;

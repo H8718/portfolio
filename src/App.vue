@@ -26,17 +26,6 @@ import Foot from "./components/Foot";
 let Waypoints = require("./components/waypoints/lib/noframework.waypoints.min.js");
 
 export default {
-    data() {
-        return {
-            scrollBanner: false,
-            scrollNavbar: false,
-            scrollAbout: false,
-            scrollEyecatch: false,
-            scrollSkills: false,
-            didScroll: false
-        };
-    },
-    name: "app",
     components: {
         Banner,
         Navbar,

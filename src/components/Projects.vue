@@ -21,7 +21,7 @@
                 <div
                     v-if="active != index"
                     class="project-image"
-                    :style="{ background: 'url(/static/projects/'+project.folder+'main.png)' }"
+                    :style="{ background: 'url(/static/projects/'+project.folder+'main.jpg)' }"
                 />
                 <div
                     class="cover"
@@ -100,7 +100,7 @@
                     <div
                         v-if="active != index"
                         class="project-image"
-                        :style="{ background: 'url(/static/projects/'+project.folder+'main.png)' }"
+                        :style="{ background: 'url(/static/projects/'+project.folder+'main.jpg)' }"
                     />
                     <div
                         class="cover"
@@ -130,7 +130,7 @@ export default {
                     description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Portfolio/",
-                    logo: "main.png",
+                    logo: "main.jpg",
                     images: [],
                     source: "https://github.com/moilamar/portfolio",
                     tags: [
@@ -158,7 +158,7 @@ export default {
                     description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Mesiainen_Wordpress/",
-                    logo: "logo_cropped.png",
+                    logo: "logo_cropped.jpg",
                     images: [],
                     source: "https://github.com/moilamar/film-app-mobile",
                     tags: [
@@ -171,13 +171,13 @@ export default {
                     description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "3D_Models/",
-                    logo: "main.png",
+                    logo: "main.jpg",
                     images: [
-                        "back_of_audience.png",
-                        "behind_piano.png",
-                        "insides3.png",
-                        "details4.png",
-                        "textures.png"
+                        "back_of_audience.jpg",
+                        "behind_piano.jpg",
+                        "insides3.jpg",
+                        "details4.jpg",
+                        "textures.jpg"
                     ],
                     source: "https://github.com/Moilamar/3d-models",
                     tags: [["devicon-devicon-plain", "Blender", "#EA8E33"]]
@@ -187,7 +187,7 @@ export default {
                     description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Black_Banana_Admin/",
-                    logo: "main.png",
+                    logo: "main.jpg",
                     images: [],
                     source: "",
                     tags: [
@@ -201,7 +201,7 @@ export default {
                     description:
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Music_Notebook/",
-                    logo: "main.png",
+                    logo: "main.jpg",
                     images: [],
                     source: "",
                     tags: [
@@ -410,7 +410,7 @@ export default {
 }
 .project-item:hover {
     .project-image {
-        transform: scale(1.2);
+        transform: scale(1.3);
     }
     .cover {
         opacity: 1;

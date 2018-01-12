@@ -35,13 +35,7 @@
 export default {
     data() {
         return {
-            ready: [],
-            unwatch: this.$watch("scrolled", function() {
-                if (this.scrolled === true) {
-                    this.unwatch();
-                    this.startAnimation();
-                }
-            })
+            ready: []
         };
     },
     mounted() {
@@ -49,7 +43,7 @@ export default {
             element: document.getElementById("eyecatch"),
             handler: () => {
                 console.log("eyecatch");
-                this.scrollEyecatch = true;
+                this.startAnimation();
                 waypoint.destroy();
             },
             offset: 700
