@@ -32,6 +32,7 @@
                 <div />
                 <div />
                 <div />
+                <i class="devicon-react-original" />
             </div>
 
             <div class="skewed overlay" :class="{ 'open': btnClicked != null }"></div>
@@ -42,6 +43,7 @@
                 <img src="/static/projects/my_movie_list/mmlphone.png" :class="{ 'show-img': btnClicked === 3 }" />
             </div>
         </div>
+
     </section>
 </template>
 
@@ -51,7 +53,12 @@ export default {
         return {
             btnClicked: null,
             clickable: true,
-            img: "/static/projects/mesiainen_wordpress/main.png"
+            images: [
+                {
+                    src: "/static/projects/mesiainen_wordpress/main.png",
+                    title: "test"
+                }
+            ]
         };
     },
     mounted() {
@@ -116,7 +123,7 @@ export default {
                     display: none;
                 }
                 position: absolute;
-                height: 8vh;
+                height: 7vh;
                 left: 6vh;
             }
             .contact-icons {
@@ -124,6 +131,7 @@ export default {
                 position: absolute;
                 right: 6vh;
                 font-size: 250%;
+                margin-top: 0.4vh;
                 i {
                     margin-left: 2vh;
                     transition: color 0.7s;
@@ -190,6 +198,7 @@ export default {
             z-index: 2;
             div:nth-child(1) {
                 background-color: rgba(57, 73, 171, 0.6);
+                z-index: 5;
                 position: absolute;
                 height: 160%;
                 width: 90%;
@@ -199,20 +208,9 @@ export default {
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
             }
-            div:nth-child(3) {
-                background-color: rgba(57, 73, 171, 0.6);
-                position: absolute;
-                height: 400%;
-                width: 150%;
-                bottom: -100%;
-                left: -20%;
-                border-top-left-radius: 70%;
-                border-top-right-radius: 50%;
-                border-bottom-left-radius: 10%;
-                border-bottom-right-radius: 10%;
-            }
             div:nth-child(2) {
                 background-color: rgba(57, 73, 171, 0.6);
+                z-index: 5;
                 position: absolute;
                 height: 160%;
                 width: 90%;
@@ -222,6 +220,40 @@ export default {
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
+            }
+            div:nth-child(3) {
+                background-color: rgba(57, 73, 171, 0.6);
+                z-index: 2;
+                position: absolute;
+                height: 200%;
+                width: 150%;
+                bottom: -100%;
+                left: -30%;
+                border-top-left-radius: 90%;
+                border-top-right-radius: 90%;
+                border-bottom-left-radius: 10%;
+                border-bottom-right-radius: 10%;
+            }
+            div:nth-child(4) {
+                background-color: rgba(57, 73, 171, 1);
+                z-index: 3;
+                position: absolute;
+                height: 275%;
+                width: 230%;
+                bottom: -100%;
+                left: -70%;
+                border-top-left-radius: 70%;
+                border-top-right-radius: 50%;
+                border-bottom-left-radius: 10%;
+                border-bottom-right-radius: 10%;
+            }
+            i:nth-child(5) {
+                color: white;
+                z-index: 5;
+                position: absolute;
+                left: 10%;
+                top: -300%;
+                font-size: 280%;
             }
         }
         .skewed {

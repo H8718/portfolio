@@ -60,7 +60,7 @@
                         <div class="contact-btns">
                             <i class="contact-btn fa fa-linkedin-square" />
                             <i class="contact-btn devicon-github-plain" />
-                            <i class="contact-btn fa fa-file" />
+                            <i class="contact-btn fa fa-file" @click="showCV()"/>
                         </div>
                     </div>
                     <div class="line" id="line-1" />
@@ -97,6 +97,7 @@
                 </div>
             </div>
         </div>
+        <modal name="cv"></modal>
     </section>
 </template>
 
@@ -130,6 +131,9 @@ export default {
             setTimeout(() => {
                 this.shown++;
             }, 700 * i);
+        },
+        showCV() {
+            this.$modal.show("cv");
         }
     },
     props: ["scrolled"]

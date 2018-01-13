@@ -46,6 +46,43 @@
             </div>
         </div>
 
+        <modal name="project-info">
+            <div class="project-info">
+                asdasd
+                <!-- <div>
+                    <div class="project-logo">
+                        <img :src="'/static/projects/'+projects[active].folder+projects[active].logo" />
+                    </div>
+                    <div class="project-name">{{ projects[active].name }}</div>
+                </div>
+                <div class="project-description">
+                    <h3>Description:</h3>
+                    {{ projects[active].description }}
+                </div>
+                <div class="project-technologies">
+                    <Tag
+                        v-for="(tag, index) in projects[active].tags"
+                        :key="index"
+                        :icon="tag[0]"
+                        :text="tag[1]"
+                        :color="tag[2]"
+                    />
+                </div>
+                <div class="project-images">
+                    <img
+                        v-for="(image, index) in projects[active].images"
+                        :key="index"
+                        :src="'/static/projects/'+projects[active].folder+image"
+                    />
+                </div>
+                <div class="project-source">
+                    <h3>Source code:</h3>
+                    <a :href="projects[active].source" target="_blank">Github</a>
+                </div> -->
+            </div>
+        </modal>
+
+        <!--
         <div
             v-if="active != null"
             :class="{ 'fade-in': fadeIn }"
@@ -114,6 +151,7 @@
                     </div>
                 </div>
             </div>
+            -->
         </div>
     </section>
 </template>
@@ -176,7 +214,6 @@ export default {
                         "back_of_audience.jpg",
                         "behind_piano.jpg",
                         "insides3.jpg",
-                        "details4.jpg",
                         "textures.jpg"
                     ],
                     source: "https://github.com/Moilamar/3d-models",
@@ -219,15 +256,18 @@ export default {
     },
     methods: {
         toggleProjectInfo(index) {
-            this.fadeOut = true;
+            /* this.fadeOut = true;
             setTimeout(() => {
                 this.active = index;
                 this.fadeIn = true;
                 console.log(this.active);
-            }, 500);
-
+            }, 500); */
             /* this.active = index;
             console.log("active: " + this.active); */
+            this.active = index;
+            this.$modal.show("project-info", {
+                project: this.active ? this.projects[this.active] : null
+            });
         },
         changeCurrentProject(index) {
             this.animateOut = index;
@@ -336,7 +376,9 @@ export default {
     .project-info {
         width: 75%;
         height: 75vh;
-        background: $colorMain;
+        background: white;
+        border: 1px solid black;
+        border-radius: 4px;
         display: flex;
         flex-direction: column;
         @media screen and (max-width: 500px) {

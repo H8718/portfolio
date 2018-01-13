@@ -23,8 +23,6 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Foot from "./components/Foot";
 
-let Waypoints = require("./components/waypoints/lib/noframework.waypoints.min.js");
-
 export default {
     components: {
         Banner,
