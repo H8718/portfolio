@@ -58,8 +58,12 @@
                             src="../assets/portrait.jpg"
                         />
                         <div class="contact-btns">
-                            <i class="contact-btn fa fa-linkedin-square" />
-                            <i class="contact-btn devicon-github-plain" />
+                            <a href="https://www.linkedin.com/in/markus-moilanen/" target="_blank">
+                                <i class="contact-btn fa fa-linkedin-square" />
+                            </a>
+                            <a href="https://github.com/moilamar" target="_blank">
+                                <i class="contact-btn devicon-github-plain" />
+                            </a>
                             <i class="contact-btn fa fa-file" @click="showCV()"/>
                         </div>
                     </div>
@@ -97,7 +101,12 @@
                 </div>
             </div>
         </div>
-        <modal name="cv"></modal>
+        <modal
+            name="cv"
+            height="95%"
+        >
+            <img src="/static/cv.png" />
+        </modal>
     </section>
 </template>
 
@@ -230,6 +239,13 @@ export default {
                 font-size: 350%;
                 transition: color 1s;
                 margin-right: 7%;
+                cursor: pointer;
+            }
+            a:nth-child(1) {
+                font-size: 110%;
+            }
+            i:nth-child(3) {
+                font-size: 330%;
             }
             .contact-btn:hover {
                 color: $colorSecondary;
@@ -319,6 +335,12 @@ export default {
             position: absolute;
             left: 24%;
             top: 8%;
+        }
+    }
+    .v--modal {
+        width: 585px !important;
+        img {
+            height: 100%;
         }
     }
 }

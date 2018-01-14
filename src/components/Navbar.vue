@@ -82,7 +82,7 @@ export default {
 #navbar {
     /* margin-top: -91vh; */
     transition: margin-top 1.5s;
-    height: 8vh;
+    height: 7vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
     -webkit-box-shadow: 0 2px 4px 20 rgba(40, 40, 40, 0.2),
@@ -97,8 +97,8 @@ export default {
         transition: width 2s, opacity 1.5s;
         img {
             border-radius: 0.2vw;
-            width: 6vh;
-            height: 6vh;
+            width: 5vh;
+            height: 5vh;
         }
         div {
             font-family: $fontBrand;
@@ -126,7 +126,7 @@ export default {
         margin-left: 1vw;
         .nav-item {
             cursor: pointer;
-            height: 8vh;
+            height: 7vh;
             width: 7vw;
             min-width: 120px;
             display: flex;

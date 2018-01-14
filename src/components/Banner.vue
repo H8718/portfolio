@@ -4,13 +4,15 @@
             <div id="top">
                 <img src="../assets/logo.png" alt=""/>
                 <div class="contact-icons">
-                    <i class="fa fa-linkedin-square" />
-                    <i class="devicon-github-plain" />
+                    <a href="https://www.linkedin.com/in/markus-moilanen/" target="_blank">
+                        <i class="contact-btn fa fa-linkedin-square" />
+                    </a>
+                    <a href="https://github.com/moilamar" target="_blank">
+                                <i class="contact-btn devicon-github-plain" />
+                            </a>
                 </div>
             </div>
-            <div
-                id="header"
-            >
+            <div id="header">
                 <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
                     <img
                         src="../assets/portrait.jpg"
@@ -98,7 +100,7 @@ export default {
 @import "../styles/variables.scss";
 
 #banner {
-    height: 92vh;
+    height: 93vh;
     position: relative;
     overflow: hidden !important;
     #overlay {
@@ -131,13 +133,13 @@ export default {
                 position: absolute;
                 right: 6vh;
                 font-size: 250%;
-                margin-top: 0.4vh;
+                margin-top: 0.1vh;
                 i {
                     margin-left: 2vh;
                     transition: color 0.7s;
                 }
-                i:nth-child(1) {
-                    font-size: 105%;
+                a:nth-child(1) {
+                    font-size: 110%;
                 }
                 i:hover {
                     color: $colorSecondary;
