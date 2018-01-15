@@ -101,20 +101,27 @@
                 </div>
             </div>
         </div>
-        <modal
+        <!-- <modal
             name="cv"
             height="95%"
         >
             <img src="/static/cv.png" />
-        </modal>
+        </modal> -->
+        <Lightbox :enabled="modalEnabled">
+            <component :is="childComponent"></component>
+        </Lightbox>
     </section>
 </template>
 
 <script>
+import Lightbox from "./Lightbox";
+
 export default {
     data() {
         return {
-            shown: 0
+            shown: 0,
+            modalEnabled: false,
+            childComponent: { template: '<img id="cv" src="/static/cv.png" />' }
         };
     },
     mounted() {
@@ -142,10 +149,14 @@ export default {
             }, 700 * i);
         },
         showCV() {
-            this.$modal.show("cv");
+            /* this.$modal.show("cv"); */
+            this.modalEnabled = !this.modalEnabled;
         }
     },
-    props: ["scrolled"]
+    props: ["scrolled"],
+    components: {
+        Lightbox
+    }
 };
 </script>
 
@@ -337,11 +348,8 @@ export default {
             top: 8%;
         }
     }
-    .v--modal {
-        width: 585px !important;
-        img {
-            height: 100%;
-        }
+    #cv {
+        height: 95vh;
     }
 }
 </style>
