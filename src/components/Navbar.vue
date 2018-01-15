@@ -124,6 +124,7 @@ export default {
     }
     #nav-list {
         margin-left: 1vw;
+        -webkit-backface-visibility: hidden;
         .nav-item {
             cursor: pointer;
             height: 7vh;

@@ -49,7 +49,6 @@
                 class="project-info-container"
             >
                 <div class="project-info">
-                    <div class="close-btn">X</div>
                     <div class="header">
                         <div class="project-logo">
                             <img :src="'/static/projects/'+projects[active].folder+projects[active].logo" />
@@ -80,7 +79,7 @@
                     <div class="project-source">
                         <h3>Source code:</h3>
                         <a
-                            :href="projects[active].source"
+                            :href="'https://github.com/moilamar/'+projects[active].source"
                             target="_blank"
                             v-if="projects[active].source"
                         >
@@ -190,8 +189,7 @@ export default {
         toggleProjectInfo(index) {
             this.active = index;
             this.$modal.show("project-info");
-        },
-        changeCurrentProject(index) {}
+        }
     },
     components: { Tag }
 };
@@ -231,7 +229,6 @@ export default {
     position: relative;
     overflow: hidden;
     transition: height 0.5s;
-
     .project-image {
         position: absolute;
         top: 0;
@@ -362,14 +359,19 @@ export default {
             a {
                 text-decoration: none;
                 margin-left: 5%;
+                color: $colorDark;
+                transition: color 0.7s;
             }
             a i {
                 cursor: pointer;
                 transition: color 0.7s;
                 font-size: 350%;
             }
-            a i:hover {
+            a:hover {
                 color: $colorSecondary;
+                i {
+                    color: $colorSecondary;
+                }
             }
         }
     }
