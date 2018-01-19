@@ -3,11 +3,16 @@
         class="modal-overlay"
         v-if="showModal"
         @click="disableModal()"
+        :class="{ 'show-modal': showModal }"
     >
         <div
             class="modal"
             @click.stop
         >
+            <div
+                class="close-btn"
+                @click="disableModal()"
+            >X</div>
             <slot></slot>
         </div>
     </div>
@@ -19,10 +24,6 @@ export default {
         return {
             showModal: false
         };
-    },
-    mounted() {
-        console.log("mounted");
-        var test = { template: "<div></div>" };
     },
     methods: {
         disableModal() {
@@ -52,6 +53,11 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none;
+    /* transition: top 1s; */
+    animation-name: close-overlay;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
     .modal {
         background: white;
         border-radius: 3px;
@@ -60,6 +66,42 @@ export default {
         width: auto;
         height: auto;
         display: block;
+        .close-btn {
+            position: absolute;
+            font-size: 200%;
+            cursor: pointer;
+            top: 3px;
+            right: 15px;
+        }
+    }
+}
+.show-modal {
+    pointer-events: initial;
+    animation-name: show-overlay;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    .modal {
+        animation-name: show-modal;
+        animation-duration: 0.8s;
+        animation-fill-mode: forwards;
+        opacity: 1 !important;
+        overflow: visible;
+    }
+    @keyframes show-modal {
+        from {
+            top: -100%;
+        }
+        to {
+            top: 0;
+        }
+    }
+}
+@keyframes show-overlay {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 </style>

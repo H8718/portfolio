@@ -3,10 +3,8 @@
 import Vue from "vue";
 import App from "./App";
 import BootstrapVue from "bootstrap-vue";
-import VModal from "vue-js-modal";
 
 Vue.use(BootstrapVue);
-Vue.use(VModal);
 
 let VueScrollTo = require("vue-scrollto");
 let Waypoints = require("./components/waypoints/lib/noframework.waypoints.min.js");

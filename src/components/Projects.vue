@@ -38,67 +38,21 @@
 
             </div>
         </div>
-
-        <modal
-            name="project-info"
-            width="50%"
-            height="80%"
-        >
-            <div
-                v-if="active != null"
-                class="project-info-container"
-            >
-                <div class="project-info">
-                    <div class="header">
-                        <div class="project-logo">
-                            <img :src="'/static/projects/'+projects[active].folder+projects[active].logo" />
-                        </div>
-                        <div class="project-name">{{ projects[active].name }}</div>
-                    </div>
-                    <div class="project-description">
-                        <h3>Description:</h3>
-                        {{ projects[active].description }}
-                    </div>
-                    <div class="project-technologies">
-                        <!-- <h3>Technologies used</h3> -->
-                        <Tag
-                            v-for="(tag, index) in projects[active].tags"
-                            :key="index"
-                            :icon="tag[0]"
-                            :text="tag[1]"
-                            :color="tag[2]"
-                        />
-                    </div>
-                    <div class="project-images">
-                        <img
-                            v-for="(image, index) in projects[active].images"
-                            :key="index"
-                            :src="'/static/projects/'+projects[active].folder+image"
-                        />
-                    </div>
-                    <div class="project-source">
-                        <h3>Source code:</h3>
-                        <a
-                            :href="'https://github.com/moilamar/'+projects[active].source"
-                            target="_blank"
-                            v-if="projects[active].source"
-                        >
-                            <i class="devicon-github-plain-wordmark colored"></i>
-                            <span>/{{ projects[active].source }}</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </modal>
+        <Lightbox :enabled="modalEnabled">
+            <component :is="ProjectInfo" :project="projects[active]"></component>
+        </Lightbox>
     </section>
 </template>
 
 <script>
 import Tag from "./Tag";
+import Lightbox from "./Lightbox";
+import ProjectInfo from "./ProjectInfo";
 
 export default {
     data() {
         return {
+            ProjectInfo,
             projects: [
                 {
                     name: "Portfolio",
@@ -120,7 +74,7 @@ export default {
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "My_Movie_List/",
                     logo: "logo.svg",
-                    images: [],
+                    images: ["mml4.jpg", "mml2.jpg", "mml3.jpg"],
                     source: "film-app-mobile",
                     tags: [
                         ["devicon-vuejs-plain", "VueJS", "#41B883"],
@@ -134,8 +88,8 @@ export default {
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Mesiainen_Wordpress/",
                     logo: "logo_cropped.jpg",
-                    images: [],
-                    source: "hunajawp",
+                    images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
+                    source: "hunaja-wp",
                     tags: [
                         ["devicon-wordpress-plain", "Wordpress", "#21759B"],
                         ["devicon-php-plain", "PHP", "#666699"]
@@ -162,7 +116,7 @@ export default {
                         "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
                     folder: "Black_Banana_Admin/",
                     logo: "main.jpg",
-                    images: [],
+                    images: ["bb.jpg", "bb2.jpg", "bbdb.jpg", "main.jpg"],
                     tags: [
                         ["devicon-mysql-plain", "MySQL", "#00618A"],
                         ["devicon-php-plain", "PHP", "#666699"],
@@ -182,16 +136,21 @@ export default {
                     ]
                 }
             ],
-            active: null
+            active: null,
+            modalEnabled: false
         };
     },
     methods: {
         toggleProjectInfo(index) {
             this.active = index;
-            this.$modal.show("project-info");
+            this.modalEnabled = !this.modalEnabled;
         }
     },
-    components: { Tag }
+    components: {
+        Tag,
+        Lightbox,
+        ProjectInfo
+    }
 };
 </script>
 
@@ -201,6 +160,10 @@ export default {
 #projects {
     background-color: $colorLighter;
     height: auto;
+    .modal {
+        width: 900px !important;
+        height: 100%;
+    }
     h2 {
         color: $colorDark;
     }
@@ -268,111 +231,6 @@ export default {
             color: $colorDark;
             font-weight: 800;
             cursor: pointer;
-        }
-    }
-    .v--modal {
-    }
-}
-.project-info-container {
-    .project-info {
-        background: white;
-        display: flex;
-        flex-direction: column;
-        @media screen and (max-width: 500px) {
-            width: 100%;
-        }
-        .close-btn {
-            font-size: 180%;
-            position: absolute;
-            right: 2.5%;
-            top: 0.8%;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        h3 {
-            font-size: 150%;
-        }
-        .header {
-            align-self: center;
-            padding: 1vh;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            margin-top: 0.7vh;
-            .project-logo {
-                background: white;
-                margin-bottom: 5px;
-                img {
-                    height: 7vw;
-                    /* padding: 0.5vh; */
-                    /* box-shadow: 2px 2px 4px #444; */
-                }
-            }
-            .project-name {
-                margin-left: 1vh;
-                font-size: 170%;
-            }
-        }
-        .project-description {
-            padding: 3vh;
-        }
-        .project-technologies {
-            padding: 3vh;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            div:nth-child(1) {
-                i {
-                    margin-left: 15%;
-                }
-            }
-            div {
-                min-width: 10%;
-                padding-right: 5%;
-                i {
-                    margin-left: 20%;
-                }
-                span {
-                    padding-right: 20%;
-                }
-            }
-        }
-        .project-images {
-            width: 100%;
-            padding-left: 6%;
-            padding-right: 6%;
-            img {
-                width: 24%;
-                margin-left: 0.5%;
-                margin-right: 0.5%;
-                margin-top: 1vh;
-                margin-bottom: 1vh;
-                cursor: pointer;
-            }
-        }
-        .project-source {
-            padding: 3vh;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            a {
-                text-decoration: none;
-                margin-left: 5%;
-                color: $colorDark;
-                transition: color 0.7s;
-            }
-            a i {
-                cursor: pointer;
-                transition: color 0.7s;
-                font-size: 350%;
-            }
-            a:hover {
-                color: $colorSecondary;
-                i {
-                    color: $colorSecondary;
-                }
-            }
         }
     }
 }
