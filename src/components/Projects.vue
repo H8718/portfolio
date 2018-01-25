@@ -57,7 +57,13 @@ export default {
                 {
                     name: "Portfolio",
                     description:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                        `My portfolio website, which you are on right now.
+                        Purpose of the site is to tell something about myself and show what I'm capable of.
+                        Another reason for building it is to use it for Web visualization course at school.
+                        The website is built using VueJS framework for lightweight performance on the client,
+                        and Bootstrap, and Sass for styling and layouts. The website is scaling and responsive
+                        for mobile and desktop screens of all sizes. I use CSS transitions, animations and
+                        dynamic classes with the help of Vue to create a unique website fit for me.`,
                     folder: "Portfolio/",
                     logo: "main.jpg",
                     images: [],
@@ -71,7 +77,11 @@ export default {
                 {
                     name: "My Movie List",
                     description:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                        `A hybrid mobile tracking application for movie enthusiasts. My Movie List allows its users
+                        to keep track of movies that they've watched or plan to watch. It also features other things
+                        like a list of movies currently showing at the theaters and upcoming movies. The application
+                        is built using Cordova, Onsen UI and VueJS libraries for Mobile Application Development
+                        course at school. All movie data used in the app comes from the TMDB API.`,
                     folder: "My_Movie_List/",
                     logo: "logo.svg",
                     images: ["mml4.jpg", "mml2.jpg", "mml3.jpg"],
@@ -85,8 +95,7 @@ export default {
                 {
                     name: "Mesiäinen E-Commerce",
                     description:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
-                    folder: "Mesiainen_Wordpress/",
+                        `An e-commerce website...`,
                     logo: "logo_cropped.jpg",
                     images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
                     source: "hunaja-wp",
@@ -98,7 +107,9 @@ export default {
                 {
                     name: "3D Modeling",
                     description:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                        `A project for my 3D-modeling assignment. The goal was to create an accurate replication of
+                        Steinway and Sons' Model D grand piano. It's created using Blender and basic 3D-modeling techniques
+                        such as transitioning, scaling ...`,
                     folder: "3D_Models/",
                     logo: "main.jpg",
                     images: [
@@ -113,7 +124,9 @@ export default {
                 {
                     name: "E-Commerce Admin Page",
                     description:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                        `The backend for an e-commerce website. The project includes designing and implementing
+                        a relational MySQL database, creating a simple user interface for management purposes using
+                        React, and PHP scripts to communicate with the database.`,
                     folder: "Black_Banana_Admin/",
                     logo: "main.jpg",
                     images: ["bb.jpg", "bb2.jpg", "bbdb.jpg", "main.jpg"],
@@ -126,7 +139,10 @@ export default {
                 {
                     name: "Music Notebook",
                     description:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                        `A work-in-progress project for aspiring musicians and composers. The application
+                        will help beginners learn music and remind more seasoned veterans as well. Music
+                        Notebook is meant to serve as a general resource for musical theory, including the
+                        circle of fifths, scales, keys, musical notation and other things.`,
                     folder: "Music_Notebook/",
                     logo: "main.jpg",
                     images: [],

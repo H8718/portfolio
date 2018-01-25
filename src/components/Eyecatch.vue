@@ -42,7 +42,6 @@ export default {
         let waypoint = new Waypoint({
             element: document.getElementById("eyecatch"),
             handler: () => {
-                console.log("eyecatch");
                 this.startAnimation();
                 waypoint.destroy();
             },
@@ -83,7 +82,7 @@ export default {
                 padding: 0vw 10vw 0vw 10vw;
             }
             i {
-                font-size: 600%;
+                font-size: 550%;
                 color: $colorMain;
                 align-self: center;
             }
@@ -96,7 +95,9 @@ export default {
             }
             .eyecatch-text {
                 color: $colorMain;
-                font-size: 110%;
+                font-size: 105%;
+                margin-left: 1vw;
+                margin-right: 1vw;
             }
         }
         .animate-show {

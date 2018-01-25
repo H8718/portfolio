@@ -133,11 +133,16 @@ export default {
         justify-content: center;
         align-items: center;
         margin-top: 2vw;
-        transition: height 2.7s;
+        transition: height 2.7s none;
         .form-field {
-            margin-bottom: 2.2vh;
+            margin-bottom: 2vh;
             align-self: center;
             width: 80%;
+            transition: border-bottom 0.5s;
+            border-radius: 3px;
+        }
+        .form-field:focus {
+            border-bottom: 7px solid $colorSecondary;
         }
         textarea {
             overflow: hidden;
@@ -156,7 +161,7 @@ export default {
             color: $colorSecondary !important;
         }
         .highlight {
-            // highlight
+            border-bottom: 7px solid #ff4949;
         }
     }
     .hide {

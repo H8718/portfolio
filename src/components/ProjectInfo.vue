@@ -11,7 +11,7 @@
             {{ project.description }}
         </div>
         <div class="project-technologies">
-            <h3>Technologies used:</h3>
+            <h3>Technologies &amp; software:</h3>
             <div class="tags">
                 <Tag
                     v-for="(tag, index) in project.tags"
@@ -66,8 +66,8 @@ export default {
     flex-direction: column;
     padding-top: 0.5vh;
     padding-bottom: 3vh;
-    padding-left: 1.5vh;
-    padding-right: 1.5vh;
+    padding-left: 4vh;
+    padding-right: 4vh;
     @media screen and (max-width: 500px) {
         width: 100%;
     }
@@ -90,11 +90,12 @@ export default {
         justify-content: center;
         align-items: center;
         margin-top: 0.7vh;
+        margin-right: 5%;
         .project-logo {
             background: white;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
             img {
-                height: 7vw;
+                height: 5vw;
                 /* padding: 0.5vh; */
                 /* box-shadow: 2px 2px 4px #444; */
             }
@@ -112,10 +113,7 @@ export default {
         .tags {
             display: flex;
             flex-direction: row;
-            justify-content: center;
             margin-top: 2vh;
-            margin-left: 20%;
-            margin-right: 20%;
             @media screen and (max-width: 800px) {
                 margin-left: 0;
                 margin-right: 0;
@@ -124,7 +122,7 @@ export default {
                 }
             }
             .tag {
-                min-width: 30%;
+                width: 10vw;
                 span {
                     margin-left: 10%;
                 }
@@ -156,14 +154,14 @@ export default {
         a {
             text-decoration: none;
             margin-left: 5%;
-            margin-bottom: 2px;
+            margin-bottom: 6px;
             color: $colorDark;
             transition: color 0.7s, border-color 0.7s;
             display: flex;
             flex-direction: row;
             align-items: center;
             border: 3px solid $colorDark;
-            border-radius: 3px;
+            border-radius: 5px;
             padding: 8px;
             i {
                 cursor: pointer;

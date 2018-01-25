@@ -103,7 +103,7 @@ export default {
         div {
             font-family: $fontBrand;
             font-size: 150%;
-            font-weight: 700;
+            font-weight: bold;
             font-variant: small-caps;
             margin-left: 1vh;
         }
@@ -137,10 +137,11 @@ export default {
             transition: background-color 0.7s;
             a {
                 color: #555;
-                font-size: 115%;
+                font-size: 105%;
                 font-weight: bold;
                 font-family: $fontBrand;
                 transition: color 0.5s;
+                margin-top: 3px;
             }
         }
         .nav-item:hover {
