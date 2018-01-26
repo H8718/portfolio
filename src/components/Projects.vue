@@ -181,46 +181,6 @@ export default {
     .center-content {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
-        position: relative !important;
-        display: flex;
-        align-items: flex-start;
-
-        div:nth-child(1) {
-            left: 0;
-        }
-        div:nth-child(2) {
-            left: 42vh;
-        }
-        div:nth-child(3) {
-            left: 82vh;
-        }
-        div:nth-child(4) {
-            top: 32vh;
-            left: 0;
-        }
-        div:nth-child(5) {
-            top: 32vh;
-            left: 42vh;
-        }
-        div:nth-child(6) {
-            top: 32vh;
-            left: 82vh;
-        }
-        div.inactive:nth-child(1) {
-            top: 0;
-        }
-        div.inactive:nth-child(2) {
-            top: 18vh;
-        }
-        div.inactive:nth-child(3) {
-            top: 36vh;
-        }
-        div.inactive:nth-child(4) {
-            top: 54vh;
-        }
-        div.inactive:nth-child(5) {
-            top: 72vh;
-        }
     }
     .project-container {
         position: relative !important;
@@ -237,7 +197,7 @@ export default {
     width: 42vh;
     height: 32vh;
     color: $colorLighter;
-    position: absolute;
+    position: relative;
     overflow: hidden;
     @include transition(height, 0.5s, ease);
     .project-image {
