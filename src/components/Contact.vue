@@ -111,6 +111,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #contact {
     background: $colorMain;
@@ -133,13 +134,13 @@ export default {
         justify-content: center;
         align-items: center;
         margin-top: 2vw;
-        transition: height 2.7s none;
+        @include transition(height, 2.7s, none);
         .form-field {
             margin-bottom: 2vh;
             align-self: center;
             width: 80%;
-            transition: border-bottom 0.5s;
-            border-radius: 3px;
+            @include transition(border-bottom, 0.5s, ease);
+            @include border-radius(3px);
         }
         .form-field:focus {
             border-bottom: 7px solid $colorSecondary;
@@ -151,9 +152,9 @@ export default {
             width: initial;
             border: 2px solid $colorLighter;
             color: $colorLight;
-            box-shadow: none;
             background: none;
-            transition: border-color 1s, color 1s;
+            @include transition(border-color, 1s, ease);
+            @include transition(color, 1s, ease);
             cursor: pointer;
         }
         .btn-ready {
@@ -172,19 +173,8 @@ export default {
         text-align: center;
         font-size: 150%;
         color: white;
-        transition: opacity 2s;
+        @include transition(opacity, 2s, ease);
         margin-top: 1.5vh;
     }
-}
-#contact:before {
-    /* background: inherit;
-    content: "";
-    display: inline-block;
-    height: 10vh;
-    width: 104.9vw;
-    position: relative;
-    transform: skewY(1deg);
-    transform-origin: 100%;
-    margin-left: -10vw; */
 }
 </style>

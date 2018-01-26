@@ -56,8 +56,7 @@ export default {
             projects: [
                 {
                     name: "Portfolio",
-                    description:
-                        `My portfolio website, which you are on right now.
+                    description: `My portfolio website, which you are on right now.
                         Purpose of the site is to tell something about myself and show what I'm capable of.
                         Another reason for building it is to use it for Web visualization course at school.
                         The website is built using VueJS framework for lightweight performance on the client,
@@ -76,8 +75,7 @@ export default {
                 },
                 {
                     name: "My Movie List",
-                    description:
-                        `A hybrid mobile tracking application for movie enthusiasts. My Movie List allows its users
+                    description: `A hybrid mobile tracking application for movie enthusiasts. My Movie List allows its users
                         to keep track of movies that they've watched or plan to watch. It also features other things
                         like a list of movies currently showing at the theaters and upcoming movies. The application
                         is built using Cordova, Onsen UI and VueJS libraries for Mobile Application Development
@@ -94,8 +92,7 @@ export default {
                 },
                 {
                     name: "Mesiäinen E-Commerce",
-                    description:
-                        `An e-commerce website...`,
+                    description: `An e-commerce website...`,
                     logo: "logo_cropped.jpg",
                     images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
                     source: "hunaja-wp",
@@ -106,8 +103,7 @@ export default {
                 },
                 {
                     name: "3D Modeling",
-                    description:
-                        `A project for my 3D-modeling assignment. The goal was to create an accurate replication of
+                    description: `A project for my 3D-modeling assignment. The goal was to create an accurate replication of
                         Steinway and Sons' Model D grand piano. It's created using Blender and basic 3D-modeling techniques
                         such as transitioning, scaling ...`,
                     folder: "3D_Models/",
@@ -123,8 +119,7 @@ export default {
                 },
                 {
                     name: "E-Commerce Admin Page",
-                    description:
-                        `The backend for an e-commerce website. The project includes designing and implementing
+                    description: `The backend for an e-commerce website. The project includes designing and implementing
                         a relational MySQL database, creating a simple user interface for management purposes using
                         React, and PHP scripts to communicate with the database.`,
                     folder: "Black_Banana_Admin/",
@@ -138,8 +133,7 @@ export default {
                 },
                 {
                     name: "Music Notebook",
-                    description:
-                        `A work-in-progress project for aspiring musicians and composers. The application
+                    description: `A work-in-progress project for aspiring musicians and composers. The application
                         will help beginners learn music and remind more seasoned veterans as well. Music
                         Notebook is meant to serve as a general resource for musical theory, including the
                         circle of fifths, scales, keys, musical notation and other things.`,
@@ -172,6 +166,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #projects {
     background-color: $colorLighter;
@@ -191,23 +186,20 @@ export default {
         position: relative !important;
         margin-top: 2vw;
         width: 100%;
-        display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        transition: opacity 0.5s;
+        @include flexbox(row, center);
+        @include transition(opacity, 0.5s, ease);
     }
 }
 .project-item {
-    display: flex;
-    flex-direction: column;
+    @include flexbox(column, null, center);
     flex-wrap: wrap;
-    align-items: center;
     width: 42vh;
     height: 32vh;
     color: $colorLighter;
     position: relative;
     overflow: hidden;
-    transition: height 0.5s;
+    @include transition(height, 0.5s, ease);
     .project-image {
         position: absolute;
         top: 0;
@@ -217,7 +209,7 @@ export default {
         background-position: center center !important;
         background-repeat: no-repeat !important;
         background-size: cover !important;
-        transition: transform 0.7s !important;
+        @include transition(transform, 0.7s, ease);
     }
     .cover {
         background: rgba(255, 255, 255, 0.85);
@@ -228,16 +220,14 @@ export default {
         font-weight: 800;
         text-align: center;
         opacity: 0;
-        transition: opacity 0.6s, height 0.8s;
+        @include transition(opacity, 0.6s, ease);
+        @include transition(height, 0.8s, ease);
         .project-name {
             margin-top: 10%;
         }
         .project-tags {
             margin: 7% 0% 0 0%;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
+            @include flexbox(row, center, center);
         }
         .project-btn {
             margin-top: 13%;

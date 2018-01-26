@@ -15,8 +15,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../styles/variables.scss";
-
 .tag {
     min-width: 20%;
     width: auto;

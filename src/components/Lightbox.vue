@@ -41,6 +41,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 .modal-overlay {
     background: rgba(0, 0, 0, 0.7);
@@ -50,17 +51,12 @@ export default {
     z-index: 9999;
     top: 0;
     left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flexbox(row, center, center);
     pointer-events: none;
-    /* transition: top 1s; */
-    animation-name: close-overlay;
-    animation-duration: 0.3s;
-    animation-fill-mode: forwards;
+
     .modal {
         background: white;
-        border-radius: 3px;
+        @include border-radius(3px);
         color: $colorDark;
         position: relative;
         width: auto;

@@ -68,7 +68,6 @@ export default {
     methods: {
         increment() {
             this.ready++;
-            console.log(this.ready);
         }
     },
     props: ["scrolled"]
@@ -77,13 +76,10 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #skills {
-    /* background-color: $colorDark; */
     background-color: $colorLighter;
-    -webkit-transition: background-color 1000ms linear;
-    -ms-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear;
     padding-bottom: 5vw;
     h2 {
         color: $colorDark;
@@ -94,12 +90,9 @@ export default {
     }
     .container {
         margin-top: 2vw;
-        display: flex;
-        flex-direction: column;
+        @include flexbox(column);
         .skill-row {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            @include flexbox(row, null, center);
             margin-bottom: 1vh;
             width: 100%;
             position: relative;
@@ -111,13 +104,12 @@ export default {
             .skill-bar {
                 height: 2vh;
                 position: relative;
-                /* width: 80%; */
                 .skill-bar-fill {
                     background: $colorMain;
                     height: 100%;
                     position: relative;
                     width: 0%;
-                    transition: width 1.5s;
+                    @include transition(width, 1.5s, ease);
                 }
                 .animate-fill {
                     width: 100%;

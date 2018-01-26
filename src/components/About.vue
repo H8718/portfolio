@@ -162,6 +162,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #about {
     background: $colorMain;
@@ -177,8 +178,7 @@ export default {
         border-color: $colorLighter;
     }
     #blueprint {
-        display: flex;
-        flex-direction: row;
+        @include flexbox(row);
         position: relative;
         .mobile-portrait {
             display: none;
@@ -229,7 +229,7 @@ export default {
                 /* width: 27vh; */
                 /* min-height: 12vh; */
                 border: 0.5vh solid $colorLighter;
-                border-radius: 0.3vh;
+                @include border-radius(0.3vh);
                 color: $colorLighter;
                 padding: 2vh;
                 font-size: 110%;
@@ -238,7 +238,7 @@ export default {
         }
         #portrait {
             width: 25vh;
-            border-radius: 18vh;
+            @include border-radius(18vh);
             border: 0.5vh solid $colorLighter;
             position: relative;
             z-index: 5;
@@ -248,7 +248,7 @@ export default {
             margin-left: 7%;
             .contact-btn {
                 font-size: 350%;
-                transition: color 1s;
+                @include transition(color, 1s, ease);
                 margin-right: 7%;
                 cursor: pointer;
             }
@@ -263,10 +263,7 @@ export default {
             }
         }
         .show {
-            -webkit-transition: opacity 2s ease;
-            -moz-transition: opacity 2s ease;
-            -o-transition: opacity 2s ease;
-            transition: opacity 2s ease;
+            @include transition(opacity, 1.5s, ease);
             opacity: 1;
         }
         #box-0 {
@@ -278,9 +275,7 @@ export default {
             z-index: 5;
             margin-top: -2vh;
         }
-        #box-3 {
-            z-index: 5;
-        }
+        #box-3,
         #box-4 {
             z-index: 5;
         }
@@ -294,31 +289,29 @@ export default {
             position: absolute !important;
             display: block !important;
             z-index: 1;
+            width: 45%;
+            height: 50%;
             @media screen and (max-width: 999px) {
                 display: none !important;
             }
         }
-        #line-1 {
-            /* border-top: 0.4vh solid $colorLighter;
+        /* #line-1 {
+            border-top: 0.4vh solid $colorLighter;
             width: 2.5%;
             transform: skewY(-50deg);
             left: 21%;
             top: 10%;
-            border-radius: 70%; */
-        }
+            border-radius: 70%;
+        } */
         #line-2 {
             border-right: 0.4vh dashed $colorLighter;
             border-top: 0.4vh dashed $colorLighter;
-            width: 45%;
-            height: 50%;
             margin-left: -40%;
             border-top-right-radius: 100%;
         }
         #line-3 {
             border-right: 0.4vh dashed $colorLighter;
             border-bottom: 0.4vh dashed $colorLighter;
-            width: 45%;
-            height: 50%;
             margin-left: -40%;
             margin-top: 40%;
             border-bottom-right-radius: 100%;
@@ -326,16 +319,12 @@ export default {
         #line-4 {
             border-top: 0.4vh dashed $colorLighter;
             border-left: 0.4vh dashed $colorLighter;
-            width: 45%;
-            height: 50%;
             margin-left: 40%;
             border-top-left-radius: 100%;
         }
         #line-5 {
             border-bottom: 0.4vh dashed $colorLighter;
             border-left: 0.4vh dashed $colorLighter;
-            width: 45%;
-            height: 50%;
             margin-left: 40%;
             margin-top: 40%;
             border-bottom-left-radius: 100%;

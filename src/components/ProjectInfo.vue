@@ -48,6 +48,7 @@
 
 <script>
 import Tag from "./Tag";
+import "../styles/mixins.scss";
 
 export default {
     props: ["project"],
@@ -59,11 +60,11 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 .project-info {
     background: white;
-    display: flex;
-    flex-direction: column;
+    @include flexbox(column);
     padding-top: 0.5vh;
     padding-bottom: 3vh;
     padding-left: 4vh;
@@ -85,10 +86,7 @@ export default {
     .header {
         align-self: center;
         padding: 1vh;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        @include flexbox(row, center, center);
         margin-top: 0.7vh;
         margin-right: 5%;
         .project-logo {
@@ -111,8 +109,7 @@ export default {
     .project-technologies {
         padding: 3vh;
         .tags {
-            display: flex;
-            flex-direction: row;
+            @include flexbox(row);
             margin-top: 2vh;
             @media screen and (max-width: 800px) {
                 margin-left: 0;
@@ -148,20 +145,16 @@ export default {
     .project-source {
         padding: 3vh;
         margin-top: 3vh;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
+        @include flexbox(row, null, center);
         a {
             text-decoration: none;
             margin-left: 5%;
             margin-bottom: 6px;
             color: $colorDark;
             transition: color 0.7s, border-color 0.7s;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            @include flexbox(row, null, center);
             border: 3px solid $colorDark;
-            border-radius: 5px;
+            @include border-radius(5px);
             padding: 8px;
             i {
                 cursor: pointer;

@@ -66,6 +66,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #eyecatch {
     width: 100%;
@@ -73,10 +74,9 @@ export default {
     #row-content {
         padding: 1vw 10vw 1vw 10vw;
         .col {
-            display: flex;
-            flex-direction: column;
+            @include flexbox(column);
             opacity: 0;
-            transition: opacity 1s;
+            @include transition(opacity, 1s, ease);
             @media screen and (max-width: 350px) {
                 margin-bottom: 3vh;
                 padding: 0vw 10vw 0vw 10vw;

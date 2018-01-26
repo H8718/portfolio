@@ -98,6 +98,7 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #banner {
     height: 93vh;
@@ -106,8 +107,7 @@ export default {
     #overlay {
         background-color: rgba(57, 73, 171, 0.8);
         height: 100%;
-        display: flex;
-        align-items: center;
+        @include flexbox(row, null, center);
         position: relative;
         z-index: 9;
         #top {
@@ -118,8 +118,7 @@ export default {
             position: absolute;
             top: 0;
             width: 100%;
-            display: flex;
-            align-items: center;
+            @include flexbox(row, null, center);
             img {
                 @media screen and (max-width: 500px) {
                     display: none;
@@ -136,7 +135,7 @@ export default {
                 margin-top: 0.1vh;
                 i {
                     margin-left: 2vh;
-                    transition: color 0.7s;
+                    @include transition(color, 0.7s, ease);
                 }
                 a:nth-child(1) {
                     font-size: 110%;
@@ -260,11 +259,11 @@ export default {
         }
         .skewed {
             width: 53%;
-            height: 82vh;
+            height: 83vh;
             position: absolute;
             right: -20%;
             top: 10vh;
-            transform: skew(-30deg);
+            @include skew(-30deg);
             z-index: 100;
             @media screen and (max-width: 1199px) {
                 display: none;
@@ -272,23 +271,23 @@ export default {
         }
         .overlay {
             background-color: rgba(35, 35, 35, 1);
-            transition: width 1s;
+            @include transition(width, 1s, ease);
             z-index: 12;
         }
         .under {
             background: white;
             z-index: 11;
-            display: flex;
-            justify-content: left;
-            align-items: center;
+            @include flexbox(row, left, center);
             img {
-                transform: skew(30deg);
+                @include skew(30deg);
                 width: 90%;
                 margin-left: 20%;
                 margin-top: 15%;
                 position: absolute;
                 z-index: 11;
-                transition: margin-left 1s, opacity 1s;
+                /* transition: margin-left 1s, opacity 1s; */
+                @include transition(margin-left, 1s, ease);
+                @include transition(opacity, 1s, ease);
                 opacity: 0;
             }
             img.show-img {
