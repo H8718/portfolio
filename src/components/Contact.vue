@@ -1,21 +1,29 @@
 <template>
-    <section 
-        id="contact" 
+    <section
+        id="contact"
         class="container-fluid"
     >
         <h2>Send me a message</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content">
-            <p class="description">Send me a message using this form. I'll probably answer back.</p>
+            <p class="description">Send me a message using the form. I'll probably answer back.</p>
+        </div>
+        <div
+            class="alert-message col-md-10 offset-md-1"
+            v-if="alert"
+        >
+            <p>{{ alert }}</p>
         </div>
         <b-form
             id="contact-form"
             method="POST"
             @submit.prevent="submitForm()"
+            :class="{ 'hide': success }"
+            class="col-lg-4 col-md-6 offset-lg-4 offset-md-3"
         >
             <b-input
                 type="text"
-                class="col-lg-3 col-md-5 form-field"
+                class="form-field"
                 placeholder="Name"
                 required
                 v-model="name"
@@ -24,7 +32,8 @@
             />
             <b-input
                 type="text"
-                class="col-lg-3 col-md-5 form-field"
+                class="form-field"
+                :class="{ 'highlight': success === false }"
                 placeholder="Email"
                 required
                 v-model="email"
@@ -33,7 +42,7 @@
             />
             <b-textarea
                 rows="5"
-                class="col-lg-3 col-md-5 form-field"
+                class="form-field"
                 placeholder="Message"
                 required
                 v-model="message"
@@ -42,16 +51,17 @@
             />
             <b-button
                 type="submit"
-                class="col-lg-2 col-md-4 form-field"
+                class="form-field"
                 id="submit-btn"
                 :class="{ 'btn-ready': btnReady }"
             >Send</b-button>
         </b-form>
+
     </section>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
     data() {
@@ -60,13 +70,9 @@ export default {
             email: null,
             message: null,
             btnReady: false,
-            ready: false
+            success: null,
+            alert: null
         };
-    },
-    created() {
-        setTimeout(() => {
-            this.ready = true;
-        },1000);
     },
     methods: {
         checkForm() {
@@ -75,17 +81,29 @@ export default {
             } else this.btnReady = false;
         },
         submitForm() {
-            axios.post('https://formspree.io/moilamar@protonmail.com', {
-                name: this.name,
-                email: this.email,
-                message: this.message
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            axios
+                .post("https://formspree.io/moilamar@protonmail.com", {
+                    name: this.name,
+                    email: this.email,
+                    message: this.message
+                })
+                .then(
+                    function() {
+                        this.success = true;
+                        this.showMessage("Thank you. I will be in touch!");
+                    }.bind(this)
+                )
+                .catch(
+                    function() {
+                        this.success = false;
+                        this.showMessage(`Something went wrong.
+                Please make sure the email is correct, or
+                contact me directly at Moilamar@protonmail.com.`);
+                    }.bind(this)
+                );
+        },
+        showMessage(msg) {
+            this.alert = msg;
         }
     }
 };
@@ -93,15 +111,11 @@ export default {
 
 <style lang="scss">
 @import "../styles/variables.scss";
-
-// LAITA VINOON
+@import "../styles/mixins.scss";
 
 #contact {
     background: $colorMain;
-    /* width: 0%;
-    transition: width 1.5s; */
-    padding-top: 0;
-    margin-top: 0;
+    padding-top: 3.5vw;
     h2 {
         color: $colorLighter;
     }
@@ -120,38 +134,47 @@ export default {
         justify-content: center;
         align-items: center;
         margin-top: 2vw;
+        @include transition(height, 2.7s, none);
         .form-field {
-            margin-bottom: 2.2vh;
+            margin-bottom: 2vh;
+            align-self: center;
+            width: 80%;
+            @include transition(border-bottom, 0.5s, ease);
+            @include border-radius(3px);
+        }
+        .form-field:focus {
+            border-bottom: 7px solid $colorSecondary;
         }
         textarea {
             overflow: hidden;
         }
         #submit-btn {
+            width: initial;
             border: 2px solid $colorLighter;
             color: $colorLight;
-            box-shadow: none;
             background: none;
-            transition: border-color 1s, color 1s;
+            @include transition(border-color, 1s, ease);
+            @include transition(color, 1s, ease);
+            cursor: pointer;
         }
         .btn-ready {
             border-color: $colorSecondary !important;
             color: $colorSecondary !important;
         }
+        .highlight {
+            border-bottom: 7px solid #ff4949;
+        }
+    }
+    .hide {
+        opacity: 0;
+        height: 0;
+    }
+    .alert-message {
+        text-align: center;
+        font-size: 150%;
+        color: white;
+        @include transition(opacity, 2s, ease);
+        margin-top: 1.5vh;
     }
 }
-#contact:before {
-    background: inherit;
-        content: '';
-        display: inline-block;
-        height: 10vh;
-        width: 104.9vw;
-        position: relative;
-        transform: skewY(1.5deg);
-        transform-origin: 100%;
-        margin-left: -10vw;
-}
-/* .animate-bg {
-    width: 100% !important;
-    
-} */
 </style>

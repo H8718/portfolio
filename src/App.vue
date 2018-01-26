@@ -3,10 +3,10 @@
         <Banner />
         <div id="main">
             <Navbar />
-            <About :scrolled="scrollAbout === true" />
-            <Eyecatch :scrolled="scrollEyecatch === true" />
+            <About />
+            <Eyecatch />
             <Projects />
-            <Skills :scrolled="scrollSkills === true" />
+            <Skills />
             <Contact />
             <Foot />
         </div>
@@ -24,44 +24,6 @@ import Contact from "./components/Contact";
 import Foot from "./components/Foot";
 
 export default {
-    data() {
-        return {
-            scrollAbout: false,
-            scrollEyecatch: false,
-            scrollSkills: false,
-            didScroll: false
-        }
-    },
-    created() {
-        window.addEventListener('scroll', this.handleScroll);
-        let scrollInterval = setInterval(() => {
-            if (this.didScroll) {
-                if (window.scrollY >= 2700) {
-                     window.removeEventListener('scroll', this.handleScroll);
-                    this.scrollSkills = true;
-                    clearInterval(scrollInterval);
-                    this.didScroll = false;
-                    return;
-                }
-                else if (window.scrollY >= 950) {
-                    this.scrollEyecatch = true;
-                    this.didScroll = false;
-                    return;
-                }
-                else if (window.scrollY > 200) {
-                    this.scrollAbout = true;
-                    this.didScroll = false;
-                    return;
-                }
-            }
-        }, 800);
-    },
-    methods: {
-        handleScroll() {
-            this.didScroll = true;
-        }
-    },
-    name: "app",
     components: {
         Banner,
         Navbar,
@@ -83,10 +45,7 @@ body {
     margin: 0;
     padding: 0;
     #site {
-        /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
         font-family: $fontMain;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
         color: $colorDark;
     }
     #main {

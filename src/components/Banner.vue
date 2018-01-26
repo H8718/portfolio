@@ -1,230 +1,303 @@
 <template>
-    <section class="smoothScroll" id="banner">
-        <div id="wrapper" class="skewed">
-
-            <!-- <div id="header"><br>Hi, I'm Markus, <br>a Web Developer</div> -->
-
-            <div class="layer bottom">
-
-                <!-- <div id="header" style="color:#AAA;"><br>Hi, I'm Markus, <br>a Web Developer</div> -->
-
-                <!-- <div class="content-wrap"> -->
-                    <!-- <div class="content-body">
-                        <h1>Look Sharp</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
-                    </div>
-                    <img src="http://www.traversymedia.com/downloads/assets/image1.png" alt=""/> -->
-
-                <div class="content-wrap">
-                    <BottomImage />
-                </div>
-
-                <!-- </div> -->
-            </div>
-
-            <div class="layer top">
-
-
-
-                <div class="content-wrap">
-
-
-                    <TopImage />
-
-
-                    <!-- <div class="content-body">
-                        <h1>Stay Cool</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut quisquam temporibus dolore vero reiciendis atque debitis. Sequi at consequatur deserunt?</p>
-                    </div>
-                    <img src="http://www.traversymedia.com/downloads/assets/image2.png" alt=""/> -->
-
-
-
+    <section id="banner">
+        <div id="overlay">
+            <div id="top">
+                <img src="../assets/logo.png" alt=""/>
+                <div class="contact-icons">
+                    <a href="https://www.linkedin.com/in/markus-moilanen/" target="_blank">
+                        <i class="contact-btn fa fa-linkedin-square" />
+                    </a>
+                    <a href="https://github.com/moilamar" target="_blank">
+                                <i class="contact-btn devicon-github-plain" />
+                            </a>
                 </div>
             </div>
-
-            <div class="handle"></div>
-
             <div id="header">
-                <div class='header-line'>
-                    > Hi! I'm <a class="">Markus</a>
+                <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
+                    <img
+                        src="../assets/portrait.jpg"
+                        class="col-md-4 offset-md-3"
+                    />
+                    <p>Hi. I'm</p>
+                    <p>Markus, a Web Developer</p>
+                    <p>who makes</p>
+                </div>
+                <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
+                    <span @click="toggleImg(1)">Websites</span>
+                    <span @click="toggleImg(2)">Web Apps</span>
+                    <span @click="toggleImg(3)">Mobile Apps</span>
                 </div>
             </div>
 
-        </div>
-    </section>
+            <div class="background">
+                <div />
+                <div />
+                <div />
+                <div />
+                <i class="devicon-react-original" />
+            </div>
 
+            <div class="skewed overlay" :class="{ 'open': btnClicked != null }"></div>
+            <div class="skewed under">
+                <!-- <img class="img" :src="img" :class="{ 'show-img': btnClicked }" /> -->
+                <img src="/static/projects/mesiainen_wordpress/main.png" :class="{ 'show-img': btnClicked === 1 }" />
+                <img src="/static/projects/black_banana_admin/main.png" :class="{ 'show-img': btnClicked === 2 }" />
+                <img src="/static/projects/my_movie_list/mmlphone.png" :class="{ 'show-img': btnClicked === 3 }" />
+            </div>
+        </div>
+
+    </section>
 </template>
 
 <script>
-import TopImage from "./TopImage";
-import BottomImage from "./BottomImage";
-
 export default {
-    mounted() {
-        let wrapper = document.getElementById("wrapper");
-        let topLayer = wrapper.querySelector(".top");
-        let handle = wrapper.querySelector(".handle");
-        let skew = 0;
-        let delta = 0;
-        if (wrapper.className.indexOf("skewed") != -1) {
-            skew = 1000;
-        }
-        wrapper.addEventListener("mousemove", function(e) {
-            delta = (e.clientX - window.innerWidth / 2) * 0.5;
-            /* handle.style.left = e.clientX + delta + "px"; */
-            topLayer.style.width = e.clientX + skew + delta + "px";
-        });
-    },
     data() {
         return {
-            hasFocus: true,
-            headerLines: [
-                ["> Hi! I'm", "Markus"],
-                ["> I make", "Websites"],
-                [">", "Web apps"],
-                [">", "Mobile apps"]
+            btnClicked: null,
+            clickable: true,
+            images: [
+                {
+                    src: "/static/projects/mesiainen_wordpress/main.png",
+                    title: "test"
+                }
             ]
         };
     },
-    components: {
-        TopImage,
-        BottomImage
+    mounted() {
+        let waypoint = new Waypoint({
+            element: document.getElementById("banner"),
+            handler: () => {
+                if (window.scrollY > 0) {
+                    console.log("banner under");
+                }
+                this.scrollBanner = true;
+                waypoint.destroy();
+            }
+        });
+    },
+    methods: {
+        toggleImg(index) {
+            if (this.clickable) {
+                this.clickable = false;
+                setTimeout(() => {
+                    this.clickable = true;
+                }, this.btnClicked == null ? 1200 : 2200);
+                if (this.btnClicked == null) {
+                    this.btnClicked = index;
+                    return;
+                }
+                this.btnClicked = null;
+                setTimeout(() => {
+                    this.btnClicked = index;
+                }, 1200);
+            }
+        }
     }
 };
 </script>
 
 <style lang="scss">
 @import "../styles/variables.scss";
-/* #header {
-    text-align: center;
-    font-size: 280%;
-    font-weight: 800;
-    color: $colorDark;
-    font-family: $fontSecondary;
-    position: absolute;
-    z-index: 9999;
-    width: 100%;
-} */
+@import "../styles/mixins.scss";
 
 #banner {
-    background-color: rgba(254, 254, 254, 0);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    /*margin-top: -120px;*/
-    height: 90.5vh;
-    #wrapper {
+    height: 93vh;
+    position: relative;
+    overflow: hidden !important;
+    #overlay {
+        background-color: rgba(57, 73, 171, 0.8);
+        height: 100%;
+        @include flexbox(row, null, center);
         position: relative;
-        width: 100%;
-        min-height: 38vw;
-        overflow: hidden;
-        .header {
+        z-index: 9;
+        #top {
+            height: 10vh;
+            /* background-color: #303f9f; */
+            background-color: rgba(48, 63, 159, 0.3);
+            opacity: 1;
             position: absolute;
             top: 0;
-            left: 0;
             width: 100%;
-            height: 100%;
-            z-index: 99999;
-            .header-line {
-                color: #444444;
-                margin-top: 5vh;
-                font-size: 450%;
-                overflow: hidden;
-                font-weight: 600;
+            @include flexbox(row, null, center);
+            img {
+                @media screen and (max-width: 500px) {
+                    display: none;
+                }
                 position: absolute;
-                text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+                height: 7vh;
+                left: 6vh;
             }
-            #line2 {
-                margin-top: 15vh;
+            .contact-icons {
+                color: white;
+                position: absolute;
+                right: 6vh;
+                font-size: 250%;
+                margin-top: 0.1vh;
+                i {
+                    margin-left: 2vh;
+                    @include transition(color, 0.7s, ease);
+                }
+                a:nth-child(1) {
+                    font-size: 110%;
+                }
+                i:hover {
+                    color: $colorSecondary;
+                }
             }
         }
-    }
-}
-.layer {
-    /* border-top: 4px solid $colorMain;
-    margin-top: -4px; */
-    position: fixed; // absolute
-    width: 100vw;
-    min-height: 91.5vh;
-    /* min-height: 43.3vw; */
-    overflow: hidden;
-    margin-left: -8px;
-    .content-wrap {
-        position: absolute;
-        width: 100vw;
-        /* min-height: 95vh; */
-        min-height: 95vh;
-    }
-    .content-body {
-        width: 25%;
-        position: absolute;
-        top: 50%;
-        text-align: center;
-        transform: translateY(-50%);
-        color: $colorLighter;
-    }
-    img {
-        position: absolute;
-        width: 35%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    h1 {
-        font-size: 2em;
-    }
-}
-.bottom {
-    background: #212121;
-    z-index: 1;
-    /* padding-left: 5%; */
-    .content-body {
-        /* right: 5%; */
-    }
-    .bottom h1 {
-        /* color: #fdab00; */
-        color: $colorMain;
-    }
-}
-.top {
-    background: #eee;
-    /* color: #222; */
-    color: $colorDark;
-    z-index: 2;
-    width: 50vw;
-    /* padding-left: 5%; */
-    .content-body {
-        left: 5%;
-        color: $colorDark;
-        /* color: ssssssssssssssssssssssssssssssssssssssssssssssssssssss#222; */
-    }
-}
-.handle {
-    height: 100%;
-    display: block;
-    /* background-color: #fdab00; */
-    background-color: $colorMain;
-    width: 0px;
-    top: 0;
-    left: 50%;
-    z-index: 3;
-}
-.skewed {
-    .handle {
-        top: 50%;
-        transform: rotate(30deg) translateY(-50%);
-        height: 200%;
-        transform-origin: top;
-        position: absolute;
-    }
-    .top {
-        transform: skew(-30deg);
-        margin-left: -1000px;
-        width: calc(50vw + 1000px);
-        .content-wrap {
-            transform: skew(30deg);
-            margin-left: 1000px;
+        #header {
+            color: $colorLighter;
+            font-family: $fontBrand;
+            margin-top: -3vh;
+            width: 100%;
+            position: relative;
+            z-index: 10;
+            div:nth-child(1) {
+                img {
+                    width: 17vh;
+                    padding: 0vh;
+                    border-radius: 100%;
+                    margin-bottom: 3%;
+                    border: 0.5vh solid white;
+                    opacity: 1 !important;
+                    /* transition: transform 2s; */
+                }
+                /* img:hover {
+                    transform: rotate(360deg);
+                } */
+                p:nth-of-type(1) {
+                    font-size: 250%;
+                    line-height: 2vh;
+                }
+                p:nth-of-type(2) {
+                    font-size: 360%;
+                    line-height: 6vh;
+                }
+                p:nth-of-type(3) {
+                    font-size: 270%;
+                    line-height: 7vh;
+                }
+            }
+            div:nth-child(2) {
+                cursor: pointer;
+                span {
+                    font-size: 200%;
+                    color: $colorSecondary;
+                    margin-right: 3vw;
+                }
+            }
+        }
+        .background {
+            @media screen and (max-width: 500px) {
+                display: none;
+            }
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 20%;
+            z-index: 2;
+            div:nth-child(1) {
+                background-color: rgba(57, 73, 171, 0.6);
+                z-index: 5;
+                position: absolute;
+                height: 160%;
+                width: 90%;
+                bottom: -95%;
+                border-top-left-radius: 80%;
+                border-top-right-radius: 80%;
+                border-bottom-left-radius: 10%;
+                border-bottom-right-radius: 10%;
+            }
+            div:nth-child(2) {
+                background-color: rgba(57, 73, 171, 0.6);
+                z-index: 5;
+                position: absolute;
+                height: 160%;
+                width: 90%;
+                bottom: -85%;
+                left: 25%;
+                border-top-left-radius: 80%;
+                border-top-right-radius: 50%;
+                border-bottom-left-radius: 10%;
+                border-bottom-right-radius: 10%;
+            }
+            div:nth-child(3) {
+                background-color: rgba(57, 73, 171, 0.6);
+                z-index: 2;
+                position: absolute;
+                height: 200%;
+                width: 150%;
+                bottom: -100%;
+                left: -30%;
+                border-top-left-radius: 90%;
+                border-top-right-radius: 90%;
+                border-bottom-left-radius: 10%;
+                border-bottom-right-radius: 10%;
+            }
+            div:nth-child(4) {
+                background-color: rgba(57, 73, 171, 1);
+                z-index: 3;
+                position: absolute;
+                height: 275%;
+                width: 230%;
+                bottom: -100%;
+                left: -70%;
+                border-top-left-radius: 70%;
+                border-top-right-radius: 50%;
+                border-bottom-left-radius: 10%;
+                border-bottom-right-radius: 10%;
+            }
+            i:nth-child(5) {
+                color: white;
+                z-index: 5;
+                position: absolute;
+                left: 10%;
+                top: -300%;
+                font-size: 280%;
+            }
+        }
+        .skewed {
+            width: 53%;
+            height: 83vh;
+            position: absolute;
+            right: -20%;
+            top: 10vh;
+            @include skew(-30deg);
+            z-index: 100;
+            @media screen and (max-width: 1199px) {
+                display: none;
+            }
+        }
+        .overlay {
+            background-color: rgba(35, 35, 35, 1);
+            @include transition(width, 1s, ease);
+            z-index: 12;
+        }
+        .under {
+            background: white;
+            z-index: 11;
+            @include flexbox(row, left, center);
+            img {
+                @include skew(30deg);
+                width: 90%;
+                margin-left: 20%;
+                margin-top: 15%;
+                position: absolute;
+                z-index: 11;
+                /* transition: margin-left 1s, opacity 1s; */
+                @include transition(margin-left, 1s, ease);
+                @include transition(opacity, 1s, ease);
+                opacity: 0;
+            }
+            img.show-img {
+                margin-left: -25%;
+                opacity: 1 !important;
+                position: relative !important;
+            }
+        }
+        .overlay.open {
+            width: 0 !important;
         }
     }
 }

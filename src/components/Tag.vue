@@ -1,10 +1,10 @@
 <template>
     <div
         class="tag"
-        :style="{ background: color  }"
+        :style="{ background: color }"
     >
-        <i :class="icon"></i>
-        {{ text }}
+        <i :class="icon" style="color:white;"></i>
+        <span>{{ text }}</span>
     </div>
 </template>
 
@@ -15,14 +15,25 @@ export default {
 </script>
 
 <style lang="scss">
-$colorMain: #f9aa39;
-$colorLight: #fff;
-$colorDark: #222;
-
 .tag {
-    width: 9vw;
-    height: 3vw;
+    min-width: 20%;
+    width: auto;
+    margin-right: 3%;
+    height: 4vh;
     border-radius: 3vw;
-    box-shadow: 1px 1px 1px black;
+    box-shadow: 2px 2px 2px #444;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-right: 8%;
+    i {
+        font-size: 150%;
+        margin-left: 15%;
+    }
+    span {
+        text-align: initial;
+        margin-left: 5%;
+        padding-right: 10%;
+    }
 }
 </style>

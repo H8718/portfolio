@@ -6,157 +6,175 @@
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
-        <div class="center-content col-md-8 offset-md-2">
+        <div class="project-container col-md-10 offset-md-1 offset-sm-0">
             <div
                 class="project-item"
                 v-for="(project, index) in projects"
                 data-scale="1.6"
-                :class="{ 'active': active == index, 'inactive': Number.isInteger(active) && active != index }"
                 :key="index"
-                :data-image="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
-                @mouseup="toggleProjectInfo(index)"
             >
                 <div
-                    v-if="active != index"
                     class="project-image"
-                    :style="{ background: 'url(/static/projects/'+project.folder+project.backdrop+')' }"
+                    :style="{ background: 'url(/static/projects/'+project.folder+'main.jpg)' }"
                 />
                 <div
                     class="cover"
-                    v-if="active != index"
                 >
                     <div class="project-name">{{ project.name }}</div>
-                    <div class="project-summary">{{ project.summary }}</div>
+                    <div class="project-tags">
+                        <Tag
+                            v-for="(tag, index) in project.tags"
+                            :key="index"
+                            :icon="tag[0]"
+                            :text="tag[1]"
+                            :color="tag[2]"
+                        />
+                        </div>
                     <b-button
                         class="project-btn"
-                        @mouseup="toggleProjectInfo(index)"
+                        @click="toggleProjectInfo(index)"
                     >Details</b-button>
-                </div>
-
-                <div class="details">
-                    <h3>{{ project.name }}</h3>
                 </div>
 
             </div>
         </div>
+        <Lightbox :enabled="modalEnabled">
+            <component :is="ProjectInfo" :project="projects[active]"></component>
+        </Lightbox>
     </section>
 </template>
 
 <script>
 import Tag from "./Tag";
+import Lightbox from "./Lightbox";
+import ProjectInfo from "./ProjectInfo";
 
 export default {
     data() {
         return {
+            ProjectInfo,
             projects: [
                 {
                     name: "Portfolio",
-                    summary:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                    description: `My portfolio website, which you are on right now.
+                        Purpose of the site is to tell something about myself and show what I'm capable of.
+                        Another reason for building it is to use it for Web visualization course at school.
+                        The website is built using VueJS framework for lightweight performance on the client,
+                        and Bootstrap, and Sass for styling and layouts. The website is scaling and responsive
+                        for mobile and desktop screens of all sizes. I use CSS transitions, animations and
+                        dynamic classes with the help of Vue to create a unique website fit for me.`,
                     folder: "Portfolio/",
-                    backdrop: "logo.png",
+                    logo: "main.jpg",
                     images: [],
-                    gitLink: "https://github.com/moilamar/portfolio",
+                    source: "portfolio",
                     tags: [
-                        ["devicon-vuejs-plain colored", "VueJS"],
-                        ["devicon-bootstrap-plain colored", "Bootstrap"],
-                        ["devicon-sass-original colored", "Sass"]
+                        ["devicon-vuejs-plain", "VueJS", "#41B883"],
+                        ["devicon-bootstrap-plain", "Bootstrap", "#62488A"],
+                        ["devicon-sass-original", "Sass", "#CF649A"]
                     ]
                 },
                 {
                     name: "My Movie List",
-                    summary:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                    description: `A hybrid mobile tracking application for movie enthusiasts. My Movie List allows its users
+                        to keep track of movies that they've watched or plan to watch. It also features other things
+                        like a list of movies currently showing at the theaters and upcoming movies. The application
+                        is built using Cordova, Onsen UI and VueJS libraries for Mobile Application Development
+                        course at school. All movie data used in the app comes from the TMDB API.`,
                     folder: "My_Movie_List/",
-                    backdrop: "mml.png",
-                    images: [],
-                    gitLink: "",
+                    logo: "logo.svg",
+                    images: ["mml4.jpg", "mml2.jpg", "mml3.jpg"],
+                    source: "film-app-mobile",
                     tags: [
-                        ["devicon-vuejs-plain colored", "VueJS"],
-                        ["devicon-sass-original colored", "Sass"],
-                        ["devicon-android-plain colored", "Mobile/Hybrid"],
-                        ["devicon-devicon-plain", "Onsen UI"]
+                        ["devicon-vuejs-plain", "VueJS", "#41B883"],
+                        ["devicon-sass-original", "Sass", "#CF649A"],
+                        ["devicon-android-plain", "Mobile", "#A4CA39"]
                     ]
                 },
                 {
-                    name: "Mesiäinen Hunaja",
-                    summary:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
-                    folder: "Mesiainen_Wordpress/",
-                    backdrop: "/mesishop.png",
-                    images: [],
-                    gitLink: "https://github.com/moilamar/film-app-mobile",
+                    name: "Mesiäinen E-Commerce",
+                    description: `An e-commerce website...`,
+                    logo: "logo_cropped.jpg",
+                    images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
+                    source: "hunaja-wp",
                     tags: [
-                        ["devicon-wordpress-plain colored", "Wordpress"],
-                        ["devicon-php-plain colored", "PHP"]
+                        ["devicon-wordpress-plain", "Wordpress", "#21759B"],
+                        ["devicon-php-plain", "PHP", "#666699"]
                     ]
                 },
                 {
                     name: "3D Modeling",
-                    summary:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                    description: `A project for my 3D-modeling assignment. The goal was to create an accurate replication of
+                        Steinway and Sons' Model D grand piano. It's created using Blender and basic 3D-modeling techniques
+                        such as transitioning, scaling ...`,
                     folder: "3D_Models/",
-                    backdrop: "full.png",
+                    logo: "main.jpg",
                     images: [
-                        "back_of_audience.png",
-                        "behind_piano.png",
-                        "insides3.png",
-                        "details4.png",
-                        "textures.png"
+                        "back_of_audience.jpg",
+                        "behind_piano.jpg",
+                        "insides3.jpg",
+                        "textures.jpg"
                     ],
-                    gitLink: "https://github.com/Moilamar/3d-models",
-                    tags: [["devicon-devicon-plain", "Blender"]]
+                    source: "3d-models",
+                    tags: [["devicon-devicon-plain", "Blender", "#EA8E33"]]
                 },
                 {
                     name: "E-Commerce Admin Page",
-                    summary:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                    description: `The backend for an e-commerce website. The project includes designing and implementing
+                        a relational MySQL database, creating a simple user interface for management purposes using
+                        React, and PHP scripts to communicate with the database.`,
                     folder: "Black_Banana_Admin/",
-                    backdrop: "bb.jpg",
-                    images: [],
-                    gitLink: "",
+                    logo: "main.jpg",
+                    images: ["bb.jpg", "bb2.jpg", "bbdb.jpg", "main.jpg"],
                     tags: [
-                        ["devicon-mysql-plain colored", "MySQL"],
-                        ["devicon-php-plain colored", "PHP"],
-                        ["devicon-react-original colored", "React"],
-                        ["devicon-devicon-plain", "Material-UI"]
+                        ["devicon-mysql-plain", "MySQL", "#00618A"],
+                        ["devicon-php-plain", "PHP", "#666699"],
+                        ["devicon-react-original", "React", "#00D8FF"]
                     ]
                 },
                 {
-                    name: "Music_Notebook",
-                    summary:
-                        "Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum. Lorem ipsum.",
+                    name: "Music Notebook",
+                    description: `A work-in-progress project for aspiring musicians and composers. The application
+                        will help beginners learn music and remind more seasoned veterans as well. Music
+                        Notebook is meant to serve as a general resource for musical theory, including the
+                        circle of fifths, scales, keys, musical notation and other things.`,
                     folder: "Music_Notebook/",
-                    backdrop: "logo.jpg",
+                    logo: "main.jpg",
                     images: [],
-                    gitLink: "",
                     tags: [
-                        ["devicon-react-original colored", "React-Native"],
-                        ["devicon-android-plain colored", "Mobile"]
+                        ["devicon-react-original", "React", "#00D8FF"],
+                        ["devicon-android-plain", "Mobile", "#A4CA39"]
                     ]
                 }
             ],
-            active: null
-            /* hovered: -1 */
+            active: null,
+            modalEnabled: false
         };
     },
     methods: {
         toggleProjectInfo(index) {
             this.active = index;
+            this.modalEnabled = !this.modalEnabled;
         }
     },
-    components: { Tag }
+    components: {
+        Tag,
+        Lightbox,
+        ProjectInfo
+    }
 };
 </script>
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #projects {
-    /* background-color: $colorDark; */
     background-color: $colorLighter;
-    padding-bottom: 6vw;
-    height: 100vh;
+    height: auto;
+    .modal {
+        width: 900px !important;
+        height: 100%;
+    }
     h2 {
         color: $colorDark;
     }
@@ -204,80 +222,75 @@ export default {
             top: 72vh;
         }
     }
+    .project-container {
+        position: relative !important;
+        margin-top: 2vw;
+        width: 100%;
+        flex-wrap: wrap;
+        @include flexbox(row, center);
+        @include transition(opacity, 0.5s, ease);
+    }
 }
 .project-item {
-    display: flex;
-    flex-direction: column;
+    @include flexbox(column, null, center);
     flex-wrap: wrap;
-    align-items: center;
     width: 42vh;
     height: 32vh;
     color: $colorLighter;
     position: absolute;
     overflow: hidden;
-    transition: width 1s, height 1s, left 1s, top 1s;
+    @include transition(height, 0.5s, ease);
     .project-image {
-        /* position: absolute; */
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background-position: center center !important;
         background-repeat: no-repeat !important;
-        transition: transform 0.5s ease-out !important;
+        background-size: cover !important;
+        @include transition(transform, 0.7s, ease);
     }
     .cover {
-        background: rgba(255, 255, 255, 0.8);
-        position: absolute;
+        background: rgba(255, 255, 255, 0.85);
+        position: relative;
         width: 100%;
         height: 0;
         color: $colorDark;
         font-weight: 800;
         text-align: center;
         opacity: 0;
-        transition: opacity 0.6s, height 0.8s;
+        @include transition(opacity, 0.6s, ease);
+        @include transition(height, 0.8s, ease);
         .project-name {
             margin-top: 10%;
         }
-        .project-summary {
-            margin: 5% 10% 0 10%;
+        .project-tags {
+            margin: 7% 0% 0 0%;
+            @include flexbox(row, center, center);
         }
         .project-btn {
-            margin-top: 10%;
+            margin-top: 13%;
             width: 40%;
             background: none;
-            border: 3px solid $colorDark;
+            border: 0.3vh solid $colorDark;
             color: $colorDark;
             font-weight: 800;
+            cursor: pointer;
         }
     }
 }
 .project-item:hover {
     .project-image {
-        transform: scale(1.2);
+        transform: scale(1.3);
     }
     .cover {
         opacity: 1;
         height: 100%;
     }
 }
-.active {
-    width: 70%;
-    height: 65vh;
-    background: $colorMain;
-    left: 0 !important;
-    top: 0 !important;
-}
-.inactive {
-    background: $colorSecondary !important;
-    left: 70% !important;
-    width: 30%;
-    height: 26vh;
-}
-.hovered {
-    transform: scale(1.2);
-}
-.unhovered {
-    transform: scale(1);
+a {
+    text-decoration: none !important;
+    color: white;
 }
 </style>

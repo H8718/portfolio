@@ -1,1 +1,64 @@
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
 
+@mixin transition($transition, $duration, $easing) {
+    -webkit-transition: $transition $duration $easing;
+    -moz-transition: $transition $duration $easing;
+    -ms-transition: $transition $duration $easing;
+    -o-transition: $transition $duration $easing;
+    transition: $transition $duration $easing;
+}
+
+@mixin box-shadow($shadow1, $shadow2) {
+    -webkit-box-shadow: $shadow1, $shadow2;
+    -moz-box-shadow: $shadow1, $shadow2;
+    -o-box-shadow: $shadow1, $shadow2;
+    -ms-box-shadow: $shadow1, $shadow2;
+    box-shadow: $shadow1, $shadow2;
+}
+
+@mixin skew($value) {
+    -webkit-transform: skew($value);
+    -moz-transform: skew($value);
+    -ms-transform: skew($value);
+    -o-transform: skew($value);
+    transform: skew($value);
+}
+
+@mixin flexbox($direction, $justify : null, $align : null) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -o-flex;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: $direction;
+    -moz-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    -o-flex-direction: $direction;
+    flex-direction: $direction;
+    @if $justify != null {
+        -webkit-justify-content: $justify;
+        -moz-justify-content: $justify;
+        -ms-justify-content: $justify;
+        -o-justify-content: $justify;
+        justify-content: $justify;
+        -ms-flex-pack: $justify;
+    }
+    @if $align != null {
+        -webkit-align-items: $align;
+        -moz-align-items: $align;
+        -ms-align-items: $align;
+        -o-align-items: $align;
+        align-items: $align;
+    }
+}
+
+/*
+@import "../styles/mixins.scss";
+*/

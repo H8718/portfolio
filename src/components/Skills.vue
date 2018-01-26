@@ -3,25 +3,25 @@
         <h2>My Skills</h2>
         <div class="horizontal-center"><div class="underline"></div></div>
         <div class="center-content col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
-            <p class="description">Here's a decent estimation of how well I understand different technologies.</p>
+            <p class="description">Here's a list of technologies and software that I use and an estimate of my ability.</p>
         </div>
 
-        <div class="container">
-            <div 
-                v-for="(skill, index) in skills" 
+        <div class="container col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
+            <div
+                v-for="(skill, index) in skills"
                 :key="index"
                 class="skill-row"
             >
                 <span class="skill-name">
                     <i :class="skill.icon" /> {{ skill.name }}
                 </span>
-                <div 
-                    class="skill-bar" 
+                <div
+                    class="skill-bar"
                     :style="{ width: skill.level + '%' }"
                 >
-                    <div 
+                    <div
                         class="skill-bar-fill"
-                        :class="{ 'animate-fill': ready }"
+                        :class="{ 'animate-fill': ready > index }"
                     />
                 </div>
             </div>
@@ -35,73 +35,81 @@ export default {
     data() {
         return {
             skills: [
-                { name: "HTML", level: 90, icon: "" },
-                { name: "JavaScript", level: 85, icon: "" },
-                { name: "CSS + SASS", level: 80, icon: "" },
-                { name: "Vue", level: 80, icon: "" },
-                { name: "PHP", level: 75, icon: "" },
-                { name: "MySQL", level: 75, icon: "" },
-                { name: "Linux", level: 70, icon: "" },
-                { name: "React", level: 65, icon: "" },
-                { name: "WordPress", level: 60, icon: "" },
-                { name: "Photoshop", level: 50, icon: "" },
-                { name: "Blender", level: 55, icon: "" },
-                { name: "Illustrator", level: 40, icon: "" },
-                /* { name: "Java/C#", level: 40, icon: "" }, */
-                /* { name: "NodeJS", level: 40, icon: "" } */
+                { name: "HTML", level: 80, icon: "" },
+                { name: "JavaScript", level: 75, icon: "" },
+                { name: "CSS + SASS", level: 70, icon: "" },
+                { name: "Vue", level: 70, icon: "" },
+                { name: "PHP", level: 65, icon: "" },
+                { name: "MySQL", level: 65, icon: "" },
+                { name: "Linux", level: 55, icon: "" },
+                { name: "React", level: 55, icon: "" },
+                { name: "WordPress", level: 50, icon: "" },
+                { name: "Blender", level: 45, icon: "" },
+                { name: "Photoshop", level: 40, icon: "" },
+                { name: "Illustrator", level: 30, icon: "" }
             ],
-            ready: false,
-            unwatch: 
-                this.$watch("scrolled", function() {
-                    if (this.scrolled === true) {
-                        this.unwatch();
-                        this.ready = true;
-                    }
-                })
+            ready: 0
         };
     },
-    props: ['scrolled']
+    mounted() {
+        let waypoint = new Waypoint({
+            element: document.getElementById("skills"),
+            handler: () => {
+                for (let i = 0; i < this.skills.length; i++) {
+                    setTimeout(() => {
+                        this.increment();
+                    }, 50 * i);
+                }
+                waypoint.destroy();
+            },
+            offset: 600
+        });
+    },
+    methods: {
+        increment() {
+            this.ready++;
+        }
+    },
+    props: ["scrolled"]
 };
 </script>
 
 <style lang="scss">
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
 
 #skills {
-    /* background-color: $colorDark; */
     background-color: $colorLighter;
-    -webkit-transition: background-color 1000ms linear;
-    -ms-transition: background-color 1000ms linear;
-    transition: background-color 1000ms linear;
-    padding-bottom: 6vw;
+    padding-bottom: 5vw;
     h2 {
         color: $colorDark;
     }
+    .center-content {
+        padding: 0 5vw 0vw 5vw;
+        margin-top: 2vw;
+    }
     .container {
         margin-top: 2vw;
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-        /* different screen widths */
+        @include flexbox(column);
         .skill-row {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+            @include flexbox(row, null, center);
             margin-bottom: 1vh;
+            width: 100%;
+            position: relative;
             .skill-name {
                 position: relative;
                 width: 13%;
+                margin-right: 3vh;
             }
             .skill-bar {
                 height: 2vh;
                 position: relative;
-                width: 87%;
                 .skill-bar-fill {
                     background: $colorMain;
                     height: 100%;
                     position: relative;
                     width: 0%;
-                    transition: width 1.5s;
+                    @include transition(width, 1.5s, ease);
                 }
                 .animate-fill {
                     width: 100%;
