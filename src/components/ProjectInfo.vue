@@ -138,9 +138,9 @@ export default {
             cursor: pointer;
             transition: transform 0.5s;
         }
-        img:hover {
+        /* img:hover {
             transform: scale(3.5);
-        }
+        } */
     }
     .project-source {
         padding: 3vh;

@@ -1,10 +1,7 @@
 <template>
-    <section
-        class="container-fluid"
-        id="about"
-    >
+    <section id="about">
         <h2>Who am I?</h2>
-        <div class="horizontal-center"><div class="underline"></div></div>
+        <div class="underline"></div>
 
         <div id="blueprint" class="col-lg-8 col-md-12 offset-lg-2 offset-md-0">
 

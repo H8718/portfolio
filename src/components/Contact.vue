@@ -1,13 +1,8 @@
 <template>
-    <section
-        id="contact"
-        class="container-fluid"
-    >
+    <section id="contact">
         <h2>Send me a message</h2>
-        <div class="horizontal-center"><div class="underline"></div></div>
-        <div class="center-content">
-            <p class="description">Send me a message using the form. I'll probably answer back.</p>
-        </div>
+        <div class="underline"></div>
+        <p class="description">Send me a message using the form. I'll probably answer back.</p>
         <div
             class="alert-message col-md-10 offset-md-1"
             v-if="alert"
@@ -122,11 +117,9 @@ export default {
     .underline {
         border-color: $colorLighter;
     }
-    .center-content {
-        .description {
-            color: $colorLight;
-            margin-top: 4vh;
-        }
+    .description {
+        color: $colorLight;
+        margin-top: 4vh;
     }
     #contact-form {
         display: flex;
@@ -150,16 +143,21 @@ export default {
         }
         #submit-btn {
             width: initial;
-            border: 2px solid $colorLighter;
+            border: 3px solid $colorLighter;
+            border-bottom: 9px solid $colorLighter;
             color: $colorLight;
             background: none;
             @include transition(border-color, 1s, ease);
             @include transition(color, 1s, ease);
-            cursor: pointer;
+            padding-left: 20px;
+            padding-right: 20px;
+            font-size: 105%;
         }
         .btn-ready {
             border-color: $colorSecondary !important;
             color: $colorSecondary !important;
+            border-bottom: 9px solid $colorSecondary !important;
+            cursor: pointer;
         }
         .highlight {
             border-bottom: 7px solid #ff4949;

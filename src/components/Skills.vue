@@ -1,8 +1,8 @@
 <template>
-    <section id="skills" class="container-fluid">
+    <section id="skills">
         <h2>My Skills</h2>
-        <div class="horizontal-center"><div class="underline"></div></div>
-        <div class="center-content col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
+        <div class="underline"></div>
+        <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
             <p class="description">Here's a list of technologies and software that I use and an estimate of my ability.</p>
         </div>
 
@@ -62,7 +62,7 @@ export default {
                 }
                 waypoint.destroy();
             },
-            offset: 600
+            offset: 550
         });
     },
     methods: {
@@ -84,7 +84,7 @@ export default {
     h2 {
         color: $colorDark;
     }
-    .center-content {
+    .description {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
     }

@@ -1,5 +1,5 @@
 <template>
-    <section id="eyecatch" class="container-fluid">
+    <section id="eyecatch">
         <b-row id="row-content">
             <b-col :class="{ 'animate-show': ready > 0 }">
                 <i class="fa fa-codepen"></i>

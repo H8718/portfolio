@@ -1,5 +1,5 @@
 <template>
-    <section id="banner">
+    <div id="banner">
         <div id="overlay">
             <div id="top">
                 <img src="../assets/logo.png" alt=""/>
@@ -46,7 +46,7 @@
             </div>
         </div>
 
-    </section>
+    </div>
 </template>
 
 <script>
@@ -235,7 +235,7 @@ export default {
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
             }
-            div:nth-child(4) {
+            /* div:nth-child(4) {
                 background-color: rgba(57, 73, 171, 1);
                 z-index: 3;
                 position: absolute;
@@ -247,7 +247,7 @@ export default {
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
-            }
+            } */
             i:nth-child(5) {
                 color: white;
                 z-index: 5;
@@ -258,7 +258,7 @@ export default {
             }
         }
         .skewed {
-            width: 53%;
+            width: 45%;
             height: 83vh;
             position: absolute;
             right: -20%;
@@ -280,20 +280,19 @@ export default {
             @include flexbox(row, left, center);
             img {
                 @include skew(30deg);
-                width: 90%;
+                width: 70%;
                 margin-left: 20%;
-                margin-top: 15%;
+                margin-top: 5%;
                 position: absolute;
                 z-index: 11;
                 /* transition: margin-left 1s, opacity 1s; */
-                @include transition(margin-left, 1s, ease);
-                @include transition(opacity, 1s, ease);
+                @include transition(all, 1s, ease);
                 opacity: 0;
             }
             img.show-img {
-                margin-left: -25%;
+                margin-left: -10%;
                 opacity: 1 !important;
-                position: relative !important;
+                position: absolute !important;
             }
         }
         .overlay.open {

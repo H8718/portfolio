@@ -3,13 +3,11 @@
         sticky
         type="light"
         id="navbar"
-        class="horizontal-center"
         :class="{ 'show-banner': loaded }"
     >
         <b-navbar-brand
             id="brand"
             href="#banner"
-            class="center-content"
             v-scroll-to="'#banner'"
             :class="{ 'show': showBrand }"
         >
@@ -27,10 +25,7 @@
             <i class="fa fa-bars" />
         </div>
 
-        <b-navbar-nav
-            id="nav-list"
-            class="center-content"
-        >
+        <b-navbar-nav id="nav-list">
             <b-nav-item v-scroll-to="'#about'">About me</b-nav-item>
             <b-nav-item v-scroll-to="'#projects'">Projects</b-nav-item>
             <b-nav-item v-scroll-to="'#skills'">Skills</b-nav-item>
@@ -80,11 +75,12 @@ export default {
 
 #navbar {
     @include transition(margin-top, 1.5s, ease);
+    @include flexbox(row, center);
     height: 7vh;
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
     @include box-shadow(
-        0 2px 4px 20 rgba(40, 40, 40, 0.2),
+        0 2px 4px 0 rgba(40, 40, 40, 0.2),
         0 3px 10px 0 rgba(40, 40, 40, 0.2)
     );
     #brand {
@@ -92,6 +88,7 @@ export default {
         opacity: 0;
         @include transition(width, 2s, ease);
         @include transition(opacity, 1.5s, ease);
+        @include flexbox(row, center, center);
         img {
             border-radius: 0.2vw;
             width: 5vh;
@@ -120,6 +117,7 @@ export default {
     #nav-list {
         margin-left: 1vw;
         -webkit-backface-visibility: hidden;
+        @include flexbox(row, center, center);
         .nav-item {
             cursor: pointer;
             height: 7vh;

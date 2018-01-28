@@ -1,8 +1,8 @@
 <template>
-    <section id="projects" class="container-fluid">
+    <section id="projects">
         <h2>My Works</h2>
-        <div class="horizontal-center"><div class="underline"></div></div>
-        <div class="center-content col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
+        <div class="underline"></div>
+        <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
@@ -93,6 +93,7 @@ export default {
                 {
                     name: "Mesiäinen E-Commerce",
                     description: `An e-commerce website...`,
+                    folder: "Mesiainen_Wordpress/",
                     logo: "logo_cropped.jpg",
                     images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
                     source: "hunaja-wp",
@@ -178,7 +179,7 @@ export default {
     h2 {
         color: $colorDark;
     }
-    .center-content {
+    .description {
         padding: 0 5vw 0vw 5vw;
         margin-top: 2vw;
     }
@@ -231,9 +232,10 @@ export default {
         }
         .project-btn {
             margin-top: 13%;
-            width: 40%;
-            background: none;
-            border: 0.3vh solid $colorDark;
+            width: 35%;
+            background: #f8f8f8;
+            border: 3px solid $colorDark;
+            border-bottom: 6px solid $colorDark;
             color: $colorDark;
             font-weight: 800;
             cursor: pointer;
