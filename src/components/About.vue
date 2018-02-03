@@ -31,7 +31,9 @@
                         :class="{ 'show': shown > 1 }"
                     >
                         <h3><i class="fa fa-pencil" /> Studies</h3>
-                        <p>I currently study at JAMK to become a computer engineer.</p>
+                        <p>I currently study at JAMK to become a computer engineer.
+                            I'm looking to graduate by the end of 2018.
+                        </p>
                     </div>
                 </div>
                 <div
@@ -40,7 +42,9 @@
                     :class="{ 'show': shown > 3 }"
                 >
                     <h3><i class="fa fa-user" /> Hobbies</h3>
-                    <p>I like playing the piano and computer games.</p>
+                    <p>On my free time, I like playing the piano and computer games.
+                        Every once in a while I try something new.
+                    </p>
                 </div>
             </div>
             <div class="third">
@@ -79,8 +83,9 @@
                         :class="{ 'show': shown > 2 }"
                     >
                         <h3><i class="fa fa-diamond" /> Skills</h3>
-                        <p>I am a fast learner so I have picked up a lot of useful
-                            skills for programming and other related things.
+                        <p>I am a fast learner so I have picked up lots useful
+                            skills like programming, problem solving, design and
+                            project working.
                         </p>
                     </div>
                 </div>
@@ -92,7 +97,8 @@
                     >
                         <h3><i class="fa fa-rocket" /> Future</h3>
                         <p>After graduation, I want to improve my skills to become
-                            a great full-stack developer.
+                            a great full-stack developer. I'm also interested in
+                            entrepreneurship.
                         </p>
                     </div>
                 </div>
@@ -162,11 +168,11 @@ export default {
 @import "../styles/mixins.scss";
 
 #about {
-    background: $colorMain;
+    background: $colorPrimary;
     color: $colorLight;
     position: relative;
-    padding-top: 7vh;
-    padding-bottom: 2vh;
+    padding-top: 6vh;
+    padding-bottom: 0vh;
     height: auto !important;
     /* @media screen and (max-width: 1000px) {
         height: auto !important;
@@ -216,7 +222,7 @@ export default {
             opacity: 1; // 0
             margin: 1.5vh;
             position: relative;
-            background: $colorMain;
+            background: $colorPrimary;
             @media screen and (max-width: 1299px) and (min-width: 999px) {
                 width: 150%;
             }
@@ -230,7 +236,7 @@ export default {
                 color: $colorLighter;
                 padding: 2vh;
                 font-size: 110%;
-                background: $colorSecondary;
+                background: $colorPrimary;
             }
         }
         #portrait {

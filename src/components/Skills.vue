@@ -62,7 +62,7 @@ export default {
                 }
                 waypoint.destroy();
             },
-            offset: 550
+            offset: 600
         });
     },
     methods: {
@@ -105,7 +105,7 @@ export default {
                 height: 2vh;
                 position: relative;
                 .skill-bar-fill {
-                    background: $colorMain;
+                    background: $colorPrimary;
                     height: 100%;
                     position: relative;
                     width: 0%;

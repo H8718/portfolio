@@ -45,7 +45,7 @@ export default {
                 this.startAnimation();
                 waypoint.destroy();
             },
-            offset: 700
+            offset: 750
         });
     },
     methods: {
@@ -83,7 +83,7 @@ export default {
             }
             i {
                 font-size: 550%;
-                color: $colorMain;
+                color: $colorPrimary;
                 align-self: center;
             }
             .eyecatch-header {
@@ -94,7 +94,7 @@ export default {
                 font-weight: bold;
             }
             .eyecatch-text {
-                color: $colorMain;
+                color: $colorPrimary;
                 font-size: 105%;
                 margin-left: 1vw;
                 margin-right: 1vw;

@@ -34,7 +34,6 @@
                 <div />
                 <div />
                 <div />
-                <i class="devicon-react-original" />
             </div>
 
             <div class="skewed overlay" :class="{ 'open': btnClicked != null }"></div>
@@ -105,7 +104,8 @@ export default {
     position: relative;
     overflow: hidden !important;
     #overlay {
-        background-color: rgba(57, 73, 171, 0.8);
+        /* background-color: rgba(57, 73, 171, 0.8); */
+        background-color: $colorPrimaryTint;
         height: 100%;
         @include flexbox(row, null, center);
         position: relative;
@@ -113,7 +113,8 @@ export default {
         #top {
             height: 10vh;
             /* background-color: #303f9f; */
-            background-color: rgba(48, 63, 159, 0.3);
+            /* background-color: rgba(48, 63, 159, 0.3); */
+            background-color: $colorPrimary;
             opacity: 1;
             position: absolute;
             top: 0;
@@ -160,30 +161,43 @@ export default {
                     margin-bottom: 3%;
                     border: 0.5vh solid white;
                     opacity: 1 !important;
-                    /* transition: transform 2s; */
                 }
-                /* img:hover {
-                    transform: rotate(360deg);
-                } */
                 p:nth-of-type(1) {
-                    font-size: 250%;
-                    line-height: 2vh;
+                    font-size: 300%;
+                    line-height: 4vh;
                 }
                 p:nth-of-type(2) {
-                    font-size: 360%;
-                    line-height: 6vh;
+                    font-size: 400%;
+                    line-height: 5vh;
+                    font-weight: bold;
+                    border-bottom: 4px solid $colorSecondary;
+                    width: 80%;
+                    padding-bottom: 15px;
                 }
                 p:nth-of-type(3) {
-                    font-size: 270%;
-                    line-height: 7vh;
+                    font-size: 300%;
+                    line-height: 6vh;
                 }
             }
             div:nth-child(2) {
                 cursor: pointer;
                 span {
                     font-size: 200%;
-                    color: $colorSecondary;
+                    color: $colorLighter;
                     margin-right: 3vw;
+                    @include transition(border-color, 0.6s, ease);
+                    border-bottom: 3px solid transparent;
+                    /* .under {
+                        width: 10%;
+                        height: 5px;
+                        background-color: red;
+                    } */
+                }
+                span:hover {
+                    border-color: $colorSecondary;
+                    /* .under {
+
+                    } */
                 }
             }
         }
@@ -197,7 +211,7 @@ export default {
             width: 60%;
             height: 20%;
             z-index: 2;
-            div:nth-child(1) {
+            /* div:nth-child(1) {
                 background-color: rgba(57, 73, 171, 0.6);
                 z-index: 5;
                 position: absolute;
@@ -221,8 +235,8 @@ export default {
                 border-top-right-radius: 50%;
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
-            }
-            div:nth-child(3) {
+            } */
+            /* div:nth-child(3) {
                 background-color: rgba(57, 73, 171, 0.6);
                 z-index: 2;
                 position: absolute;
@@ -234,7 +248,7 @@ export default {
                 border-top-right-radius: 90%;
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
-            }
+            } */
             /* div:nth-child(4) {
                 background-color: rgba(57, 73, 171, 1);
                 z-index: 3;
@@ -248,14 +262,6 @@ export default {
                 border-bottom-left-radius: 10%;
                 border-bottom-right-radius: 10%;
             } */
-            i:nth-child(5) {
-                color: white;
-                z-index: 5;
-                position: absolute;
-                left: 10%;
-                top: -300%;
-                font-size: 280%;
-            }
         }
         .skewed {
             width: 45%;
@@ -281,7 +287,7 @@ export default {
             img {
                 @include skew(30deg);
                 width: 70%;
-                margin-left: 20%;
+                margin-left: 10%;
                 margin-top: 5%;
                 position: absolute;
                 z-index: 11;
@@ -289,8 +295,17 @@ export default {
                 @include transition(all, 1s, ease);
                 opacity: 0;
             }
+            img:nth-child(0) {
+                width: 100%;
+            }
+            img:nth-child(1) {
+                width: 90%;
+            }
+            img:nth-child(2) {
+                width: 100%;
+            }
             img.show-img {
-                margin-left: -10%;
+                margin-left: -35%;
                 opacity: 1 !important;
                 position: absolute !important;
             }

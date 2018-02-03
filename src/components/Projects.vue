@@ -221,8 +221,7 @@ export default {
         font-weight: 800;
         text-align: center;
         opacity: 0;
-        @include transition(opacity, 0.6s, ease);
-        @include transition(height, 0.8s, ease);
+        @include transition(all, 0.6s, ease);
         .project-name {
             margin-top: 10%;
         }
@@ -236,6 +235,7 @@ export default {
             background: #f8f8f8;
             border: 3px solid $colorDark;
             border-bottom: 6px solid $colorDark;
+            @include border-radius(6px);
             color: $colorDark;
             font-weight: 800;
             cursor: pointer;

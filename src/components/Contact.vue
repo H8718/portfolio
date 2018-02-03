@@ -109,7 +109,7 @@ export default {
 @import "../styles/mixins.scss";
 
 #contact {
-    background: $colorMain;
+    background: $colorPrimary;
     padding-top: 3.5vw;
     h2 {
         color: $colorLighter;
@@ -149,6 +149,7 @@ export default {
             background: none;
             @include transition(border-color, 1s, ease);
             @include transition(color, 1s, ease);
+            @include border-radius(15px);
             padding-left: 20px;
             padding-right: 20px;
             font-size: 105%;
