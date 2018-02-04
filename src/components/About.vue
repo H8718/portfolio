@@ -104,12 +104,7 @@
                 </div>
             </div>
         </div>
-        <!-- <modal
-            name="cv"
-            height="95%"
-        >
-            <img src="/static/cv.png" />
-        </modal> -->
+        </modal>
         <Lightbox :enabled="modalEnabled">
             <component :is="childComponent"></component>
         </Lightbox>
@@ -152,7 +147,6 @@ export default {
             }, 700 * i);
         },
         showCV() {
-            /* this.$modal.show("cv"); */
             this.modalEnabled = !this.modalEnabled;
         }
     },
@@ -172,11 +166,11 @@ export default {
     color: $colorLight;
     position: relative;
     padding-top: 6vh;
-    padding-bottom: 0vh;
     height: auto !important;
-    /* @media screen and (max-width: 1000px) {
+    padding-bottom: 2vh;
+    @media screen and (max-width: 1000px) {
         height: auto !important;
-    } */
+    }
     .underline {
         border-color: $colorLighter;
     }
@@ -204,25 +198,24 @@ export default {
         }
         .third {
             width: 33.33vw;
+            //margin-top: -30px;
             .container {
                 max-height: 35vh;
                 min-height: 30vh;
                 position: relative;
+                //@include flexbox(row, center, center);
             }
         }
-        .third:nth-child(3) {
-            .container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+        .third:nth-of-type(3) {
+            @include flexbox(row, center, center);
         }
         .blueprint-box {
             text-align: center;
             opacity: 1; // 0
-            margin: 1.5vh;
+            //margin: 1.5vh;
             position: relative;
             background: $colorPrimary;
+            width: 100%;
             @media screen and (max-width: 1299px) and (min-width: 999px) {
                 width: 150%;
             }
@@ -248,18 +241,19 @@ export default {
         }
         .contact-btns {
             margin-top: 8%;
-            margin-left: 7%;
+            @include flexbox(row, center, center);
             .contact-btn {
                 font-size: 350%;
                 @include transition(color, 1s, ease);
-                margin-right: 7%;
                 cursor: pointer;
             }
             a:nth-child(1) {
                 font-size: 110%;
+                padding-right: 7%;
             }
             i:nth-child(3) {
-                font-size: 330%;
+                font-size: 310%;
+                padding-left: 7%;
             }
             .contact-btn:hover {
                 color: $colorSecondary;
@@ -270,13 +264,12 @@ export default {
             opacity: 1;
         }
         #box-0 {
-            width: 100%;
-            margin-top: 65%;
+            margin-top: -4vh;
         }
         #box-1,
         #box-2 {
             z-index: 5;
-            margin-top: -2vh;
+            margin-top: -4vh;
         }
         #box-3,
         #box-4 {
@@ -316,7 +309,7 @@ export default {
             border-right: 0.4vh dashed $colorLighter;
             border-bottom: 0.4vh dashed $colorLighter;
             margin-left: -40%;
-            margin-top: 40%;
+            margin-top: 35%;
             border-bottom-right-radius: 100%;
         }
         #line-4 {
@@ -329,7 +322,7 @@ export default {
             border-bottom: 0.4vh dashed $colorLighter;
             border-left: 0.4vh dashed $colorLighter;
             margin-left: 40%;
-            margin-top: 40%;
+            margin-top: 35%;
             border-bottom-left-radius: 100%;
         }
         .part-name {

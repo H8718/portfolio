@@ -147,9 +147,8 @@ export default {
             border-bottom: 9px solid $colorLighter;
             color: $colorLight;
             background: none;
-            @include transition(border-color, 1s, ease);
-            @include transition(color, 1s, ease);
-            @include border-radius(15px);
+            @include transition(all, 1s, ease);
+            @include border-radius(10px);
             padding-left: 20px;
             padding-right: 20px;
             font-size: 105%;

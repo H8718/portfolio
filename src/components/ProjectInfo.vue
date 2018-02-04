@@ -27,6 +27,8 @@
                 v-for="(image, index) in project.images"
                 :key="index"
                 :src="'/static/projects/'+project.folder+image"
+                :class="{ 'clicked': clicked === index }"
+                @click="handleImgClick(index)"
             />
         </div>
         <div
@@ -51,6 +53,17 @@ import Tag from "./Tag";
 import "../styles/mixins.scss";
 
 export default {
+    data() {
+        return {
+            clicked: null
+        }
+    },
+    methods: {
+        handleImgClick(index) {
+            if (this.clicked === index) this.clicked = null;
+            else this.clicked = index;
+        }
+    },
     props: ["project"],
     components: {
         Tag
@@ -71,6 +84,14 @@ export default {
     padding-right: 4vh;
     @media screen and (max-width: 500px) {
         width: 100%;
+    }
+    .project-description,
+    .project-technologies,
+    .project-images,
+    .project-source
+     {
+        margin-left: 3vh;
+        margin-right: 3vh;
     }
     .close-btn {
         font-size: 180%;
@@ -104,10 +125,10 @@ export default {
         }
     }
     .project-description {
-        padding: 3vh;
+        margin-top: 2vh;
     }
     .project-technologies {
-        padding: 3vh;
+        margin-top: 3vh;
         .tags {
             @include flexbox(row);
             margin-top: 2vh;
@@ -127,10 +148,12 @@ export default {
         }
     }
     .project-images {
-        padding-left: 2%;
-        padding-right: 2%;
+        /* padding-left: 2%;
+        padding-right: 2%; */
+        margin-top: 3vh;
         img {
             max-width: 24%;
+            max-height: 20vh;
             margin-left: 0.5%;
             margin-right: 0.5%;
             margin-top: 1vh;
@@ -138,12 +161,11 @@ export default {
             cursor: pointer;
             transition: transform 0.5s;
         }
-        /* img:hover {
-            transform: scale(3.5);
-        } */
+        img.clicked {
+            transform: scale(4);
+        }
     }
     .project-source {
-        padding: 3vh;
         margin-top: 3vh;
         @include flexbox(row, null, center);
         a {

@@ -14,10 +14,10 @@
             </div>
             <div id="header">
                 <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
-                    <img
+                    <!-- <img
                         src="../assets/portrait.jpg"
                         class="col-md-4 offset-md-3"
-                    />
+                    /> -->
                     <p>Hi. I'm</p>
                     <p>Markus, a Web Developer</p>
                     <p>who makes</p>
@@ -105,7 +105,9 @@ export default {
     overflow: hidden !important;
     #overlay {
         /* background-color: rgba(57, 73, 171, 0.8); */
-        background-color: $colorPrimaryTint;
+        /* background-color: $colorPrimaryTint; */
+        background: $colorPrimaryTint; //url('../assets/banner-bg.jpg');
+        background-size: 100%;
         height: 100%;
         @include flexbox(row, null, center);
         position: relative;
@@ -148,6 +150,9 @@ export default {
         }
         #header {
             color: $colorLighter;
+            background-color: $colorPrimary;
+            padding-top: 40px;
+            padding-bottom: 40px;
             font-family: $fontBrand;
             margin-top: -3vh;
             width: 100%;
