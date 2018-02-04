@@ -164,7 +164,7 @@ export default {
 @import "../styles/mixins.scss";
 
 #about {
-    background: $colorPrimary;
+    background: $colorPrimaryTint;
     color: $colorLight;
     position: relative;
     padding-top: 6vh;
@@ -218,7 +218,7 @@ export default {
             opacity: 1; // 0
             //margin: 1.5vh;
             position: relative;
-            background: $colorPrimary;
+
             width: 100%;
             @media screen and (max-width: 1299px) and (min-width: 999px) {
                 width: 150%;

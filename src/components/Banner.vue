@@ -106,14 +106,16 @@ export default {
     #overlay {
         /* background-color: rgba(57, 73, 171, 0.8); */
         /* background-color: $colorPrimaryTint; */
-        background: $colorPrimaryTint; //url('../assets/banner-bg.jpg');
+        //background: $colorPrimaryTint; //url('../assets/banner-bg.jpg');
+        background: url('../assets/1.jpg');
+        background-attachment: fixed;
         background-size: 100%;
         height: 100%;
         @include flexbox(row, null, center);
         position: relative;
         z-index: 9;
         #top {
-            height: 10vh;
+            height: 9vh;
             /* background-color: #303f9f; */
             /* background-color: rgba(48, 63, 159, 0.3); */
             background-color: $colorPrimary;
@@ -127,7 +129,7 @@ export default {
                     display: none;
                 }
                 position: absolute;
-                height: 7vh;
+                height: 6.5vh;
                 left: 6vh;
             }
             .contact-icons {
@@ -206,74 +208,12 @@ export default {
                 }
             }
         }
-        .background {
-            @media screen and (max-width: 500px) {
-                display: none;
-            }
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60%;
-            height: 20%;
-            z-index: 2;
-            /* div:nth-child(1) {
-                background-color: rgba(57, 73, 171, 0.6);
-                z-index: 5;
-                position: absolute;
-                height: 160%;
-                width: 90%;
-                bottom: -95%;
-                border-top-left-radius: 80%;
-                border-top-right-radius: 80%;
-                border-bottom-left-radius: 10%;
-                border-bottom-right-radius: 10%;
-            }
-            div:nth-child(2) {
-                background-color: rgba(57, 73, 171, 0.6);
-                z-index: 5;
-                position: absolute;
-                height: 160%;
-                width: 90%;
-                bottom: -85%;
-                left: 25%;
-                border-top-left-radius: 80%;
-                border-top-right-radius: 50%;
-                border-bottom-left-radius: 10%;
-                border-bottom-right-radius: 10%;
-            } */
-            /* div:nth-child(3) {
-                background-color: rgba(57, 73, 171, 0.6);
-                z-index: 2;
-                position: absolute;
-                height: 200%;
-                width: 150%;
-                bottom: -100%;
-                left: -30%;
-                border-top-left-radius: 90%;
-                border-top-right-radius: 90%;
-                border-bottom-left-radius: 10%;
-                border-bottom-right-radius: 10%;
-            } */
-            /* div:nth-child(4) {
-                background-color: rgba(57, 73, 171, 1);
-                z-index: 3;
-                position: absolute;
-                height: 275%;
-                width: 230%;
-                bottom: -100%;
-                left: -70%;
-                border-top-left-radius: 70%;
-                border-top-right-radius: 50%;
-                border-bottom-left-radius: 10%;
-                border-bottom-right-radius: 10%;
-            } */
-        }
         .skewed {
             width: 45%;
-            height: 83vh;
+            height: 84vh;
             position: absolute;
             right: -20%;
-            top: 10vh;
+            top: 9vh;
             @include skew(-30deg);
             z-index: 100;
             @media screen and (max-width: 1199px) {
@@ -293,7 +233,7 @@ export default {
                 @include skew(30deg);
                 width: 70%;
                 margin-left: 10%;
-                margin-top: 5%;
+                margin-top: 8.5%;
                 position: absolute;
                 z-index: 11;
                 /* transition: margin-left 1s, opacity 1s; */

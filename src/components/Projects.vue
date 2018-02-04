@@ -98,7 +98,7 @@ export default {
                     images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
                     source: "hunaja-wp",
                     tags: [
-                        ["devicon-wordpress-plain", "Wordpress", "#21759B"],
+                        ["devicon-wordpress-plain", "WordPress", "#21759B"],
                         ["devicon-php-plain", "PHP", "#666699"]
                     ]
                 },
