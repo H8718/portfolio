@@ -36,15 +36,17 @@
                         </p>
                     </div>
                 </div>
-                <div
-                    class="blueprint-box"
-                    id="box-3"
-                    :class="{ 'show': shown > 3 }"
-                >
-                    <h3><i class="fa fa-user" /> Hobbies</h3>
-                    <p>On my free time, I like playing the piano and computer games.
-                        Every once in a while I try something new.
-                    </p>
+                <div class="container">
+                    <div
+                        class="blueprint-box"
+                        id="box-3"
+                        :class="{ 'show': shown > 3 }"
+                    >
+                        <h3><i class="fa fa-user" /> Hobbies</h3>
+                        <p>On my free time, I like playing the piano and computer games.
+                            Every once in a while I try something new.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="third">
@@ -206,8 +208,10 @@ export default {
                 //@include flexbox(row, center, center);
             }
         }
-        .third:nth-of-type(3) {
-            @include flexbox(row, center, center);
+        .third:nth-child(3) {
+            .container {
+                @include flexbox(row, center, center);
+            }
         }
         .blueprint-box {
             text-align: center;
@@ -228,7 +232,7 @@ export default {
                 @include border-radius(0.3vh);
                 color: $colorLighter;
                 padding: 2vh;
-                font-size: 110%;
+                font-size: 105%;
                 background: $colorPrimary;
             }
         }
@@ -264,7 +268,8 @@ export default {
             opacity: 1;
         }
         #box-0 {
-            margin-top: -4vh;
+            width: 100%;
+            margin-top: 60%;
         }
         #box-1,
         #box-2 {
