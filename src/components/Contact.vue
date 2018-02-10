@@ -148,7 +148,7 @@ export default {
             color: $colorLight;
             background: none;
             @include transition(all, 1s, ease);
-            @include border-radius(10px);
+            @include border-radius(6px);
             padding-left: 20px;
             padding-right: 20px;
             font-size: 105%;

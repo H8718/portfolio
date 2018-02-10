@@ -169,7 +169,7 @@ export default {
     position: relative;
     padding-top: 6vh;
     height: auto !important;
-    padding-bottom: 2vh;
+    padding-bottom: 0;
     @media screen and (max-width: 1000px) {
         height: auto !important;
     }
@@ -237,7 +237,7 @@ export default {
             }
         }
         #portrait {
-            width: 25vh;
+            width: 23vh;
             @include border-radius(18vh);
             border: 0.5vh solid $colorLighter;
             position: relative;
@@ -269,7 +269,7 @@ export default {
         }
         #box-0 {
             width: 100%;
-            margin-top: 60%;
+            margin-top: 55%;
         }
         #box-1,
         #box-2 {
@@ -278,6 +278,7 @@ export default {
         }
         #box-3,
         #box-4 {
+            margin-top: -3vh;
             z-index: 5;
         }
         #box-1,

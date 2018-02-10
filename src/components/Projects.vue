@@ -230,15 +230,20 @@ export default {
             @include flexbox(row, center, center);
         }
         .project-btn {
-            margin-top: 13%;
+            margin-top: 36px;
             width: 35%;
             background: #f8f8f8;
             border: 3px solid $colorDark;
-            border-bottom: 6px solid $colorDark;
+            border-bottom: 10px solid $colorDark;
             @include border-radius(6px);
+            @include transition(all, 0.3s, ease);
             color: $colorDark;
             font-weight: 800;
             cursor: pointer;
+        }
+        .project-btn:hover {
+            border-bottom: 4px solid $colorDark;
+            margin-top: 42px;
         }
     }
 }

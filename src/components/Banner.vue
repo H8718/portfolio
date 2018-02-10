@@ -29,19 +29,23 @@
                 </div>
             </div>
 
-            <div class="background">
-                <div />
-                <div />
-                <div />
-                <div />
-            </div>
-
             <div class="skewed overlay" :class="{ 'open': btnClicked != null }"></div>
             <div class="skewed under">
-                <!-- <img class="img" :src="img" :class="{ 'show-img': btnClicked }" /> -->
-                <img src="/static/projects/mesiainen_wordpress/main.png" :class="{ 'show-img': btnClicked === 1 }" />
-                <img src="/static/projects/black_banana_admin/main.png" :class="{ 'show-img': btnClicked === 2 }" />
-                <img src="/static/projects/my_movie_list/mmlphone.png" :class="{ 'show-img': btnClicked === 3 }" />
+                <img
+                    src="/static/projects/mesiainen_wordpress/main.png"
+                    :class="{ 'show-img': btnClicked === 1 }"
+                    @click="toggleImg(1)"
+                />
+                <img
+                    src="/static/projects/black_banana_admin/main.png"
+                    :class="{ 'show-img': btnClicked === 2 }"
+                    @click="toggleImg(2)"
+                />
+                <img
+                    src="/static/projects/my_movie_list/mmlphone.png"
+                    :class="{ 'show-img': btnClicked === 3 }"
+                    @click="toggleImg(3)"
+                />
             </div>
         </div>
 
@@ -80,8 +84,12 @@ export default {
                 this.clickable = false;
                 setTimeout(() => {
                     this.clickable = true;
-                }, this.btnClicked == null ? 1200 : 2200);
-                if (this.btnClicked == null) {
+                }, this.btnClicked === null ? 1200 : 2200);
+                if (this.btnClicked === index) {
+                    this.btnClicked = null;
+                    return
+                }
+                else if (this.btnClicked === null) {
                     this.btnClicked = index;
                     return;
                 }
@@ -118,7 +126,7 @@ export default {
             height: 9vh;
             /* background-color: #303f9f; */
             /* background-color: rgba(48, 63, 159, 0.3); */
-            background-color: $colorPrimary;
+            background-color: rgba(0, 0, 0, 0.2);
             opacity: 1;
             position: absolute;
             top: 0;
@@ -152,8 +160,8 @@ export default {
         }
         #header {
             color: $colorLighter;
-            background-color: $colorPrimary;
-            padding-top: 40px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding-top: 50px;
             padding-bottom: 40px;
             font-family: $fontBrand;
             margin-top: -3vh;
@@ -240,17 +248,21 @@ export default {
                 @include transition(all, 1s, ease);
                 opacity: 0;
             }
-            img:nth-child(0) {
-                width: 100%;
-            }
             img:nth-child(1) {
-                width: 90%;
+                width: 100%;
             }
             img:nth-child(2) {
                 width: 100%;
             }
+            img:nth-child(3) {
+                width: 70%;
+                margin-right: -20%;
+            }
+            img:nth-child(3).show-img {
+                margin-left: -25%;
+            }
             img.show-img {
-                margin-left: -35%;
+                margin-left: -40%;
                 opacity: 1 !important;
                 position: absolute !important;
             }
