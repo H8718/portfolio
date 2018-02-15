@@ -1,11 +1,13 @@
 <template>
     <div id="site">
-        <div id="loader-wrapper" v-if="loading">
-            <div id="loader">
-
-            </div>
+        <div
+            id="loader-wrapper"
+            v-if="isLoading"
+            :class="{ 'animate-out': animateOutLoader }"
+        >
+            <Loader />
         </div>
-        <div id="content" v-if="!loading">
+        <div id="content" v-if="!isLoading">
             <Banner />
             <div id="main">
                 <Navbar />
@@ -21,6 +23,7 @@
 </template>
 
 <script>
+import Loader from "./components/Loader";
 import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -33,8 +36,17 @@ import Foot from "./components/Foot";
 export default {
     data() {
         return {
-            loading: false
+            isLoading: true,
+            animateOutLoader: false
         }
+    },
+    mounted() {
+        setTimeout(() => {
+            this.animateOutLoader = true;
+        }, 1600);
+        setTimeout(() => {
+            this.isLoading = false;
+        }, 2400);
     },
     components: {
         Banner,
@@ -44,7 +56,8 @@ export default {
         Projects,
         Skills,
         Contact,
-        Foot
+        Foot,
+        Loader
     }
 };
 </script>
@@ -58,10 +71,13 @@ body {
     margin: 0;
     padding: 0;
     #loader-wrapper {
-        background: red;
         @include flexbox(row, center, center);
-        #loader {
-            min-height: 100%;
+        height: 100vh;
+        padding-bottom: 40px;
+    }
+    .animate-out {
+        #loading-icon {
+            opacity: 0;
         }
     }
     #site {

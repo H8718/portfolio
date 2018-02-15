@@ -12,17 +12,19 @@
                             </a>
                 </div>
             </div>
-            <div id="header">
+            <div
+                id="header"
+                :class="{'ready': ready > 0}"
+            >
                 <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
-                    <!-- <img
-                        src="../assets/portrait.jpg"
-                        class="col-md-4 offset-md-3"
-                    /> -->
-                    <p>Hi. I'm</p>
-                    <p>Markus, a Web Developer</p>
-                    <p>who makes</p>
+                    <p :class="{'ready': ready > 1}">Hi. I'm</p>
+                    <p :class="{'ready': ready > 2}">Markus, a Web Developer</p>
+                    <p :class="{'ready': ready > 3}">who makes</p>
                 </div>
-                <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
+                <div
+                    class="col-lg-7 col-md-10 offset-lg-1 offset-1"
+                    :class="{'ready': ready > 4}"
+                >
                     <span @click="toggleImg(1)">Websites</span>
                     <span @click="toggleImg(2)">Web Apps</span>
                     <span @click="toggleImg(3)">Mobile Apps</span>
@@ -63,7 +65,8 @@ export default {
                     src: "/static/projects/mesiainen_wordpress/main.png",
                     title: "test"
                 }
-            ]
+            ],
+            ready: 0
         };
     },
     mounted() {
@@ -71,9 +74,9 @@ export default {
             element: document.getElementById("banner"),
             handler: () => {
                 if (window.scrollY > 0) {
-                    console.log("banner under");
+
                 }
-                this.scrollBanner = true;
+                this.animateBanner();
                 waypoint.destroy();
             }
         });
@@ -98,6 +101,16 @@ export default {
                     this.btnClicked = index;
                 }, 1200);
             }
+        },
+        animateBanner() {
+            this.ready++;
+            setTimeout(() => {
+                this.ready++;
+                this.ready++;
+                this.ready++;
+                this.ready++;
+                this.ready++;
+            }, 1500);
         }
     }
 };
@@ -165,56 +178,81 @@ export default {
             padding-bottom: 40px;
             font-family: $fontBrand;
             margin-top: -3vh;
-            width: 100%;
+            // width: 100%;
+            width: 0;
             position: relative;
             z-index: 10;
+            @include transition(all, 1.5s, ease);
             div:nth-child(1) {
-                img {
-                    width: 17vh;
-                    padding: 0vh;
-                    border-radius: 100%;
-                    margin-bottom: 3%;
-                    border: 0.5vh solid white;
-                    opacity: 1 !important;
-                }
+                //opacity: 0;
                 p:nth-of-type(1) {
                     font-size: 300%;
                     line-height: 4vh;
+                    margin-left: -100%;
+                }
+                p:nth-of-type(1).ready {
+                    margin-left: 0;
                 }
                 p:nth-of-type(2) {
                     font-size: 400%;
                     line-height: 5vh;
                     font-weight: bold;
-                    border-bottom: 4px solid $colorSecondary;
+                    //border-bottom: 4px solid $colorSecondary;
                     width: 80%;
                     padding-bottom: 15px;
+                    margin-left: -100%;
+                }
+                p:nth-of-type(2).ready {
+                    margin-left: 0;
+                }
+                p:nth-of-type(2).ready:after {
+                    width: 100%;
+                    background-color: $colorSecondary;
+                }
+                p:nth-of-type(2):after {
+                    content: '';
+                    display: block;
+                    height: 0.5vh;
+                    width: 0px;
+                    margin-top: 1.5vh;
+                    background: transparent;
+                    transition: width 1s ease, background-color .5s ease;
                 }
                 p:nth-of-type(3) {
                     font-size: 300%;
-                    line-height: 6vh;
+                    line-height: 2vh;
+                    margin-left: -100%;
+                }
+                p:nth-of-type(3).ready {
+                    margin-left: 0;
                 }
             }
             div:nth-child(2) {
+                //opacity: 0;
+                margin-top: 4vh;
                 cursor: pointer;
+                span:nth-of-type(1) {
+                    margin-left: -100%;
+                }
                 span {
                     font-size: 200%;
                     color: $colorLighter;
                     margin-right: 3vw;
                     @include transition(border-color, 0.6s, ease);
                     border-bottom: 3px solid transparent;
-                    /* .under {
-                        width: 10%;
-                        height: 5px;
-                        background-color: red;
-                    } */
                 }
                 span:hover {
                     border-color: $colorSecondary;
-                    /* .under {
-
-                    } */
                 }
             }
+            div:nth-child(2).ready {
+                span:nth-of-type(1) {
+                    margin-left: 0%;
+                }
+            }
+        }
+        #header.ready {
+            width: 100%;
         }
         .skewed {
             width: 45%;

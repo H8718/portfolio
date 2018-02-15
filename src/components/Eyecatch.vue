@@ -53,7 +53,7 @@ export default {
             for (var i = 0; i < 4; i++) {
                 setTimeout(() => {
                     this.animateShow();
-                }, 400 * i);
+                }, 300 * i);
             }
         },
         animateShow() {

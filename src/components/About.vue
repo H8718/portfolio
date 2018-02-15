@@ -131,14 +131,14 @@ export default {
                 if (window.scrollY > 950) {
                     console.log("under about");
                 }
-                this.animateblueprint();
+                this.animateBlueprint();
                 waypoint.destroy();
             },
             offset: 600
         });
     },
     methods: {
-        animateblueprint() {
+        animateBlueprint() {
             for (let i = 0; i < 5; i++) {
                 this.doAnimation(i);
             }
