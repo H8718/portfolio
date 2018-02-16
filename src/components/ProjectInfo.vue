@@ -8,7 +8,9 @@
         </div>
         <div class="project-description">
             <h3>Description:</h3>
-            {{ project.description }}
+            <p v-for="(paragraph, index) in project.description" :key="index">
+                {{ paragraph }}
+            </p>
         </div>
         <div class="project-technologies">
             <h3>Technologies &amp; software:</h3>
@@ -94,7 +96,7 @@ export default {
         margin-right: 3vh;
     }
     .close-btn {
-        font-size: 180%;
+        font-size: 160%;
         position: absolute;
         right: 2.5%;
         top: 0.8%;

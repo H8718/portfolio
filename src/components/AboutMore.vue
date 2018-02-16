@@ -1,30 +1,30 @@
 <template>
-    <section id="eyecatch">
+    <section id="about-more">
         <b-row id="row-content">
             <b-col :class="{ 'animate-show': ready > 0 }">
                 <i class="fa fa-codepen"></i>
-                <p class="eyecatch-header">Full-Stack Development</p>
-                <p class="eyecatch-text">I understand front-end and back-end
+                <p class="about-more-header">Full-Stack Development</p>
+                <p class="about-more-text">I understand front-end and back-end
                     programming as well as using databases.</p>
             </b-col>
             <b-col :class="{ 'animate-show': ready > 1 }">
                 <i class="devicon-javascript-plain"></i>
-                <p class="eyecatch-header">Everything JavaScript</p>
-                <p class="eyecatch-text">Whether I'm developing websites, web apps
-                    or mobile apps, my language of choice is JavaScript. Usually VueJS.
+                <p class="about-more-header">Everything JavaScript</p>
+                <p class="about-more-text">Whether I'm developing websites, web apps
+                    or mobile apps, my language of choice is JavaScript.
                 </p>
             </b-col>
             <b-col :class="{ 'animate-show': ready > 2 }">
                 <i class="fa fa-cubes"></i>
-                <p class="eyecatch-header">Responsive Layouts</p>
-                <p class="eyecatch-text">I'm familiar with Bootstrap, Sass and flexbox
+                <p class="about-more-header">Responsive Layouts</p>
+                <p class="about-more-text">I'm familiar with Bootstrap, Sass and flexbox
                     which I use to create intuitive and scaling layouts for both mobile
                     and web.</p>
             </b-col>
             <b-col :class="{ 'animate-show': ready > 3 }">
                 <i class="fa fa-group"></i>
-                <p class="eyecatch-header">Teamwork</p>
-                <p class="eyecatch-text">I speak fluent English and have experience in
+                <p class="about-more-header">Teamwork</p>
+                <p class="about-more-text">I speak fluent English and have experience in
                     working in multinational teams.</p>
             </b-col>
         </b-row>
@@ -40,7 +40,7 @@ export default {
     },
     mounted() {
         let waypoint = new Waypoint({
-            element: document.getElementById("eyecatch"),
+            element: document.getElementById("about-more"),
             handler: () => {
                 this.startAnimation();
                 waypoint.destroy();
@@ -68,7 +68,7 @@ export default {
 @import "../styles/variables.scss";
 @import "../styles/mixins.scss";
 
-#eyecatch {
+#about-more {
     width: 100%;
     background: $colorLight;
     #row-content {
@@ -86,14 +86,14 @@ export default {
                 color: $colorPrimary;
                 align-self: center;
             }
-            .eyecatch-header {
+            .about-more-header {
                 margin-top: 2vh;
                 text-align: center;
                 color: #444;
                 font-size: 115%;
                 font-weight: bold;
             }
-            .eyecatch-text {
+            .about-more-text {
                 color: $colorPrimary;
                 font-size: 105%;
                 margin-left: 1vw;

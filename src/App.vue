@@ -12,7 +12,7 @@
             <div id="main">
                 <Navbar />
                 <About />
-                <Eyecatch />
+                <AboutMore />
                 <Projects />
                 <Skills />
                 <Contact />
@@ -27,7 +27,7 @@ import Loader from "./components/Loader";
 import Banner from "./components/Banner";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
-import Eyecatch from "./components/Eyecatch";
+import AboutMore from "./components/AboutMore";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
@@ -52,7 +52,7 @@ export default {
         Banner,
         Navbar,
         About,
-        Eyecatch,
+        AboutMore,
         Projects,
         Skills,
         Contact,

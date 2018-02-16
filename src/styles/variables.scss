@@ -1,12 +1,13 @@
 /** Global Variables **/
 
-/* Colors */
 /* $colorPrimary: #4352af; //#3949ab
 $colorSecondary: #f9aa39; */
 /* $colorLighter: #fff;
 $colorLight: #fafafa;
 $colorDark: #212121; */
 
+
+/* Colors */
 $colorPrimary: #3450a8;
 $colorPrimaryTint: #405CB1; //rgba(48, 63, 159, 0.8);
 $colorSecondary: #fcb03c;
@@ -17,7 +18,12 @@ $colorDark: #212121;
 /* color: #2c3e50; DARK? */
 
 /* Fonts */
-
 $fontMain: "Raleway", sans-serif;
 $fontSecondary: "Montserrat", sans-serif;
 $fontBrand: "Questrial", sans-serif;
+
+/* Size breakpoints for media queries */
+$sizeLg: 1299px;
+$sizeMd: 991px;
+$sizeSm: 767px;
+$sizeXs: 575px;

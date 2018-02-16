@@ -87,7 +87,7 @@ export default {
                 this.clickable = false;
                 setTimeout(() => {
                     this.clickable = true;
-                }, this.btnClicked === null ? 1200 : 2200);
+                }, this.btnClicked === null ? 900 : 1800);
                 if (this.btnClicked === index) {
                     this.btnClicked = null;
                     return
@@ -106,11 +106,16 @@ export default {
             this.ready++;
             setTimeout(() => {
                 this.ready++;
+            }, 500);
+            setTimeout(() => {
                 this.ready++;
+            }, 1200);
+            setTimeout(() => {
                 this.ready++;
+            }, 1600);
+            setTimeout(() => {
                 this.ready++;
-                this.ready++;
-            }, 1500);
+            }, 2100);
         }
     }
 };
@@ -125,20 +130,16 @@ export default {
     position: relative;
     overflow: hidden !important;
     #overlay {
-        /* background-color: rgba(57, 73, 171, 0.8); */
-        /* background-color: $colorPrimaryTint; */
-        //background: $colorPrimaryTint; //url('../assets/banner-bg.jpg');
-        background: url('../assets/1.jpg');
+        background: url('../assets/banner-bg.jpg');
         background-attachment: fixed;
-        background-size: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
         height: 100%;
         @include flexbox(row, null, center);
         position: relative;
         z-index: 9;
         #top {
             height: 9vh;
-            /* background-color: #303f9f; */
-            /* background-color: rgba(48, 63, 159, 0.3); */
             background-color: rgba(0, 0, 0, 0.2);
             opacity: 1;
             position: absolute;
@@ -178,13 +179,16 @@ export default {
             padding-bottom: 40px;
             font-family: $fontBrand;
             margin-top: -3vh;
-            // width: 100%;
-            width: 0;
+            width: 100%;
+            margin-left: -100%;
             position: relative;
             z-index: 10;
-            @include transition(all, 1.5s, ease);
+            @include transition(margin-left, 1.5s, ease);
             div:nth-child(1) {
                 //opacity: 0;
+                p {
+                    @include transition(all, 0.7s, ease);
+                }
                 p:nth-of-type(1) {
                     font-size: 300%;
                     line-height: 4vh;
@@ -238,21 +242,22 @@ export default {
                     font-size: 200%;
                     color: $colorLighter;
                     margin-right: 3vw;
-                    @include transition(border-color, 0.6s, ease);
+                    @include transition(all, 0.6s, ease);
                     border-bottom: 3px solid transparent;
+                    margin-left: -100%;
                 }
                 span:hover {
                     border-color: $colorSecondary;
                 }
             }
             div:nth-child(2).ready {
-                span:nth-of-type(1) {
+                span {
                     margin-left: 0%;
                 }
             }
         }
         #header.ready {
-            width: 100%;
+            margin-left: 0;
         }
         .skewed {
             width: 45%;
@@ -262,19 +267,22 @@ export default {
             top: 9vh;
             @include skew(-30deg);
             z-index: 100;
-            @media screen and (max-width: 1199px) {
+            @media screen and (max-width: $sizeLg) {
                 display: none;
             }
         }
         .overlay {
             background-color: rgba(35, 35, 35, 1);
-            @include transition(width, 1s, ease);
+            @include transition(width, 0.8s, ease);
             z-index: 12;
         }
         .under {
             background: white;
             z-index: 11;
             @include flexbox(row, left, center);
+            @media screen and (max-width: $sizeLg) {
+                display: none;
+            }
             img {
                 @include skew(30deg);
                 width: 70%;
@@ -283,7 +291,7 @@ export default {
                 position: absolute;
                 z-index: 11;
                 /* transition: margin-left 1s, opacity 1s; */
-                @include transition(all, 1s, ease);
+                @include transition(all, 0.8s, ease);
                 opacity: 0;
             }
             img:nth-child(1) {

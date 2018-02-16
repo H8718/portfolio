@@ -56,13 +56,13 @@ export default {
             projects: [
                 {
                     name: "Portfolio",
-                    description: `My portfolio website, which you are on right now.
-                        Purpose of the site is to tell something about myself and show what I'm capable of.
-                        Another reason for building it is to use it for Web visualization course at school.
-                        The website is built using VueJS framework for lightweight performance on the client,
-                        and Bootstrap, and Sass for styling and layouts. The website is scaling and responsive
-                        for mobile and desktop screens of all sizes. I use CSS transitions, animations and
-                        dynamic classes with the help of Vue to create a unique website fit for me.`,
+                    description: [`My portfolio website, which you are on right now.
+                        The purpose of the site is to tell something about myself, what I do and show what I'm capable of.
+                        Another reason for building it is to use it for my Web visualization course at school.`,
+                        `The website is built using VueJS framework for lightweight performance on the client
+                        with Bootstrap and Sass for styling and layouts. The website is scaling and responsive
+                        for mobile and desktop screens of most sizes. I use CSS transitions, animations and
+                        dynamic classes with the help of Vue to create different kinds of animations and hover effects.`],
                     folder: "Portfolio/",
                     logo: "main.jpg",
                     images: [],
@@ -75,11 +75,12 @@ export default {
                 },
                 {
                     name: "My Movie List",
-                    description: `A hybrid mobile tracking application for movie enthusiasts. My Movie List allows its users
+                    description: [`A hybrid mobile tracking application for movie enthusiasts. My Movie List allows its users
                         to keep track of movies that they've watched or plan to watch. It also features other things
-                        like a list of movies currently showing at the theaters and upcoming movies. The application
-                        is built using Cordova, Onsen UI and VueJS libraries for Mobile Application Development
-                        course at school. All movie data used in the app comes from the TMDB API.`,
+                        like a list of movies currently showing at the theaters and upcoming movies.`, `The application
+                        is built using Cordova, Onsen UI and VueJS libraries for my school's Mobile Application Development
+                        course. All movie data used in the app comes from the TMDB API. The app will remain quite unfinished but it
+                        was a great project for learning new technologies, programming techniques and working with external APIs.`],
                     folder: "My_Movie_List/",
                     logo: "logo.svg",
                     images: ["mml4.jpg", "mml2.jpg", "mml3.jpg"],
@@ -92,7 +93,10 @@ export default {
                 },
                 {
                     name: "Mesiäinen E-Commerce",
-                    description: `An e-commerce website...`,
+                    description: [`An e-commerce website for a honey company. With this project, I focused on SEO, security measures and 
+                        common WordPress plugins, such as WooCommerce and Wordfence. I tried to use many different kinds of WordPress 
+                        plugins to learn as much as possible. Although I didn't create the theme myself, a lot of time went into 
+                        customization as well as creating custom components for the website.`,],
                     folder: "Mesiainen_Wordpress/",
                     logo: "logo_cropped.jpg",
                     images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
@@ -104,9 +108,9 @@ export default {
                 },
                 {
                     name: "3D Modeling",
-                    description: `A project for my 3D-modeling assignment. The goal was to create an accurate replication of
-                        Steinway and Sons' Model D grand piano. It's created using Blender and basic 3D-modeling techniques
-                        such as transitioning, scaling ...`,
+                    description: [`A project for my 3D-modeling course assignment. My goal was to create an accurate replication of
+                        Steinway and Sons' Model D grand piano with a nice orchestral stage as the background. It's created using Blender 
+                        and basic 3D-modeling techniques such as translating, scaling and other ways of manipulating simple meshes.`],
                     folder: "3D_Models/",
                     logo: "main.jpg",
                     images: [
@@ -120,9 +124,10 @@ export default {
                 },
                 {
                     name: "E-Commerce Admin Page",
-                    description: `The backend for an e-commerce website. The project includes designing and implementing
-                        a relational MySQL database, creating a simple user interface for management purposes using
-                        React, and PHP scripts to communicate with the database.`,
+                    description: [`The backend management page for an e-commerce website. Using this page, the website administrators 
+                        and possible employees could manage their products, orders and users using a simple graphical user interface.`,
+                        `The project included designing and implementing a relational MySQL database, creating a user interface 
+                        for management purposes using React, and PHP scripts to communicate with the database.`],
                     folder: "Black_Banana_Admin/",
                     logo: "main.jpg",
                     images: ["bb.jpg", "bb2.jpg", "bbdb.jpg", "main.jpg"],
@@ -134,10 +139,11 @@ export default {
                 },
                 {
                     name: "Music Notebook",
-                    description: `A work-in-progress project for aspiring musicians and composers. The application
+                    description: [`A work-in-progress project for aspiring musicians and composers. The application
                         will help beginners learn music and remind more seasoned veterans as well. Music
                         Notebook is meant to serve as a general resource for musical theory, including the
                         circle of fifths, scales, keys, musical notation and other things.`,
+                        `This project is still WIP.`],
                     folder: "Music_Notebook/",
                     logo: "main.jpg",
                     images: [],

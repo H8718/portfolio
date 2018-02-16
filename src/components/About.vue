@@ -128,9 +128,6 @@ export default {
         let waypoint = new Waypoint({
             element: document.getElementById("about"),
             handler: () => {
-                if (window.scrollY > 950) {
-                    console.log("under about");
-                }
                 this.animateBlueprint();
                 waypoint.destroy();
             },
@@ -269,7 +266,7 @@ export default {
         }
         #box-0 {
             width: 100%;
-            margin-top: 55%;
+            margin-top: 47%;
         }
         #box-1,
         #box-2 {
@@ -292,51 +289,38 @@ export default {
             display: block !important;
             z-index: 1;
             width: 45%;
-            height: 50%;
+            height: 55%;
             @media screen and (max-width: 999px) {
                 display: none !important;
             }
         }
-        /* #line-1 {
-            border-top: 0.4vh solid $colorLighter;
-            width: 2.5%;
-            transform: skewY(-50deg);
-            left: 21%;
-            top: 10%;
-            border-radius: 70%;
-        } */
         #line-2 {
             border-right: 0.4vh dashed $colorLighter;
             border-top: 0.4vh dashed $colorLighter;
             margin-left: -40%;
+            margin-top: -5%;
             border-top-right-radius: 100%;
         }
         #line-3 {
             border-right: 0.4vh dashed $colorLighter;
             border-bottom: 0.4vh dashed $colorLighter;
             margin-left: -40%;
-            margin-top: 35%;
+            margin-top: 28%;
             border-bottom-right-radius: 100%;
         }
         #line-4 {
             border-top: 0.4vh dashed $colorLighter;
             border-left: 0.4vh dashed $colorLighter;
             margin-left: 40%;
+            margin-top: -5%;
             border-top-left-radius: 100%;
         }
         #line-5 {
             border-bottom: 0.4vh dashed $colorLighter;
             border-left: 0.4vh dashed $colorLighter;
             margin-left: 40%;
-            margin-top: 35%;
+            margin-top: 28%;
             border-bottom-left-radius: 100%;
-        }
-        .part-name {
-            font-size: 180%;
-            font-family: $fontSecondary;
-            position: absolute;
-            left: 24%;
-            top: 8%;
         }
     }
     #cv {
