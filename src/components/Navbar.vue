@@ -83,6 +83,7 @@ export default {
         0 2px 4px 0 rgba(40, 40, 40, 0.2),
         0 3px 10px 0 rgba(40, 40, 40, 0.2)
     );
+    top: -1px;
     #brand {
         width: 0;
         opacity: 0;
