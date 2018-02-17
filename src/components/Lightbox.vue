@@ -63,12 +63,14 @@ export default {
         height: auto;
         display: block;
         .close-btn {
+            font-size: 160%;
             position: absolute;
-            font-size: 200%;
+            right: 2%;
+            top: 0.8%;
+            font-weight: bold;
             cursor: pointer;
-            top: 3px;
-            right: 15px;
         }
+        
     }
 }
 .show-modal {

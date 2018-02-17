@@ -95,14 +95,6 @@ export default {
         margin-left: 3vh;
         margin-right: 3vh;
     }
-    .close-btn {
-        font-size: 160%;
-        position: absolute;
-        right: 2.5%;
-        top: 0.8%;
-        font-weight: bold;
-        cursor: pointer;
-    }
     h3 {
         font-size: 150%;
     }

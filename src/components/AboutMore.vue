@@ -45,7 +45,7 @@ export default {
                 this.startAnimation();
                 waypoint.destroy();
             },
-            offset: 750
+            offset: 800
         });
     },
     methods: {

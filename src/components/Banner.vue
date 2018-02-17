@@ -16,13 +16,13 @@
                 id="header"
                 :class="{'ready': ready > 0}"
             >
-                <div class="col-lg-7 col-md-10 offset-lg-1 offset-1">
+                <div class="col-lg-7 offset-lg-1 offset-1">
                     <p :class="{'ready': ready > 1}">Hi. I'm</p>
                     <p :class="{'ready': ready > 2}">Markus, a Web Developer</p>
                     <p :class="{'ready': ready > 3}">who makes</p>
                 </div>
                 <div
-                    class="col-lg-7 col-md-10 offset-lg-1 offset-1"
+                    class="col-lg-7 offset-lg-1 offset-1"
                     :class="{'ready': ready > 4}"
                 >
                     <span @click="toggleImg(1)">Websites</span>
@@ -184,10 +184,15 @@ export default {
             position: relative;
             z-index: 10;
             @include transition(margin-left, 1.5s, ease);
+            @media screen and (max-width: $sizeLg) {
+                width: 100% !important;
+            }
             div:nth-child(1) {
                 //opacity: 0;
+                
                 p {
                     @include transition(all, 0.7s, ease);
+                    
                 }
                 p:nth-of-type(1) {
                     font-size: 300%;
