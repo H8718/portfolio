@@ -28,7 +28,8 @@ export default {
     methods: {
         disableModal() {
             this.showModal = false;
-        }
+            window.removeEventListener('scroll', this.handleScroll);
+        },
     },
     props: ["enabled", "childComponent"],
     watch: {
@@ -49,11 +50,10 @@ export default {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    top: 0;
     left: 0;
     @include flexbox(row, center, center);
     pointer-events: none;
-
+    overflow-y: auto !important;
     .modal {
         background: white;
         @include border-radius(3px);
