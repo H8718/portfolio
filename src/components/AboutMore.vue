@@ -71,15 +71,17 @@ export default {
 #about-more {
     width: 100%;
     background: $colorLight;
+    padding-top: 20px;
+    padding-bottom: 5px;
     #row-content {
-        padding: 1vw 10vw 1vw 10vw;
+        padding: 1vw 7vw 1vw 7vw;
         .col {
             @include flexbox(column);
             opacity: 0;
             @include transition(opacity, 1s, ease);
             @media screen and (max-width: 350px) {
-                margin-bottom: 3vh;
-                padding: 0vw 10vw 0vw 10vw;
+                margin-bottom: 30px;
+                //padding: 0vw 7vw 0vw 7vw;
             }
             i {
                 font-size: 550%;
@@ -87,7 +89,7 @@ export default {
                 align-self: center;
             }
             .about-more-header {
-                margin-top: 2vh;
+                margin-top: 20px;
                 text-align: center;
                 color: #444;
                 font-size: 115%;

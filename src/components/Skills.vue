@@ -80,7 +80,8 @@ export default {
 
 #skills {
     background-color: $colorLighter;
-    padding-bottom: 5vw;
+    padding-bottom: 60px;
+    padding-top: 50px;
     h2 {
         color: $colorDark;
     }
@@ -102,7 +103,7 @@ export default {
                 margin-right: 3vh;
             }
             .skill-bar {
-                height: 2vh;
+                height: 18px;
                 position: relative;
                 .skill-bar-fill {
                     background: $colorPrimary;

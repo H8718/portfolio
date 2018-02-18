@@ -110,7 +110,8 @@ export default {
 
 #contact {
     background: $colorPrimary;
-    padding-top: 3.5vw;
+    padding-top: 55px;
+    padding-bottom: 30px;
     h2 {
         color: $colorLighter;
     }
@@ -129,7 +130,7 @@ export default {
         margin-top: 2vw;
         @include transition(height, 2.7s, none);
         .form-field {
-            margin-bottom: 2vh;
+            margin-bottom: 20px;
             align-self: center;
             width: 80%;
             @include transition(border-bottom, 0.5s, ease);

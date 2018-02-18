@@ -13,13 +13,12 @@ export default {};
 @import "../styles/mixins.scss";
 
 footer {
-    height: 12vh;
     background: #222;
     color: white;
     @include flexbox(row, center, center);
+    height: 90px;
     p {
         margin: 0;
-        padding: 0 7vw 0 7vw;
     }
 }
 </style>

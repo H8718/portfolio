@@ -70,6 +70,7 @@ body {
     background-color: $colorLight;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
     #loader-wrapper {
         @include flexbox(row, center, center);
         height: 100vh;

@@ -28,7 +28,6 @@ export default {
     methods: {
         disableModal() {
             this.showModal = false;
-            window.removeEventListener('scroll', this.handleScroll);
         },
     },
     props: ["enabled", "childComponent"],

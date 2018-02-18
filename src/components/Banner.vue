@@ -159,7 +159,7 @@ export default {
                 position: absolute;
                 right: 6vh;
                 font-size: 250%;
-                margin-top: 0.1vh;
+                margin-top: 2px;
                 i {
                     margin-left: 2vh;
                     @include transition(color, 0.7s, ease);
@@ -175,10 +175,9 @@ export default {
         #header {
             color: $colorLighter;
             background-color: rgba(0, 0, 0, 0.6);
-            padding-top: 50px;
+            padding-top: 55px;
             padding-bottom: 40px;
             font-family: $fontBrand;
-            margin-top: -3vh;
             width: 100%;
             margin-left: -100%;
             position: relative;
@@ -188,8 +187,6 @@ export default {
                 width: 100% !important;
             }
             div:nth-child(1) {
-                //opacity: 0;
-                
                 p {
                     @include transition(all, 0.7s, ease);
                     
@@ -221,7 +218,7 @@ export default {
                 p:nth-of-type(2):after {
                     content: '';
                     display: block;
-                    height: 0.5vh;
+                    height: 4px;
                     width: 0px;
                     margin-top: 1.5vh;
                     background: transparent;
@@ -237,7 +234,6 @@ export default {
                 }
             }
             div:nth-child(2) {
-                //opacity: 0;
                 margin-top: 4vh;
                 cursor: pointer;
                 span:nth-of-type(1) {

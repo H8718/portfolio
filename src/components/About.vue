@@ -164,12 +164,8 @@ export default {
     background: $colorPrimaryTint;
     color: $colorLight;
     position: relative;
-    padding-top: 6vh;
-    height: auto !important;
+    padding-top: 50px;
     padding-bottom: 0;
-    @media screen and (max-width: 1000px) {
-        height: auto !important;
-    }
     .underline {
         border-color: $colorLighter;
     }
@@ -196,7 +192,7 @@ export default {
             }
         }
         .third {
-            width: 33.33vw;
+            width: 33.33%;
             //margin-top: -30px;
             .container {
                 max-height: 35vh;
