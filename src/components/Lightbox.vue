@@ -50,6 +50,7 @@ export default {
     height: 100%;
     z-index: 9999;
     left: 0;
+    top: 0;
     @include flexbox(row, center, center);
     pointer-events: none;
     overflow-y: auto !important;
