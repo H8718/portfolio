@@ -33,10 +33,12 @@
         </b-navbar-nav>
 
         <b-collapse id="collapse">
-            <div v-scroll-to="'#about'">About me</div>
-            <div v-scroll-to="'#project'">Projects</div>
-            <div v-scroll-to="'#skills'">Skills</div>
-            <div v-scroll-to="'#contact'">Contact me</div>
+            <div id="collapse-nav-list">
+                <div v-scroll-to="'#about'" v-b-toggle.collapse>About me</div>
+                <div v-scroll-to="'#projects'" v-b-toggle.collapse>Projects</div>
+                <div v-scroll-to="'#skills'" v-b-toggle.collapse>Skills</div>
+                <div v-scroll-to="'#contact'" v-b-toggle.collapse>Contact me</div>
+            </div>
         </b-collapse>
 
     </b-navbar>
@@ -57,9 +59,6 @@ export default {
         let waypoint = new Waypoint({
             element: document.getElementById("navbar"),
             handler: () => {
-                /* if (window.scrollY > 0) {
-                    console.log("banner under");
-                } */
                 this.showBrand = true;
                 waypoint.destroy();
             }
@@ -77,6 +76,9 @@ export default {
     @include transition(margin-top, 1.5s, ease);
     @include flexbox(row, center);
     height: 7vh;
+    @media screen and (max-width: $sizeSm) {
+        height: 50px;
+    }
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
     @include box-shadow(
@@ -87,13 +89,15 @@ export default {
     #brand {
         width: 0;
         opacity: 0;
-        @include transition(width, 2s, ease);
-        @include transition(opacity, 1.5s, ease);
+        @include transition(all, 1.5s, ease);
         @include flexbox(row, center, center);
         img {
-            border-radius: 0.2vw;
-            width: 5vh;
+            width: auto;
             height: 5vh;
+            @media screen and (max-width: $sizeSm) {
+                height: 30px;
+                width: 30px;
+            }
         }
         div {
             font-family: $fontBrand;
@@ -111,7 +115,7 @@ export default {
         opacity: 1 !important;
     }
     #nav-collapse-btn {
-        font-size: 150%;
+        font-size: 140%;
         color: #444;
         opacity: 0;
     }
@@ -119,6 +123,9 @@ export default {
         margin-left: 1vw;
         -webkit-backface-visibility: hidden;
         @include flexbox(row, center, center);
+        @media screen and (max-width: $sizeSm) {
+            display: none;
+        }
         .nav-item {
             cursor: pointer;
             height: 7vh;
@@ -126,7 +133,7 @@ export default {
             min-width: 120px;
             @include flexbox(row, center, center);
             text-align: center;
-            transition: background-color 0.7s;
+            @include transition(background-color, 0.7s, ease);
             a {
                 color: #555;
                 font-size: 105%;
@@ -146,12 +153,15 @@ export default {
     #collapse {
         position: fixed;
         right: 0;
-        top: 8vh;
-        @include flexbox(column);
-        background: $colorLighter;
-        padding: 2vh 5vw 2vh 5vw;
-        div {
-            height: 8vh;
+        top: 49px;
+        #collapse-nav-list {
+            @include flexbox(column);
+            background: $colorLighter;
+            padding: 0 20px 0 20px;
+            div {
+                @include flexbox(column, center, center);
+                height: 45px;
+            }
         }
     }
 }

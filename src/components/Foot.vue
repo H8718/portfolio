@@ -1,24 +1,18 @@
 <template>
     <footer>
-        <p>© {{ new Date().getFullYear() }} Markus Moilanen. All rights reserved.</p>
+        <span>© {{ new Date().getFullYear() }} Markus Moilanen. All rights reserved.</span>
     </footer>
 </template>
-
-<script>
-export default {};
-</script>
 
 <style lang="scss">
 @import "../styles/variables.scss";
 @import "../styles/mixins.scss";
 
 footer {
-    background: #222;
+    background: $colorDark;
     color: white;
     @include flexbox(row, center, center);
+    text-align: center;
     height: 90px;
-    p {
-        margin: 0;
-    }
 }
 </style>

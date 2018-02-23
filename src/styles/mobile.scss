@@ -1,9 +1,8 @@
-/** Mobile-only Styles **/
+/** Size/device specific styles **/
 
-@media screen and (max-width: 500px) {
-    /* #banner {
-        display: none;
-    } */
+//
+@media screen and (max-width: $sizeSm) {
+    //font-size: 30%;
     #navbar {
         #brand {
             font-size: 110%;
@@ -12,6 +11,16 @@
             display: none;
         }
     }
+    #nav-collapse-btn {
+        opacity: 1 !important;
+    }
+}
+
+/* @media screen and (max-width: 500px) { */
+    /* #banner {
+        display: none;
+    } */
+    /*
     #about {
         height: 200vh !important;
         #blueprint {
@@ -49,8 +58,5 @@
         }
     }
 }
-@media screen and (max-width: 800px) {
-    #nav-collapse-btn {
-        opacity: 1 !important;
-    }
-}
+
+ */
