@@ -23,7 +23,21 @@ $fontSecondary: "Montserrat", sans-serif;
 $fontBrand: "Questrial", sans-serif;
 
 /* Size breakpoints for media queries */
-$sizeLg: 1299px;
+$sizeLg: 1200px;
+$sizeMd: 992px;
+$sizeSm: 768px;
+$sizeXs: 576px;
+
+
+
+/* $sizeLg: 1299px;
 $sizeMd: 991px;
 $sizeSm: 767px;
-$sizeXs: 575px;
+$sizeXs: 575px; */
+
+/*    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    */

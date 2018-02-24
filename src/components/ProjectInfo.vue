@@ -25,6 +25,7 @@
             </div>
         </div>
         <div class="project-images">
+            <h3>Screenshots</h3>
             <img
                 v-for="(image, index) in project.images"
                 :key="index"
@@ -99,7 +100,10 @@ export default {
         .project-logo {
             margin-bottom: 3px;
             img {
-                height: 5vw;
+                height: 6em;
+                @media screen and (max-width: $sizeSm) {
+
+                }
             }
         }
         .project-name {
@@ -132,8 +136,7 @@ export default {
             max-height: 20vh;
             margin-left: 0.5%;
             margin-right: 0.5%;
-            margin-top: 1vh;
-            margin-bottom: 1vh;
+            margin-top: 0.5em;
             cursor: pointer;
             transition: transform 0.5s;
             @media screen and (max-width: $sizeSm) {
@@ -141,8 +144,7 @@ export default {
                 width: 100%;
                 max-height: 100%;
                 height: auto;
-                margin-left: 0;
-                margin-right: 0;
+                margin: 0.5em 0 0.5em 0;
             }
         }
         img.clicked {

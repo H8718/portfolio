@@ -24,7 +24,7 @@
             </div>
 
             <div class="third">
-                <div class="container">
+                <div class="about-container">
                     <div
                         class="blueprint-box"
                         id="box-1"
@@ -36,7 +36,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="container">
+                <div class="about-container">
                     <div
                         class="blueprint-box"
                         id="box-3"
@@ -50,7 +50,7 @@
                 </div>
             </div>
             <div class="third">
-                <div class="container">
+                <div class="about-container">
                     <div
                         class="blueprint-box"
                         id="box-0"
@@ -78,7 +78,7 @@
                 </div>
             </div>
             <div class="third">
-                <div class="container">
+                <div class="about-container">
                     <div
                         class="blueprint-box"
                         id="box-2"
@@ -91,7 +91,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="container">
+                <div class="about-container">
                     <div
                         class="blueprint-box"
                         id="box-4"
@@ -124,7 +124,7 @@ export default {
             childComponent: { template: '<img id="cv" src="/static/cv.png" />' }
         };
     },
-    mounted() {
+    /* mounted() {
         let waypoint = new Waypoint({
             element: document.getElementById("about"),
             handler: () => {
@@ -133,18 +133,18 @@ export default {
             },
             offset: 600
         });
-    },
+    }, */
     methods: {
-        animateBlueprint() {
+        /* animateBlueprint() {
             for (let i = 0; i < 5; i++) {
                 this.doAnimation(i);
             }
-        },
-        doAnimation(i) {
+        }, */
+        /* doAnimation(i) {
             setTimeout(() => {
                 this.shown++;
             }, 700 * i);
-        },
+        }, */
         showCV() {
             this.modalEnabled = !this.modalEnabled;
         }
@@ -164,8 +164,12 @@ export default {
     background: $colorPrimaryTint;
     color: $colorLight;
     position: relative;
-    padding-top: 50px;
-    padding-bottom: 0;
+    padding-top: 3em;
+    @media screen and (max-width: $sizeSm) {
+        padding-bottom: 3em;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
     .underline {
         border-color: $colorLighter;
     }
@@ -174,83 +178,110 @@ export default {
         position: relative;
         .mobile-portrait {
             display: none;
+            .contact-btns {
+                margin-top: 0;
+            }
         }
-        @media screen and (max-width: 999px) {
+        h3 {
+            text-align: center;
+        }
+        @media screen and (max-width: $sizeSm) {
+            div:nth-child(1) {
+                margin-top: 1.3em !important;
+            }
+            .third:nth-child(4) {
+                .about-container {
+                    margin: 0 !important;
+                }
+            }
             flex-direction: column;
             .mobile-portrait {
-                display: auto;
+                display: initial;
+                #portrait {
+                    width: 50vw;
+
+                }
             }
             .third {
                 width: 100% !important;
-                .container {
-                    min-height: initial !important;
-                    max-height: initial !important;
-                }
             }
-            .third:nth-of-type(2) {
+            .third:nth-child(3) {
                 display: none;
             }
         }
         .third {
-            width: 33.33%;
-            //margin-top: -30px;
-            .container {
-                max-height: 35vh;
-                min-height: 30vh;
+            width: (100vw/3);
+            .about-container {
                 position: relative;
-                //@include flexbox(row, center, center);
+                @media screen and (min-width: $sizeSm) {
+                    max-height: 35vh;
+                    min-height: 30vh;
+                }
             }
         }
         .third:nth-child(3) {
-            .container {
-                @include flexbox(row, center, center);
+            .about-container {
+                @include flexbox(column, center, center);
             }
         }
         .blueprint-box {
-            text-align: center;
-            opacity: 1; // 0
-            //margin: 1.5vh;
+            /* opacity: 1; // 0  */
             position: relative;
-
             width: 100%;
-            @media screen and (max-width: 1299px) and (min-width: 999px) {
+            @media screen and (max-width: $sizeLg) and (min-width: $sizeMd) {
                 width: 150%;
-            }
-            h3 {
             }
             p {
                 /* width: 27vh; */
                 /* min-height: 12vh; */
-                border: 0.5vh solid $colorLighter;
+                border: 0.3em solid $colorLighter;
                 @include border-radius(0.3vh);
                 color: $colorLighter;
-                padding: 2vh;
+                padding: 1em;
                 font-size: 105%;
                 background: $colorPrimary;
+                /* text-align: justify;
+                text-justify: inter-word; */
             }
         }
         #portrait {
             width: 23vh;
-            @include border-radius(18vh);
+            @include border-radius(100%);
             border: 0.5vh solid $colorLighter;
             position: relative;
+            margin-bottom: 1.5em;
             z-index: 5;
         }
         .contact-btns {
-            margin-top: 8%;
+            margin-top: 1.5em;
             @include flexbox(row, center, center);
             .contact-btn {
                 font-size: 350%;
                 @include transition(color, 1s, ease);
                 cursor: pointer;
+                @media screen and (max-width: $sizeSm) {
+                    font-size: 500% !important;
+                }
             }
-            a:nth-child(1) {
-                font-size: 110%;
-                padding-right: 7%;
+            :nth-child(1) {
+                margin-right: 0.3em;
             }
-            i:nth-child(3) {
-                font-size: 310%;
-                padding-left: 7%;
+            :nth-child(2) {
+                font-size: 95%;
+                margin-right: 0.3em;
+            }
+            :nth-child(3) {
+                font-size: 300%;
+            }
+            @media screen and (max-width: $sizeSm) {
+                :nth-child(1) {
+                    font-size: 590% !important;
+                    margin-right: 0.35em;
+                }
+                :nth-child(2) {
+                    font-size: 540% !important;
+                    margin-right: 0.35em;
+                }
             }
             .contact-btn:hover {
                 color: $colorSecondary;
@@ -262,7 +293,8 @@ export default {
         }
         #box-0 {
             width: 100%;
-            margin-top: 47%;
+            margin-top: 23%;
+            @include flexbox(column, null, center);
         }
         #box-1,
         #box-2 {
@@ -276,18 +308,18 @@ export default {
         }
         #box-1,
         #box-3 {
-            @media screen and (max-width: 1299px) and (min-width: 999px) {
+            @media screen and (max-width: $sizeLg) and (min-width: $sizeMd) {
                 margin-left: -60%;
             }
         }
         .line {
-            position: absolute !important;
-            display: block !important;
+            position: absolute;
+            display: block;
             z-index: 1;
             width: 45%;
             height: 55%;
-            @media screen and (max-width: 999px) {
-                display: none !important;
+            @media screen and (max-width: $sizeSm) {
+                display: none;
             }
         }
         #line-2 {
@@ -320,7 +352,8 @@ export default {
         }
     }
     #cv {
-        height: 95vh;
+        max-height: 95vh;
+        max-width: 100vw;
     }
 }
 </style>

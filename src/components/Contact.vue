@@ -2,7 +2,9 @@
     <section id="contact">
         <h2>Contact me</h2>
         <div class="underline"></div>
-        <p class="description">Send me a message using the form. I'll try and get back to you.</p>
+        <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
+            <p class="description">Send me a message using the form. I'll try and get back to you.</p>
+        </div>
         <div
             class="alert-message col-md-10 offset-1"
             v-if="alert"
@@ -123,10 +125,9 @@ export default {
     }
     #contact-form {
         @include flexbox(column, center, center);
-        margin-top: 2vw;
         @include transition(height, 2.7s, none);
         .form-field {
-            margin-bottom: 20px;
+            margin-bottom: 1em;
             align-self: center;
             width: 80%;
             @media screen and (max-width: $sizeSm) {

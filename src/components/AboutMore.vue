@@ -71,39 +71,57 @@ export default {
 #about-more {
     width: 100%;
     background: $colorLight;
-    padding-top: 20px;
-    padding-bottom: 5px;
+    padding-top: 1.7em;
+    padding-bottom: 1.1em;
     #row-content {
-        padding: 1vw 7vw 1vw 7vw;
+        padding: 0 10vw 0 10vw;
         .col {
-            @include flexbox(column);
             opacity: 0;
+            @include flexbox(column);
             @include transition(opacity, 1s, ease);
-            @media screen and (max-width: 350px) {
-                margin-bottom: 30px;
-                //padding: 0vw 7vw 0vw 7vw;
-            }
             i {
                 font-size: 550%;
                 color: $colorPrimary;
                 align-self: center;
             }
             .about-more-header {
-                margin-top: 20px;
+                margin-top: 1em;
                 text-align: center;
                 color: #444;
                 font-size: 115%;
                 font-weight: bold;
             }
             .about-more-text {
+                margin-top: -0.2em;
                 color: $colorPrimary;
                 font-size: 105%;
-                margin-left: 1vw;
-                margin-right: 1vw;
+                margin-left: 0.5vw;
+                margin-right: 0.5vw;
+                text-align: justify;
+                text-justify: inter-word;
             }
         }
         .animate-show {
             opacity: 1;
+        }
+        @media screen and (max-width: $sizeSm) {
+            .col {
+                min-width: 84vw;
+                i {
+                    font-size: 400%;
+                }
+                .about-more-header {
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    font-size: 95%;
+                }
+                .about-more-text {
+                    font-size: 90%;
+                    text-align: initial;
+                    margin-left: initial;
+                    margin-right: initial;
+                }
+            }
         }
     }
 }

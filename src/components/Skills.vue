@@ -37,17 +37,17 @@ export default {
     data() {
         return {
             skills: [
-                { name: "HTML", level: 90 },
-                { name: "JavaScript", level: 85 },
-                { name: "CSS + SASS", level: 80 },
-                { name: "Vue", level: 80 },
-                { name: "React", level: 75 },
-                { name: "PHP", level: 65 },
-                { name: "MySQL", level: 60 },
-                { name: "WordPress", level: 50 },
-                { name: "Blender", level: 50 },
-                { name: "Photoshop", level: 40 },
-                { name: "Illustrator", level: 35 }
+                { name: "HTML", level: 100 },
+                { name: "JavaScript", level: 95 },
+                { name: "CSS + SASS", level: 90 },
+                { name: "Vue", level: 85 },
+                { name: "React", level: 80 },
+                { name: "PHP", level: 70 },
+                { name: "MySQL", level: 70 },
+                { name: "Blender", level: 60 },
+                { name: "WordPress", level: 60 },
+                { name: "Photoshop", level: 50 },
+                { name: "Illustrator", level: 40 }
             ],
             ready: 0
         };
@@ -117,9 +117,10 @@ export default {
                 }
             }
             @media screen and (max-width: $sizeSm) {
-                margin-left: 8px;
+                margin-left: 2%;
                 .skill-name {
-                    width: 30%;
+                    width: 28%;
+                    font-size: 95%;
                 }
                 .skill-bar-container {
                     width: 70%;
