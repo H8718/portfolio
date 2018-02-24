@@ -1,10 +1,10 @@
 <template>
     <section id="contact">
-        <h2>Send me a message</h2>
+        <h2>Contact me</h2>
         <div class="underline"></div>
-        <p class="description">Send me a message using the form. I'll probably answer back.</p>
+        <p class="description">Send me a message using the form. I'll try and get back to you.</p>
         <div
-            class="alert-message col-md-10 offset-md-1"
+            class="alert-message col-md-10 offset-1"
             v-if="alert"
         >
             <p>{{ alert }}</p>
@@ -14,7 +14,7 @@
             method="POST"
             @submit.prevent="submitForm()"
             :class="{ 'hide': success }"
-            class="col-lg-4 col-md-6 offset-lg-4 offset-md-3"
+            class="col-lg-4 col-md-6 col-sm-12 offset-lg-4 offset-md-3 offset-sm-0"
         >
             <b-input
                 type="text"
@@ -110,8 +110,8 @@ export default {
 
 #contact {
     background: $colorPrimary;
-    padding-top: 55px;
-    padding-bottom: 30px;
+    padding-top: 3.5em;
+    padding-bottom: 2em; //30px;
     h2 {
         color: $colorLighter;
     }
@@ -120,19 +120,18 @@ export default {
     }
     .description {
         color: $colorLight;
-        margin-top: 4vh;
     }
     #contact-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flexbox(column, center, center);
         margin-top: 2vw;
         @include transition(height, 2.7s, none);
         .form-field {
             margin-bottom: 20px;
             align-self: center;
             width: 80%;
+            @media screen and (max-width: $sizeSm) {
+                width: 90%;
+            }
             @include transition(border-bottom, 0.5s, ease);
             @include border-radius(3px);
         }

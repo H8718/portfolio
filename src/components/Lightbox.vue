@@ -65,12 +65,15 @@ export default {
         .close-btn {
             font-size: 160%;
             position: absolute;
-            right: 2%;
-            top: 0.8%;
+            right: 0.9em;
+            top: 0.5em;
             font-weight: bold;
             cursor: pointer;
+            @media screen and ($sizeSm) {
+
+            }
         }
-        
+
     }
 }
 .show-modal {

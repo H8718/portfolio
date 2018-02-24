@@ -15,26 +15,32 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../styles/variables.scss";
+@import "../styles/mixins.scss";
+
 .tag {
-    min-width: 40px;
-    width: auto;
-    margin-right: 3%;
-    height: 40px;
+    height: 35px;
     border-radius: 30px;
     box-shadow: 2px 2px 2px #333;
     color: white;
     display: flex;
     align-items: center;
-    //padding-right: 8%;
-    padding-right: 20px;
+    padding-right: 16px;
+    padding-left: 12px;
     i {
         font-size: 150%;
-        margin-left: 15px;
     }
     span {
         text-align: initial;
-        margin-left: 10px;
-        padding-right: 20px;
+        margin-left: 8px;
     }
 }
+@media screen and (min-width: $sizeSm) {
+                .tag:nth-of-type(2) {
+                    margin-left: 10px;
+                }
+                .tag:nth-of-type(3) {
+                    margin-left: 10px;
+                }
+            }
 </style>

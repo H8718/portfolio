@@ -129,6 +129,9 @@ export default {
     height: 93vh;
     position: relative;
     overflow: hidden !important;
+    @media screen and (max-width: $sizeSm) {
+        height: 91vh;
+    }
     #overlay {
         background: url('../assets/banner-bg.jpg');
         background-attachment: fixed;
@@ -136,6 +139,9 @@ export default {
         background-repeat: no-repeat;
         height: 100%;
         @include flexbox(row, null, center);
+        @media screen and (max-width: $sizeSm) {
+            @include flexbox(column, null, null);
+        }
         position: relative;
         z-index: 9;
         #top {
@@ -145,6 +151,13 @@ export default {
             position: absolute;
             top: 0;
             width: 100%;
+            @media screen and (max-width: $sizeLg) {
+                height: 11vh;
+                background-color: rgba(0, 0, 0, 0.6);
+                .contact-icons {
+                    font-size: 210% !important;
+                }
+            }
             @include flexbox(row, null, center);
             img {
                 @media screen and (max-width: 500px) {
@@ -186,14 +199,22 @@ export default {
             @media screen and (max-width: $sizeLg) {
                 width: 100% !important;
             }
+            @media screen and (max-width: $sizeSm) {
+                margin-top: 11vh;
+                height: 83vh;
+                font-size: 80%;
+            }
             div:nth-child(1) {
+                @media screen and (max-width: $sizeSm) {
+                    margin-top: 3vh;
+                }
                 p {
                     @include transition(all, 0.7s, ease);
-                    
+
                 }
                 p:nth-of-type(1) {
                     font-size: 300%;
-                    line-height: 4vh;
+                    line-height: 35px;
                     margin-left: -100%;
                 }
                 p:nth-of-type(1).ready {
@@ -201,17 +222,20 @@ export default {
                 }
                 p:nth-of-type(2) {
                     font-size: 400%;
-                    line-height: 5vh;
+                    line-height: 40px;
                     font-weight: bold;
-                    //border-bottom: 4px solid $colorSecondary;
                     width: 80%;
-                    padding-bottom: 15px;
+                    padding-bottom: 16px;
                     margin-left: -100%;
+
                 }
                 p:nth-of-type(2).ready {
                     margin-left: 0;
                 }
                 p:nth-of-type(2).ready:after {
+                    @media screen and (max-width: $sizeSm) {
+                        display: none;
+                    }
                     width: 100%;
                     background-color: $colorSecondary;
                 }
@@ -228,18 +252,24 @@ export default {
                     font-size: 300%;
                     line-height: 2vh;
                     margin-left: -100%;
+                    @media screen and (max-width: $sizeSm) {
+                        display: none;
+                    }
                 }
                 p:nth-of-type(3).ready {
                     margin-left: 0;
                 }
             }
             div:nth-child(2) {
+                @media screen and (max-width: $sizeSm) {
+                    display: none;
+                }
                 margin-top: 4vh;
-                cursor: pointer;
                 span:nth-of-type(1) {
                     margin-left: -100%;
                 }
                 span {
+                    cursor: pointer;
                     font-size: 200%;
                     color: $colorLighter;
                     margin-right: 3vw;

@@ -80,37 +80,26 @@ export default {
 .project-info {
     background: white;
     @include flexbox(column);
-    padding-top: 0.5vh;
-    padding-bottom: 3vh;
-    padding-left: 4vh;
-    padding-right: 4vh;
-    @media screen and (max-width: 500px) {
-        width: 100%;
-    }
+    padding: 1.5em 1em 2.5em 1em;
     .project-description,
     .project-technologies,
     .project-images,
-    .project-source
-     {
-        margin-left: 3vh;
-        margin-right: 3vh;
+    .project-source {
+        margin-top: 1.5em;
+        margin-left: 3vw;
+        margin-right: 3vw;
     }
     h3 {
         font-size: 150%;
     }
     .header {
         align-self: center;
-        padding: 1vh;
         @include flexbox(row, center, center);
-        margin-top: 0.7vh;
         margin-right: 5%;
         .project-logo {
-            background: white;
             margin-bottom: 3px;
             img {
                 height: 5vw;
-                /* padding: 0.5vh; */
-                /* box-shadow: 2px 2px 4px #444; */
             }
         }
         .project-name {
@@ -118,33 +107,26 @@ export default {
             font-size: 170%;
         }
     }
-    .project-description {
-        margin-top: 2vh;
-    }
     .project-technologies {
-        margin-top: 3vh;
         .tags {
+            margin-top: 1.1em;
             @include flexbox(row);
-            margin-top: 2vh;
-            @media screen and (max-width: 800px) {
-                margin-left: 0;
-                margin-right: 0;
-                .tag {
-                    border-radius: 15px;
-                }
+            @media screen and (max-width: $sizeSm) {
+                @include flexbox(column);
             }
-            .tag {
-                width: 10vw;
-                span {
-                    margin-left: 10%;
+
+            @media screen and (max-width: $sizeSm) {
+                .tag:nth-of-type(2) {
+                    margin-top: 15px;
+                }
+                .tag:nth-of-type(3) {
+                    margin-top: 15px;
                 }
             }
         }
+
     }
     .project-images {
-        /* padding-left: 2%;
-        padding-right: 2%; */
-        margin-top: 3vh;
         img {
             max-width: 24%;
             max-height: 20vh;
@@ -154,23 +136,26 @@ export default {
             margin-bottom: 1vh;
             cursor: pointer;
             transition: transform 0.5s;
+            @media screen and (max-width: $sizeSm) {
+                max-width: 100%;
+                width: 100%;
+                max-height: 100%;
+                height: auto;
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
         img.clicked {
             transform: scale(4);
         }
     }
     .project-source {
-        margin-top: 3vh;
-        @include flexbox(row, null, center);
         a {
             text-decoration: none;
-            margin-left: 5%;
-            margin-bottom: 6px;
+            margin-top: 1.1em;
             color: $colorDark;
-            transition: color 0.7s, border-color 0.7s;
+            @include transition(all, 0.7s, ease);
             @include flexbox(row, null, center);
-            border: 3px solid $colorDark;
-            @include border-radius(5px);
             padding: 8px;
             i {
                 cursor: pointer;
@@ -178,6 +163,7 @@ export default {
                 font-size: 350%;
             }
             span {
+                margin-left: 5px;
                 font-weight: bold;
             }
         }

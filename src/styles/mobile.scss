@@ -2,7 +2,9 @@
 
 //
 @media screen and (max-width: $sizeSm) {
-    //font-size: 30%;
+    body {
+        font-size: 75%;
+    }
     #navbar {
         #brand {
             font-size: 110%;
@@ -13,6 +15,18 @@
     }
     #nav-collapse-btn {
         opacity: 1 !important;
+    }
+}
+
+@media screen and (min-width: $sizeMd) {
+    body {
+        font-size: 85%;
+    }
+}
+
+@media screen and (min-width: $sizeLg) {
+    body {
+        font-size: 100%;
     }
 }
 

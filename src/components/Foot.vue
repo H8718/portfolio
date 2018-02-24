@@ -14,5 +14,9 @@ footer {
     @include flexbox(row, center, center);
     text-align: center;
     height: 90px;
+    @media screen and (max-width: $sizeSm) {
+        height: 60px;
+    }
+    padding: 20px;
 }
 </style>

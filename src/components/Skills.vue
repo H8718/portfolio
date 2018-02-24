@@ -15,14 +15,16 @@
                 <span class="skill-name">
                     <i :class="skill.icon" /> {{ skill.name }}
                 </span>
-                <div
-                    class="skill-bar"
-                    :style="{ width: skill.level + '%' }"
-                >
+                <div class="skill-bar-container">
                     <div
-                        class="skill-bar-fill"
-                        :class="{ 'animate-fill': ready > index }"
-                    />
+                        class="skill-bar"
+                        :style="{ width: skill.level + '%' }"
+                    >
+                        <div
+                            class="skill-bar-fill"
+                            :class="{ 'animate-fill': ready > index }"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,18 +37,17 @@ export default {
     data() {
         return {
             skills: [
-                { name: "HTML", level: 80, icon: "" },
-                { name: "JavaScript", level: 75, icon: "" },
-                { name: "CSS + SASS", level: 70, icon: "" },
-                { name: "Vue", level: 70, icon: "" },
-                { name: "PHP", level: 65, icon: "" },
-                { name: "MySQL", level: 65, icon: "" },
-                { name: "Linux", level: 55, icon: "" },
-                { name: "React", level: 55, icon: "" },
-                { name: "WordPress", level: 50, icon: "" },
-                { name: "Blender", level: 45, icon: "" },
-                { name: "Photoshop", level: 40, icon: "" },
-                { name: "Illustrator", level: 30, icon: "" }
+                { name: "HTML", level: 90 },
+                { name: "JavaScript", level: 85 },
+                { name: "CSS + SASS", level: 80 },
+                { name: "Vue", level: 80 },
+                { name: "React", level: 75 },
+                { name: "PHP", level: 65 },
+                { name: "MySQL", level: 60 },
+                { name: "WordPress", level: 50 },
+                { name: "Blender", level: 50 },
+                { name: "Photoshop", level: 40 },
+                { name: "Illustrator", level: 35 }
             ],
             ready: 0
         };
@@ -80,40 +81,48 @@ export default {
 
 #skills {
     background-color: $colorLighter;
-    padding-bottom: 60px;
-    padding-top: 50px;
+    padding-bottom: 3.5em;
+    padding-top: 3em;
     h2 {
         color: $colorDark;
     }
-    .description {
-        padding: 0 5vw 0vw 5vw;
-        margin-top: 2vw;
-    }
     .container {
-        margin-top: 2vw;
         @include flexbox(column);
         .skill-row {
             @include flexbox(row, null, center);
-            margin-bottom: 1vh;
+            margin-bottom: 0.5em;
             width: 100%;
             position: relative;
             .skill-name {
                 position: relative;
-                width: 13%;
-                margin-right: 3vh;
+                width: 15%;
             }
-            .skill-bar {
-                height: 18px;
+            .skill-bar-container {
+                width: 85%;
                 position: relative;
-                .skill-bar-fill {
-                    background: $colorPrimary;
-                    height: 100%;
+                .skill-bar {
+                    height: 1.1em;
                     position: relative;
-                    width: 0%;
-                    @include transition(width, 1.5s, ease);
+                    .skill-bar-fill {
+                        background: $colorPrimary;
+                        height: 100%;
+                        position: relative;
+                        width: 0%;
+                        border-radius: 2px;
+                        @include transition(width, 1.5s, ease);
+                    }
+                    .animate-fill {
+                        width: 100%;
+                    }
                 }
-                .animate-fill {
-                    width: 100%;
+            }
+            @media screen and (max-width: $sizeSm) {
+                margin-left: 8px;
+                .skill-name {
+                    width: 30%;
+                }
+                .skill-bar-container {
+                    width: 70%;
                 }
             }
         }

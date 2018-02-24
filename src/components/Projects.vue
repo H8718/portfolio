@@ -6,7 +6,7 @@
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
-        <div class="project-container col-md-10 offset-md-1 offset-sm-0">
+        <div class="project-container col-md-10 offset-md-1">
             <div
                 class="project-item"
                 v-for="(project, index) in projects"
@@ -93,9 +93,9 @@ export default {
                 },
                 {
                     name: "Mesiäinen E-Commerce",
-                    description: [`An e-commerce website for a honey company. With this project, I focused on SEO, security measures and 
-                        common WordPress plugins, such as WooCommerce and Wordfence. I tried to use many different kinds of WordPress 
-                        plugins to learn as much as possible. Although I didn't create the theme myself, a lot of time went into 
+                    description: [`An e-commerce website for a honey company. With this project, I focused on SEO, security measures and
+                        common WordPress plugins, such as WooCommerce and Wordfence. I tried to use many different kinds of WordPress
+                        plugins to learn as much as possible. Although I didn't create the theme myself, a lot of time went into
                         customization as well as creating custom components for the website.`,],
                     folder: "Mesiainen_Wordpress/",
                     logo: "logo_cropped.jpg",
@@ -109,7 +109,7 @@ export default {
                 {
                     name: "3D Modeling",
                     description: [`A project for my 3D-modeling course assignment. My goal was to create an accurate replication of
-                        Steinway and Sons' Model D grand piano with a nice orchestral stage as the background. It's created using Blender 
+                        Steinway and Sons' Model D grand piano with a nice orchestral stage as the background. It's created using Blender
                         and basic 3D-modeling techniques such as translating, scaling and other ways of manipulating simple meshes.`],
                     folder: "3D_Models/",
                     logo: "main.jpg",
@@ -124,9 +124,9 @@ export default {
                 },
                 {
                     name: "E-Commerce Admin Page",
-                    description: [`The backend management page for an e-commerce website. Using this page, the website administrators 
+                    description: [`The backend management page for an e-commerce website. Using this page, the website administrators
                         and possible employees could manage their products, orders and users using a simple graphical user interface.`,
-                        `The project included designing and implementing a relational MySQL database, creating a user interface 
+                        `The project included designing and implementing a relational MySQL database, creating a user interface
                         for management purposes using React, and PHP scripts to communicate with the database.`],
                     folder: "Black_Banana_Admin/",
                     logo: "main.jpg",
@@ -161,7 +161,6 @@ export default {
         toggleProjectInfo(index) {
             this.active = index;
             this.modalEnabled = !this.modalEnabled;
-            console.log("asd");
         },
 
     },
@@ -179,8 +178,8 @@ export default {
 
 #projects {
     background-color: $colorLighter;
-    padding-top: 50px;
-    padding-bottom: 30px;
+    padding-top: 3.2em;
+    padding-bottom: 2em;
     .modal {
         width: 900px !important;
         height: 100%;
@@ -188,17 +187,13 @@ export default {
     h2 {
         color: $colorDark;
     }
-    .description {
-        padding: 0 5vw 0vw 5vw;
-        margin-top: 2vw;
-    }
     .project-container {
         position: relative !important;
-        margin-top: 2vw;
         width: 100%;
         flex-wrap: wrap;
         @include flexbox(row, center);
         @include transition(opacity, 0.5s, ease);
+        padding: 0;
     }
 }
 .project-item {
@@ -233,17 +228,21 @@ export default {
         @include transition(all, 0.6s, ease);
         .project-name {
             margin-top: 10%;
+            font-size: 110%;
         }
         .project-tags {
-            margin: 7% 0% 0 0%;
+            margin-top: 7%;
+            margin-left: 2%;
+            margin-right: 2%;
             @include flexbox(row, center, center);
         }
         .project-btn {
-            margin-top: 36px;
-            width: 35%;
+            margin-top: 34px;
+            margin-bottom: 10%;
+            width: 30%;
             background: #f8f8f8;
             border: 3px solid $colorDark;
-            border-bottom: 10px solid $colorDark;
+            border-bottom: 8px solid $colorDark;
             @include border-radius(6px);
             @include transition(all, 0.3s, ease);
             color: $colorDark;
@@ -252,7 +251,19 @@ export default {
         }
         .project-btn:hover {
             border-bottom: 4px solid $colorDark;
-            margin-top: 42px;
+            margin-top: 38px;
+        }
+    }
+    @media screen and (max-width: $sizeSm) {
+        width: 100%;
+        height: auto;
+        .cover {
+            height: 100%;
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.7);
+            .project-btn {
+                font-size: 105%;
+            }
         }
     }
 }

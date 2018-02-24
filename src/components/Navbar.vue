@@ -77,7 +77,7 @@ export default {
     @include flexbox(row, center);
     height: 7vh;
     @media screen and (max-width: $sizeSm) {
-        height: 50px;
+        height: 9vh;
     }
     background-color: rgba(255, 255, 255, 0.95);
     z-index: 999;
@@ -104,7 +104,7 @@ export default {
             font-size: 150%;
             font-weight: bold;
             font-variant: small-caps;
-            margin-left: 1vh;
+            margin-left: 10px;
         }
         #moilanen {
             color: $colorSecondary;
@@ -153,14 +153,15 @@ export default {
     #collapse {
         position: fixed;
         right: 0;
-        top: 49px;
+        top: 8.7vh;
         #collapse-nav-list {
             @include flexbox(column);
             background: $colorLighter;
             padding: 0 20px 0 20px;
             div {
                 @include flexbox(column, center, center);
-                height: 45px;
+                height: 35px;
+                font-size: 95%;
             }
         }
     }
