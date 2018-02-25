@@ -5,8 +5,7 @@
         <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
             <p class="description">Here's a list of technologies and software that I use and an estimate of my ability.</p>
         </div>
-
-        <div class="container col-lg-6 col-lg-offset-3 col-md-10 col-md-offset-1">
+        <div class="container col-lg-6 offset-lg-3 col-md-10 offset-md-1">
             <div
                 v-for="(skill, index) in skills"
                 :key="index"
@@ -81,8 +80,8 @@ export default {
 
 #skills {
     background-color: $colorLighter;
-    padding-bottom: 3.5em;
-    padding-top: 3em;
+    padding-bottom: 5em;
+    padding-top: 2em;
     h2 {
         color: $colorDark;
     }
@@ -95,10 +94,10 @@ export default {
             position: relative;
             .skill-name {
                 position: relative;
-                width: 15%;
+                width: 18%;
             }
             .skill-bar-container {
-                width: 85%;
+                width: 80%;
                 position: relative;
                 .skill-bar {
                     height: 1.1em;
@@ -117,9 +116,9 @@ export default {
                 }
             }
             @media screen and (max-width: $sizeSm) {
-                margin-left: 2%;
+                margin-left: 3%;
                 .skill-name {
-                    width: 28%;
+                    width: 25%;
                     font-size: 95%;
                 }
                 .skill-bar-container {

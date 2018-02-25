@@ -18,7 +18,7 @@
             >
                 <div class="col-lg-7 offset-lg-1 offset-1">
                     <p :class="{'ready': ready > 1}">Hi. I'm</p>
-                    <p :class="{'ready': ready > 2}">Markus, a Web Developer</p>
+                    <p :class="{'ready': ready > 2}">Markus,<br class="break"> a Web Developer</p>
                     <p :class="{'ready': ready > 3}">who makes</p>
                 </div>
                 <div
@@ -73,9 +73,6 @@ export default {
         let waypoint = new Waypoint({
             element: document.getElementById("banner"),
             handler: () => {
-                if (window.scrollY > 0) {
-
-                }
                 this.animateBanner();
                 waypoint.destroy();
             }
@@ -87,7 +84,7 @@ export default {
                 this.clickable = false;
                 setTimeout(() => {
                     this.clickable = true;
-                }, this.btnClicked === null ? 900 : 1800);
+                }, 800/* this.btnClicked === null ? 850 : 850 */);
                 if (this.btnClicked === index) {
                     this.btnClicked = null;
                     return
@@ -97,9 +94,9 @@ export default {
                     return;
                 }
                 this.btnClicked = null;
-                setTimeout(() => {
+                /* setTimeout(() => {
                     this.btnClicked = index;
-                }, 1200);
+                }, 900); */
             }
         },
         animateBanner() {
@@ -155,7 +152,7 @@ export default {
                 height: 11vh;
                 background-color: rgba(0, 0, 0, 0.6);
                 .contact-icons {
-                    font-size: 210% !important;
+                    font-size: 7vh !important;
                 }
             }
             @include flexbox(row, null, center);
@@ -171,7 +168,7 @@ export default {
                 color: white;
                 position: absolute;
                 right: 6vh;
-                font-size: 250%;
+                font-size: 5vh;
                 margin-top: 2px;
                 i {
                     margin-left: 2vh;
@@ -188,11 +185,11 @@ export default {
         #header {
             color: $colorLighter;
             background-color: rgba(0, 0, 0, 0.6);
-            padding-top: 55px;
-            padding-bottom: 40px;
+            padding-top: 3.3em;
+            padding-bottom: 2.5em;
             font-family: $fontBrand;
             width: 100%;
-            margin-left: -100%;
+            margin-left: -300vw;
             position: relative;
             z-index: 10;
             @include transition(margin-left, 1.5s, ease);
@@ -202,7 +199,14 @@ export default {
             @media screen and (max-width: $sizeSm) {
                 margin-top: 11vh;
                 height: 83vh;
-                font-size: 80%;
+                font-size: 105%;
+                padding-bottom: 8em;
+                @include flexbox(column, center);
+            }
+            @media screen and (min-width: $sizeMd) {
+                .break {
+                    display: none;
+                }
             }
             div:nth-child(1) {
                 @media screen and (max-width: $sizeSm) {
@@ -214,20 +218,23 @@ export default {
                 }
                 p:nth-of-type(1) {
                     font-size: 300%;
-                    line-height: 35px;
+                    line-height: 0.7em;
                     margin-left: -100%;
+
                 }
                 p:nth-of-type(1).ready {
                     margin-left: 0;
                 }
                 p:nth-of-type(2) {
                     font-size: 400%;
-                    line-height: 40px;
+                    line-height: 0.7em;
                     font-weight: bold;
                     width: 80%;
                     padding-bottom: 16px;
                     margin-left: -100%;
-
+                    @media screen and (max-width: $sizeSm) {
+                        line-height: 1em;
+                    }
                 }
                 p:nth-of-type(2).ready {
                     margin-left: 0;
@@ -269,16 +276,21 @@ export default {
                     margin-left: -100%;
                 }
                 span {
-                    cursor: pointer;
+                    @media screen and (min-width: $sizeLg) {
+                        cursor: pointer;
+                        @include transition(all, 0.6s, ease);
+                    }
+
                     font-size: 200%;
                     color: $colorLighter;
                     margin-right: 3vw;
-                    @include transition(all, 0.6s, ease);
                     border-bottom: 3px solid transparent;
                     margin-left: -100%;
                 }
-                span:hover {
-                    border-color: $colorSecondary;
+                @media screen and (min-width: $sizeLg) {
+                    span:hover {
+                        border-color: $colorSecondary;
+                    }
                 }
             }
             div:nth-child(2).ready {
@@ -334,6 +346,7 @@ export default {
             img:nth-child(3) {
                 width: 70%;
                 margin-right: -20%;
+                margin-top: 14%;
             }
             img:nth-child(3).show-img {
                 margin-left: -25%;

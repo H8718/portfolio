@@ -12,6 +12,16 @@
                 {{ paragraph }}
             </p>
         </div>
+        <div class="project-images">
+            <h3>Screenshots</h3>
+            <img
+                v-for="(image, index) in project.images"
+                :key="index"
+                :src="'/static/projects/'+project.folder+image"
+                :class="{ 'clicked': clicked === index }"
+                @click="handleImgClick(index)"
+            />
+        </div>
         <div class="project-technologies">
             <h3>Technologies &amp; software:</h3>
             <div class="tags">
@@ -23,16 +33,6 @@
                     :color="tag[2]"
                 />
             </div>
-        </div>
-        <div class="project-images">
-            <h3>Screenshots</h3>
-            <img
-                v-for="(image, index) in project.images"
-                :key="index"
-                :src="'/static/projects/'+project.folder+image"
-                :class="{ 'clicked': clicked === index }"
-                @click="handleImgClick(index)"
-            />
         </div>
         <div
             class="project-source"
@@ -118,7 +118,14 @@ export default {
             @media screen and (max-width: $sizeSm) {
                 @include flexbox(column);
             }
-
+            @media screen and (min-width: $sizeSm) {
+                .tag:nth-of-type(2) {
+                    margin-left: 0.5em;
+                }
+                .tag:nth-of-type(3) {
+                    margin-left: 0.5em;
+                }
+            }
             @media screen and (max-width: $sizeSm) {
                 .tag:nth-of-type(2) {
                     margin-top: 15px;
@@ -132,8 +139,10 @@ export default {
     }
     .project-images {
         img {
-            max-width: 24%;
-            max-height: 20vh;
+            max-width: 48%;
+            min-width: 20%;
+            max-height: 30vh;
+            height: auto;
             margin-left: 0.5%;
             margin-right: 0.5%;
             margin-top: 0.5em;
@@ -148,7 +157,7 @@ export default {
             }
         }
         img.clicked {
-            transform: scale(4);
+            transform: scale(2.5);
         }
     }
     .project-source {

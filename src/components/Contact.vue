@@ -112,8 +112,8 @@ export default {
 
 #contact {
     background: $colorPrimary;
-    padding-top: 3.5em;
-    padding-bottom: 2em; //30px;
+    padding-top: 4em;
+    padding-bottom: 3em; //30px;
     h2 {
         color: $colorLighter;
     }
@@ -127,11 +127,12 @@ export default {
         @include flexbox(column, center, center);
         @include transition(height, 2.7s, none);
         .form-field {
-            margin-bottom: 1em;
+            margin-bottom: 1.2em;
             align-self: center;
             width: 80%;
             @media screen and (max-width: $sizeSm) {
                 width: 90%;
+                font-size: 90%;
             }
             @include transition(border-bottom, 0.5s, ease);
             @include border-radius(3px);

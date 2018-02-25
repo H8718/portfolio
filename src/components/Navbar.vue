@@ -89,22 +89,25 @@ export default {
     #brand {
         width: 0;
         opacity: 0;
+        pointer-events: none;
         @include transition(all, 1.5s, ease);
         @include flexbox(row, center, center);
         img {
             width: auto;
-            height: 5vh;
+            height: 4vh;
             @media screen and (max-width: $sizeSm) {
-                height: 30px;
-                width: 30px;
+                height: 6vh;
             }
         }
         div {
             font-family: $fontBrand;
-            font-size: 150%;
+            font-size: 3vh;
             font-weight: bold;
             font-variant: small-caps;
-            margin-left: 10px;
+            margin-left: 15px;
+            @media screen and (max-width: $sizeMd) {
+                font-size: 4vh;
+            }
         }
         #moilanen {
             color: $colorSecondary;
@@ -113,11 +116,17 @@ export default {
     .show {
         width: auto !important;
         opacity: 1 !important;
+        pointer-events: initial !important;
+
     }
     #nav-collapse-btn {
-        font-size: 140%;
+        font-size: 3.5vh;
         color: #444;
         opacity: 0;
+        margin-left: 0.5em;
+        @media screen and (min-width: $sizeSm) {
+            display: none;
+        }
     }
     #nav-list {
         margin-left: 1vw;
@@ -129,14 +138,14 @@ export default {
         .nav-item {
             cursor: pointer;
             height: 7vh;
-            width: 7vw;
-            min-width: 120px;
+            width: auto;
+            padding: 0 1.5em 0 1.5em;
             @include flexbox(row, center, center);
             text-align: center;
             @include transition(background-color, 0.7s, ease);
             a {
                 color: #555;
-                font-size: 105%;
+                font-size: 110%;
                 font-weight: bold;
                 font-family: $fontBrand;
                 transition: color 0.5s;

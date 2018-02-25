@@ -164,7 +164,11 @@ export default {
     background: $colorPrimaryTint;
     color: $colorLight;
     position: relative;
-    padding-top: 3em;
+    padding-top: 3.5em;
+    padding-bottom: 4.5em;
+    @media screen and (max-width: $sizeLg) {
+        padding-bottom: 2.5em;
+    }
     @media screen and (max-width: $sizeSm) {
         padding-bottom: 3em;
         padding-left: 1em;
@@ -184,14 +188,17 @@ export default {
         }
         h3 {
             text-align: center;
+            @media screen and (max-width: $sizeSm) {
+                font-size: 200%;
+            }
         }
         @media screen and (max-width: $sizeSm) {
             div:nth-child(1) {
                 margin-top: 1.3em !important;
             }
             .third:nth-child(4) {
-                .about-container {
-                    margin: 0 !important;
+                @media screen and (max-width: $sizeMd) {
+                    margin-top: -1.3em !important;
                 }
             }
             flex-direction: column;
@@ -213,7 +220,12 @@ export default {
             width: (100vw/3);
             .about-container {
                 position: relative;
-                @media screen and (min-width: $sizeSm) {
+                @media screen and (min-width: $sizeMd) {
+                    max-height: 35vh;
+                }
+            }
+            .about-container:nth-child(1) {
+                @media screen and (min-width: $sizeMd) {
                     max-height: 35vh;
                     min-height: 30vh;
                 }
@@ -232,20 +244,17 @@ export default {
                 width: 150%;
             }
             p {
-                /* width: 27vh; */
                 /* min-height: 12vh; */
                 border: 0.3em solid $colorLighter;
                 @include border-radius(0.3vh);
                 color: $colorLighter;
                 padding: 1em;
-                font-size: 105%;
+                font-size: 110%;
                 background: $colorPrimary;
-                /* text-align: justify;
-                text-justify: inter-word; */
             }
         }
         #portrait {
-            width: 23vh;
+            width: 60%;
             @include border-radius(100%);
             border: 0.5vh solid $colorLighter;
             position: relative;
@@ -256,7 +265,7 @@ export default {
             margin-top: 1.5em;
             @include flexbox(row, center, center);
             .contact-btn {
-                font-size: 350%;
+                font-size: 400%;
                 @include transition(color, 1s, ease);
                 cursor: pointer;
                 @media screen and (max-width: $sizeSm) {
@@ -271,7 +280,7 @@ export default {
                 margin-right: 0.3em;
             }
             :nth-child(3) {
-                font-size: 300%;
+                font-size: 350%;
             }
             @media screen and (max-width: $sizeSm) {
                 :nth-child(1) {
@@ -293,7 +302,7 @@ export default {
         }
         #box-0 {
             width: 100%;
-            margin-top: 23%;
+            margin-top: 18%;
             @include flexbox(column, null, center);
         }
         #box-1,
@@ -326,28 +335,28 @@ export default {
             border-right: 0.4vh dashed $colorLighter;
             border-top: 0.4vh dashed $colorLighter;
             margin-left: -40%;
-            margin-top: -5%;
+            margin-top: -10%;
             border-top-right-radius: 100%;
         }
         #line-3 {
             border-right: 0.4vh dashed $colorLighter;
             border-bottom: 0.4vh dashed $colorLighter;
             margin-left: -40%;
-            margin-top: 28%;
+            margin-top: 20%;
             border-bottom-right-radius: 100%;
         }
         #line-4 {
             border-top: 0.4vh dashed $colorLighter;
             border-left: 0.4vh dashed $colorLighter;
             margin-left: 40%;
-            margin-top: -5%;
+            margin-top: -10%;
             border-top-left-radius: 100%;
         }
         #line-5 {
             border-bottom: 0.4vh dashed $colorLighter;
             border-left: 0.4vh dashed $colorLighter;
             margin-left: 40%;
-            margin-top: 28%;
+            margin-top: 20%;
             border-bottom-left-radius: 100%;
         }
     }

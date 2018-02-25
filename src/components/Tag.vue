@@ -19,28 +19,20 @@ export default {
 @import "../styles/mixins.scss";
 
 .tag {
-    height: 35px;
-    border-radius: 30px;
+    height: 2.5em;
+    border-radius: 2em;
     box-shadow: 2px 2px 2px #333;
     color: white;
     display: flex;
     align-items: center;
-    padding-right: 16px;
-    padding-left: 12px;
+    padding-right: 1em;
+    padding-left: 0.9em;
     i {
-        font-size: 150%;
+        font-size: 160%;
     }
     span {
         text-align: initial;
         margin-left: 8px;
     }
 }
-@media screen and (min-width: $sizeSm) {
-                .tag:nth-of-type(2) {
-                    margin-left: 10px;
-                }
-                .tag:nth-of-type(3) {
-                    margin-left: 10px;
-                }
-            }
 </style>

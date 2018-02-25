@@ -71,8 +71,8 @@ export default {
 #about-more {
     width: 100%;
     background: $colorLight;
-    padding-top: 1.7em;
-    padding-bottom: 1.1em;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
     #row-content {
         padding: 0 10vw 0 10vw;
         .col {
@@ -104,19 +104,33 @@ export default {
         .animate-show {
             opacity: 1;
         }
+        @media screen and (max-width: $sizeLg) {
+            padding: 0 2vw 0 2vw;
+            .col {
+                i {
+                    font-size: 350%;
+                }
+                .about-more-header {
+                    font-size: 105%;
+                }
+                .about-more-text {
+                    font-size: 100%;
+                }
+            }
+        }
         @media screen and (max-width: $sizeSm) {
+            padding: 0 10vw 0 10vw;
             .col {
                 min-width: 84vw;
+                margin-bottom: 0.5em;
                 i {
                     font-size: 400%;
                 }
                 .about-more-header {
                     margin-top: 0.5em;
                     margin-bottom: 0.5em;
-                    font-size: 95%;
                 }
                 .about-more-text {
-                    font-size: 90%;
                     text-align: initial;
                     margin-left: initial;
                     margin-right: initial;

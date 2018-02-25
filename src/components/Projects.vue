@@ -6,7 +6,7 @@
             <p class="description">Currently I'm working mostly on the front-end using frameworks like
                 VueJS on the web and React-Native on mobile. Here are my latest solo projects.</p>
         </div>
-        <div class="project-container col-md-10 offset-md-1">
+        <div class="project-container col-lg-10 offset-lg-1 col-md-8 offset-md-2">
             <div
                 class="project-item"
                 v-for="(project, index) in projects"
@@ -17,9 +17,7 @@
                     class="project-image"
                     :style="{ background: 'url(/static/projects/'+project.folder+'main.jpg)' }"
                 />
-                <div
-                    class="cover"
-                >
+                <div class="cover">
                     <div class="project-name">{{ project.name }}</div>
                     <div class="project-tags">
                         <Tag
@@ -178,10 +176,10 @@ export default {
 
 #projects {
     background-color: $colorLighter;
-    padding-top: 3.2em;
-    padding-bottom: 2em;
+    padding-top: 4em;
+    padding-bottom: 3em;
     .modal {
-        width: 900px !important;
+        width: 1024px !important;
         height: 100%;
     }
     h2 {
@@ -191,7 +189,7 @@ export default {
         position: relative !important;
         width: 100%;
         flex-wrap: wrap;
-        @include flexbox(row, center);
+        @include flexbox(row, center, center);
         @include transition(opacity, 0.5s, ease);
         padding: 0;
     }
@@ -226,8 +224,9 @@ export default {
         text-align: center;
         opacity: 0;
         @include transition(all, 0.6s, ease);
+        @include flexbox(column, center, center);
         .project-name {
-            margin-top: 10%;
+            /* margin-top: 5%; */
             font-size: 110%;
         }
         .project-tags {
@@ -235,10 +234,16 @@ export default {
             margin-left: 2%;
             margin-right: 2%;
             @include flexbox(row, center, center);
+            .tag:nth-of-type(2) {
+                margin-left: 0.5em;
+            }
+            .tag:nth-of-type(3) {
+                margin-left: 0.5em;
+            }
         }
         .project-btn {
             margin-top: 34px;
-            margin-bottom: 10%;
+            /* margin-bottom: 5%; */
             width: 30%;
             background: #f8f8f8;
             border: 3px solid $colorDark;
@@ -248,6 +253,9 @@ export default {
             color: $colorDark;
             font-weight: 800;
             cursor: pointer;
+            @media screen and (max-width: $sizeLg) {
+                font-size: 100%;
+            }
         }
         .project-btn:hover {
             border-bottom: 4px solid $colorDark;
