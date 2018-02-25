@@ -1,22 +1,25 @@
 <template>
-    <footer>
-        <span>© {{ new Date().getFullYear() }} Markus Moilanen. All rights reserved.</span>
-    </footer>
+    <div id="footer">
+        <p>© {{ new Date().getFullYear() }} Markus Moilanen. All rights reserved.</p>
+    </div>
 </template>
 
 <style lang="scss">
 @import "../styles/variables.scss";
 @import "../styles/mixins.scss";
 
-footer {
+#footer {
     background: $colorDark;
     color: white;
-    @include flexbox(row, center, center);
+    @include flexbox(column, center, center);
     text-align: center;
-    height: 90px;
+    height: 6em;
     @media screen and (max-width: $sizeSm) {
         height: 60px;
     }
     padding: 20px;
+    p {
+        margin: 0;
+    }
 }
 </style>

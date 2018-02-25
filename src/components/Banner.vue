@@ -34,17 +34,17 @@
             <div class="skewed overlay" :class="{ 'open': btnClicked != null }"></div>
             <div class="skewed under">
                 <img
-                    src="/static/projects/mesiainen_wordpress/main.png"
+                    src="/static/projects/Mesiainen_Wordpress/main.png"
                     :class="{ 'show-img': btnClicked === 1 }"
                     @click="toggleImg(1)"
                 />
                 <img
-                    src="/static/projects/black_banana_admin/main.png"
+                    src="/static/projects/Black_Banana_Admin/main.png"
                     :class="{ 'show-img': btnClicked === 2 }"
                     @click="toggleImg(2)"
                 />
                 <img
-                    src="/static/projects/my_movie_list/mmlphone.png"
+                    src="/static/projects/My_Movie_List/mmlphone.png"
                     :class="{ 'show-img': btnClicked === 3 }"
                     @click="toggleImg(3)"
                 />
@@ -84,7 +84,7 @@ export default {
                 this.clickable = false;
                 setTimeout(() => {
                     this.clickable = true;
-                }, 800/* this.btnClicked === null ? 850 : 850 */);
+                }, this.btnClicked === null || this.btnClicked === index ? 800 : 1600);
                 if (this.btnClicked === index) {
                     this.btnClicked = null;
                     return
@@ -94,9 +94,9 @@ export default {
                     return;
                 }
                 this.btnClicked = null;
-                /* setTimeout(() => {
+                setTimeout(() => {
                     this.btnClicked = index;
-                }, 900); */
+                }, 900);
             }
         },
         animateBanner() {
@@ -137,7 +137,7 @@ export default {
         height: 100%;
         @include flexbox(row, null, center);
         @media screen and (max-width: $sizeSm) {
-            @include flexbox(column, null, null);
+            @include flexbox(column);
         }
         position: relative;
         z-index: 9;

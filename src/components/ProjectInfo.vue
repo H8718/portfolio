@@ -138,7 +138,6 @@ export default {
                 }
             }
         }
-
     }
     .project-images {
         img {

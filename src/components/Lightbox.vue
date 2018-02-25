@@ -53,7 +53,7 @@ export default {
     top: 0;
     @include flexbox(row, center, center);
     pointer-events: none;
-    overflow-y: auto !important;
+    overflow-y: hidden !important;
     .modal {
         background: white;
         @include border-radius(3px);
@@ -62,6 +62,8 @@ export default {
         width: auto;
         height: auto;
         display: block;
+        overflow-y: auto !important;
+
         .close-btn {
             font-size: 160%;
             position: absolute;
@@ -69,11 +71,7 @@ export default {
             top: 0.5em;
             font-weight: bold;
             cursor: pointer;
-            @media screen and ($sizeSm) {
-
-            }
         }
-
     }
 }
 .show-modal {

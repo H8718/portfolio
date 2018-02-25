@@ -62,6 +62,7 @@ export default {
                         for mobile and desktop screens of most sizes. I use CSS transitions, animations and
                         dynamic classes with the help of Vue to create different kinds of animations and hover effects.`],
                     folder: "Portfolio/",
+                    logo: "main.jpg",
                     images: ["banner.jpg", "about.jpg", "projects.jpg", "phone1.jpg", "phone2.jpg"],
                     source: "portfolio",
                     tags: [
@@ -95,6 +96,7 @@ export default {
                         plugins to learn as much as possible. Although I didn't create the theme myself, a lot of time went into
                         customization as well as creating custom components for the website.`,],
                     folder: "Mesiainen_Wordpress/",
+                    logo: "main.jpg",
                     images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
                     source: "hunaja-wp",
                     tags: [
@@ -108,6 +110,7 @@ export default {
                         Steinway and Sons' Model D grand piano with a nice orchestral stage as the background. It's created using Blender
                         and basic 3D-modeling techniques such as translating, scaling and other ways of manipulating simple meshes.`],
                     folder: "3D_Models/",
+                    logo: "main.jpg",
                     images: [
                         "back_of_audience.jpg",
                         "behind_piano.jpg",
@@ -124,6 +127,7 @@ export default {
                         `The project included designing and implementing a relational MySQL database, creating a user interface
                         for management purposes using React, and PHP scripts to communicate with the database.`],
                     folder: "Black_Banana_Admin/",
+                    logo: "main.jpg",
                     images: ["bb.jpg", "bb2.jpg", "bbdb.jpg", "main.jpg"],
                     tags: [
                         ["devicon-mysql-plain", "MySQL", "#00618A"],
@@ -139,6 +143,7 @@ export default {
                         circle of fifths, scales, keys, musical notation and other things.`,
                         `This project is still WIP.`],
                     folder: "Music_Notebook/",
+                    logo: "main.jpg",
                     images: [],
                     tags: [
                         ["devicon-react-original", "React", "#00D8FF"],

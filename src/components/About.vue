@@ -31,8 +31,8 @@
                         :class="{ 'show': shown > 1 }"
                     >
                         <h3><i class="fa fa-pencil" /> Studies</h3>
-                        <p>I currently study at JAMK to become a computer engineer.
-                            I'm looking to graduate by the end of 2018.
+                        <p>I currently study <b>ICT/media technology</b> at JAMK to become a computer engineer.
+                            I'm looking to <b>graduate</b> by the end of 2018.
                         </p>
                     </div>
                 </div>
@@ -43,8 +43,8 @@
                         :class="{ 'show': shown > 3 }"
                     >
                         <h3><i class="fa fa-user" /> Hobbies</h3>
-                        <p>On my free time, I like playing the piano and computer games.
-                            Every once in a while I try something new.
+                        <p>On my free time, I like playing the <b>piano</b> and computer <b>games</b>.
+                            Every once in a while I like to try something new.
                         </p>
                     </div>
                 </div>
@@ -85,9 +85,9 @@
                         :class="{ 'show': shown > 2 }"
                     >
                         <h3><i class="fa fa-diamond" /> Skills</h3>
-                        <p>I am a fast learner so I have picked up lots useful
-                            skills like programming, problem solving, design and
-                            project working.
+                        <p>I am a <b>fast learner</b> so I have picked up lots useful
+                            skills like <b>programming</b>, <b>problem solving</b>, <b>design</b> and
+                            <b>project working</b>.
                         </p>
                     </div>
                 </div>
@@ -99,8 +99,8 @@
                     >
                         <h3><i class="fa fa-rocket" /> Future</h3>
                         <p>After graduation, I want to improve my skills to become
-                            a great full-stack developer. I'm also interested in
-                            entrepreneurship.
+                            a great <b>full-stack developer</b>. I'm also interested in
+                            <b>entrepreneurship</b>.
                         </p>
                     </div>
                 </div>
