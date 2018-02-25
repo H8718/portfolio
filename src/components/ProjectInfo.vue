@@ -111,6 +111,9 @@ export default {
             font-size: 170%;
         }
     }
+    .project-description {
+        font-size: 115%;
+    }
     .project-technologies {
         .tags {
             margin-top: 1.1em;
@@ -140,7 +143,7 @@ export default {
     .project-images {
         img {
             max-width: 48%;
-            min-width: 20%;
+            min-width: 15%;
             max-height: 30vh;
             height: auto;
             margin-left: 0.5%;

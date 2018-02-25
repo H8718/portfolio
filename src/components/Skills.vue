@@ -2,7 +2,7 @@
     <section id="skills">
         <h2>My Skills</h2>
         <div class="underline"></div>
-        <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
             <p class="description">Here's a list of technologies and software that I use and an estimate of my ability.</p>
         </div>
         <div class="container col-lg-6 offset-lg-3 col-md-10 offset-md-1">
@@ -62,7 +62,7 @@ export default {
                 }
                 waypoint.destroy();
             },
-            offset: 600
+            offset: 700
         });
     },
     methods: {

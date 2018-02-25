@@ -2,7 +2,7 @@
     <section id="contact">
         <h2>Contact me</h2>
         <div class="underline"></div>
-        <div class="col-md-8 offset-md-2 col-sm-10 offset-sm-1 col-xs-12 offset-xs-0">
+        <div class="col-lg-8 offset-lg-2 col-md-10 offset-md-1">
             <p class="description">Send me a message using the form. I'll try and get back to you.</p>
         </div>
         <div

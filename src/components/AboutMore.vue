@@ -45,7 +45,7 @@ export default {
                 this.startAnimation();
                 waypoint.destroy();
             },
-            offset: 800
+            offset: 900
         });
     },
     methods: {
@@ -97,8 +97,6 @@ export default {
                 font-size: 105%;
                 margin-left: 0.5vw;
                 margin-right: 0.5vw;
-                text-align: justify;
-                text-justify: inter-word;
             }
         }
         .animate-show {

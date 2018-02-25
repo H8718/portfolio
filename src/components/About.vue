@@ -225,7 +225,7 @@ export default {
                 }
             }
             .about-container:nth-child(1) {
-                @media screen and (min-width: $sizeMd) {
+                @media screen and (min-width: $sizeSm) {
                     max-height: 35vh;
                     min-height: 30vh;
                 }
@@ -244,17 +244,16 @@ export default {
                 width: 150%;
             }
             p {
-                /* min-height: 12vh; */
                 border: 0.3em solid $colorLighter;
                 @include border-radius(0.3vh);
                 color: $colorLighter;
-                padding: 1em;
-                font-size: 110%;
+                padding: 1.2em;
+                font-size: 115%;
                 background: $colorPrimary;
             }
         }
         #portrait {
-            width: 60%;
+            width: 15em;
             @include border-radius(100%);
             border: 0.5vh solid $colorLighter;
             position: relative;
@@ -302,7 +301,7 @@ export default {
         }
         #box-0 {
             width: 100%;
-            margin-top: 18%;
+            margin-top: 7vh;
             @include flexbox(column, null, center);
         }
         #box-1,

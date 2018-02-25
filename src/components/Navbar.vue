@@ -26,18 +26,18 @@
         </div>
 
         <b-navbar-nav id="nav-list">
-            <b-nav-item v-scroll-to="'#about'">About me</b-nav-item>
+            <b-nav-item v-scroll-to="'#about'">About</b-nav-item>
             <b-nav-item v-scroll-to="'#projects'">Projects</b-nav-item>
             <b-nav-item v-scroll-to="'#skills'">Skills</b-nav-item>
-            <b-nav-item v-scroll-to="'#contact'">Contact me</b-nav-item>
+            <b-nav-item v-scroll-to="'#contact'">Contact</b-nav-item>
         </b-navbar-nav>
 
         <b-collapse id="collapse">
             <div id="collapse-nav-list">
-                <div v-scroll-to="'#about'" v-b-toggle.collapse>About me</div>
+                <div v-scroll-to="'#about'" v-b-toggle.collapse>About</div>
                 <div v-scroll-to="'#projects'" v-b-toggle.collapse>Projects</div>
                 <div v-scroll-to="'#skills'" v-b-toggle.collapse>Skills</div>
-                <div v-scroll-to="'#contact'" v-b-toggle.collapse>Contact me</div>
+                <div v-scroll-to="'#contact'" v-b-toggle.collapse>Contact</div>
             </div>
         </b-collapse>
 
@@ -101,12 +101,12 @@ export default {
         }
         div {
             font-family: $fontBrand;
-            font-size: 3vh;
+            font-size: 3.5vh;
             font-weight: bold;
             font-variant: small-caps;
-            margin-left: 15px;
+            margin-left: 12px;
             @media screen and (max-width: $sizeMd) {
-                font-size: 4vh;
+                font-size: 3.5vh;
             }
         }
         #moilanen {
@@ -129,7 +129,7 @@ export default {
         }
     }
     #nav-list {
-        margin-left: 1vw;
+        margin-left: 1em;
         -webkit-backface-visibility: hidden;
         @include flexbox(row, center, center);
         @media screen and (max-width: $sizeSm) {
@@ -145,7 +145,7 @@ export default {
             @include transition(background-color, 0.7s, ease);
             a {
                 color: #555;
-                font-size: 110%;
+                font-size: 115%;
                 font-weight: bold;
                 font-family: $fontBrand;
                 transition: color 0.5s;
@@ -166,11 +166,11 @@ export default {
         #collapse-nav-list {
             @include flexbox(column);
             background: $colorLighter;
-            padding: 0 20px 0 20px;
             div {
                 @include flexbox(column, center, center);
                 height: 35px;
-                font-size: 95%;
+                font-size: 105%;
+                padding: 0 20px 0 20px;
             }
         }
     }

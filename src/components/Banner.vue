@@ -157,9 +157,9 @@ export default {
             }
             @include flexbox(row, null, center);
             img {
-                @media screen and (max-width: 500px) {
+                /* @media screen and (max-width: 500px) {
                     display: none;
-                }
+                } */
                 position: absolute;
                 height: 6.5vh;
                 left: 6vh;
