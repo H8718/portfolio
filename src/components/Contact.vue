@@ -127,6 +127,7 @@ export default {
         @include flexbox(column, center, center);
         @include transition(height, 2.7s, none);
         .form-field {
+            box-shadow: none !important;
             margin-bottom: 1.2em;
             align-self: center;
             width: 80%;

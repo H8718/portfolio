@@ -70,7 +70,6 @@
                             <i class="contact-btn fa fa-file" @click="showCV()"/>
                         </div>
                     </div>
-                    <div class="line" id="line-1" />
                     <div class="line" id="line-2" />
                     <div class="line" id="line-3" />
                     <div class="line" id="line-4" />
@@ -325,6 +324,9 @@ export default {
             display: block;
             z-index: 1;
             width: 45%;
+            @-moz-document url-prefix() {
+                width: 55%;
+            }
             height: 55%;
             @media screen and (max-width: $sizeSm) {
                 display: none;

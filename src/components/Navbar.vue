@@ -5,6 +5,7 @@
         id="navbar"
         :class="{ 'show-banner': loaded }"
     >
+        <div id="nav-container">
         <b-navbar-brand
             id="brand"
             href="#banner"
@@ -40,7 +41,7 @@
                 <div v-scroll-to="'#contact'" v-b-toggle.collapse>Contact</div>
             </div>
         </b-collapse>
-
+        </div>
     </b-navbar>
 </template>
 
@@ -74,7 +75,7 @@ export default {
 
 #navbar {
     @include transition(margin-top, 1.5s, ease);
-    @include flexbox(row, center);
+    @include flexbox(column, center);
     height: 7vh;
     @media screen and (max-width: $sizeSm) {
         height: 9vh;
@@ -86,6 +87,8 @@ export default {
         0 3px 10px 0 rgba(40, 40, 40, 0.2)
     );
     top: -1px;
+    #nav-container {
+        @include flexbox(row, center);
     #brand {
         width: 0;
         opacity: 0;
@@ -124,6 +127,7 @@ export default {
         color: #444;
         opacity: 0;
         margin-left: 0.5em;
+        @include flexbox(column, center);
         @media screen and (min-width: $sizeSm) {
             display: none;
         }
@@ -173,6 +177,7 @@ export default {
                 padding: 0 20px 0 20px;
             }
         }
+    }
     }
 }
 .show-banner {
