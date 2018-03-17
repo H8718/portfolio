@@ -15,7 +15,7 @@
             >
                 <div
                     class="project-image"
-                    :style="{ background: 'url(/static/projects/'+project.folder+'main.jpg)' }"
+                    :style="{ background: 'url(/static/projects/'+project.folder+project.logo+')' }"
                 />
                 <div class="cover">
                     <div class="project-name">{{ project.name }}</div>
@@ -80,8 +80,8 @@ export default {
                         course. All movie data used in the app comes from the TMDB API. The app will remain quite unfinished but it
                         was a great project for learning new technologies, programming techniques and working with external APIs.`],
                     folder: "My_Movie_List/",
-                    logo: "logo.svg",
-                    images: ["mml4.jpg", "mml2.jpg", "mml3.jpg"],
+                    logo: "main.jpg",
+                    images: ["mml4.jpg", "mml2.jpg", "mml3.jpg", "logo.svg"],
                     source: "film-app-mobile",
                     tags: [
                         ["devicon-vuejs-plain", "VueJS", "#41B883"],
