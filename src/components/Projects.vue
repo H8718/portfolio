@@ -96,8 +96,8 @@ export default {
                         plugins to learn as much as possible. Although I didn't create the theme myself, a lot of time went into
                         customization as well as creating custom components for the website.`,],
                     folder: "Mesiainen_Wordpress/",
-                    logo: "main.jpg",
-                    images: ["main.jpg", "mesishop2.jpg", "mesishop3.jpg"],
+                    logo: "main.png",
+                    images: ["main.png", "mesishop2.jpg", "mesishop3.jpg"],
                     source: "hunaja-wp",
                     tags: [
                         ["devicon-wordpress-plain", "WordPress", "#21759B"],
