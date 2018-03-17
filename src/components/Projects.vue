@@ -127,8 +127,8 @@ export default {
                         `The project included designing and implementing a relational MySQL database, creating a user interface
                         for management purposes using React, and PHP scripts to communicate with the database.`],
                     folder: "Black_Banana_Admin/",
-                    logo: "main.jpg",
-                    images: ["bb.jpg", "bb2.jpg", "bbdb.jpg", "main.jpg"],
+                    logo: "main.png",
+                    images: ["bb.jpg", "bb2.jpg", "bbdb.jpg", "main.png"],
                     tags: [
                         ["devicon-mysql-plain", "MySQL", "#00618A"],
                         ["devicon-php-plain", "PHP", "#666699"],

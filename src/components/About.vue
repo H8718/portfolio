@@ -13,7 +13,7 @@
                 >
                     <img
                         id="portrait"
-                        src="../assets/portrait.png"
+                        src="../assets/portrait.jpg"
                     />
                     <div class="contact-btns">
                         <i class="contact-btn fa fa-linkedin-square" />
